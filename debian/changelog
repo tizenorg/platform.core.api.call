@@ -1,0 +1,37 @@
+capi-telephony-call (0.1.0-9) unstable; urgency=low
+
+  * Correct dependent packages
+  * Git: api/call
+  * Tag: capi-telephony-call_0.1.0-9 
+
+ -- ByungWoo Lee <bw1212.lee@samsung.com>  Thu, 15 Mar 2012 13:24:26 +0900
+
+capi-telephony-call (0.1.0-8) unstable; urgency=low
+
+  * Convert internal symbol to static
+  * Git: api/call
+  * Tag: capi-telephony-call_0.1.0-8 
+
+ -- ByungWoo Lee <bw1212.lee@samsung.com>  Mon, 20 Feb 2012 15:52:53 +0900
+
+capi-telephony-call (0.1.0-7) unstable; urgency=low
+
+  * Add versioning of library
+  * Git: api/call
+  * Tag: capi-telephony-call_0.1.0-7 
+
+ -- ByungWoo Lee <bw1212.lee@samsung.com>  Tue, 14 Feb 2012 17:16:55 +0900
+
+capi-telephony-call (0.1.0-6) unstable; urgency=low
+
+  * Update version
+  * Git: api/call
+  * Tag: capi-telephony-call_0.1.0-6 
+
+ -- ByungWoo Lee <bw1212.lee@samsung.com>  Thu, 15 Dec 2011 13:12:03 +0900
+
+capi-telephony-call (0.0.1-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- ByungWoo Lee <bw1212.lee@samsung.com>  Wed, 07 Dec 2011 12:41:46 +0900
