@@ -1,0 +1,333 @@
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "Δημιουργία μηνύματος απόρριψης"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "Η λίστα μηνυμάτων απόρριψης είναι κενά"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "Απόρριψη με μήνυμα"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "Κλήση"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "Ο καλ.δεν είναι διαθ."
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "Τέλος κλήσης"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "Απόρριψη κλήσης"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "Αποσυνδέθηκε"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "Μη έγκυρος αριθμός"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "Σε κλήση"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "Συνδιάσκεψη"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "Δεν απαντά"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "Ο αριθμός άλλαξε"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "Δεν υπάρχει ο αριθμός."
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "Αναμονή"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "People"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "Αποδοχή"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "Πρ. κλήσ."
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "Επαφές"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "Λήξη"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "Ακουστικά"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "Αναμονή"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "Ένωση"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Σίγαση"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "Απόρριψη"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "Ηχείο"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "Διαχωρ."
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "Απελευθ."
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "Τηλεφωνική συνδιάσκεψη"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "Τερματισμός τρέχουσας κλήσης και απάντηση"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "Αναμονή τρέχουσας κλήσης και απάντηση"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "Προσωπικό"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "Σφάλμα συστήματος"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "Φραγή όλων των εισερχόμενων κλήσεων"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "Φραγή όλων των εξερχόμενων κλήσεων"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "Αποτυχία κλήσης"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "Μόνο επείγουσες κλήσεις"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "Μη επιτρεπτή κλήση"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "Φραγή κλήσης"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "Ενεργή Προώθηση Κλήσεων: Πάντα"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "Προώθηση κλήσεων ενεργή: Εάν δεν απαντά"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "Προώθηση κλήσεων ενεργή: Aδύνατη πρόσβαση"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "Προώθηση κλήσεων ενεργή: Σε κατειλημμένη γραμμή"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "Έγινε προώθηση κλήσης"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "Λάθος αριθμός"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "Αλλαγή από προφίλ χωρίς σύνδεση σε άλλο προφίλ για υπηρεσίες δικτύου"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "Κλήση..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "Αποτυχία αποστολής. Επανάληψη"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "Κλήση έκτακτης ανάγκης"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "Μόνο κλήσεις FDN"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "Αναμονή"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "Αποτυχία αναμονής"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "Η αναμονή δεν υποστηρίζεται"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "Φραγή εισερχομένων σε περιαγωγή"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "Δεν ολοκληρώθηκε"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "Ενώθηκε"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "Αποτυχία ένωσης"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "Η ένωση δεν υποστηρίζεται"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "Κατειλημμένο δίκτυο"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "Δίκτυο μη διαθέσιμο"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "Εξάντληση μονάδων"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "Μη διαθέσιμη υπηρεσία"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "Η λειτουργία απορρίφθηκε"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "Φραγή εξερχομένων διεθνών εκτός χώρας επιλογής"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "Φραγή όλων των\nεξερχόμενων διεθνών κλήσεων"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "Το τηλέφωνο δεν ξεκίνησε"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "4422341526 απορρίφθηκε"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "Επανάκληση..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "Δεν επιτρέπεται η υπηρεσία"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "Μόνο κλήση SOS. Τοποθετήστε την κάρτα SIM για πρόσβαση στις υπηρεσίες δικτύου"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "Αποτυχία διαχωρισμού"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "Ο διαχωρισμός δεν υποστηρίζεται"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "Εναλλαγή"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "Αποτυχία εναλλαγής"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "Η εναλλαγή δεν υποστηρίζεται"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "Έγινε αλλαγή σε ακουστικά BT"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "Αλλαγή σε τηλέφωνο"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "Σφάλμα μεταφοράς"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "Η μεταφορά δεν υποστηρίζεται"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "Δεν είναι δυνατή η ανάκτηση"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Μη διαθέσιμο"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "Απενεργοποίηση αναμονής"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "Η κατάργηση αναμονής δεν υποστηρίζεται"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "Κατειλημμένη γραμμή"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "Επαληθεύστε SIM ή εισάγετε έγκυρη SIM"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "Δεν επιτρέπεται φωνητική κλήση κατά τη διάρκεια κλήσης βίντεο"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "Αναμονή ενεργή"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "Λάθος ομάδα"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "Απόρριψη κλήσης με μήνυμα"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "Τερματισμός ενεργής κλήσης"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "Κλήση σε αναμονή"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "Λήξη κλήσης σε αναμονή"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "Τερματ. όλων κλήσεων"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "Τερματισμός ενεργών κλήσεων (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "Τερματισμός κλήσεων σε αναμονή (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "Ακουστικά"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "Δέκτης"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "Αποτυχία καταχώρισης λογαριασμού"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "Ενερ. κλήση σε κράτ."
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "Δεν υπάρχει αρκετή μνήμη. Διαγράψτε ορισμένα στοιχεία"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "Τερμ.κλ."
+
+msgid "IDS_MSGC_OPT_SOUND"
+msgstr "Ήχος"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "Μη διαθέσιμη λειτουργία"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "Πληκτρολ."
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Σύνδεση..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Απόρριψη"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Αποστολή..."
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "Απόκρ. πληκτρ."
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "Εγγρ."
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "Άγνωστη κλήση απορρίφθηκε"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Αποθηκεύτηκε"
+

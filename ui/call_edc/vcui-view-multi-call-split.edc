@@ -1,0 +1,728 @@
+/*
+ * Copyright 2012  Samsung Electronics Co., Ltd
+ *
+ * Licensed under the Flora License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.tizenopensource.org/license
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+group {
+	name: "multicall-split";
+	parts {
+
+		part { name: "background";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: COLOR_DEFAULT;
+			}
+		}
+
+		part { name: "swl_cid_background";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_BACKGROUND_CID_L MULTICALL_SPLIT_BACKGROUND_CID_T; to: "background";}
+				rel2 { relative: MULTICALL_SPLIT_BACKGROUND_CID_R MULTICALL_SPLIT_BACKGROUND_CID_B; to: "background";}
+			}
+		}
+
+		part { name: "bg_alpha";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: COLOR_BG_ALPHA;
+			}
+		}
+		
+		part { name: "swl_cid_1";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_CID_1_L MULTICALL_SPLIT_CID_1_T; }
+				rel2 { relative: MULTICALL_SPLIT_CID_1_R MULTICALL_SPLIT_CID_1_B; }
+			}
+		}
+		
+		part { name: "swl_pause";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_PAUSE_L MULTICALL_SPLIT_PAUSE_T; }
+				rel2 { relative: MULTICALL_SPLIT_PAUSE_R MULTICALL_SPLIT_PAUSE_B; }
+			}
+		}
+
+		part { name: "swl_cid_2";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_CID_2_L MULTICALL_SPLIT_CID_2_T; }
+				rel2 { relative: MULTICALL_SPLIT_CID_2_R MULTICALL_SPLIT_CID_2_B; }
+			}
+		}
+
+		part { name: "swl_cid_2_dim";	/*dim icon for held call*/
+			type: RECT;
+			scale: 1;		
+			mouse_events: 1;
+			repeat_events: 1;			
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				color: COLOR_BG_FOR_HELD_CALL_DIM;
+			}
+			description {
+				state: "portrait_wvga" 0.0;
+				inherit: "default" 0.0;
+				rel1 { relative: 0.0 0.0; offset: 4 0; to: "swl_cid_2"; }
+				rel2 { relative: 1.0 1.0; offset: -5 0; to: "swl_cid_2"; }
+				visible: 1;
+			}
+			description {
+				state: "portrait_hd" 0.0;
+				inherit: "default" 0.0;
+				rel1 { relative: 0.0 0.0; to: "swl_cid_2"; }
+				rel2 { relative: 1.0 1.0; to: "swl_cid_2"; }
+				visible: 1;
+			}
+			description {
+				state: "portrait" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+			}
+		}
+
+		part { name: "swl_play";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_PLAY_L MULTICALL_SPLIT_PLAY_T; }
+				rel2 { relative: MULTICALL_SPLIT_PLAY_R MULTICALL_SPLIT_PLAY_B; }
+			}
+		}
+		
+		part { name: "txt_call_name_1";	/*call name or number*/
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				text { font, FONT_SLP_Roman; size, 58; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+			description {
+				state: "portrait" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_NAME_1_L MULTICALL_SPLIT_NAME_1_T; }
+				rel2 { relative: MULTICALL_SPLIT_NAME_1_R MULTICALL_SPLIT_NAME_1_B;  }				
+			}
+		}
+
+		part { name: "txt_call_name_2";	/*call name or number*/
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				text { font, FONT_SLP_Roman; size, 36; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+			description {
+				state: "portrait" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_NAME_2_L MULTICALL_SPLIT_NAME_2_T; }
+				rel2 { relative: MULTICALL_SPLIT_NAME_2_R MULTICALL_SPLIT_NAME_2_B;  }				
+			}
+		}
+
+	/*		part { name: "txt_active";
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				text { font, FONT_SLP_Roman; size, 28; align, 0.0 0.5; }
+				color: 139 246 50 255;
+				color2: 0 0 0 255;
+			}
+			description {
+				state: "portrait" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_ACTIVE_TXT_L MULTICALL_SPLIT_ACTIVE_TXT_T; }
+				rel2 { relative: MULTICALL_SPLIT_ACTIVE_TXT_R MULTICALL_SPLIT_ACTIVE_TXT_B; }
+			}
+		}
+	*/
+
+		part { name: "swl_more";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_MORE_ICON_L MULTICALL_SPLIT_MORE_ICON_T; to: "background";}
+				rel2 { relative: MULTICALL_SPLIT_MORE_ICON_R MULTICALL_SPLIT_MORE_ICON_B; to: "background";}
+			}
+		}
+
+		part { name: "txt_onhold";
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				text { font, FONT_SLP_Roman; size, 36; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+			description {
+				state: "portrait" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_ON_HOLD_TXT_L MULTICALL_SPLIT_ON_HOLD_TXT_T; }
+				rel2 { relative: MULTICALL_SPLIT_ON_HOLD_TXT_R MULTICALL_SPLIT_ON_HOLD_TXT_B; }
+			}
+			description {
+				state: "portrait_icon" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_ON_HOLD_TXT_WITH_ICON_L MULTICALL_SPLIT_ON_HOLD_TXT_WITH_ICON_T; }
+				rel2 { relative: MULTICALL_SPLIT_ON_HOLD_TXT_WITH_ICON_R MULTICALL_SPLIT_ON_HOLD_TXT_WITH_ICON_B; }
+			}
+		}
+		
+		part { name: "txt_timer";
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				text { font, FONT_SLP_Roman; size, 44; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+			description {
+				state: "end" 0.0;
+				inherit: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_TIMER_L MULTICALL_SPLIT_TIMER_T; }
+				rel2 { relative: MULTICALL_SPLIT_TIMER_R MULTICALL_SPLIT_TIMER_B; }				
+			}
+		}	
+
+		part { name: "btn_bigend";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: SIX_BTN_BIG_END_L SIX_BTN_BIG_END_T; to: "background";}
+				rel2 { relative: SIX_BTN_BIG_END_R SIX_BTN_BIG_END_B; to: "background";}
+			}
+		}
+
+		part { name: "btn_speaker";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: SIX_BTN_1_L SIX_BTN_2_T; to: "background";}
+				rel2 { relative: SIX_BTN_1_R SIX_BTN_2_B; to: "background";}
+			}
+		}
+	}//parts
+			
+	programs {
+		program { name: "show_portrait_mode";
+			signal: "set-portrait";
+			source: "incall-split1-view";
+			action: STATE_SET "portrait" 0.0;
+			target: "swl_cid_background";
+			target: "swl_cid_1";
+			target: "swl_cid_2";
+			target: "swl_pause";
+			target: "swl_play";
+			target: "txt_call_name_1";
+			target: "txt_call_name_2";
+			target: "txt_onhold";
+			target: "txt_timer";
+			target: "btn_bigend";
+			target: "btn_speaker";
+		}
+		program { name: "show_portrait_swl_dim_wvga";
+			signal: "show-swl-dim-wvga";
+			source: "cid-wvga";
+			action: STATE_SET "portrait_wvga" 0.0;
+			target: "swl_cid_2_dim";
+		}
+		program { name: "show_portrait_swl_dim_hd";
+			signal: "show-swl-dim-hd";
+			source: "cid-hd";
+			action: STATE_SET "portrait_hd" 0.0;
+			target: "swl_cid_2_dim";
+		}
+		program { name: "show_conf_list_portrait";
+			signal: "show-more-portrait";
+			source: "incall-split1-conf-call";
+			action: STATE_SET "portrait" 0.0;
+			target: "swl_more";
+		}
+		program { name: "show_conf_list_portrait_onhold";
+			signal: "show-more-portrait";
+			source: "incall-split1-conf-call";
+			action: STATE_SET "portrait_icon" 0.0;
+			target: "txt_onhold";
+		}
+	}
+}
+
+group {
+
+	name: "multicall-split2";
+	parts {
+
+		part { name: "background";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: COLOR_DEFAULT;
+			}
+		}
+
+		part { name: "swl_cid_background";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_BACKGROUND_CID_L MULTICALL_SPLIT_BACKGROUND_CID_T; to: "background";}
+				rel2 { relative: MULTICALL_SPLIT_BACKGROUND_CID_R MULTICALL_SPLIT_BACKGROUND_CID_B; to: "background";}
+			}
+		}
+
+		part { name: "bg_alpha";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: COLOR_BG_ALPHA;
+			}
+		}
+		
+		part { name: "swl_cid_1";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_SWAP_CID_2_L MULTICALL_SPLIT_SWAP_CID_2_T; }
+				rel2 { relative: MULTICALL_SPLIT_SWAP_CID_2_R MULTICALL_SPLIT_SWAP_CID_2_B; }
+			}
+		}
+		
+		part { name: "swl_pause";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_SWAP_PAUSE_L MULTICALL_SPLIT_SWAP_PAUSE_T; }
+				rel2 { relative: MULTICALL_SPLIT_SWAP_PAUSE_R MULTICALL_SPLIT_SWAP_PAUSE_B; }
+			}
+		}
+
+		part { name: "swl_cid_2";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_SWAP_CID_1_L MULTICALL_SPLIT_SWAP_CID_1_T; }
+				rel2 { relative: MULTICALL_SPLIT_SWAP_CID_1_R MULTICALL_SPLIT_SWAP_CID_1_B; }
+			}
+		}
+
+		part { name: "swl_cid_2_dim"; /*for held call dim*/
+			type: RECT;
+			scale: 1;		
+			mouse_events: 1;
+			repeat_events: 1;			
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				rel1 { relative: 0.0 0.0; to: "swl_cid_2"; }
+				rel2 { relative: 1.0 1.0; to: "swl_cid_2"; }				
+				color: COLOR_BG_FOR_HELD_CALL_DIM;
+			}
+			description {
+				state: "portrait_wvga" 0.0;
+				inherit: "default" 0.0;
+				rel1 { relative: 0.0 0.0; offset: 4 0; to: "swl_cid_2"; }
+				rel2 { relative: 1.0 1.0; offset: -5 0; to: "swl_cid_2"; }
+				visible: 1;
+			}
+			description {
+				state: "portrait_hd" 0.0;
+				inherit: "default" 0.0;
+				rel1 { relative: 0.0 0.0; to: "swl_cid_2"; }
+				rel2 { relative: 1.0 1.0; to: "swl_cid_2"; }
+				visible: 1;
+			}
+		}
+
+		part { name: "swl_play";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_SWAP_PLAY_L MULTICALL_SPLIT_SWAP_PLAY_T; }
+				rel2 { relative: MULTICALL_SPLIT_SWAP_PLAY_R MULTICALL_SPLIT_SWAP_PLAY_B; }
+			}
+		}
+		
+		part { name: "txt_call_name_1"; /*call name or number*/
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				text { font, FONT_SLP_Roman; size, 58; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+			description {
+				state: "portrait" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_SWAP_NAME_2_L MULTICALL_SPLIT_SWAP_NAME_2_T; }
+				rel2 { relative: MULTICALL_SPLIT_SWAP_NAME_2_R MULTICALL_SPLIT_SWAP_NAME_2_B;  }				
+			}
+		}
+
+		part { name: "txt_call_name_2";	/*call name or number*/
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				text { font, FONT_SLP_Roman; size, 36; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+			description {
+				state: "portrait" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_SWAP_NAME_1_L MULTICALL_SPLIT_SWAP_NAME_1_T; }
+				rel2 { relative: MULTICALL_SPLIT_SWAP_NAME_1_R MULTICALL_SPLIT_SWAP_NAME_1_B;  }				
+			}
+		}
+
+		part { name: "swl_more";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_SWAP_MORE_ICON_L MULTICALL_SPLIT_SWAP_MORE_ICON_T; to: "background";}
+				rel2 { relative: MULTICALL_SPLIT_SWAP_MORE_ICON_R MULTICALL_SPLIT_SWAP_MORE_ICON_B; to: "background";}
+			}
+		}
+
+		part { name: "txt_onhold";
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				text { font, FONT_SLP_Roman; size, 36; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+			description {
+				state: "portrait" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_SWAP_ON_HOLD_TXT_L MULTICALL_SPLIT_SWAP_ON_HOLD_TXT_T; }
+				rel2 { relative: MULTICALL_SPLIT_SWAP_ON_HOLD_TXT_R MULTICALL_SPLIT_SWAP_ON_HOLD_TXT_B; }
+			}
+		}
+
+
+		part { name: "txt_timer";
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				text { font, FONT_SLP_Roman; size, 44; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+			description {
+				state: "end" 0.0;
+				inherit: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_SWAP_TIMER_L MULTICALL_SPLIT_SWAP_TIMER_T; }
+				rel2 { relative: MULTICALL_SPLIT_SWAP_TIMER_R MULTICALL_SPLIT_SWAP_TIMER_B; }				
+			}
+			description {
+				state: "portrait_icon" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: MULTICALL_SPLIT_SWAP_TIMER_WITH_ICON_L MULTICALL_SPLIT_SWAP_TIMER_WITH_ICON_T; }
+				rel2 { relative: MULTICALL_SPLIT_SWAP_TIMER_WITH_ICON_R MULTICALL_SPLIT_SWAP_TIMER_WITH_ICON_B; }				
+			}
+		}	
+
+		part { name: "btn_bigend";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: SIX_BTN_BIG_END_L SIX_BTN_BIG_END_T; to: "background";}
+				rel2 { relative: SIX_BTN_BIG_END_R SIX_BTN_BIG_END_B; to: "background";}
+			}
+		}
+
+		part { name: "btn_keypad";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: SIX_BTN_1_L SIX_BTN_1_T; to: "background";}
+				rel2 { relative: SIX_BTN_1_R SIX_BTN_1_B; to: "background";}
+			}
+		}
+
+		part { name: "btn_addcall";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: SIX_BTN_2_L SIX_BTN_1_T; to: "background";}
+				rel2 { relative: SIX_BTN_2_R SIX_BTN_1_B; to: "background";}
+			}
+		}
+
+		part { name: "btn_join";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: SIX_BTN_3_L SIX_BTN_1_T; to: "background";}
+				rel2 { relative: SIX_BTN_3_R SIX_BTN_1_B; to: "background";}
+			}
+		}
+
+		part { name: "btn_speaker";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: SIX_BTN_1_L SIX_BTN_2_T; to: "background";}
+				rel2 { relative: SIX_BTN_1_R SIX_BTN_2_B; to: "background";}
+			}
+		}
+
+		part { name: "btn_mute";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: SIX_BTN_2_L SIX_BTN_2_T; to: "background";}
+				rel2 { relative: SIX_BTN_2_R SIX_BTN_2_B; to: "background";}				
+			}
+		}
+
+		part { name: "btn_contacts";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+			}
+			description {
+				state: "portrait" 0.0;
+				visible: 1;
+				rel1 { relative: SIX_BTN_3_L SIX_BTN_2_T; to: "background";}
+				rel2 { relative: SIX_BTN_3_R SIX_BTN_2_B; to: "background";}
+			}
+		}
+	}//parts
+			
+	programs {
+		program { name: "show_portrait_mode";
+			signal: "set-portrait";
+			source: "incall-split2-view";
+			action: STATE_SET "portrait" 0.0;
+			target: "swl_cid_background";
+			target: "swl_cid_1";
+			target: "swl_cid_2";
+			target: "swl_pause";
+			target: "swl_play";
+			target: "txt_call_name_1";
+			target: "txt_call_name_2";
+			target: "txt_onhold";
+			target: "txt_timer";
+			target: "btn_bigend";
+			target: "btn_keypad";
+			target: "btn_contacts";
+			target: "btn_join";
+			target: "btn_speaker";
+			target: "btn_mute";
+			target: "btn_addcall";
+		}
+		program { name: "show_portrait_swl_dim_wvga";
+			signal: "show-swl-dim-wvga";
+			source: "cid-wvga";
+			action: STATE_SET "portrait_wvga" 0.0;
+			target: "swl_cid_2_dim";
+		}
+		program { name: "show_portrait_swl_dim_hd";
+			signal: "show-swl-dim-hd";
+			source: "cid-hd";
+			action: STATE_SET "portrait_hd" 0.0;
+			target: "swl_cid_2_dim";
+		}
+		program { name: "show_conf_list_portrait";
+			signal: "show-more-portrait";
+			source: "incall-split2-conf-call";
+			action: STATE_SET "portrait" 0.0;
+			target: "swl_more";
+		}
+		program { name: "show_conf_list_portrait_onhold";
+			signal: "show-more-portrait";
+			source: "incall-split2-conf-call";
+			action: STATE_SET "portrait_icon" 0.0;
+			target: "txt_timer";
+		}
+		program { name: "hide_conf_list";
+			signal: "hide-more";
+			source: "incall-split-view";
+			action: STATE_SET "default" 0.0;
+			target: "swl_more";
+		}
+	}
+}

@@ -1,0 +1,333 @@
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "Reddetme mesajı oluştur"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "Reddetme mesajı listesi boş"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "Mesajla reddet"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "Arama"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "Aranan taraf yok"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "Arama sonlandırıldı"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "Arama reddedildi"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "Bağlantı kesildi"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "Geçersiz numara"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "Görüşme"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "Konferans"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "Cevap yok"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "Numara değiştirildi"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "Numara\nyok"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "Beklemede"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "Kişi"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "Kabul et"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "Çağrı ekle"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "Rehber"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "Bitir"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "Kulaklık"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "Beklet"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "Katıl"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Sessiz"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "Reddet"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "Hoparlör"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "Ayır"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "Bırak"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "Konferans görüşmesi"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "Geçerli aramayı sonlandır ve yanıtla"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "Geçerli aramayı beklet ve yanıtla"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "Özel"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "Sistem hatası"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "Gelen tüm aramalar engellendi"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "Giden tüm aramalar engellendi"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "Arama başarısız"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "Yalnızca acil aramalar"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "İzin yok"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "Arama engellendi"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "Arama yönlendirme etkin: Her zaman"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "Arama yönlendirme etkin: Cevap yokken"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "Arama yönlendirme etkin: Ulaşılamadığında"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "Arama yönlendirme etkin: Meşgulken"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "Arama iletildi"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "Yanlış numara"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "Şebeke hizmetleri için Çevrimdışı profilinden çıkın"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "Aranıyor..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "Gönderim başarısız. Tekrar deneyin"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "Acil arama"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "sadece FDN aramalar"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "Beklemede"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "Tutma başarısız"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "Tutma desteklenmiyor"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "Geçiş yaparken gelen arama engelleme"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "Tamamlanmadı"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "Konferans başlatıldı"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "Katılma başarısız"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "Katılma desteklenmiyor"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "Şebeke meşgul"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "Bağlantı Yok"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "Kredi yok"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "Servis yok"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "İşlem reddedildi"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "Yurt için hariç uluslar arası gideni engelle"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "Giden uluslararası aramalar engellendi"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "Telefon başlatılamadı"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "4422341526 reddedildi"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "Tekrar aranıyor..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "Servise izin yok"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "Yalnızca acil aramalar. Şebeke servislerine erişmek için SIM kartını takın"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "Ayırma başarısız"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "Ayırma desteklenmiyor"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "Değişti"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "Değişme başarısız"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "Değişme desteklenmiyor"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "BT kulaklığa geçildi"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "Telefona geçildi"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "Transfer başarısız"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "Transfer desteklenmiyor"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "Alınamadı"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Mevcut değil"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "Alındı"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "Bırakma desteklenmiyor"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "Kullanıcı meşgul"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "SIM’i doğrula veya geçerli SIM tak"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "Görüntülü çağrı sırasında sesli çağrıya izin verilmez"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "Bekletme aktif"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "Yanlış grup"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "Aramayı mesajla reddet"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "Aktif aramayı bitir"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "Aramayı beklet"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "Tutulan aramayı bitir"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "Tüm çağrıları sonlandır"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "Aktif çağrıları sonlandır (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "Tutulan çağrıları sonlandır (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "Kulaklıklar"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "Alıcı"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "Hesap kaydı başarısız"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "Aktif görüşme beklet"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "Yeterli hafıza yok. Bazı öğeleri silin."
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "Bitir"
+
+msgid "IDS_MSGC_OPT_SOUND"
+msgstr "Ses"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "Servis Kullanılamıyor"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "Tuşlar"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Bağlanılıyor..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Reddedildi"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Gönderiliyor..."
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "Tuş takmını gzle"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "Kayıt"
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "Bilinmeyen arama reddedildi"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Kaydedildi"
+

@@ -1,0 +1,221 @@
+/*
+ * Copyright 2012  Samsung Electronics Co., Ltd
+ *
+ * Licensed under the Flora License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.tizenopensource.org/license
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+group {
+    name: "incall";
+    parts {
+
+		part { name: "background";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: COLOR_DEFAULT;
+			}
+		}
+
+		part { name: "swl_cid_background";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 1; 
+				rel1 { relative: INCALL_BACKGROUND_CID_L INCALL_BACKGROUND_CID_T; to: "background";}
+				rel2 { relative: INCALL_BACKGROUND_CID_R INCALL_BACKGROUND_CID_B; to: "background";}
+			}
+			description { 
+				state: "hide" 0.0;
+				inherit: "default" 0.0;
+				visible: 0;
+			} 
+		}
+
+		part { name: "bg_alpha";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: COLOR_BG_ALPHA;
+			}
+		}
+			   
+		part { name: "swl_cid";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: INCALL_CID_L INCALL_CID_T; }
+				rel2 { relative: INCALL_CID_R INCALL_CID_B; }
+			}
+		}
+
+		part { name: "swl_cid_dim"; // for held call dim
+			type: RECT;
+			scale: 1;			
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				color: COLOR_BG_FOR_HELD_CALL_DIM;
+			}
+			description {
+				state: "wvga" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: 0.0 0.0; offset: 6 0; to: "swl_cid";}
+				rel2 { relative: 1.0 1.0; offset: -6 0; to: "swl_cid";}
+			}
+			description {
+				state: "hd" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: 0.0 0.0; to: "swl_cid";}
+				rel2 { relative: 1.0 1.0; to: "swl_cid";}
+			}
+		}
+		
+		part { name: "txt_call_name"; // call name or number
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: INCALL_NAME_L INCALL_NAME_T; }
+				rel2 { relative: INCALL_NAME_R INCALL_NAME_B;  }				
+				text { font, FONT_SLP_Roman; size, 76; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+		}
+
+ 		part { name: "txt_contact_phone_type"; // contact phone type -> call number
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: INCALL_NUMBER_L INCALL_NUMBER_T; }
+				rel2 { relative: INCALL_NUMBER_R INCALL_NUMBER_B;  }				
+				text { font, FONT_SLP_Roman; size, 48; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+		}
+
+		part { name: "txt_timer";
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: INCALL_TIMER_L INCALL_TIMER_T; }
+				rel2 { relative: INCALL_TIMER_R INCALL_TIMER_B; }				
+				text { font, FONT_SLP_Roman; size, 48; align, 1.0 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+			description {
+				state: "end" 0.0;
+				inherit: "default" 0.0;
+				visible: 0;
+			}
+		}
+
+		part { name: "btn_bigend";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				fixed: 1 1;
+				rel1 { relative: SIX_BTN_BIG_END_L 1.0; to: "background";}
+				rel2 { relative: SIX_BTN_BIG_END_R 1.0; to: "background";}
+			}
+			description {
+				state: "show" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: SIX_BTN_BIG_END_L SIX_BTN_BIG_END_T; to: "background";}
+				rel2 { relative: SIX_BTN_BIG_END_R SIX_BTN_BIG_END_B; to: "background";}
+			}
+		}
+
+		part { name: "btn_speaker";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				fixed: 1 1;
+				rel1 { relative: SIX_BTN_1_L 1.0; to: "background";}
+				rel2 { relative: SIX_BTN_1_R 1.0; to: "background";}
+			}			
+			description {
+				state: "show" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: SIX_BTN_1_L SIX_BTN_2_T; to: "background";}
+				rel2 { relative: SIX_BTN_1_R SIX_BTN_2_B; to: "background";}
+			}
+		}
+     }//parts
+			
+	programs {
+		program { name: "show_effect_allbtn";
+			signal: "SHOW_EFFECT";
+			source: "ALLBTN";
+			action: STATE_SET "show" 0.0;
+			transition: DECELERATE 0.5; //LINEAR 1.0;
+			target: "btn_bigend";
+			target: "btn_speaker";
+		}
+
+		program { name: "show_no_effect_allbtn";
+			signal: "SHOW_NO_EFFECT";
+			source: "ALLBTN";
+			action: STATE_SET "show" 0.0;
+			target: "btn_bigend";
+			target: "btn_speaker";
+		}		
+		
+		program { name: "hide_dim_cid";
+			signal: "HIDE_DIM";
+			source: "CID";
+			action: STATE_SET "default" 0.0;
+			target: "swl_cid_dim";
+		}
+		program { name: "show_dim_cid_wvga";
+			signal: "SHOW_DIM_WVGA";
+			source: "CID_WVGA";
+			action: STATE_SET "wvga" 0.0;
+			target: "swl_cid_dim";
+		}
+		program { name: "show_dim_cid_hd";
+			signal: "SHOW_DIM_HD";
+			source: "CID_HD";
+			action: STATE_SET "hd" 0.0;
+			target: "swl_cid_dim";
+		}
+		program { name: "show_cid_bg";
+			signal: "SHOW_CID_BG";
+			source: "CID_BG";
+			action: STATE_SET "default" 0.0;
+			target: "swl_cid_background";
+		}
+		program { name: "hide_cid_bg";
+			signal: "HIDE_CID_BG";
+			source: "CID_BG";
+			action: STATE_SET "hide" 0.0;
+			target: "swl_cid_background";
+		}
+	}
+}

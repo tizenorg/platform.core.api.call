@@ -1,0 +1,333 @@
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "Create reject message"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "Reject message list is empty"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "Reject with message"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "Call"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "Called party not available"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "Call ended"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "Call rejected"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "Disconnected"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "Invalid number"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "In call"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "Multiparty"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "No answer"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "Number changed"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "Number does not exist"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "On hold"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "People"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "Accept"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "Add call"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "Contacts"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "End"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "Headset"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "Hold"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "Join"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Mute"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "Reject"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "Speaker"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "Split"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "Unhold"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "Conference call"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "End current call & answer"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "Hold current call & answer"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "Private"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "System error"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "All incoming calls barred"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "All outgoing calls barred"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "Call failed"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "Emergency calls only"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "Call not allowed"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "Call barred"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "Divert calls: Always"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "Divert calls: No answer"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "Divert calls: Unreachable"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "Divert calls: When busy"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "Call diverted"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "Wrong number"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "Change from Offline to other profile for network services"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "Dialling..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "Sending failed. Try again"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "Emergency call"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "FDN calls only"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "Held"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "Hold failed"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "Hold not supported"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "Incoming calls barred when roaming"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "Incomplete"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "Joined"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "Join failed"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "Join not supported"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "Network busy"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "Network not available"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "No credit left"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "No service"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "Operation refused"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "Outgoing international calls except home barred"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "Outgoing international calls barred"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "Phone not initialised"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "%s rejected"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "Redialling..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "Service not allowed"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "SOS call only. Insert SIM card to access network services"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "Split failed"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "Split not supported"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "Swapped"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "Swap failed"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "Swap not supported"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "Switched to BT headset"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "Switched to phone"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "Transfer failed"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "Transfer not supported"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "Unable to retrieve"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Unavailable"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "Unheld"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "Unhold not supported"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "User busy"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "Verify SIM or insert valid SIM"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "Voice call is not allowed during video call"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "Waiting active"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "Wrong group"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "Reject call with message"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "End active call"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "Hold call"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "End held call"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "End all calls"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "End active calls (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "End held calls (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "Headphones"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "Receiver"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "Failed to register account"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "Hold active call"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "Not enough memory. Delete some items"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "End call"
+
+msgid "IDS_MSGC_OPT_SOUND"
+msgstr "Sound"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "Service not available"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "Keypad"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Connecting..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Rejected"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Sending..."
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "Hide keypad"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "REC"
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "Unknown call rejected"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Saved"
+

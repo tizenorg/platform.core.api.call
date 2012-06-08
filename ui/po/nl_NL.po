@@ -1,0 +1,333 @@
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "Weigeringsbericht maken"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "Lijst met weigeringsberichten is leeg"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "Weigeren met bericht"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "Oproepen"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "Gebelde niet besch."
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "Oproep beëindigd"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "Oproep geweigerd"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "Verbinding verbroken"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "Ongeldig getal"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "In gesprek"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "Multiparty"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "Geen gehoor"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "Nummer gewijzigd"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "Nummer bestaat niet"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "In wacht"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "Mensen"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "Opnemen"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "Nwe oproep"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "Contacten"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "Stop"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "Headset"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "In wacht"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "Deeln."
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Dempen"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "Weigeren"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "Luidspreker"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "Splitsen"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "Uit wacht"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "Vergaderoproep"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "Huidige oproep beëindigen en opnemen"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "Huidige oproep in de wacht en opnemen"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "Privé"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "Systeemfout"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "Alle inkomende oproepen geblokkeerd"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "Alle uitgaande oproepen geblokkeerd"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "Oproep mislukt"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "Alleen noodoproepen"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "Oproep niet toegestaan"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "Oproep geblokkeerd"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "Alle oproepen doorschakelen"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "Oproepen doorschakelen bij geen antwoord"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "Doorschakelen indien onbereikbaar"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "Doorschakelen bij in gesprek"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "Oproep doorgestuurd"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "Nummer onjuist"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "Voor netwerkdiensten vliegtuigprofiel in ander profiel wijzigen"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "Kiezen..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "Verzenden mislukt. Opnieuw"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "Noodoproep"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "Alleen FDN-oproepen"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "In de wacht"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "In wacht zetten mislukt"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "In wacht zetten niet ondersteund"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "Inkomende oproepen in buitenland geblokkeerd"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "Niet compleet"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "Toegevoegd"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "Deelnemen aan multiparty mislukt"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "Deelnemen aan multiparty niet ondersteund"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "Netwerk bezet"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "Netwerk niet beschikbaar"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "Beltegoed is op"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "Geen netwerk"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "Actie geweigerd"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "Uitgaande internationale oproepen geblokkeerd behalve naar eigen land"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "Uitgaande internationale oproepen geblokkeerd"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "Telefoon niet geïnitialiseerd"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "4422341526 geweigerd"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "Opnieuw kiezen..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "Dienst niet toegestaan"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "Alleen noodoproepen mogelijk. Voor netwerkdiensten SIM-kaart plaatsen"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "Uit multiparty halen mislukt"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "Uit multiparty halen niet ondersteund"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "Gewisseld"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "Wisselen mislukt"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "Wisselen niet ondersteund"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "Overgeschakeld naar BT-headset"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "Overgeschakeld naar telefoon"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "Fout bij doorverbinden"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "Doorverbinden niet ondersteund"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "Kan de details niet ophalen"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Niet beschikbaar"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "Uit wacht halen"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "Uit wacht halen niet ondersteund"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "In gesprek"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "SIM controleren of geldige SIM plaatsen"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "Spraakoproep is niet toegestaan tijdens videogesprek"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "Wisselgesprek"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "Groep onjuist"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "Oproep met bericht weigeren"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "Actieve oproep beëindigen"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "In wacht"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "Oproep in wacht beëindigen"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "Alle gespr. beëindigen"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "Actieve oproepen (%d) beëindigen"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "Oproepen in de wacht (%d) beëindigen"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "Koptelefoons"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "Ontvanger"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "Kan account niet registreren"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "Huidige opr in wacht"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "Onvoldoende geheugen. Wis een aantal items"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "Einde"
+
+msgid "IDS_MSGC_OPT_SOUND"
+msgstr "Geluid"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "Service niet beschikbaar"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "Toetsen-\nbord"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Verbinden..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Geweigerd"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Verzenden..."
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "Verberg toetsen"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "Opn."
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "Onbekende oproep geweigerd"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Opgeslagen"
+

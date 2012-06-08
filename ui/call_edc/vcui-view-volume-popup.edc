@@ -1,0 +1,79 @@
+/*
+ * Copyright 2012  Samsung Electronics Co., Ltd
+ *
+ * Licensed under the Flora License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.tizenopensource.org/license
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+group {
+	name: "volume";
+	parts {
+		part {
+			name: "base";
+			type: RECT;
+			description {
+			state: "default" 0.0;
+			color: 0 0 0 0;
+			}
+		}
+
+		part {
+			name: "body_bg";
+			type: RECT;
+			scale: 1;
+			mouse_events: 0;
+			description {
+				state: "default" 0.0;
+				min: 624 126;
+				max: 624 126;
+				rel1 { relative: 0.0 0.0; to: "base"; }
+				rel2 { relative: 1.0 1.0; to: "base"; }
+				color: 0 0 0 0;
+			}
+		}
+
+		part {
+			name: "volume_icon";
+			type: SWALLOW;
+			scale: 1;
+			mouse_events: 1;
+			description {
+				state: "default" 0.0;
+				min: 64 64;
+				max: 64 64;
+				align: 0.5 0.5;
+				rel1 { relative: (40/624) (31/126); to: "body_bg"; }
+				rel2 { relative: (104/624) (95/126); to: "body_bg"; }
+				color: 255 255 255 255;
+			}
+			description {
+				state: "mute" 0.0;
+				inherit: "default" 0.0;
+			}
+		}
+
+		part {
+			name: "volume_slider";
+			type: SWALLOW;
+			scale: 1;
+			mouse_events: 1;
+			description {
+				state: "default" 0.0;
+				align: 0.5 0.5;
+				rel1 { relative: 130/624 0.0; to: "body_bg"; }
+				rel2 { relative: 584/624 1.0; to: "body_bg"; }
+				color: 0 0 0 0;
+			}
+		}
+	}
+}

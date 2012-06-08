@@ -1,0 +1,333 @@
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "Создать сообщение для отклонения вызова"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "Список сообщений для отклонения вызова пуст"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "Отклонить и отправить сообщение"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "Вызовы"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "Абонент недоступен"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "Вызов завершен"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "Вызов отклонен"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "Отключено"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "Неправильный номер"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "При вызове"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "Конференция"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "Нет ответа"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "Номер изменен"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "Номер не существует"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "Удержание"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "Люди"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "Принять"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "Доб. вызов"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "Контакты"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "Завершить"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "Гарнитура"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "Удержать"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "Конф."
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Звук"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "Отказ"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "Динамик"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "Разделить"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "Извлечь"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "Конференция"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "Завершить текущий вызов и ответить"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "Удержать текущий вызов и ответить"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "Частный"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "Системная ошибка"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "Все входящие вызовы запрещены"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "Все исходящие вызовы\nзапрещены"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "Сбой вызова"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "Только экстренные вызовы"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "Вызов запрещен"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "Вызов запрещен"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "Переадресация вызовов: Всегда"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "Переадресация вызова: Нет ответа"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "Переадресация вызовов: Если недоступен"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "Переадресация вызова: Если занято"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "Вызов переадресован"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "Неверный номер"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "Выключите автономный режим для использования сервисов сети"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "Вызов..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "Сбой отправки. Повторите попытку"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "Экстренный вызов"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "Только разрешенные вызовы"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "Удержано"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "Сбой удержания"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "Удержание не поддерживается"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "Входящие вызовы запрещены при роуминге"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "Не завершено"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "Объединено"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "Сбой объединения"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "Объединение не поддерживается"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "Сеть занята"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "Сеть недоступна"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "Нет средств на счете"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "Нет сети"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "Операция отклонена"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "Запрет исходящих международных вызовов, кроме домашних"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "Исходящие международные\nвызовы запрещены"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "Телефон не инициализирован"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "4422341526 отклонен"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "Повторный набор..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "Сервис запрещен"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "Только экстренный вызов. Для доступа к услугам сети вставьте SIM-карту"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "Сбой разделения"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "Разделение не поддерживается"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "Переключено"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "Сбой переключения"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "Переключение не поддерживается"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "Переключено на гарнитуру Bluetooth"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "Переключено на телефон"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "Сбой перевода"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "Перевод не поддерживается"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "Невозможно извлечь"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Недоступно"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "Извлечено"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "Извлечение не поддерживается"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "Абонент занят"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "Проверьте SIM-карту или вставьте действующую SIM-карту"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "Голосовой вызов невозможен во время видеовызова"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "Ожидание включено"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "Неверная грyппа"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "Отклонить и сообщение"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "Завершить активный вызов"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "Удерживаемый"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "Завершить удерживаемый вызов"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "Завершить все вызовы"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "Завершить активные вызовы (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "Завершить удерживаемые вызовы (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "Наушники"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "Динамик"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "Не удается зарегистрировать учетную запись"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "Удержать акт. вызов"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "Недостаточно памяти. Удалите некоторые элементы"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "Заверш."
+
+msgid "IDS_MSGC_OPT_SOUND"
+msgstr "Звук"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "Услуга недоступна"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "Клавиатура"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Подключение..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Отклонено"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Отправка..."
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "Скрыть клавиатуру"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "Зап."
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "Неизвестный вызов отклонен"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Соxранено"
+

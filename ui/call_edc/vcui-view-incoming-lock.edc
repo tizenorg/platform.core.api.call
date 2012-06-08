@@ -1,0 +1,316 @@
+/*
+ * Copyright 2012  Samsung Electronics Co., Ltd
+ *
+ * Licensed under the Flora License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.tizenopensource.org/license
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+group {
+	name: "lock_accept";
+
+	parts {
+		part { 
+			name: "accept_bg"; 
+			type: IMAGE; 
+			mouse_events:1; 
+			scale: 1;
+			description { 
+				state: "default" 0.0; 
+				rel1 { relative: INCOMING_LOCK_ACCEPT_BG_L INCOMING_LOCK_ACCEPT_BG_T; } 
+				rel2 { relative: INCOMING_LOCK_ACCEPT_BG_R INCOMING_LOCK_ACCEPT_BG_B; } 
+				image {
+					normal: IMG_SRC_DIR/"vc_lock_left_bg.png";
+				}
+				align: 0.0 0.5;
+				color: 255 255 255 255;
+				visible: 1;
+			} 
+			description { 
+				state: "alpha" 0.0; 
+				inherit: "default" 0.0;
+				color: 255 255 255 76; // 30%
+				visible: 1;
+			} 				
+		}
+		
+		part { 
+			name: "accept_icon"; 
+			type: IMAGE; 
+			mouse_events:1; 
+			scale: 1;
+			description { 
+				state: "default" 0.0; 
+				rel1 { relative: INCOMING_LOCK_ACCEPT_ICON_L INCOMING_LOCK_ACCEPT_ICON_T; to: "accept_bg"; } 
+				rel2 { relative: INCOMING_LOCK_ACCEPT_ICON_R INCOMING_LOCK_ACCEPT_ICON_B; to: "accept_bg"; } 
+				image {
+					normal: IMG_SRC_DIR/"vc_lock_accept_icon.png";
+				}
+				align: 0.5 0.5;
+				color: 255 255 255 255;
+				visible: 1;
+			} 
+			description { 
+				state: "alpha" 0.0; 
+				inherit: "default" 0.0;
+				color: 255 255 255 76; // 30%
+				visible: 1;
+			} 					
+		}
+
+		part {
+			name: "accept_text";
+			type: TEXT;
+			mouse_events:0; 
+			scale: 1;
+			description { 
+				state: "default" 0.0; 
+				rel1 { relative: INCOMING_LOCK_ACCEPT_TEXT_L INCOMING_LOCK_ACCEPT_TEXT_T; to: "accept_bg"; } 
+				rel2 { relative: INCOMING_LOCK_ACCEPT_TEXT_R INCOMING_LOCK_ACCEPT_TEXT_B; to: "accept_bg"; }  
+				text { font, FONT_SLP_Roman; size, 58; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				visible: 1;
+			} 
+			description { 
+				state: "alpha" 0.0; 
+				inherit: "default" 0.0;
+				color: 255 255 255 76; // 30%
+				visible: 1;
+			} 					
+		}
+	}
+
+	programs {
+		program {
+			name: "lock_accept,default";
+			signal: "lock_accept,default";
+			source: "prog";
+			action: STATE_SET "default" 0.0;
+			target: "accept_bg";
+			target: "accept_icon";
+			target: "accept_text";
+			transition: LINEAR 0.3;
+		}			
+		program {
+			name: "lock_accept,alpha";
+			signal: "lock_accept,alpha";
+			source: "prog";
+			action: STATE_SET "alpha" 0.0;
+			target: "accept_bg";
+			target: "accept_icon";
+			target: "accept_text";
+			transition: LINEAR 0.3;
+		}
+	}
+}
+
+group {
+	name: "lock_reject";
+
+	parts {
+		part { 
+			name: "reject_bg"; 
+			type: IMAGE; 
+			mouse_events:1; 
+			scale: 1;
+			description { 
+				state: "default" 0.0; 
+				rel1 { relative: INCOMING_LOCK_REJECT_BG_L INCOMING_LOCK_REJECT_BG_T; } 
+				rel2 { relative: INCOMING_LOCK_REJECT_BG_R INCOMING_LOCK_REJECT_BG_B; } 
+				image {
+					normal: IMG_SRC_DIR/"vc_lock_right_bg.png";
+				}
+				align: 0.0 0.5;
+				color: 255 255 255 255;
+				visible: 1;
+			} 
+			description { 
+				state: "alpha" 0.0; 
+				inherit: "default" 0.0;
+				color: 255 255 255 76; // 30%
+				visible: 1;
+			} 					
+		}
+		
+		part { 
+			name: "reject_icon"; 
+			type: IMAGE; 
+			mouse_events:1; 
+			scale: 1;
+			description { 
+				state: "default" 0.0; 
+				rel1 { relative: INCOMING_LOCK_REJECT_ICON_L INCOMING_LOCK_REJECT_ICON_T; to: "reject_bg"; } 
+				rel2 { relative: INCOMING_LOCK_REJECT_ICON_R INCOMING_LOCK_REJECT_ICON_B; to: "reject_bg"; } 
+				image {
+					normal: IMG_SRC_DIR/"vc_lock_reject_icon.png";
+				}
+				align: 0.5 0.5;
+				color: 255 255 255 255;
+				visible: 1;
+			} 
+			description { 
+				state: "alpha" 0.0; 
+				inherit: "default" 0.0;
+				color: 255 255 255 76; // 30%
+				visible: 1;
+			} 					
+		}
+
+		part {
+			name: "reject_text";
+			type: TEXT;
+			mouse_events:0; 
+			scale: 1;
+			description { 
+				state: "default" 0.0; 
+				rel1 { relative: INCOMING_LOCK_REJECT_TEXT_L INCOMING_LOCK_REJECT_TEXT_T; to: "reject_bg"; } 
+				rel2 { relative: INCOMING_LOCK_REJECT_TEXT_R INCOMING_LOCK_REJECT_TEXT_B; to: "reject_bg"; }  
+				text { font, FONT_SLP_Roman; size, 58; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				visible: 1;
+			} 
+			description { 
+				state: "alpha" 0.0; 
+				inherit: "default" 0.0;
+				color: 255 255 255 76; // 30%
+				visible: 1;
+			} 					
+		}
+	}
+
+	programs {
+		program {
+			name: "lock_reject,default";
+			signal: "lock_reject,default";
+			source: "prog";
+			action: STATE_SET "default" 0.0;
+			target: "reject_bg";
+			target: "reject_icon";
+			target: "reject_text";
+			transition: LINEAR 0.3;
+		}			
+		program {
+			name: "lock_reject,alpha";
+			signal: "lock_reject,alpha";
+			source: "prog";
+			action: STATE_SET "alpha" 0.0;
+			target: "reject_bg";
+			target: "reject_icon";
+			target: "reject_text";
+			transition: LINEAR 0.3;
+		}
+	}
+}
+
+group {
+	name: "mtlock";
+    parts {
+	     part { name: "background";
+			 type: RECT;
+			 description {
+			 	state: "default" 0.0;
+				color: COLOR_DEFAULT;
+			}
+		}
+			 
+		part { name: "swl_cid_background";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: DIALLING_BACKGROUND_CID_L DIALLING_BACKGROUND_CID_T; to: "background";}
+				rel2 { relative: DIALLING_BACKGROUND_CID_R DIALLING_BACKGROUND_CID_B; to: "background";}
+			}
+		}
+
+		part { name: "bg_alpha";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: COLOR_BG_ALPHA;
+			}
+		}
+
+		part { name: "swl_calling_name_bg";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: MT_CALLING_BG_L MT_CALLING_BG_T; to: "background";}
+				rel2 { relative: MT_CALLING_BG_R MT_CALLING_BG_B; to: "background";}
+			}
+		}
+
+		part { name: "swl_cid";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: DIALLING_CID_L DIALLING_CID_T; }
+				rel2 { relative: DIALLING_CID_R DIALLING_CID_B; }
+			}
+		}
+		
+		part { name: "txt_call_name"; // call name or number
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: DIALLING_NAME_L DIALLING_NAME_T;to: "background";}
+				rel2 { relative: DIALLING_NAME_R DIALLING_NAME_B;to: "background";  }				
+				text { font, FONT_SLP_Roman; size, 76; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+		}
+
+		part { name: "txt_contact_phone_type"; // contact phone type -> call number
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: DIALLING_NUMBER_L DIALLING_NUMBER_T; to: "background"; }
+				rel2 { relative: DIALLING_NUMBER_R DIALLING_NUMBER_B;to: "background";  }				
+				text { font, FONT_SLP_Roman; size, 48; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+		}          
+
+		/*
+	    part { name: "txt_mt_status"; // Voice call
+				type: TEXT;
+				effect: SHADOW;
+				scale: 1;
+				description {
+					state: "default" 0.0;
+					rel1 { relative: DIALLING_MT_STATUS_L DIALLING_MT_STATUS_T;to: "background";}
+					rel2 { relative: DIALLING_MT_STATUS_R DIALLING_MT_STATUS_B;to: "background";  }				
+					text { font, FONT_SLP_Roman; size, 48; align, 0.5 0.5; }
+					color: 255 255 255 255;
+					color2: 0 0 0 255;
+				}
+			}
+		*/ 
+	}//parts
+
+	programs {
+		program { 
+			name: "init";
+			signal: "INIT";
+			source: "PROG";
+			action: STATE_SET "default" 0.0;
+			target: "background";
+			target: "swl_cid";
+			target: "swl_cid_background";
+		}    	
+	}
+}

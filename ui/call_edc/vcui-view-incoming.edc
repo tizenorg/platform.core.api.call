@@ -1,0 +1,177 @@
+/*
+ * Copyright 2012  Samsung Electronics Co., Ltd
+ *
+ * Licensed under the Flora License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.tizenopensource.org/license
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+group{
+	name: "mt-view";
+	parts {
+		part { name: "background";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: COLOR_DEFAULT;
+			}
+		}
+
+		part { name: "swl_cid_background";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: DIALLING_BACKGROUND_CID_L DIALLING_BACKGROUND_CID_T; to: "background";}
+				rel2 { relative: DIALLING_BACKGROUND_CID_R DIALLING_BACKGROUND_CID_B; to: "background";}
+			}
+		}
+
+		part { name: "bg_alpha";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: COLOR_BG_ALPHA;
+			}
+		}
+
+		part { name: "swl_calling_name_bg";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: MT_CALLING_BG_L MT_CALLING_BG_T; to: "background";}
+				rel2 { relative: MT_CALLING_BG_R MT_CALLING_BG_B; to: "background";}
+			}
+		}
+			   
+		part { name: "txt_call_name"; // call name or number
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: DIALLING_NAME_L DIALLING_NAME_T;to: "background";}
+				rel2 { relative: DIALLING_NAME_R DIALLING_NAME_B;to: "background";  }				
+				text { font, FONT_SLP_Roman; size, 76; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+		}
+
+		part { name: "txt_contact_phone_type"; // contact phone type -> call number
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: DIALLING_NUMBER_L DIALLING_NUMBER_T; to: "background"; }
+				rel2 { relative: DIALLING_NUMBER_R DIALLING_NUMBER_B;to: "background";  }				
+				text { font, FONT_SLP_Roman; size, 48; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+		}
+
+		part { name: "swl_cid";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: DIALLING_CID_L DIALLING_CID_T; }
+				rel2 { relative: DIALLING_CID_R DIALLING_CID_B; }
+			}
+		}
+		
+		/*
+		part { name: "txt_mt_status"; // Voice call
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: DIALLING_MT_STATUS_L DIALLING_MT_STATUS_T;to: "background";}
+				rel2 { relative: DIALLING_MT_STATUS_R DIALLING_MT_STATUS_B;to: "background";  }				
+				text { font, FONT_SLP_Roman; size, 48; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+		}
+		*/
+		
+		part { name: "btn_accept";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: DIALLING_MT_BTN1_L DIALLING_MT_BTN1_T; to: "background";}
+				rel2 { relative: DIALLING_MT_BTN1_R DIALLING_MT_BTN1_B; to: "background";}
+			}
+		}		
+		part { name: "btn_reject";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: DIALLING_MT_BTN2_L DIALLING_MT_BTN2_T; to: "background";}
+				rel2 { relative: DIALLING_MT_BTN2_R DIALLING_MT_BTN2_B; to: "background";}
+			}
+		}
+
+		part { name: "btn_incoming1";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: SIX_BTN_INCOMING_1_L SIX_BTN_INCOMING_1_T; to: "background";}
+				rel2 { relative: SIX_BTN_INCOMING_1_R SIX_BTN_INCOMING_1_B; to: "background";}
+			}
+		}			
+		part { name: "btn_incoming2";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: SIX_BTN_INCOMING_2_L SIX_BTN_INCOMING_2_T; to: "background";}
+				rel2 { relative: SIX_BTN_INCOMING_2_R SIX_BTN_INCOMING_2_B; to: "background";}
+			}
+		}			
+		part { name: "btn_incoming3";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: SIX_BTN_INCOMING_3_L SIX_BTN_INCOMING_3_T; to: "background";}
+				rel2 { relative: SIX_BTN_INCOMING_3_R SIX_BTN_INCOMING_3_B; to: "background";}
+			}
+		}			
+		part { name: "btn_incoming4";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: SIX_BTN_BIG_END_L SIX_BTN_BIG_END_T; to: "background";}
+				rel2 { relative: SIX_BTN_BIG_END_R SIX_BTN_BIG_END_B; to: "background";}
+			}
+		}		    
+            }//parts
+
+            programs{
+
+              program { name: "init";
+			signal: "INIT";
+			source: "PROG";
+			action: STATE_SET "default" 0.0;
+			target: "background";
+			target: "swl_cid";
+			target: "swl_cid_background";
+		}
+          }
+
+    }

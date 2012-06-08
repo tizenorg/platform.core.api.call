@@ -1,0 +1,333 @@
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "Crea messaggio di rifiuto"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "L'elenco dei messaggi rifiutati è vuoto"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "Rifiuta con messaggio"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "Chiamata"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "Utente non disponib."
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "Chiamata terminata"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "Chiamata rifiutata"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "Disconnesso"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "Numero non valido"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "Chiamata"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "Conferenza"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "Nessuna risposta"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "Numero modificato"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "Numero non esistente"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "In attesa"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "Persone"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "Accetta"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "Chiama"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "Rubrica"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "Termina"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "Auric. BT"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "In attesa"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "In conf."
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Muto"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "Rifiuta"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "Vivavoce"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "Separa"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "Recupera"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "Conferenza"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "Termina chiamata corrente e rispondi"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "Metti in attesa chiamata corrente e rispondi"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "Conversazione privata"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "Errore di sistema"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "Blocco di tutte le chiamate entranti"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "Blocco di tutte le chiamate uscenti"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "Chiamata non riuscita"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "Solo chiamate di emergenza"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "Chiamata non consentita"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "Chiamata bloccata"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "Trasferimento chiamate attivo: sempre"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "Trasferimento chiamate attivo: nessuna risposta"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "Trasferimento chiamate attivo: non raggiungibile"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "Trasferimento chiamate attivo: occupato"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "Chiamata inoltrata"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "Numero errato"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "Passare da Offline ad altro profilo per accedere ai servizi di rete"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "Composizione..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "Invio non eseguito. Riprovare"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "Chiamata di emergenza"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "Solo chiamate FDN"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "In attesa"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "Messa in attesa non eseguita"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "Messa in attesa non supportata"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "Chiamate in arrivo bloccate durante roaming"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "Incompleto"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "In conferenza"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "Connessione non eseguita"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "Connessione non supportata"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "Rete occupata"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "Rete non disponibile"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "Credito esaurito"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "Nessun servizio"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "Operazione rifiutata"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "Chiamate internazionali in uscita bloccate tranne verso proprio paese"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "Uscenti internazionali bloccate"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "Telefono non inizializzato"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "4422341526 rifiutato"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "Ricomposizione..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "Servizio non consentito"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "Solo chiamate di emergenza. Inserire scheda SIM per accedere ai servizi di rete"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "Divisione non eseguita"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "Divisione non supportata"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "Scambiata"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "Scambio non eseguito"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "Scambio non supportato"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "Commutato su auricolare BT"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "Telefono attivato"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "Errore trasferimento"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "Trasferimento non supportato"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "Impossibile recuperare"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Non disponibile"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "Annullamento attesa eseguito"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "Annullamento attesa non supportato"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "Utente occupato"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "Verifica SIM o inserisci SIM valida"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "Chiamata vocale non  consentita durante una videochiamata"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "Avviso di chiamata attivo"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "Gruppo errato"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "Rifiuta con messaggio"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "Termina chiamata attiva"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "Chiamata in attesa"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "Termina chiamata in attesa"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "Termina tutte le chiamate"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "Termina chiamate attive (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "Termina chiamate in attesa (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "Cuffie"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "Ricevitore"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "Registrazione account non riuscita"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "Ch. attiva in attesa"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "Memoria insufficiente. Eliminare alcuni elementi"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "Termina"
+
+msgid "IDS_MSGC_OPT_SOUND"
+msgstr "Suono"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "Servizio non disponibile"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "Tastiera"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Connessione..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Rifiutata"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Invio..."
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "Nasc. tastiera"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "Reg"
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "Chiamata sconosciuta rifiutata"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Salvato"
+

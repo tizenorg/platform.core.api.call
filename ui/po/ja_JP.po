@@ -1,0 +1,333 @@
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "拒否​メッセージ​の​作成"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "拒否​メッセージ​リスト​は​空​です"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "拒否してSMS送信"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "通話設定"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "発信​相手​は​電話​に​出られ​ません"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "通話​終了"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "通話​拒否​されました"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "切断しました。"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "番号​が​無効​です"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "通話中"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "マルチ​パーティー"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "応答​なし"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "番号​が​変更​されました"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "番号​が​存在​しません"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "保留中"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "人"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "応答"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "通話を​追加"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "連絡先"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "終了"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "ヘッドセット"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "保留"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "参加"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "ミュート"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "拒否"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "スピーカー"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "分割"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "保留解除"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "グループ通話"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "現在の通話を終了して応答"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "現在の通話を保留にして応答"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "個人携帯"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "システム​エラー"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "全ての​着信​が​規制​されて​います"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "全ての​発信​が​規制​されて​います"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "発信​できません​でした"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "緊急通報のみ発信可能です。"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "通話​は​許可されて​いません"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "通話​は​規制​されて​います"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "通話​を​転送する：常時"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "通話​を転送​する：​応答​なし"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "通話​を​転送：​​圏外時"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "通話​を​転送：​ビジー時"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "通話転送されました"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "番号​が​正しく​ありません"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "オフライン​から​他の​ネットワーク​サービス​の​接続先​に​変更"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "発信中..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "送信​に​失敗​しました。​リトライ"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "緊急通話"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "FDN電話​限定​です"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "保留にしました"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "保留​できません​でした"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "保留​に​対応して​いません"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "ローミング​中​は​着信​が​規制​されます"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "操作が中断されました"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "参加"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "グループ​通話​参加に失敗しました"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "グループ​通話​参加に対応していません"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "ネットワーク​混雑中"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "ネットワーク​を​利用​できません"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "料金​上限​設定​を​超えて​います"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "サービスが利用できません。"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "操作​は​拒否​されました"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "自国​以外の​全ての​国際​電話​発信​が​規制​されています"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "全ての​国際電話発信​が​規制​されて​います"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "写真​は​初期化​されて​いません"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "%sからの着信を拒否しました"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "リダイヤル中..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "サービス​は​許可されて​いません"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "SOS​通話​のみ。​ SIM​​カード​を​挿入して、​ネットワーク​サービス​に​アクセス​します"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "分割​に​失敗​しました"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "分割​に​対応​して​いません"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "交換しました"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "切り替え​できません​でした"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "切り替え​に​対応​して​いません"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "BT​ヘッド​セットに​切り​替え​ました"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "本体​に​切り​替え​ます"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "転送​に​失敗​しました"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "転送​に​対応​して​いません"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "受信できません"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "不可"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "保留解除"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "保留​解除​に​対応して​いません"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "話し中,​または​通信中​です"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "SIM​を​確認​する​か、​有効​な​SIM​を​挿入​して​ください"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "テレビ​電話中​は​音声​電話​を​使用​できません"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "割込​通話​設定中​です"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "グループ​が​間違って​います"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "着信拒否時にSMS送信"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "現在の​通話​を​終了"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "通話​を​保留​します"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "保留中の​通話​を​終了​"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "全ての​相手​と​終話"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "アクティブ​通話​を​終了​する​（%d）"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "保留中の​通話​を​終了​する​（%d）"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "ヘッドホン"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "受話​器"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "アカウント​の​登録​に​失敗​しました"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "現在の​通話​を​保留"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "メモリーが​不足​しています。​いくつかのアイテム​を​削除​してください"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "通話​を​終了​"
+
+msgid "IDS_MSGC_OPT_SOUND"
+msgstr "サウンド"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "サービス​を​利用​できません"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "キーパッド"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "接続中..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "拒否されました。"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "送信中..."
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "キーパッド​を​非表示"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "録音"
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "非通知​通話​を​拒否​しました"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "保存しました。"
+

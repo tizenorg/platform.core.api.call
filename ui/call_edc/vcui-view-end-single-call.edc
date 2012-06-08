@@ -1,0 +1,98 @@
+/*
+ * Copyright 2012  Samsung Electronics Co., Ltd
+ *
+ * Licensed under the Flora License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.tizenopensource.org/license
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+group {
+    name: "end-singlecall";
+
+    parts {
+		part { name: "background";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: COLOR_DEFAULT;
+			}
+		}
+
+		part { name: "swl_cid_background";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 1;
+				rel1 { relative: ENDSINGLECALL_BACKGROUND_CID_L ENDSINGLECALL_BACKGROUND_CID_T; to: "background";}
+				rel2 { relative: ENDSINGLECALL_BACKGROUND_CID_R ENDSINGLECALL_BACKGROUND_CID_B; to: "background";}
+			}
+		}
+
+		part { name: "bg_alpha";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: COLOR_BG_ALPHA;
+			}
+		}
+			   
+		part { name: "swl_cid";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: ENDSINGLECALL_CID_L ENDSINGLECALL_CID_T; }
+				rel2 { relative: ENDSINGLECALL_CID_R ENDSINGLECALL_CID_B; }
+			}
+		}
+		
+		part { name: "txt_call_name"; // call name or number
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: ENDSINGLECALL_NAME_L ENDSINGLECALL_NAME_T; }
+				rel2 { relative: ENDSINGLECALL_NAME_R ENDSINGLECALL_NAME_B;  }				
+				text { font, FONT_SLP_Roman; size, 76; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+		}
+
+		part { name: "txt_contact_phone_type"; // contact phone type -> call number
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: ENDSINGLECALL_NUMBER_L ENDSINGLECALL_NUMBER_T; }
+				rel2 { relative: ENDSINGLECALL_NUMBER_R ENDSINGLECALL_NUMBER_B;  }				
+				text { font, FONT_SLP_Roman; size, 48; align, 0.5 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+		}
+
+		part { name: "txt_timer";
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: ENDSINGLECALL_TIMER_L ENDSINGLECALL_TIMER_T; }
+				rel2 { relative: ENDSINGLECALL_TIMER_R ENDSINGLECALL_TIMER_B; }				
+				text { font, FONT_SLP_Roman; size, 44; align, 1.0 0.5; }
+				color: 255 255 255 255;
+				color2: 0 0 0 255;
+			}
+		}
+	}
+ }

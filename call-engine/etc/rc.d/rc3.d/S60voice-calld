@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Script for voice call daemon during booting time
+#
+if [ -x /usr/bin/voice-calld ]; then
+	/usr/bin/voice-calld &
+fi

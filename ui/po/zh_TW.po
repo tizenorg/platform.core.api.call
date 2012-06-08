@@ -1,0 +1,333 @@
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "建立拒絕訊息"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "拒絕郵件清單是空的"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "用訊息拒絕"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "通話"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "無法接通電話"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "通話已結束"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "通話遭拒"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "已中斷連線"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "號碼無效"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "通話中"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "多方通話"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "無人接聽"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "號碼已更改"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "號碼不存在"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "保留"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "個聯絡人"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "接受"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "增加電話"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "聯絡人"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "結束"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "耳機"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "保留"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "加入"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "靜音"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "拒絕"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "揚聲器"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "分割"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "不保留"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "電話會議"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "結束目前通話及應答"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "保留目前通話及接聽"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "私人"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "系統錯誤"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "已限制所有來電"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "已阻止所有撥出電話"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "通話失敗"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "僅限緊急通話"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "不允許通話"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "通話受限"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "轉移呼叫：永遠"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "轉移呼叫：無人接聽"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "轉移呼叫：無法接通"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "轉移呼叫：忙線時"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "來電已轉移"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "號碼錯誤"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "由離線更改為其他設定以使用網路服務"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "正在撥號..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "傳送失敗。請重試"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "緊急電話"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "僅限 FDN 通話"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "已保留"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "保留失敗"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "不支援保留通話"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "漫遊時限制來電"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "不完整"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "已加入"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "加入失敗"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "不支援加入"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "網路忙碌"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "無可用網路"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "無剩餘點數"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "無服務"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "操作遭拒"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "限制撥出國際電話（本國除外）"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "已限制撥出國際電話"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "未初始化手機"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "4422341526 rejected"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "正在重撥..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "不允許的服務"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "僅限 SOS 通話。 請插入 SIM 卡以存取網路服務"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "分割失敗"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "分割不受支援"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "已交換"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "交換失敗"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "不支援交換"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "下載項目中斷。再試一次？"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "已切換到手機"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "傳輸失敗"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "不支援轉移"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "無法擷取"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "無法使用"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "已取消保留"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "不支援取消保留"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "使用者忙碌"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "驗證SIM卡或插入有效SIM卡"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "視訊通話進行中不允許撥打語音電話"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "已啟動呼叫等待"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "群組錯誤"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "使用訊息拒絕來電"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "結束當前通話"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "保留通話"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "結束已保留通話"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "結束所有通話"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "結束當前通話（％d）"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "結束保留的通話（％d）"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "耳機"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "耳機"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "註冊帳號失敗"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "保留當前通話"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "記憶體不足。請刪除部分項目"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "結束通話"
+
+msgid "IDS_MSGC_OPT_SOUND"
+msgstr "聲音"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "無法使用服務"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "鍵盤"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "連線中..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "已拒絕"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "正在傳送..."
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "隱藏鍵盤"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "錄影"
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "已拒接不明來電"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "已儲存"
+
