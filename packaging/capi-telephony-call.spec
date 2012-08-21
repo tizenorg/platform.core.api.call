@@ -1,7 +1,8 @@
+#sbs-git:slp/api/call capi-telephony-call 0.1.0 a6c4eac47227c1f733dda20278debb9bf0ec23f2
 Name:       capi-telephony-call
 Summary:    Telephony Call Framework
 Version: 0.1.0
-Release:    9
+Release:    1
 Group:      TO_BE/FILLED_IN
 License:    TO BE FILLED IN
 Source0:    %{name}-%{version}.tar.gz
