@@ -14,6 +14,80 @@
  * limitations under the License.
  */
 
+group{
+	name: "separator-layout-3button";
+	parts{
+		part { name: "background";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: 0 0 0 153;
+			}
+		}
+
+		part { name: "topline_horiz_sep_1";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 0 1;
+				rel1 { relative: 0 0; offset: 0 -1; to: "background";}
+				rel2 { relative: 1 0; to: "background";}
+				color: 80 80 80 204;
+			}
+		}
+
+		part { name: "left_vert_sep_1";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: 1 1;
+				rel1 { relative: ENDCALL_LEFT_VERT_SEP_1_L ENDCALL_LEFT_VERT_SEP_1_T; to: "background";}
+				rel2 { relative: ENDCALL_LEFT_VERT_SEP_1_R ENDCALL_LEFT_VERT_SEP_1_B; to: "background";}
+				color: 70 70 70 255;
+			}
+		}
+
+		part { name: "left_vert_sep_2";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: 1 1;
+				rel1 { relative: ENDCALL_LEFT_VERT_SEP_2_L ENDCALL_LEFT_VERT_SEP_2_T ; to: "background";}
+				rel2 { relative: ENDCALL_LEFT_VERT_SEP_2_R ENDCALL_LEFT_VERT_SEP_2_B ; to: "background";}
+				color: 35 33 31 255;
+			}
+		}
+
+		part { name: "right_vert_sep_1";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 1 0;
+				rel1 { relative: ENDCALL_RIGHT_VERT_SEP_1_L ENDCALL_RIGHT_VERT_SEP_1_T ; to: "background";}
+				rel2 { relative: ENDCALL_RIGHT_VERT_SEP_1_R ENDCALL_RIGHT_VERT_SEP_1_B ; to: "background";}
+				color: 70 70 70 255;
+			}
+		}
+
+		part { name: "right_vert_sep_2";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 1 0;
+				rel1 { relative: ENDCALL_RIGHT_VERT_SEP_2_L ENDCALL_RIGHT_VERT_SEP_2_T ; to: "background";}
+				rel2 { relative: ENDCALL_RIGHT_VERT_SEP_2_R ENDCALL_RIGHT_VERT_SEP_2_B ; to: "background";}
+				color: 35 33 31 255;
+			}
+		}
+	}
+
+    programs{
+
+	}
+}
+
 group {
     name: "end-singlecall";
 
@@ -36,11 +110,13 @@ group {
 			}
 		}
 
-		part { name: "bg_alpha";
-			type: RECT;
+		part { name: "call_bg_img";
+			type: SWALLOW;
+			mouse_events: 0;
 			description {
 				state: "default" 0.0;
-				color: COLOR_BG_ALPHA;
+				rel1 { relative: 0 0; to: "background";}
+				rel2 { relative: 1 1; to: "background";}
 			}
 		}
 			   
@@ -53,46 +129,66 @@ group {
 			}
 		}
 		
-		part { name: "txt_call_name"; // call name or number
-			type: TEXT;
-			effect: SHADOW;
+		part { name: "caller_info";
+			type: SWALLOW;
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				rel1 { relative: ENDSINGLECALL_NAME_L ENDSINGLECALL_NAME_T; }
-				rel2 { relative: ENDSINGLECALL_NAME_R ENDSINGLECALL_NAME_B;  }				
-				text { font, FONT_SLP_Roman; size, 76; align, 0.5 0.5; }
-				color: 255 255 255 255;
-				color2: 0 0 0 255;
+				visible: 1;
+				rel1 { relative: CALLER_INFO_L CALLER_INFO_T; to: "background";}
+				rel2 { relative: CALLER_INFO_R CALLER_INFO_B; to: "background";}
 			}
 		}
 
-		part { name: "txt_contact_phone_type"; // contact phone type -> call number
-			type: TEXT;
-			effect: SHADOW;
+		part { name: "btn_bg";
+			type: SWALLOW;
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				rel1 { relative: ENDSINGLECALL_NUMBER_L ENDSINGLECALL_NUMBER_T; }
-				rel2 { relative: ENDSINGLECALL_NUMBER_R ENDSINGLECALL_NUMBER_B;  }				
-				text { font, FONT_SLP_Roman; size, 48; align, 0.5 0.5; }
-				color: 255 255 255 255;
-				color2: 0 0 0 255;
+				rel1 { relative: ENDSINGLECALL_BTN_BG_L ENDSINGLECALL_BTN_BG_T; to: "background";}
+				rel2 { relative: ENDSINGLECALL_BTN_BG_R ENDSINGLECALL_BTN_BG_B; to: "background";}
 			}
 		}
 
-		part { name: "txt_timer";
-			type: TEXT;
-			effect: SHADOW;
+		part { name: "btn_voicecall";
+			type: SWALLOW;
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				rel1 { relative: ENDSINGLECALL_TIMER_L ENDSINGLECALL_TIMER_T; }
-				rel2 { relative: ENDSINGLECALL_TIMER_R ENDSINGLECALL_TIMER_B; }				
-				text { font, FONT_SLP_Roman; size, 44; align, 1.0 0.5; }
-				color: 255 255 255 255;
-				color2: 0 0 0 255;
+				rel1 { relative: ENDSINGLECALL_VOICE_BTN_L ENDSINGLECALL_VOICE_BTN_T; to: "background";}
+				rel2 { relative: ENDSINGLECALL_VOICE_BTN_R ENDSINGLECALL_VOICE_BTN_B; to: "background";}
 			}
+		}
+
+		part { name: "btn_videocall";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: ENDSINGLECALL_VIDEO_BTN_L ENDSINGLECALL_VIDEO_BTN_T; to: "background";}
+				rel2 { relative: ENDSINGLECALL_VIDEO_BTN_R ENDSINGLECALL_VIDEO_BTN_B; to: "background";}
+			}			
+		}
+
+		part { name: "btn_message";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: ENDSINGLECALL_MSG_BTN_L ENDSINGLECALL_MSG_BTN_T; to: "background";}
+				rel2 { relative: ENDSINGLECALL_MSG_BTN_R ENDSINGLECALL_MSG_BTN_B; to: "background";}
+			}			
+		}
+
+		part { name: "btn_contacts";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 1;
+				rel1 { relative: ENDSINGLECALL_CONTACT_BTN_L ENDSINGLECALL_CONTACT_BTN_T; to: "background";}
+				rel2 { relative: ENDSINGLECALL_CONTACT_BTN_R ENDSINGLECALL_CONTACT_BTN_B; to: "background";}
+			}			
 		}
 	}
- }
+}

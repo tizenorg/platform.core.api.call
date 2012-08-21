@@ -16,11 +16,14 @@
 
 
 #include "voice-call-engine.h"
-#include "vc-core-util.h"
 #include "voice-call-core.h"
-#include "vc-core-engine-types.h"
 #include "voice-call-service.h"
 #include "voice-call-dbus.h"
+#include "voice-call-device.h"
+#include "vc-core-util.h"
+#include "vc-core-engine-types.h"
+#include "vc-core-engine-status.h"
+#include "vc-core-engine-group.h"
 
 typedef struct {
 	void *puser_data;
@@ -35,16 +38,16 @@ static app_cb_t *app_client_data = NULL;
  * This function send events to client.
  *
  * @return	int	API Result Code.
- * @param[in]		
+ * @param[in]
 */
 gboolean vcall_engine_send_event_to_client(int event, void *pdata)
 {
-	CALL_ENG_DEBUG(ENG_DEBUG, "..\n");
+	CALL_ENG_DEBUG(ENG_DEBUG, "..");
 	if (app_client_data->cb_func != NULL) {
-		CALL_ENG_DEBUG(ENG_DEBUG, "Sending Event to APP Client\n");
+		CALL_ENG_DEBUG(ENG_DEBUG, "Sending Event to APP Client");
 		app_client_data->cb_func(event, pdata, app_client_data->puser_data);
 	}
-	CALL_ENG_DEBUG(ENG_ERR, "End..\n");
+	CALL_ENG_DEBUG(ENG_ERR, "End..");
 	return TRUE;
 }
 
@@ -52,25 +55,18 @@ gboolean vcall_engine_send_event_to_client(int event, void *pdata)
  * This function initialize voice call engine.
  *
  * @return	int	API Result Code.
- * @param[in]		
+ * @param[in]
 */
 int vcall_engine_init(vcall_engine_app_cb pcb_func, void *puser_data)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
-
-	/* thread system initialization */
-	if (!g_thread_supported()) {
-		CALL_ENG_KPI("g_thread_init start");
-		g_thread_init(NULL);
-		CALL_ENG_KPI("g_thread_init done");
-	}
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 
 	global_pcall_core = (call_vc_core_state_t *)calloc(1, sizeof(call_vc_core_state_t));
 	if (global_pcall_core == NULL) {
-		CALL_ENG_DEBUG(ENG_ERR, "Memory Allocation Failed\n");
+		CALL_ENG_DEBUG(ENG_ERR, "Memory Allocation Failed");
 		return VCALL_ENGINE_API_FAILED;
 	}
-	CALL_ENG_DEBUG(ENG_DEBUG, "global_pcall_core alloctated memory:[%d],global_pcall_core(0x%x) \n", sizeof(call_vc_core_state_t), global_pcall_core);
+	CALL_ENG_DEBUG(ENG_DEBUG, "global_pcall_core alloctated memory:[%d],global_pcall_core(0x%x)", sizeof(call_vc_core_state_t), global_pcall_core);
 
 	if (FALSE == voicecall_core_init(global_pcall_core)) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "voicecall_core_init() failed");
@@ -79,13 +75,13 @@ int vcall_engine_init(vcall_engine_app_cb pcb_func, void *puser_data)
 
 	app_client_data = (app_cb_t *) calloc(1, sizeof(app_cb_t));
 	if (app_client_data == NULL) {
-		CALL_ENG_DEBUG(ENG_ERR, "Memory Allocation Failed\n");
+		CALL_ENG_DEBUG(ENG_ERR, "Memory Allocation Failed");
 		return VCALL_ENGINE_API_FAILED;
 	}
 	app_client_data->cb_func = pcb_func;
 	app_client_data->puser_data = puser_data;
 
-	CALL_ENG_DEBUG(ENG_DEBUG, "Init dbus connection\n");
+	CALL_ENG_DEBUG(ENG_DEBUG, "Init dbus connection");
 	vc_engine_dbus_receiver_setup();
 	return VCALL_ENGINE_API_SUCCESS;
 
@@ -95,11 +91,11 @@ int vcall_engine_init(vcall_engine_app_cb pcb_func, void *puser_data)
  * This function processes mo nomal call.
  *
  * @return	int	API Result Code.
- * @param[in]		
+ * @param[in]
 */
 int vcall_engine_process_normal_call(char *number, int ct_index, gboolean b_download_call)
 {
-	CALL_ENG_DEBUG(ENG_DEBUG, " number is (%s)\n", number);
+	CALL_ENG_DEBUG(ENG_DEBUG, " number is (%s)", number);
 	voicecall_engine_t *pcall_engine = global_pcall_core->pcall_engine;
 	vc_engine_outgoing_type event_data;
 	char number_after_removal[VC_PHONE_NUMBER_LENGTH_MAX] = {"\0",};
@@ -113,7 +109,7 @@ int vcall_engine_process_normal_call(char *number, int ct_index, gboolean b_down
 	/* check the call-engine state before proceeding with call processing */
 	_vc_core_engine_status_get_engine_iostate(pcall_engine, &io_state);
 	if (io_state != VC_INOUT_STATE_NONE) {
-		CALL_ENG_DEBUG(ENG_DEBUG, "IO State [%d] not NONE, cannot proceed with the call \n", io_state);
+		CALL_ENG_DEBUG(ENG_DEBUG, "IO State [%d] not NONE, cannot proceed with the call", io_state);
 		voicecall_core_set_status(global_pcall_core, CALL_VC_CORE_FLAG_SETUPCALL_FAIL, TRUE);
 		vc_engine_msg_box_type mbox_event_data;
 
@@ -130,12 +126,12 @@ int vcall_engine_process_normal_call(char *number, int ct_index, gboolean b_down
 	memset(&event_data, 0, sizeof(event_data));
 
 	_vc_core_util_remove_invalid_chars(number, number_after_removal);
-	snprintf(global_pcall_core->call_setup_info.source_tel_number, VC_PHONE_NUMBER_LENGTH_MAX, number_after_removal);
+	snprintf(global_pcall_core->call_setup_info.source_tel_number, VC_PHONE_NUMBER_LENGTH_MAX, "%s", number_after_removal);
 	voicecall_core_extract_phone_number(number_after_removal, event_data.call_num, VC_PHONE_NUMBER_LENGTH_MAX);
 
-	if (strlen(event_data.call_num) > VC_PHONE_NUMBER_LENGTH_MAX) {
-		CALL_ENG_DEBUG(ENG_ERR, " WARNING!! number is larger than max num length!! \n");
-		memcpy(global_pcall_core->call_setup_info.tel_number, event_data.call_num, VC_PHONE_NUMBER_LENGTH_MAX);
+	if (strlen(event_data.call_num) >= VC_PHONE_NUMBER_LENGTH_MAX) {
+		CALL_ENG_DEBUG(ENG_ERR, " WARNING!! number is larger than max num length!!");
+		memcpy(global_pcall_core->call_setup_info.tel_number, event_data.call_num, VC_PHONE_NUMBER_LENGTH_MAX-1);
 	} else {
 		memcpy(global_pcall_core->call_setup_info.tel_number, event_data.call_num, strlen(event_data.call_num));
 	}
@@ -145,12 +141,28 @@ int vcall_engine_process_normal_call(char *number, int ct_index, gboolean b_down
 	CALL_ENG_DEBUG(ENG_DEBUG, "global_pcall_core->call_setup_info.tel_number:[%s]", global_pcall_core->call_setup_info.tel_number);
 	CALL_ENG_DEBUG(ENG_DEBUG, "event_data.call_num:[%s]", event_data.call_num);
 
+	{
+		voicecall_contact_info_t ct_info;
+		memset(&ct_info, 0, sizeof(ct_info));
+
+		ct_info.ct_index = ct_index;
+
+		voicecall_service_contact_info_by_number(event_data.call_num, &ct_info);
+		event_data.contact_index = ct_info.ct_index;
+		event_data.phone_type = ct_info.phone_type;
+		event_data.bday_remaining_days = ct_info.bday_remaining_days;
+
+		_vc_core_util_strcpy(event_data.call_name, sizeof(event_data.call_name), ct_info.display_name);
+		_vc_core_util_strcpy(event_data.call_file_path, sizeof(event_data.call_file_path), ct_info.caller_id_path);
+		_vc_core_util_strcpy(event_data.call_full_file_path, sizeof(event_data.call_full_file_path), ct_info.caller_full_id_path);
+		CALL_ENG_DEBUG(ENG_DEBUG, " contact copy ended!!");
+	}
 	vcall_engine_send_event_to_client(VC_ENGINE_MSG_OUTGOING_TO_UI, (void *)&event_data);
 
 	if (voicecall_core_setup_call(global_pcall_core, FALSE)) {
-		CALL_ENG_DEBUG(ENG_DEBUG, " success!! \n");
+		CALL_ENG_DEBUG(ENG_DEBUG, " success!!");
 	} else {
-		CALL_ENG_DEBUG(ENG_DEBUG, " failed!! \n");
+		CALL_ENG_DEBUG(ENG_DEBUG, " failed!!");
 	}
 	return VCALL_ENGINE_API_SUCCESS;
 
@@ -160,11 +172,11 @@ int vcall_engine_process_normal_call(char *number, int ct_index, gboolean b_down
  * This function processes mo emergency call.
  *
  * @return	int	API Result Code.
- * @param[in]		
+ * @param[in]
 */
 int vcall_engine_process_emergency_call(char *number)
 {
-	CALL_ENG_DEBUG(ENG_DEBUG, " number is : [%s] \n", number);
+	CALL_ENG_DEBUG(ENG_DEBUG, " number is : [%s]", number);
 	voicecall_engine_t *pcall_engine = global_pcall_core->pcall_engine;
 	gboolean bDefaultNumber = FALSE;
 	vc_engine_outgoing_type event_data;
@@ -173,7 +185,7 @@ int vcall_engine_process_emergency_call(char *number)
 	/* check the call-engine state before proceeding with emergency call processing */
 	_vc_core_engine_status_get_engine_iostate(pcall_engine, &io_state);
 	if (io_state != VC_INOUT_STATE_NONE) {
-		CALL_ENG_DEBUG(ENG_DEBUG, "IO State [%d] not NONE, cannot proceed with the call \n", io_state);
+		CALL_ENG_DEBUG(ENG_DEBUG, "IO State [%d] not NONE, cannot proceed with the call", io_state);
 		voicecall_core_set_status(global_pcall_core, CALL_VC_CORE_FLAG_SETUPCALL_FAIL, TRUE);
 		vc_engine_msg_box_type mbox_event_data;
 
@@ -200,7 +212,7 @@ int vcall_engine_process_emergency_call(char *number)
 		global_pcall_core->call_setup_info.call_type = VC_CALL_ORIG_TYPE_PINLOCK;
 		voicecall_core_extract_phone_number(number, event_data.call_num, VC_PHONE_NUMBER_LENGTH_MAX);
 		if (strlen(number) > VC_PHONE_NUMBER_LENGTH_MAX) {
-			CALL_ENG_DEBUG(ENG_ERR, " WARNING!! number is larger than max num length!! \n");
+			CALL_ENG_DEBUG(ENG_ERR, " WARNING!! number is larger than max num length!!");
 			memcpy(global_pcall_core->call_setup_info.source_tel_number, number, VC_PHONE_NUMBER_LENGTH_MAX);
 			memcpy(global_pcall_core->call_setup_info.tel_number, number, VC_PHONE_NUMBER_LENGTH_MAX);
 		} else {
@@ -211,20 +223,27 @@ int vcall_engine_process_emergency_call(char *number)
 
 	event_data.contact_index = -1;
 	event_data.phone_type = -1;
+	event_data.bday_remaining_days = -1;
 
 	vcall_engine_send_event_to_client(VC_ENGINE_MSG_OUTGOING_TO_UI, (void *)&event_data);
 
 	if (voicecall_core_setup_call(global_pcall_core, TRUE)) {
-		CALL_ENG_DEBUG(ENG_DEBUG, " success!! \n");
+		CALL_ENG_DEBUG(ENG_DEBUG, " success!!");
 	} else {
-		CALL_ENG_DEBUG(ENG_DEBUG, " failed!! \n");
+		CALL_ENG_DEBUG(ENG_DEBUG, " failed!!");
 	}
 	return VCALL_ENGINE_API_SUCCESS;
 }
 
+/**
+ * This function processes emergency call for testing purpose.
+ *
+ * @return	int	API Result Code.
+ * @param[in]
+*/
 int vcall_engine_process_emergency_call_test(char *number)
 {
-	CALL_ENG_DEBUG(ENG_DEBUG, " number is : [%s] \n", number);
+	CALL_ENG_DEBUG(ENG_DEBUG, " number is : [%s]", number);
 	voicecall_engine_t *pcall_engine = global_pcall_core->pcall_engine;
 	gboolean bDefaultNumber = FALSE;
 	vc_engine_outgoing_type event_data;
@@ -233,7 +252,7 @@ int vcall_engine_process_emergency_call_test(char *number)
 	/* check the call-engine state before proceeding with emergency call processing */
 	_vc_core_engine_status_get_engine_iostate(pcall_engine, &io_state);
 	if (io_state != VC_INOUT_STATE_NONE) {
-		CALL_ENG_DEBUG(ENG_DEBUG, "IO State [%d] not NONE, cannot proceed with the call \n", io_state);
+		CALL_ENG_DEBUG(ENG_DEBUG, "IO State [%d] not NONE, cannot proceed with the call", io_state);
 		voicecall_core_set_status(global_pcall_core, CALL_VC_CORE_FLAG_SETUPCALL_FAIL, TRUE);
 		vc_engine_msg_box_type mbox_event_data;
 
@@ -260,7 +279,7 @@ int vcall_engine_process_emergency_call_test(char *number)
 		global_pcall_core->call_setup_info.call_type = VC_CALL_ORIG_TYPE_PINLOCK;
 		voicecall_core_extract_phone_number(number, event_data.call_num, VC_PHONE_NUMBER_LENGTH_MAX);
 		if (strlen(number) > VC_PHONE_NUMBER_LENGTH_MAX) {
-			CALL_ENG_DEBUG(ENG_ERR, " WARNING!! number is larger than max num length!! \n");
+			CALL_ENG_DEBUG(ENG_ERR, " WARNING!! number is larger than max num length!!");
 			memcpy(global_pcall_core->call_setup_info.source_tel_number, number, VC_PHONE_NUMBER_LENGTH_MAX);
 			memcpy(global_pcall_core->call_setup_info.tel_number, number, VC_PHONE_NUMBER_LENGTH_MAX);
 		} else {
@@ -271,19 +290,19 @@ int vcall_engine_process_emergency_call_test(char *number)
 
 	event_data.contact_index = -1;
 	event_data.phone_type = -1;
+	event_data.bday_remaining_days = -1;
 
 	vcall_engine_send_event_to_client(VC_ENGINE_MSG_OUTGOING_TO_UI, (void *)&event_data);
 
 	{
 		int call_handle = 1;
 		vc_engine_outgoing_orig_type orig_event_data;
-		call_vc_call_objectinfo_t callobject_info;
 
 		memset(&orig_event_data, 0, sizeof(orig_event_data));
 		orig_event_data.call_handle = call_handle;
 		orig_event_data.bemergency = TRUE;
 
-		CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d, bemergency:[%d] \n", orig_event_data.call_handle, orig_event_data.bemergency);
+		CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d, bemergency:[%d]", orig_event_data.call_handle, orig_event_data.bemergency);
 		vcall_engine_send_event_to_client(VC_ENGINE_MSG_OUTGOING_ORIG_TO_UI_TEST, (void *)&orig_event_data);
 	}
 
@@ -294,11 +313,11 @@ int vcall_engine_process_emergency_call_test(char *number)
  * This function processes sat setup call.
  *
  * @return	int	API Result Code.
- * @param[in]		
+ * @param[in]
 */
 int vcall_engine_process_sat_setup_call(vcall_engine_sat_setup_call_info_t *sat_setup_call_info)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	voicecall_core_process_sat_setup_call(sat_setup_call_info);
 	return VCALL_ENGINE_API_SUCCESS;
 }
@@ -307,13 +326,13 @@ int vcall_engine_process_sat_setup_call(vcall_engine_sat_setup_call_info_t *sat_
  * This function processes incoming call.
  *
  * @return	int	API Result Code.
- * @param[in]		
+ * @param[in]
 */
 int vcall_engine_process_incoming_call(vcall_engine_incoming_info_t *incoming_call_info)
 {
 	call_vc_core_incoming_info_t tmp_incom_info = { 0, };
 
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 
 	tmp_incom_info.call_handle = incoming_call_info->call_handle;
 	tmp_incom_info.call_type = incoming_call_info->call_type;
@@ -339,11 +358,11 @@ int vcall_engine_process_incoming_call(vcall_engine_incoming_info_t *incoming_ca
 */
 int vcall_engine_answer_call(void)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = VCALL_ENGINE_API_FAILED;
 
 	ret = voicecall_core_answer_call(global_pcall_core, FALSE);
-	CALL_ENG_DEBUG(ENG_DEBUG, " ret:[%d] \n", ret);
+	CALL_ENG_DEBUG(ENG_DEBUG, " ret:[%d]", ret);
 	return ret;
 }
 
@@ -355,8 +374,8 @@ int vcall_engine_answer_call(void)
  */
 int vcall_engine_answer_call_by_type(vcall_engine_answer_type_t answer_type)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
-	CALL_ENG_DEBUG(ENG_DEBUG, "answer_type:[%d]\n", answer_type);
+	CALL_ENG_DEBUG(ENG_WARN, "..");
+	CALL_ENG_DEBUG(ENG_DEBUG, "answer_type:[%d]", answer_type);
 
 	if (TRUE == voicecall_core_answer_call_bytype(global_pcall_core, answer_type)) {
 		return VCALL_ENGINE_API_SUCCESS;
@@ -374,7 +393,7 @@ int vcall_engine_answer_call_by_type(vcall_engine_answer_type_t answer_type)
  */
 int vcall_engine_cancel_call(void)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 
 	if (TRUE == voicecall_core_cancel_call(global_pcall_core)) {
 		return VCALL_ENGINE_API_SUCCESS;
@@ -391,7 +410,7 @@ int vcall_engine_cancel_call(void)
  */
 int vcall_engine_reject_call(void)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 
 	if (TRUE == voicecall_core_reject_mt(global_pcall_core, TRUE)) {
 		return VCALL_ENGINE_API_SUCCESS;
@@ -408,7 +427,7 @@ int vcall_engine_reject_call(void)
  */
 int vcall_engine_release_call(void)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 
 	if (TRUE == voicecall_core_end_call(global_pcall_core)) {
 		return VCALL_ENGINE_API_SUCCESS;
@@ -425,8 +444,8 @@ int vcall_engine_release_call(void)
  */
 int vcall_engine_release_call_by_handle(int call_handle)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
-	CALL_ENG_DEBUG(ENG_DEBUG, "call_handle:[%d]\n", call_handle);
+	CALL_ENG_DEBUG(ENG_WARN, "..");
+	CALL_ENG_DEBUG(ENG_DEBUG, "call_handle:[%d]", call_handle);
 
 	if (TRUE == voicecall_core_end_call_by_handle(global_pcall_core, call_handle)) {
 		return VCALL_ENGINE_API_SUCCESS;
@@ -443,10 +462,10 @@ int vcall_engine_release_call_by_handle(int call_handle)
  */
 int vcall_engine_release_call_by_type(vcall_engine_release_type_t release_type)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
-	CALL_ENG_DEBUG(ENG_DEBUG, " release_type : [%d]\n", release_type);
+	CALL_ENG_DEBUG(ENG_DEBUG, " release_type : [%d]", release_type);
 	switch (release_type) {
 	case VCALL_ENGINE_RELEASE_ALL_ACTIVE_CALLS:
 		{
@@ -467,7 +486,7 @@ int vcall_engine_release_call_by_type(vcall_engine_release_type_t release_type)
 		break;
 
 	default:
-		CALL_ENG_DEBUG(ENG_DEBUG, " Unknown release_type : [%d]\n", release_type);
+		CALL_ENG_DEBUG(ENG_DEBUG, " Unknown release_type : [%d]", release_type);
 		break;
 
 	}
@@ -487,7 +506,7 @@ int vcall_engine_release_call_by_type(vcall_engine_release_type_t release_type)
  */
 int vcall_engine_process_hold_call(void)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
 	ret = voicecall_core_process_hold_call(global_pcall_core);
@@ -506,7 +525,7 @@ int vcall_engine_process_hold_call(void)
  */
 void vcall_engine_process_incall_ss(char *number)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "number(%s)\n");
+	CALL_ENG_DEBUG(ENG_WARN, "number(%s)");
 
 	voicecall_core_process_incall_ss(global_pcall_core, number);
 }
@@ -519,7 +538,7 @@ void vcall_engine_process_incall_ss(char *number)
  */
 int vcall_engine_join_call(void)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
 	ret = voicecall_core_setup_conference(global_pcall_core);
@@ -538,7 +557,7 @@ int vcall_engine_join_call(void)
  */
 int vcall_engine_split_call(int call_handle)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
 	ret = voicecall_core_make_private_call(global_pcall_core, call_handle);
@@ -557,7 +576,7 @@ int vcall_engine_split_call(int call_handle)
  */
 int vcall_engine_transfer_call(void)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
 	ret = voicecall_core_transfer_calls(global_pcall_core);
@@ -576,10 +595,10 @@ int vcall_engine_transfer_call(void)
  */
 int vcall_engine_process_loudspeaker(int bstatus)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
-	CALL_ENG_DEBUG(ENG_DEBUG, " bstatus : [%d]\n", bstatus);
+	CALL_ENG_DEBUG(ENG_DEBUG, " bstatus : [%d]", bstatus);
 	if (bstatus) {
 		ret = voicecall_service_loudspeaker_on(global_pcall_core);
 	} else {
@@ -601,10 +620,10 @@ int vcall_engine_process_loudspeaker(int bstatus)
  */
 int vcall_engine_process_voice_mute(int bstatus)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
-	CALL_ENG_DEBUG(ENG_DEBUG, " bstatus : [%d]\n", bstatus);
+	CALL_ENG_DEBUG(ENG_DEBUG, " bstatus : [%d]", bstatus);
 	if (bstatus) {
 		ret = voicecall_service_mute_status_on(global_pcall_core);
 	} else {
@@ -627,9 +646,10 @@ int vcall_engine_process_voice_mute(int bstatus)
  */
 int vcall_engine_get_volume_level(vcall_engine_vol_type_t vol_type)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 
-	CALL_ENG_DEBUG(ENG_DEBUG, " vol_type : [%d]\n", vol_type);
+	CALL_ENG_DEBUG(ENG_DEBUG, " vol_type : [%d]", vol_type);
+	/* jspark 201007 decide to sync or async. */
 
 	return voicecall_snd_get_volume(global_pcall_core->papp_snd, vol_type);
 
@@ -644,10 +664,10 @@ int vcall_engine_get_volume_level(vcall_engine_vol_type_t vol_type)
  */
 int vcall_engine_set_volume_level(vcall_engine_vol_type_t vol_type, int vol_level)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
-	CALL_ENG_DEBUG(ENG_DEBUG, " vol_type : [%d], vol_level:[%d]\n", vol_type, vol_level);
+	CALL_ENG_DEBUG(ENG_DEBUG, " vol_type : [%d], vol_level:[%d]", vol_type, vol_level);
 	ret = voicecall_service_set_volume(global_pcall_core, vol_type, vol_level);
 	if (ret == TRUE) {
 		return VCALL_ENGINE_API_SUCCESS;
@@ -664,7 +684,7 @@ int vcall_engine_set_volume_level(vcall_engine_vol_type_t vol_type, int vol_leve
  */
 int vcall_engine_stop_alert(void)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
 	ret = voicecall_core_stop_alert(global_pcall_core);
@@ -683,7 +703,7 @@ int vcall_engine_stop_alert(void)
  */
 int vcall_engine_mute_alert(void)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
 	ret = voicecall_snd_mute_alert(global_pcall_core->papp_snd);
@@ -702,10 +722,10 @@ int vcall_engine_mute_alert(void)
  */
 int vcall_engine_process_auto_redial(int bstatus)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
-	CALL_ENG_DEBUG(ENG_DEBUG, " bstatus : [%d]\n", bstatus);
+	CALL_ENG_DEBUG(ENG_DEBUG, " bstatus : [%d]", bstatus);
 	if (bstatus) {
 		ret = voicecall_core_start_redial(global_pcall_core, TRUE);
 	} else {
@@ -726,7 +746,7 @@ int vcall_engine_process_auto_redial(int bstatus)
  */
 int vcall_engine_send_dtmf_number(char *dtmf_number)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
 	ret = voicecall_core_send_dtmf(global_pcall_core, dtmf_number);
@@ -746,7 +766,7 @@ int vcall_engine_send_dtmf_number(char *dtmf_number)
  */
 int vcall_engine_change_sound_path(vcall_engine_audio_type_t sound_path)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
 	ret = voicecall_core_change_sound_path(global_pcall_core, sound_path);
@@ -766,7 +786,7 @@ int vcall_engine_change_sound_path(vcall_engine_audio_type_t sound_path)
  */
 int vcall_engine_get_sound_path(int *sound_path)
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 	int snd_path = 0;
 
@@ -774,14 +794,12 @@ int vcall_engine_get_sound_path(int *sound_path)
 
 	if (snd_path == VOICE_CALL_AUDIO_SPEAKER) {
 		*sound_path = VCALL_ENGINE_AUDIO_SPEAKER;
-	} else if (snd_path == VOICE_CALL_AUDIO_RECEIVER) {
-		*sound_path = VCALL_ENGINE_AUDIO_RECEIVER;
 	} else if (snd_path == VOICE_CALL_AUDIO_HEADSET) {
 		*sound_path = VCALL_ENGINE_AUDIO_HEADSET;
-	} else if (snd_path == VOICE_CALL_AUDIO_EARJACK) {
-		*sound_path = VCALL_ENGINE_AUDIO_EARJACK;
+	} else if (snd_path == VOICE_CALL_AUDIO_RECEIVER_EARJACK) {
+		*sound_path = VCALL_ENGINE_AUDIO_RECEIVER_EARJACK;
 	} else {
-		*sound_path = VCALL_ENGINE_AUDIO_RECEIVER;
+		*sound_path = VCALL_ENGINE_AUDIO_RECEIVER_EARJACK;
 	}
 
 	if (ret == TRUE) {
@@ -795,11 +813,11 @@ int vcall_engine_get_sound_path(int *sound_path)
  * This function set call engine to default
  *
  * @return	int	API Result Code.
- * @param[in]		
+ * @param[in]
  */
 int vcall_engine_set_to_default()
 {
-	CALL_ENG_DEBUG(ENG_WARN, "..\n");
+	CALL_ENG_DEBUG(ENG_WARN, "..");
 	int ret = FALSE;
 
 	ret = voicecall_core_set_to_default(global_pcall_core);
@@ -826,7 +844,6 @@ gpointer vcall_engine_get_core_state(void)
  */
 gboolean vcall_engine_util_strcpy(char *pbuffer, int buf_count, const char *pstring)
 {
-	CALL_ENG_DEBUG(ENG_DEBUG, "..");
 	return _vc_core_util_strcpy(pbuffer, buf_count, pstring);
 }
 
@@ -870,3 +887,54 @@ void vcall_engine_force_reset(void)
 
 	voicecall_core_end_all_calls(global_pcall_core);
 }
+
+/**
+ * This function will process the dtmf send request from UI
+ * It is executed when wait(w/W/;) is finished while sending a dtmf string
+ *
+ * @return	void
+ * @param[in] void
+ */
+void vcall_engine_send_dtmf(gboolean bsuccess)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "..");
+
+	voicecall_core_process_dtmf_send_status(global_pcall_core, bsuccess);
+}
+
+/**
+ * This function is interface to call-utility to check for ss string
+ *
+ * @return	TRUE or FALSE if success/failure
+ * @param[in]	call_number 	pointer to the number
+ */
+gboolean vcall_engine_check_incall_ss_string(char *call_number)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "..");
+	return _vc_core_util_check_incall_ss_string(call_number);
+}
+
+/**
+ * This function checks whether a given number is a SS string or not
+ *
+ * @return	TRUE or FALSE if success/failure
+ * @param[in]	call_number 	pointer to the number
+ */
+gboolean vcall_engine_check_ss_string(char *call_number)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "..");
+	return _vc_core_util_check_ss_string(call_number);
+}
+
+/**
+ * This function controls the lcd state
+ *
+ * @return void
+ * @param[in]	lcd_state	state of the lcd control
+ */
+void vcall_engine_device_control_lcd_state(voicecall_lcd_control_t lcd_state)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "..");
+	_voicecall_dvc_control_lcd_state(lcd_state);
+}
+

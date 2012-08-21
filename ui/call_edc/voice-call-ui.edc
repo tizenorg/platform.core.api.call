@@ -14,36 +14,24 @@
  * limitations under the License.
  */
 
+#include "../src/include/vcui-view-layout-hd.h"
 
-//#include "../vcui-view-layout.h"
-#include "../vcui-view-layout-hd.h"
-
-#define FONT_SLP_Bold "SLP:style=Bold"
-#define FONT_SLP_Medium "SLP:style=Medium"
-#define FONT_SLP_Roman "SLP:style=Roman"
-
-//#define	IMG_SRC_DIR "./wvga"
 #define	IMG_SRC_DIR "./hd"
 
 images {
-	/*image: IMG_SRC_DIR/"08_voicecall_multicall_icon01.png" COMP;
-	image: IMG_SRC_DIR/"08_voicecall_multicall_icon02.png" COMP;*/
-
-	image: IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png" COMP;	
-	image: IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png" COMP;
-	image: IMG_SRC_DIR/"./keypad/vc_keypad_btn_icon.png" COMP;
-
-	image: IMG_SRC_DIR/"vc_lock_left_bg.png" COMP;
-	image: IMG_SRC_DIR/"vc_lock_right_bg.png" COMP;
-	image: IMG_SRC_DIR/"vc_lock_accept_icon.png" COMP;
-	image: IMG_SRC_DIR/"vc_lock_reject_icon.png" COMP;
-	image: IMG_SRC_DIR/"vc_lock_bottom_bg.png" COMP;
- }
+	image: IMG_SRC_DIR/"vc_keypad_btn_normal.png" COMP;	
+	image: IMG_SRC_DIR/"vc_keypad_btn_press.png" COMP;
+	image: IMG_SRC_DIR/"vc_keypad_btn_icon.png" COMP;
+	image: IMG_SRC_DIR/"vc_lock_reject_message_bg.png" COMP;
+	image: IMG_SRC_DIR/"vc_lock_reject_message_arrow_open.png" COMP;
+	image: IMG_SRC_DIR/"vc_lock_reject_message_arrow_close.png" COMP;
+	image: IMG_SRC_DIR/"vc_reject_msg_icon.png" COMP;
+}
 
 
 collections {
 
-	#include "vcui-view-incoming.edc"
+	#include "vcui-view-button-layout.edc"
 	#include "vcui-view-incoming-lock.edc"
 	#include "vcui-view-dialing.edc"
 	#include "vcui-view-keypad.edc"
@@ -51,9 +39,13 @@ collections {
 	#include "vcui-view-multi-call-conf.edc"
 	#include "vcui-view-multi-call-split.edc"
 	#include "vcui-view-multi-call-list.edc"
+	#include "vcui-view-reject.edc"
 	#include "vcui-view-naviframe.edc"
 	#include "vcui-view-ug-effect.edc"
 	#include "vcui-view-end-single-call.edc"
 	#include "vcui-view-end-conf-call.edc"
- 	#include "vcui-view-volume-popup.edc"
+	#include "vcui-view-quick-pannel.edc"
+	#include "vcui-view-volume-popup.edc"
+	#include "vcui-view-caller-info.edc"
+	#include "vcui-view-landscape-quick-pannel.edc"
 }

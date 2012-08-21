@@ -14,199 +14,256 @@
  * limitations under the License.
  */
 
+#define	COLOR_OPACITY_100 255 255 255 255
+#define	COLOR_OPACITY_75 255 255 255 191
+#define	COLOR_OPACITY_60 255 255 255 153
+#define	COLOR_OPACITY_50 255 255 255 128
+#define	COLOR_OPACITY_25 255 255 255 64
+#define	COLOR_OPACITY_20 255 255 255 51
+#define	COLOR_OPACITY_0 255 255 255 0
+#define SHIFT_VALUE (20/720)
 
 group {
-	name: "lock_accept";
+	name: "lock_reject_with_msg";
 
 	parts {
 		part { 
-			name: "accept_bg"; 
+			name: "reject_msg_bg"; 
 			type: IMAGE; 
 			mouse_events:1; 
 			scale: 1;
 			description { 
 				state: "default" 0.0; 
-				rel1 { relative: INCOMING_LOCK_ACCEPT_BG_L INCOMING_LOCK_ACCEPT_BG_T; } 
-				rel2 { relative: INCOMING_LOCK_ACCEPT_BG_R INCOMING_LOCK_ACCEPT_BG_B; } 
-				image {
-					normal: IMG_SRC_DIR/"vc_lock_left_bg.png";
-				}
+				rel1 { relative: MTLOCK_REJECT_MSG_BG_L MTLOCK_REJECT_MSG_BG_T; } 
+				rel2 { relative: MTLOCK_REJECT_MSG_BG_R MTLOCK_REJECT_MSG_BG_B; } 
+				image { normal: IMG_SRC_DIR/"vc_lock_reject_message_bg.png"; }
 				align: 0.0 0.5;
-				color: 255 255 255 255;
+				color: 255 255 255 255;								
 				visible: 1;
-			} 
-			description { 
-				state: "alpha" 0.0; 
-				inherit: "default" 0.0;
-				color: 255 255 255 76; // 30%
-				visible: 1;
-			} 				
-		}
-		
-		part { 
-			name: "accept_icon"; 
-			type: IMAGE; 
-			mouse_events:1; 
-			scale: 1;
-			description { 
-				state: "default" 0.0; 
-				rel1 { relative: INCOMING_LOCK_ACCEPT_ICON_L INCOMING_LOCK_ACCEPT_ICON_T; to: "accept_bg"; } 
-				rel2 { relative: INCOMING_LOCK_ACCEPT_ICON_R INCOMING_LOCK_ACCEPT_ICON_B; to: "accept_bg"; } 
-				image {
-					normal: IMG_SRC_DIR/"vc_lock_accept_icon.png";
-				}
-				align: 0.5 0.5;
-				color: 255 255 255 255;
-				visible: 1;
-			} 
-			description { 
-				state: "alpha" 0.0; 
-				inherit: "default" 0.0;
-				color: 255 255 255 76; // 30%
-				visible: 1;
-			} 					
+			}
 		}
 
 		part {
-			name: "accept_text";
-			type: TEXT;
-			mouse_events:0; 
+			name: "reject_msg_arw";
+			type: IMAGE;
+			mouse_events:1;
 			scale: 1;
-			description { 
-				state: "default" 0.0; 
-				rel1 { relative: INCOMING_LOCK_ACCEPT_TEXT_L INCOMING_LOCK_ACCEPT_TEXT_T; to: "accept_bg"; } 
-				rel2 { relative: INCOMING_LOCK_ACCEPT_TEXT_R INCOMING_LOCK_ACCEPT_TEXT_B; to: "accept_bg"; }  
-				text { font, FONT_SLP_Roman; size, 58; align, 0.5 0.5; }
+			description {
+				state: "default" 0.0;
+				rel1 { relative: MTLOCK_REJECT_MSG_ARW_L MTLOCK_REJECT_MSG_ARW_T; }
+				rel2 { relative: MTLOCK_REJECT_MSG_ARW_R MTLOCK_REJECT_MSG_ARW_B; }
+				align: 0.5 0.5;
 				color: 255 255 255 255;
-				visible: 1;
-			} 
-			description { 
-				state: "alpha" 0.0; 
+				visible: 0;
+			}
+			description {
+				state: "list_close" 0.0;
 				inherit: "default" 0.0;
-				color: 255 255 255 76; // 30%
+				image { normal: IMG_SRC_DIR/"vc_lock_reject_message_arrow_open.png"; }
 				visible: 1;
-			} 					
+			}
+			description {
+				state: "list_open" 0.0;
+				inherit: "default" 0.0;
+				image { normal: IMG_SRC_DIR/"vc_lock_reject_message_arrow_close.png"; }
+				visible: 1;
+			}
+		}
+
+		part {
+			name: "reject_msg_text_area";
+			type: RECT;
+			mouse_events: 0;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: MTLOCK_REJECT_MSG_TEXT_L MTLOCK_REJECT_MSG_TEXT_T; }
+				rel2 { relative: MTLOCK_REJECT_MSG_TEXT_R MTLOCK_REJECT_MSG_TEXT_B; }
+				visible: 0;
+			}
+		}
+
+		part {
+			name: "reject_msg_icon";
+			type: IMAGE;
+			mouse_events:0;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: 0 0; to: "reject_msg_text_area";}
+				rel2 { relative: 0 1; to: "txt_padding";}
+				align: 1 0.5;
+				min: MTLOCK_REJECT_MSG_ICON_WIDTH MTLOCK_REJECT_MSG_ICON_HEIGHT;
+				max: MTLOCK_REJECT_MSG_ICON_WIDTH MTLOCK_REJECT_MSG_ICON_HEIGHT;
+				color: 255 255 255 255;
+				image { normal: IMG_SRC_DIR/"vc_reject_msg_icon.png"; }
+				visible: 1;
+			}
+		}
+
+		part { name: "txt_padding";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				fixed: 1 0;
+				min: MTLOCK_REJECT_MSG_PAD 0;
+				align: 1 0;
+				visible: 0;
+				rel1 { relative: 0 0; to: "reject_msg_text";}
+				rel2 { relative: 0 1; to: "reject_msg_text";}
+			}
+		}
+
+
+		part {
+			name: "reject_msg_text";
+			type: TEXT;
+			mouse_events: 0;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: (0.5+((MTLOCK_REJECT_MSG_ICON_WIDTH+MTLOCK_REJECT_MSG_PAD)/(MTLOCK_REJECT_MSG_TEXT_WIDTH*2)))  0; to: "reject_msg_text_area";}
+				rel2 { relative: (0.5+((MTLOCK_REJECT_MSG_ICON_WIDTH+MTLOCK_REJECT_MSG_PAD)/(MTLOCK_REJECT_MSG_TEXT_WIDTH*2))) 1; to: "reject_msg_text_area";}
+				fixed: 0 1;
+				max: (MTLOCK_REJECT_MSG_TEXT_WIDTH-MTLOCK_REJECT_MSG_ICON_WIDTH-MTLOCK_REJECT_MSG_PAD) MTLOCK_REJECT_MSG_TEXT_HEIGHT;
+				text { font, FONT_SLP_Roman; size, 32; align, 0.5 0.5; min: 1 0; text_class, TEXT_CLASS_SLP_ROMAN; }
+				color: 255 255 255 255;
+				color2: 0 0 0 191;
+				visible: 1;
+			}
+		}
+
+		part {
+			name: "swl_msglist_bg";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				color: 0 0 0 255;
+				rel1 { relative: MTLOCK_REJECT_MSG_LIST_L MTLOCK_REJECT_MSG_LIST_T; }
+			}
+			description {
+				state: "one-line" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel2 { relative: MTLOCK_REJECT_MSG_LIST_R MTLOCK_REJECT_MSG_ONE_LINE_LIST_B; }
+			}
+			description {
+				state: "two-line" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel2 { relative: MTLOCK_REJECT_MSG_LIST_R MTLOCK_REJECT_MSG_TWO_LINE_LIST_B; }
+			}
+			description {
+				state: "three-line" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel2 { relative: MTLOCK_REJECT_MSG_LIST_R MTLOCK_REJECT_MSG_THREE_LINE_LIST_B; }
+			}
+			description {
+				state: "four-line" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel2 { relative: MTLOCK_REJECT_MSG_LIST_R MTLOCK_REJECT_MSG_FOUR_LINE_LIST_B; }
+			}
+			description {
+				state: "five-line" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel2 { relative: MTLOCK_REJECT_MSG_LIST_R MTLOCK_REJECT_MSG_FIVE_LINE_LIST_B; }
+			}
+			description {
+				state: "six-line" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel2 { relative: MTLOCK_REJECT_MSG_LIST_R MTLOCK_REJECT_MSG_SIX_LINE_LIST_B; }
+			}
+		}
+		
+		part {
+			name: "swl_msglist";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 1;
+				rel1 { relative: 0.0 0.0; to: "swl_msglist_bg"; }
+				rel2 { relative: 1.0 1.0; to: "swl_msglist_bg"; }
+			}
+		}
+
+		part {
+			name: "swl_msgtoolbar";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				visible: 1;
+				rel1 { relative: 0.0 1.0; to: "swl_msglist_bg"; }
+				rel2 { relative: 1.0 1.0; to: "swl_msglist_bg"; offset: 0 MTLOCK_REJECT_MSG_TOOLBAR_HEIGHT; }
+			}
 		}
 	}
 
 	programs {
-		program {
-			name: "lock_accept,default";
-			signal: "lock_accept,default";
-			source: "prog";
-			action: STATE_SET "default" 0.0;
-			target: "accept_bg";
-			target: "accept_icon";
-			target: "accept_text";
-			transition: LINEAR 0.3;
-		}			
-		program {
-			name: "lock_accept,alpha";
-			signal: "lock_accept,alpha";
-			source: "prog";
-			action: STATE_SET "alpha" 0.0;
-			target: "accept_bg";
-			target: "accept_icon";
-			target: "accept_text";
-			transition: LINEAR 0.3;
-		}
-	}
-}
 
-group {
-	name: "lock_reject";
-
-	parts {
-		part { 
-			name: "reject_bg"; 
-			type: IMAGE; 
-			mouse_events:1; 
-			scale: 1;
-			description { 
-				state: "default" 0.0; 
-				rel1 { relative: INCOMING_LOCK_REJECT_BG_L INCOMING_LOCK_REJECT_BG_T; } 
-				rel2 { relative: INCOMING_LOCK_REJECT_BG_R INCOMING_LOCK_REJECT_BG_B; } 
-				image {
-					normal: IMG_SRC_DIR/"vc_lock_right_bg.png";
-				}
-				align: 0.0 0.5;
-				color: 255 255 255 255;
-				visible: 1;
-			} 
-			description { 
-				state: "alpha" 0.0; 
-				inherit: "default" 0.0;
-				color: 255 255 255 76; // 30%
-				visible: 1;
-			} 					
+		program {
+			name: "up_arrow";
+			signal: "show-up-arrow";
+			source: "reject_msg";
+			action: STATE_SET "list_close" 0.0;
+			target: "reject_msg_arw";
+			transition: LINEAR 0.0;
 		}
-		
-		part { 
-			name: "reject_icon"; 
-			type: IMAGE; 
-			mouse_events:1; 
-			scale: 1;
-			description { 
-				state: "default" 0.0; 
-				rel1 { relative: INCOMING_LOCK_REJECT_ICON_L INCOMING_LOCK_REJECT_ICON_T; to: "reject_bg"; } 
-				rel2 { relative: INCOMING_LOCK_REJECT_ICON_R INCOMING_LOCK_REJECT_ICON_B; to: "reject_bg"; } 
-				image {
-					normal: IMG_SRC_DIR/"vc_lock_reject_icon.png";
-				}
-				align: 0.5 0.5;
-				color: 255 255 255 255;
-				visible: 1;
-			} 
-			description { 
-				state: "alpha" 0.0; 
-				inherit: "default" 0.0;
-				color: 255 255 255 76; // 30%
-				visible: 1;
-			} 					
+		program {
+			name: "down_arrow";
+			signal: "show-down-arrow";
+			source: "reject_msg";
+			action: STATE_SET "list_open" 0.0;
+			target: "reject_msg_arw";
+			transition: LINEAR 0.0;
 		}
 
-		part {
-			name: "reject_text";
-			type: TEXT;
-			mouse_events:0; 
-			scale: 1;
-			description { 
-				state: "default" 0.0; 
-				rel1 { relative: INCOMING_LOCK_REJECT_TEXT_L INCOMING_LOCK_REJECT_TEXT_T; to: "reject_bg"; } 
-				rel2 { relative: INCOMING_LOCK_REJECT_TEXT_R INCOMING_LOCK_REJECT_TEXT_B; to: "reject_bg"; }  
-				text { font, FONT_SLP_Roman; size, 58; align, 0.5 0.5; }
-				color: 255 255 255 255;
-				visible: 1;
-			} 
-			description { 
-				state: "alpha" 0.0; 
-				inherit: "default" 0.0;
-				color: 255 255 255 76; // 30%
-				visible: 1;
-			} 					
+		program {
+			name: "one-line-list";
+			signal: "show-one-line";
+			source: "reject-list";
+			action: STATE_SET "one-line" 0.0;
+			target: "swl_msglist_bg";
 		}
-	}
-
-	programs {
 		program {
-			name: "lock_reject,default";
-			signal: "lock_reject,default";
-			source: "prog";
-			action: STATE_SET "default" 0.0;
-			target: "reject_bg";
-			target: "reject_icon";
-			target: "reject_text";
-			transition: LINEAR 0.3;
-		}			
+			name: "two-line-list";
+			signal: "show-two-line";
+			source: "reject-list";
+			action: STATE_SET "two-line" 0.0;
+			target: "swl_msglist_bg";
+		}
 		program {
-			name: "lock_reject,alpha";
-			signal: "lock_reject,alpha";
-			source: "prog";
-			action: STATE_SET "alpha" 0.0;
-			target: "reject_bg";
-			target: "reject_icon";
-			target: "reject_text";
-			transition: LINEAR 0.3;
+			name: "three-line-list";
+			signal: "show-three-line";
+			source: "reject-list";
+			action: STATE_SET "three-line" 0.0;
+			target: "swl_msglist_bg";
+		}
+		program {
+			name: "four-line-list";
+			signal: "show-four-line";
+			source: "reject-list";
+			action: STATE_SET "four-line" 0.0;
+			target: "swl_msglist_bg";
+		}
+		program {
+			name: "five-line-list";
+			signal: "show-five-line";
+			source: "reject-list";
+			action: STATE_SET "five-line" 0.0;
+			target: "swl_msglist_bg";
+		}
+		program {
+			name: "six-line-list";
+			signal: "show-six-line";
+			source: "reject-list";
+			action: STATE_SET "six-line" 0.0;
+			target: "swl_msglist_bg";
 		}
 	}
 }
@@ -215,15 +272,18 @@ group {
 	name: "mtlock";
     parts {
 	     part { name: "background";
-			 type: RECT;
-			 description {
-			 	state: "default" 0.0;
+			type: RECT;
+			mouse_events: 1;
+			pointer_mode: NOGRAB;
+			description {
+				state: "default" 0.0;
 				color: COLOR_DEFAULT;
 			}
 		}
 			 
 		part { name: "swl_cid_background";
 			type: SWALLOW;
+			mouse_events: 0;
 			description {
 				state: "default" 0.0;
 				rel1 { relative: DIALLING_BACKGROUND_CID_L DIALLING_BACKGROUND_CID_T; to: "background";}
@@ -231,25 +291,19 @@ group {
 			}
 		}
 
-		part { name: "bg_alpha";
-			type: RECT;
-			description {
-				state: "default" 0.0;
-				color: COLOR_BG_ALPHA;
-			}
-		}
-
-		part { name: "swl_calling_name_bg";
+		part { name: "call_bg_img";
 			type: SWALLOW;
+			mouse_events: 0;
 			description {
 				state: "default" 0.0;
-				rel1 { relative: MT_CALLING_BG_L MT_CALLING_BG_T; to: "background";}
-				rel2 { relative: MT_CALLING_BG_R MT_CALLING_BG_B; to: "background";}
+				rel1 { relative: 0 0; to: "background";}
+				rel2 { relative: 1 1; to: "background";}
 			}
 		}
 
 		part { name: "swl_cid";
 			type: SWALLOW;
+			mouse_events: 0;
 			description {
 				state: "default" 0.0;
 				rel1 { relative: DIALLING_CID_L DIALLING_CID_T; }
@@ -257,49 +311,37 @@ group {
 			}
 		}
 		
-		part { name: "txt_call_name"; // call name or number
-			type: TEXT;
-			effect: SHADOW;
+		part { name: "caller_info";
+			type: SWALLOW;
 			scale: 1;
+			mouse_events: 0;
 			description {
 				state: "default" 0.0;
-				rel1 { relative: DIALLING_NAME_L DIALLING_NAME_T;to: "background";}
-				rel2 { relative: DIALLING_NAME_R DIALLING_NAME_B;to: "background";  }				
-				text { font, FONT_SLP_Roman; size, 76; align, 0.5 0.5; }
-				color: 255 255 255 255;
-				color2: 0 0 0 255;
+				visible: 1;
+				rel1 { relative: CALLER_INFO_L CALLER_INFO_T; to: "background";}
+				rel2 { relative: CALLER_INFO_R CALLER_INFO_B; to: "background";}
 			}
 		}
 
-		part { name: "txt_contact_phone_type"; // contact phone type -> call number
-			type: TEXT;
-			effect: SHADOW;
+		part { name: "btn_accept";
+			type: SWALLOW;
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				rel1 { relative: DIALLING_NUMBER_L DIALLING_NUMBER_T; to: "background"; }
-				rel2 { relative: DIALLING_NUMBER_R DIALLING_NUMBER_B;to: "background";  }				
-				text { font, FONT_SLP_Roman; size, 48; align, 0.5 0.5; }
-				color: 255 255 255 255;
-				color2: 0 0 0 255;
+				rel1 { relative: DIALLING_MT_BTN1_L DIALLING_MT_BTN1_T; to: "background";}
+				rel2 { relative: DIALLING_MT_BTN1_R DIALLING_MT_BTN1_B; to: "background";}
 			}
-		}          
+		}		
+		part { name: "btn_reject";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: DIALLING_MT_BTN2_L DIALLING_MT_BTN2_T; to: "background";}
+				rel2 { relative: DIALLING_MT_BTN2_R DIALLING_MT_BTN2_B; to: "background";}
+			}
+		}
 
-		/*
-	    part { name: "txt_mt_status"; // Voice call
-				type: TEXT;
-				effect: SHADOW;
-				scale: 1;
-				description {
-					state: "default" 0.0;
-					rel1 { relative: DIALLING_MT_STATUS_L DIALLING_MT_STATUS_T;to: "background";}
-					rel2 { relative: DIALLING_MT_STATUS_R DIALLING_MT_STATUS_B;to: "background";  }				
-					text { font, FONT_SLP_Roman; size, 48; align, 0.5 0.5; }
-					color: 255 255 255 255;
-					color2: 0 0 0 255;
-				}
-			}
-		*/ 
 	}//parts
 
 	programs {
@@ -311,6 +353,6 @@ group {
 			target: "background";
 			target: "swl_cid";
 			target: "swl_cid_background";
-		}    	
+		}
 	}
 }

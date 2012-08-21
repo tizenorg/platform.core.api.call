@@ -27,11 +27,32 @@
 typedef struct {
 	unsigned int ct_index;						/**<Specifies the index for a record  */
 	int phone_type;								/**<Specified the phone type */
+	int	bday_remaining_days;					/**<Specifies the remaining days for the birthday */
 	char display_name[VC_DISPLAY_NAME_LENGTH_MAX];					  /**<Specifies the display name character data of a record in the contact table. */
 	char caller_id_path[VC_IMAGE_PATH_LENGTH_MAX];					  /**<CTS_IMG_NORMAL><Specifies the caller id path of a record in the contact table. */
 	char caller_full_id_path[VC_IMAGE_PATH_LENGTH_MAX];				       /**<CTS_IMG_FULL>*/
 	char ring_tone[VC_RINGTONE_PATH_LENGTH_MAX];						/**<Specifies the ring tone character data of a record in the contact table. */
 } voicecall_contact_info_t;
+
+/**
+ * This function gets  contact info from phone number
+ *
+ * @return		gboolean
+ * @param[in]		phonenumber		phone number		
+ * @param[out]	ct_info			contact info
+ */
+gboolean voicecall_service_contact_info_by_number(char *phonenumber, voicecall_contact_info_t * ct_info);
+
+/**
+ * This function gets  contact info from contact id
+ *
+ * @return		gboolean
+ * @param[in]		phonenumber		phone number		
+ * @param[in]		contact_id		contact id
+ * @param[in]		storage_type		storage type 
+ * @param[out]	ct_info			contact info
+ */
+gboolean voicecall_service_contact_info_by_contact_id(char *phonenumber, int contact_id, voicecall_contact_info_t * ct_info);
 
 /**
  * This function on the loud speaker state
@@ -74,4 +95,5 @@ gboolean voicecall_service_mute_status_off(call_vc_core_state_t *pcall_core);
  * @param[in]		volume_level			volume level to be set
  */
 gboolean voicecall_service_set_volume(call_vc_core_state_t *pcall_core, voicecall_snd_volume_alert_type_t vol_alert_type, int volume_level);
+
 #endif

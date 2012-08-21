@@ -1,3 +1,21 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "Annehmen"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Stumm"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Verbindung wird hergestellt..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Abgelehnt"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Gespeichert"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Sendevorgang läuft..."
+
 msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
 msgstr "Ablehnungsnachricht erstellen"
 
@@ -50,7 +68,7 @@ msgid "IDS_CALL_BUTTON_ACCEPT"
 msgstr "Annehmen"
 
 msgid "IDS_CALL_BUTTON_ADD_CALL"
-msgstr "Anruf hin."
+msgstr "Anruf hzfg."
 
 msgid "IDS_CALL_BUTTON_CONTACTS"
 msgstr "Kontakte"
@@ -67,14 +85,11 @@ msgstr "Halten"
 msgid "IDS_CALL_BUTTON_JOIN"
 msgstr "Konferenz"
 
-msgid "IDS_CALL_BUTTON_MUTE_ABB"
-msgstr "Stumm"
-
 msgid "IDS_CALL_BUTTON_REJECT"
-msgstr "Abweisen"
+msgstr "Ablehnen"
 
 msgid "IDS_CALL_BUTTON_SPEAKER"
-msgstr "Lautsp."
+msgstr "Lautspr."
 
 msgid "IDS_CALL_BUTTON_SPLIT"
 msgstr "Teilen"
@@ -98,10 +113,10 @@ msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
 msgstr "Systemfehler"
 
 msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
-msgstr "Alle eingehenden Anrufe gesperrt"
+msgstr "Alle eingehenden Anrufe blockiert"
 
 msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
-msgstr "Alle ausgehenden Anrufe gesperrt"
+msgstr "Alle ausgehenden Anrufe blockiert"
 
 msgid "IDS_CALL_POP_CALLFAILED"
 msgstr "Anruf fehlgeschlagen"
@@ -197,7 +212,7 @@ msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
 msgstr "Telefon nicht initialisiert"
 
 msgid "IDS_CALL_POP_PS_REJECTED"
-msgstr "4422341526 abgelehnt"
+msgstr "%s abgelehnt"
 
 msgid "IDS_CALL_POP_REDIALLING"
 msgstr "Wahlwiederholung..."
@@ -206,7 +221,7 @@ msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
 msgstr "Dienst unzulässig"
 
 msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
-msgstr "Nur SOS-Anruf. SIM-Karte einsetzen, um Netzdienste zu nutzen"
+msgstr "Nur SOS-Anruf.\nSIM-Karte einsetzen, um Netzdienste zu nutzen"
 
 msgid "IDS_CALL_POP_SPLIT_FAILED"
 msgstr "Teilen fehlgeschlagen"
@@ -301,23 +316,11 @@ msgstr "Nicht genügend Speicher. Löschen Sie einige Elemente"
 msgid "IDS_CALL_SK3_END_CALL"
 msgstr "Beenden"
 
-msgid "IDS_MSGC_OPT_SOUND"
-msgstr "Ton"
-
 msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
 msgstr "Service nicht verfügbar"
 
 msgid "IDS_CALL_SK3_KEYPAD"
-msgstr "Tasten-\nfeld"
-
-msgid "IDS_CALL_POP_CONNECTING"
-msgstr "Verbindung wird hergestellt..."
-
-msgid "IDS_CALL_POP_REJECTED"
-msgstr "Abgewiesen"
-
-msgid "IDS_CALL_POP_SENDING"
-msgstr "Sendevorgang läuft..."
+msgstr "Tastenfeld"
 
 msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
 msgstr "Tastatur ausbl."
@@ -328,6 +331,183 @@ msgstr "Rec"
 msgid "IDS_CALL_POP_UNKNOWNREJECTED"
 msgstr "Unbekannten Anruf abgewiesen"
 
-msgid "IDS_CALL_POP_SAVED"
-msgstr "Gespeichert"
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "Umschalten"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "Nummer auswählen"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "in %d Tagen"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "Morgen"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "In einer Woche"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "%s halten"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "Anruf beenden mit %s"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "Anruf annehmen nach"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "Alle Anrufe beenden"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "Rauschverminderung aus"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "Rauschverminderung ein"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "Tiefen-Verstärkung"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "Höhen-Verstärkung"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "Optimiert für linkes Ohr"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "Optimiert für rechtes Ohr"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Einschalten der Rauschverminderung bei aktivierter Extralautstärke nicht möglich."
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "Einschalten der Rauschverminderung nicht möglich, wenn Kopfhörer angeschlossen sind."
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Einschalten der Rauschverminderung nicht möglich, wenn ein Bluetooth-Headset verbunden ist."
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "Einschalten der Rauschverminderung während Breitband-Anrufen nicht möglich."
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "Um diese Funktion zu nutzen, müssen Sie die EQ-Optimierung unter “Anrufeinstellungen” aktivieren."
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "Gesprächston-EQ kann nicht aktiviert werden wenn der Lautsprecher eingeschaltet ist."
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "Gesprächston-EQ kann nicht aktiviert werden wenn Kopfhörer angeschlossen sind."
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Gesprächston-EQ kann nicht aktiviert werden wenn Bluetooth-Headset eingeschaltet ist."
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "Zusätzlicher Lautstärkebereich kann nicht verwendet werden, wenn Kopfhörer oder BT-Headset verwendet werden."
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "Anrufen..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "Konferenzanruf verwalten"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Gesprächston-EQ kann bei aktivierter Extralautstärke nicht aktiviert werden."
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "Gesprächston-EQ kann während Breitband-Anrufen nicht aktiviert werden."
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "Ton"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "Einschalten der Rauschverminderung nicht möglich, wenn Lautsprecher eingeschaltet ist."
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "Ablehnungsnachrichten"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "Sprachanruf"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "Videoanruf"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "Senden via"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "Tastenfeld"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "Beenden"
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "Lautspr."
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "Audioquelle"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "Telefon"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "Stumm"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "Zu Kontakten hzfg."
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "Anrufen"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "Videoanr."
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "Nachricht"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "Zu Kontakten hzfg."
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "Nachricht"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "Tausch."
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "Optionen"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "Datei über ChatON freig."
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "Senden via"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d Mal"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "Gruppenanruf (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "Gespeichertes Bild"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "Gespeichertes Video"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "Foto aufnehmen"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "Live-Video"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "Kontakt anz."
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d verpasste Anrufe"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "Anr. in Abwesenheit"
 

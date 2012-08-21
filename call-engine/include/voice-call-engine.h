@@ -67,7 +67,7 @@ typedef enum _vcall_engine_api_result_t {
 	VCALL_ERROR_MAX
 } vcall_engine_api_result_t;
 
-/** 
+/**
  * This enum defines call answer types
  */
 typedef enum _vcall_engine_answer_type_t {
@@ -77,7 +77,7 @@ typedef enum _vcall_engine_answer_type_t {
 	VCALL_ENGINE_ANSWER_RELEASE_ALL_AND_ACCEPT		/**< Releases the all calls and accept the call (END and  CONNECTED will be sent to client) */
 } vcall_engine_answer_type_t;
 
-/** 
+/**
  * This enum defines call release types
  */
 typedef enum _vcall_engine_release_type_t {
@@ -86,7 +86,18 @@ typedef enum _vcall_engine_release_type_t {
 	VCALL_ENGINE_RELEASE_ALL_CALLS,					/**< To end all available calls(active,held,incoming/outgoing*/
 } vcall_engine_release_type_t;
 
-/** 
+/**
+* This enum defines the command type sent by recorder to the client view through update signal
+*/
+typedef enum _vcall_engine_record_stop_type_t {
+	VCALL_ENGINE_RECORD_STOP_BY_NORMAL,						/**< BY_NORMAL*/
+	VCALL_ENGINE_RECORD_STOP_BY_MAX_SIZE,					/**< by MAX_SIZE*/
+	VCALL_ENGINE_RECORD_STOP_BY_NO_FREE_SPACE,		/**< BY_NO_FREE_SPACE*/
+	VCALL_ENGINE_RECORD_STOP_BY_TIME_LIMIT,				/**< BY_TIME_LIMIT*/
+	VCALL_ENGINE_RECORD_STOP_ERROR,								/**< ERROR*/
+} vcall_engine_record_stop_type_t;
+
+/**
  * This enum defines call answer types
  */
 typedef enum _vcall_engine_vol_type_t {
@@ -101,9 +112,8 @@ typedef enum _vcall_engine_vol_type_t {
 typedef enum _vcall_engine_audio_type_t {
 	VCALL_ENGINE_AUDIO_NONE,				/**< none*/
 	VCALL_ENGINE_AUDIO_SPEAKER,			/**< System LoudSpeaker Audio */
-	VCALL_ENGINE_AUDIO_RECEIVER,		/**< System receiver Audio */
+	VCALL_ENGINE_AUDIO_RECEIVER_EARJACK,		/**< System receiver or earjack Audio */
 	VCALL_ENGINE_AUDIO_HEADSET,			/**< System Headset Audio */
-	VCALL_ENGINE_AUDIO_EARJACK,			/**< System Earjack Audio */
 	VCALL_ENGINE_AUDIO_MAX,
 } vcall_engine_audio_type_t;
 
@@ -125,7 +135,7 @@ typedef enum {
 	VC_LCD_ON_UNLOCK,
 } voicecall_lcd_control_t;
 
-/** 
+/**
  * This struct provides a structure for call setup info data.
  */
 typedef struct _vcall_engine_setup_info_t {
@@ -139,7 +149,7 @@ typedef struct _vcall_engine_setup_info_t {
 	char call_full_file_path[VC_IMAGE_PATH_LENGTH_MAX];
 } vcall_engine_setup_info_t;
 
-/** 
+/**
  * This struct provides a structure for sat setup call info data.
  */
 typedef struct _vcall_engine_sat_setup_call_info_t {
@@ -150,7 +160,7 @@ typedef struct _vcall_engine_sat_setup_call_info_t {
 	unsigned int duration;						/**<maximum repeat duration*/
 } vcall_engine_sat_setup_call_info_t;
 
-/** 
+/**
  * This struct provides a structure for call incoming info data.
  */
 typedef struct _vcall_engine_incoming_info_t {
@@ -176,7 +186,7 @@ gboolean vcall_engine_send_event_to_client(int event, void *pdata);
  * This function initialize voice call engine.
  *
  * @return	int	API Result Code.
- * @param[in]		
+ * @param[in]
 */
 int vcall_engine_init(vcall_engine_app_cb pcb_func, void *pusr_data);
 
@@ -184,7 +194,7 @@ int vcall_engine_init(vcall_engine_app_cb pcb_func, void *pusr_data);
  * This function processes mo nomal call.
  *
  * @return	int	API Result Code.
- * @param[in]		
+ * @param[in]
 */
 int vcall_engine_process_normal_call(char *number, int ct_index, gboolean b_download_call);
 
@@ -192,7 +202,7 @@ int vcall_engine_process_normal_call(char *number, int ct_index, gboolean b_down
  * This function processes mo emergency call.
  *
  * @return	int	API Result Code.
- * @param[in]		
+ * @param[in]
 */
 int vcall_engine_process_emergency_call(char *number);
 
@@ -202,7 +212,7 @@ int vcall_engine_process_sat_setup_call(vcall_engine_sat_setup_call_info_t *sat_
  * This function processes incoming call.
  *
  * @return	int	API Result Code.
- * @param[in]		
+ * @param[in]
 */
 int vcall_engine_process_incoming_call(vcall_engine_incoming_info_t *incoming_call_info);
 
@@ -434,4 +444,46 @@ char *vcall_engine_util_get_date_time(time_t time);
  * @param[in] void
  */
 void vcall_engine_force_reset(void);
-#endif				/* _VOICE_CALL_ENGINE_H_ */
+
+/**
+ * This function will process the dtmf send request from UI
+ * It is executed when wait(w/W/;) is finished while sending a dtmf string
+ *
+ * @return	void
+ * @param[in] void
+ */
+void vcall_engine_send_dtmf(gboolean bsuccess);
+
+/**
+ * This function processes emergency call for testing purpose.
+ *
+ * @return	int	API Result Code.
+ * @param[in]
+*/
+int vcall_engine_process_emergency_call_test(char *number);
+
+/**
+ * This function is interface to call-utility to check for ss string
+ *
+ * @return	TRUE or FALSE if success/failure
+ * @param[in]	call_number 	pointer to the number
+ */
+gboolean vcall_engine_check_incall_ss_string(char *call_number);
+
+/**
+ * This function checks whether a given number is a SS string or not
+ *
+ * @return	TRUE or FALSE if success/failure
+ * @param[in]	call_number 	pointer to the number
+ */
+gboolean vcall_engine_check_ss_string(char *call_number);
+
+/**
+ * This function controls the lcd state
+ *
+ * @return void
+ * @param[in]	lcd_state	state of the lcd control
+ */
+void vcall_engine_device_control_lcd_state(voicecall_lcd_control_t lcd_state);
+
+#endif /* _VOICE_CALL_ENGINE_H_ */

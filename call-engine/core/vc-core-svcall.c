@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 #ifdef _CPHS_DEFINED_
 
 #include <stdbool.h>

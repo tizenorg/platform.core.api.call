@@ -18,6 +18,7 @@
 #include <assert.h>
 #include <string.h>
 #include <errno.h>
+#include <ITapiModem.h>
 
 /* Call Module File Includes */
 #include "vc-core-engine.h"
@@ -28,6 +29,7 @@
 #include "vc-core-tapi-rqst.h"
 #include "vc-core-svcall.h"
 #include "vc-core-engine-status.h"
+#include "vc-core-ecc.h"
 
 /*Global Variable Declerations */
 
@@ -39,13 +41,14 @@ static TelCallIncomingCallInfo_t gincoming_call_info;
 static gboolean gphone_init_finished = FALSE;
 static call_vc_handle gphone_rejected_call = VC_TAPI_INVALID_CALLHANDLE;
 
-static call_vc_callagent_state_t *gpcall_agent_for_callback = NULL;
+static call_vc_callagent_state_t *gpcall_agent_for_callback = NULL;	/*jspark event subscribe & callback function*/
+
 /* SAT call detail used for self event */
 static int gsat_event_type = 0;
 static int gtype = 0;
 static void *gpresult = NULL;
 static TelSatSetupCallIndCallData_t gSatSetupCallInfo;
-static TelSatSendDtmfIndDtmfData_t gSatSendDtmfInfo;
+//static TelSatSendDtmfIndDtmfData_t gSatSendDtmfInfo;
 
 /*Local Function Declarations*/
 /**
@@ -58,7 +61,7 @@ static TelSatSendDtmfIndDtmfData_t gSatSendDtmfInfo;
  * @param[in]		type				type of the tapi event
  * @param[in]		tapi_cause		tapi cause
  */
-static gboolean __call_vc_outgoingcall_endhandle(call_vc_callagent_state_t *pcall_agent, call_vc_handle call_handle, int type, TelTapiEndCause_t tapi_cause);
+static gboolean __call_vc_outgoingcall_endhandle(call_vc_callagent_state_t *pcall_agent, call_vc_handle call_handle, const char *type, TelTapiEndCause_t tapi_cause);
 /**
  * This function handles the end event for incoming call
  *
@@ -92,22 +95,26 @@ static gboolean __call_vc_create_outgoing_callinfo(call_vc_callagent_state_t *pa
  * This function handles all telephony events
  *
  * @internal
- * @return		Returns TRUE on if call agent is in wait state or FALSE
- * @param[in]		event			tapi event data
- * @param[in]		userdata			user callback data
+ * @return		void
+* @param[in]		tapi_handle		tapi handle
+* @param[in]		noti_id			event type
+* @param[in]		data				tapi event data
+* @param[in]		userdata			user callback data
  */
 
-static void __call_vc_handle_tapi_events(TelTapiEvent_t *event, void *userdata);
+static void __call_vc_handle_tapi_events(TapiHandle *handle, const char *noti_id, void *data, void *user_data);
 
 /**
 * This function handles sat engine notification
 *
 * @internal
-* @return		Returns TRUE on success or FALSE on failure
-* @param[in]		event			tapi event data
+* @return		void
+* @param[in]		tapi_handle		tapi handle
+* @param[in]		noti_id			event type
+* @param[in]		data				tapi event data
 * @param[in]		userdata			user callback data
 */
-static void __call_vc_handle_sat_engine_events_cb(TelTapiEvent_t *event, void *userdata);
+static void __call_vc_handle_sat_engine_events_cb(TapiHandle *handle, const char *noti_id, void *data, void *user_data);
 
 /**
 * This function subscribes for all notifications required for voicecall engine
@@ -123,10 +130,12 @@ static gboolean __call_vc_subscribe_call_events(call_vc_callagent_state_t *pcall
 *
 * @internal
 * @return		Returns TRUE on success or FALSE on failure
-* @param[in]		event			tapi event data
+* @param[in]		tapi_handle		tapi handle
+* @param[in]		noti_id			event type
+* @param[in]		data				tapi event data
 * @param[in]		userdata			user callback data
 */
-static void __call_vc_tapi_initialized_cb(TelTapiEvent_t *event, void *userdata);
+static void __call_vc_tapi_initialized_cb(TapiHandle *handle, const char *noti_id, void *data, void *user_data);
 
 /**
 * This function subscribes for telephony call notifications
@@ -202,6 +211,14 @@ static gboolean __call_vc_sat_idle_cb(gpointer puser_data);
 static void __vc_core_check_engine_active_task(call_vc_callagent_state_t *pcall_agent);
 
 /**
+ * This function checks whether dtmf is possible
+ *
+ * @return		This function returns TRUE if dtmf is possible or else FALSE
+ * @param[in]		pcall_agent			Pointer to the call agent structure
+ */
+static gboolean __vc_core_is_dtmf_possible(call_vc_callagent_state_t *pcall_agent);
+
+/**
 * This function initializes the voicecall engine
 *
 * @return		ERROR_VOICECALL_NONE on success or return value contains appropriate error code on failure
@@ -257,19 +274,20 @@ void _vc_core_engine_handle_sat_events_cb(void *sat_setup_call_data, void *userd
 	memcpy(&gSatSetupCallInfo, data, sizeof(TelSatSetupCallIndCallData_t));
 
 	gsat_event_type = SAT_RQST_SETUP_CALL;
-	gtype = TAPI_EVENT_SAT_SETUP_CALL_IND;
+	//gtype = TAPI_EVENT_SAT_SETUP_CALL_IND;
 	gpresult = &gSatSetupCallInfo;
 	g_idle_add(__call_vc_sat_idle_cb, pcall_agent);
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Call back Ends and returning..");
 }
 
-static void __call_vc_handle_sat_engine_events_cb(TelTapiEvent_t *event, void *userdata)
+static void __call_vc_handle_sat_engine_events_cb(TapiHandle *handle, const char *noti_id, void *data, void *user_data)
 {
-	call_vc_callagent_state_t *pcall_agent = gpcall_agent_for_callback;
+//	call_vc_callagent_state_t *pcall_agent = gpcall_agent_for_callback;
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "sat event callback.");
 
+#if 0
 	int event_type = event->EventType;
 	/*int status = event->Status;*/
 	char *data = event->pData;
@@ -284,6 +302,7 @@ static void __call_vc_handle_sat_engine_events_cb(TelTapiEvent_t *event, void *u
 
 	case TAPI_EVENT_SAT_SEND_DTMF_IND:
 		{
+			/* async for SAT sync noti */
 			memset(&gSatSendDtmfInfo, 0, sizeof(TelSatSendDtmfIndDtmfData_t));
 			memcpy(&gSatSendDtmfInfo, data, sizeof(TelSatSendDtmfIndDtmfData_t));
 
@@ -314,17 +333,12 @@ static void __call_vc_handle_sat_engine_events_cb(TelTapiEvent_t *event, void *u
 	} else {
 		__vc_core_check_engine_active_task(pcall_agent);
 	}
-
+#endif
 }
 
 /*Subscribe Noti Events*/
 static gboolean __call_vc_subscribe_call_events(call_vc_callagent_state_t *pcall_agent)
 {
-	clock_t start = 0;
-	clock_t end = 0;
-
-	start = GET_CURR_TIME();
-
 	CALL_ENG_KPI("__call_vc_subscribe_tapi_event start");
 	/* Subscribe Tapi Events */
 	if (FALSE == __call_vc_subscribe_tapi_event(pcall_agent)) {
@@ -333,9 +347,6 @@ static gboolean __call_vc_subscribe_call_events(call_vc_callagent_state_t *pcall
 
 	}
 	CALL_ENG_KPI("__call_vc_subscribe_tapi_event done");
-
-	end = GET_CURR_TIME();
-	PRINT_DIFF_TIME(start, end, "Duration For tapi_call_subscription");
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Noti Subscription Sucess");
 	return TRUE;
@@ -360,13 +371,21 @@ gboolean _vc_core_ca_send_event_to_client(call_vc_callagent_state_t *pcall_agent
 	return FALSE;
 }
 
-static void __call_vc_tapi_initialized_cb(TelTapiEvent_t *event, void *userdata)
+static void __call_vc_tapi_initialized_cb(TapiHandle *handle, const char *noti_id, void *data, void *user_data)
 {
 	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
 	TelSimCardStatus_t sim_status = 0;
 	TelSimCardType_t card_type = 0;
 	int sim_changed = 0;
+
+	VOICECALL_RETURN_IF_FAIL(data != NULL);
+	tapi_power_phone_power_status_t *power = (tapi_power_phone_power_status_t *)data;
+
+	if (power != TAPI_PHONE_POWER_STATUS_ON) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "Modem is not available");
+		return;
+	}
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "gphone_init_finished %d", gphone_init_finished);
 
@@ -375,32 +394,38 @@ static void __call_vc_tapi_initialized_cb(TelTapiEvent_t *event, void *userdata)
 
 		CALL_ENG_DEBUG(ENG_DEBUG, "Query Card Status ..");
 
-		/*memset(&sim_status, 0, sizeof(sim_status));*/
-		tapi_err = tel_get_sim_init_info(&sim_status, &sim_changed);
+		memset(&sim_status, 0, sizeof(sim_status));
+		tapi_err = tel_get_sim_init_info(pagent->tapi_handle, &sim_status, &sim_changed);
 
 		if (TAPI_API_SUCCESS != tapi_err) {
-			CALL_ENG_DEBUG(ENG_DEBUG, "tapi_sim_get_card_type failed.. tapi_err = %d", tapi_err);
+			CALL_ENG_DEBUG(ENG_DEBUG, "tel_get_sim_init_info failed.. tapi_err = %d", tapi_err);
 			pagent->bis_no_sim = TRUE;
 		} else {
-			tel_get_sim_type(&card_type);
+
+			tapi_err = tel_get_sim_type(pagent->tapi_handle, &card_type);
+			if (TAPI_API_SUCCESS == tapi_err) {
+				CALL_ENG_DEBUG(ENG_DEBUG, "tel_get_sim_type failed.. tapi_err = %d", tapi_err);
+			}
+
 			pagent->card_type = card_type;
 
 			CALL_ENG_DEBUG(ENG_DEBUG, "card_status = %d, card_type = %d", sim_status, pagent->card_type);
+			/*Telephony team's reqeust..*/
 			switch (sim_status) {
-			case TAPI_SIM_STATUS_CARD_NOT_PRESENT:	/* = 0x01, /**<  Card not present */
-			case TAPI_SIM_STATUS_CARD_REMOVED:	/* =0x0b, /**<  Card removed **/
+			case TAPI_SIM_STATUS_CARD_NOT_PRESENT:	/* = 0x01, <  Card not present */
+			case TAPI_SIM_STATUS_CARD_REMOVED:	/* =0x0b, <  Card removed **/
 				pagent->bis_no_sim = TRUE;
 				break;
-			case TAPI_SIM_STATUS_CARD_ERROR:	/* = 0x00, /**< Bad card / On the fly SIM gone bad **/
-			case TAPI_SIM_STATUS_SIM_INITIALIZING:	/* = 0x02, /**<  Sim is Initializing state **/
-			case TAPI_SIM_STATUS_SIM_INIT_COMPLETED:	/* = 0x03, /**<  Sim Initialization ok **/
-			case TAPI_SIM_STATUS_SIM_PIN_REQUIRED:	/* = 0x04, /**<  PIN  required state **/
-			case TAPI_SIM_STATUS_SIM_PUK_REQUIRED:	/* = 0x05, /**<  PUK required state **/
-			case TAPI_SIM_STATUS_CARD_BLOCKED:	/* = 0x06,              /**<  PIN/PUK blocked(permanently blocked- All the attempts for PIN/PUK failed) **/
-			case TAPI_SIM_STATUS_SIM_NCK_REQUIRED:	/* = 0x07,              /**<  Network Control Key required state **/
-			case TAPI_SIM_STATUS_SIM_NSCK_REQUIRED:	/* = 0x08,              /**<  Network Subset Control Key required state **/
-			case TAPI_SIM_STATUS_SIM_SPCK_REQUIRED:	/* = 0x09,              /**<  Service Provider Control Key required state **/
-			case TAPI_SIM_STATUS_SIM_CCK_REQUIRED:	/* = 0x0a,              /**<  Corporate Control Key required state **/
+			case TAPI_SIM_STATUS_CARD_ERROR:	/* = 0x00, < Bad card / On the fly SIM gone bad **/
+			case TAPI_SIM_STATUS_SIM_INITIALIZING:	/* = 0x02, <  Sim is Initializing state **/
+			case TAPI_SIM_STATUS_SIM_INIT_COMPLETED:	/* = 0x03, <  Sim Initialization ok **/
+			case TAPI_SIM_STATUS_SIM_PIN_REQUIRED:	/* = 0x04, <  PIN  required state **/
+			case TAPI_SIM_STATUS_SIM_PUK_REQUIRED:	/* = 0x05, <  PUK required state **/
+			case TAPI_SIM_STATUS_CARD_BLOCKED:	/* = 0x06,              <  PIN/PUK blocked(permanently blocked- All the attempts for PIN/PUK failed) **/
+			case TAPI_SIM_STATUS_SIM_NCK_REQUIRED:	/* = 0x07,              <  Network Control Key required state **/
+			case TAPI_SIM_STATUS_SIM_NSCK_REQUIRED:	/* = 0x08,              <  Network Subset Control Key required state **/
+			case TAPI_SIM_STATUS_SIM_SPCK_REQUIRED:	/* = 0x09,              <  Service Provider Control Key required state **/
+			case TAPI_SIM_STATUS_SIM_CCK_REQUIRED:	/* = 0x0a,              <  Corporate Control Key required state **/
 			case TAPI_SIM_STATUS_SIM_LOCK_REQUIRED:
 				pagent->bis_no_sim = FALSE;
 				break;
@@ -425,88 +450,81 @@ static gboolean __call_vc_subscribe_tapi_event(call_vc_callagent_state_t *pcall_
 	TapiResult_t api_err = TAPI_API_SUCCESS;
 	int num_event = 0;
 
-	if (tel_init() == TAPI_API_SUCCESS) {
+	pcall_agent->tapi_handle = tel_init(NULL);
+	if (pcall_agent->tapi_handle != NULL) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tel_init() success.");
 	} else {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tel_init() failed.");
 		return FALSE;
 	}
 
-	int call_event_list[] = {
-		TAPI_EVENT_CALL_SETUP_CNF,
-		TAPI_EVENT_CALL_ALERT_IND,
-		TAPI_EVENT_CALL_CONNECTED_IND,
-		TAPI_EVENT_CALL_INCOM_IND,
-		TAPI_EVENT_CALL_ANSWER_CNF,
-		TAPI_EVENT_CALL_RETRIEVE_CNF,
-		TAPI_EVENT_CALL_RETRIEVE_IND,
-		TAPI_EVENT_CALL_HOLD_IND,
-		TAPI_EVENT_CALL_HOLD_CNF,
-		TAPI_EVENT_CALL_TRANSFER_CNF,
-		TAPI_EVENT_CALL_TRANSFER_IND,
-		TAPI_EVENT_CALL_SETUPCONFERENCE_CNF,
-		TAPI_EVENT_CALL_SETUPCONFERENCE_IND,
-		TAPI_EVENT_CALL_SPLITCONFERENCE_CNF,
-		TAPI_EVENT_CALL_SEND_DTMF_CNF,
-		TAPI_EVENT_CALL_WAITING_IND,
-		TAPI_EVENT_CALL_FORWARD_IND,
-		TAPI_EVENT_CALL_RELEASE_CNF,
-		TAPI_EVENT_CALL_RELEASE_ALL_CNF,
-		TAPI_EVENT_CALL_RELEASE_ALL_ACTIVE_CNF,
-		TAPI_EVENT_CALL_RELEASE_ALL_HELD_CNF,
-		TAPI_EVENT_CALL_END_IND,
-		TAPI_EVENT_CALL_BARRING_IND,
-		TAPI_EVENT_CALL_CUGINFO_IND,
-		TAPI_EVENT_CALL_AOCINFO_IND,
-		TAPI_EVENT_CALL_CALLINGNAMEINFO_IND,
-		TAPI_EVENT_CALL_CONNECTEDNUMBERINFO_IND,
-		TAPI_EVENT_CALL_CLISUPRESSIONREJ_IND,
-		TAPI_EVENT_CALL_DEFLECTED_IND,
-		TAPI_EVENT_CALL_UNCOND_FORWARDING_IND,
-		TAPI_EVENT_CALL_COND_FORWARDING_IND,
-
-		TAPI_EVENT_SS_AOC_RSP,
-
-		TAPI_EVENT_SOUND_VOLUMECTRL_RSP,	/*CALL_VC_TAPI_CALL_EVENT_MAX_NUM : 33*/
+	const char *call_event_list[] = {
+		TAPI_NOTI_VOICE_CALL_STATUS_IDLE,
+		TAPI_NOTI_VOICE_CALL_STATUS_ACTIVE,
+		TAPI_NOTI_VOICE_CALL_STATUS_DIALING,
+		TAPI_NOTI_VOICE_CALL_STATUS_ALERT,
+		TAPI_NOTI_VOICE_CALL_STATUS_INCOMING,
+		TAPI_NOTI_VOICE_CALL_STATUS_WAITING,
+		TAPI_NOTI_CALL_INFO_CALL_CONNECTED_LINE,
+		TAPI_NOTI_CALL_INFO_WAITING,
+		TAPI_NOTI_CALL_INFO_CUG,
+		TAPI_NOTI_CALL_INFO_FORWARDED,
+		TAPI_NOTI_CALL_INFO_BARRED_INCOMING,
+		TAPI_NOTI_CALL_INFO_BARRED_OUTGOING,
+		TAPI_NOTI_CALL_INFO_DEFLECTED,
+		TAPI_NOTI_CALL_INFO_CLIR_SUPPRESSION_REJECT,
+		TAPI_NOTI_CALL_INFO_FORWARD_UNCONDITIONAL,
+		TAPI_NOTI_CALL_INFO_FORWARD_CONDITIONAL,
+		TAPI_NOTI_CALL_INFO_CALL_LINE_IDENTITY,
+		TAPI_NOTI_CALL_INFO_CALL_NAME_INFORMATION,
+		TAPI_NOTI_CALL_INFO_FORWARDED_CALL,
+		TAPI_NOTI_CALL_INFO_CUG_CALL,
+		TAPI_NOTI_CALL_INFO_DEFLECTED_CALL,
+		TAPI_NOTI_CALL_INFO_TRANSFERED_CALL,
+		TAPI_NOTI_CALL_INFO_HELD,
+		TAPI_NOTI_CALL_INFO_ACTIVE,
+		TAPI_NOTI_CALL_INFO_JOINED,
+		TAPI_NOTI_CALL_INFO_RELEASED_ON_HOLD,
+		TAPI_NOTI_CALL_INFO_TRANSFER_ALERT,
+		TAPI_NOTI_CALL_INFO_TRANSFERED,
+		TAPI_NOTI_CALL_SOUND_WBAMR,
 	};
 	num_event = sizeof(call_event_list) / sizeof(int);
 	for (index = 0; index < num_event; index++) {
-		api_err = tel_register_event(call_event_list[index], &pcall_agent->subscription_id[index], (TelAppCallback) & __call_vc_handle_tapi_events, NULL);
+		api_err = tel_register_noti_event(pcall_agent->tapi_handle, call_event_list[index], __call_vc_handle_tapi_events, NULL);
 		if (api_err != TAPI_API_SUCCESS) {
-			CALL_ENG_DEBUG(ENG_DEBUG, "tel_register_event() failed.. event id:[%d], api_err:[%d]", call_event_list[index], api_err);
+			CALL_ENG_DEBUG(ENG_DEBUG, "tel_register_noti_event() failed.. event id:[%s], api_err:[%d]", call_event_list[index], api_err);
 			return FALSE;
 		}
 	}
 
-	int ready_event_list[] = {
-		TAPI_EVENT_POWER_SERVICE_READY_IND,	/*CALL_VC_TAPI_READY_EVENT_NUM 1*/
+	const char *ready_event_list[] = {
+		TAPI_NOTI_MODEM_POWER,
 	};
 	num_event = sizeof(ready_event_list) / sizeof(int);
 	for (index = 0; index < num_event; index++) {
-		api_err = tel_register_event(ready_event_list[index], &pcall_agent->subscription_id[index + CALL_VC_TAPI_CALL_EVENT_MAX_NUM], (TelAppCallback) & __call_vc_tapi_initialized_cb, NULL);
+		api_err = tel_register_noti_event(pcall_agent->tapi_handle, ready_event_list[index], __call_vc_tapi_initialized_cb, NULL);
 		if (api_err != TAPI_API_SUCCESS) {
-			CALL_ENG_DEBUG(ENG_DEBUG, "tel_register_event() failed.. event id:[%d], api_err:[%d]", ready_event_list[index], api_err);
+			CALL_ENG_DEBUG(ENG_DEBUG, "tel_register_noti_event() failed.. event id:[%s], api_err:[%d]", ready_event_list[index], api_err);
 			return FALSE;
 		}
 	}
 
-	int sat_event_list[] = {
-		TAPI_EVENT_SAT_SETUP_CALL_IND,
-		TAPI_EVENT_SAT_CALL_CONTROL_IND,
-		TAPI_EVENT_SAT_SEND_DTMF_IND,	/*CALL_VC_SIMATK_EVENT_MAX_NUM : 3*/
+#if 0
+	const char *sat_event_list[] = {
+		"SETUP CALL"/*TAPI_EVENT_SAT_SETUP_CALL_IND*/,
+		"CALL CONTROL" /*TAPI_EVENT_SAT_CALL_CONTROL_IND*/,
+		"SEND DTMF" /*TAPI_EVENT_SAT_SEND_DTMF_IND*/,	/*CALL_VC_SIMATK_EVENT_MAX_NUM : 3*/
 	};
 	num_event = sizeof(sat_event_list) / sizeof(int);
 	for (index = 0; index < num_event; index++) {
-		api_err = tel_register_event(sat_event_list[index], &pcall_agent->subscription_id[index + CALL_VC_TAPI_CALL_EVENT_MAX_NUM + CALL_VC_TAPI_READY_EVENT_NUM], (TelAppCallback) & __call_vc_handle_sat_engine_events_cb, NULL);
+		api_err = tel_register_noti_event(pcall_agent->tapi_handle, sat_event_list[index], __call_vc_handle_sat_engine_events_cb, NULL);
 		if (api_err != TAPI_API_SUCCESS) {
-			CALL_ENG_DEBUG(ENG_DEBUG, "tel_register_event() failed.. event id:[%d], api_err:[%d]", sat_event_list[index], api_err);
+			CALL_ENG_DEBUG(ENG_DEBUG, "tel_register_noti_event() failed.. event id:[%s], api_err:[%d]", sat_event_list[index], api_err);
 			return FALSE;
 		}
 	}
-
-	if (tel_register_app_name("org.tizen.voicecall") != TAPI_API_SUCCESS) {
-		CALL_ENG_DEBUG(ENG_DEBUG, "tel_register_app_name() failed");
-	}
+#endif
 
 	gpcall_agent_for_callback = pcall_agent;
 
@@ -524,9 +542,6 @@ static gboolean __call_vc_create_outgoing_callinfo(call_vc_callagent_state_t *pa
 
 	_vc_core_cm_clear_call_object(pcall_object);
 
-	/*Initialize following Call Agents state to defaults.*/
-	pagent->bonly_sos_call = FALSE;
-
 	/*Update CallObjects state to Prepare Outgoing*/
 	pcall_object->state = VC_CALL_STATE_PREPARE_OUTGOING;
 
@@ -540,11 +555,8 @@ static gboolean __call_vc_create_outgoing_callinfo(call_vc_callagent_state_t *pa
 	switch (pcall_object->call_type) {
 	case VC_CALL_ORIG_TYPE_EMERGENCY:
 		{
-			pagent->bonly_sos_call = TRUE;
 			pcall_object->bemergency_number = TRUE;
-/*PDIAL_SEND_DTMF*/
 			_vc_core_util_strcpy(pcall_object->source_tel_number, sizeof(pcall_object->source_tel_number), psetup_call_info->source_tel_number);
-/*PDIAL_SEND_DTMF*/
 			_vc_core_util_strcpy(pcall_object->tel_number, sizeof(pcall_object->tel_number), psetup_call_info->tel_number);
 			return TRUE;
 		}
@@ -552,36 +564,26 @@ static gboolean __call_vc_create_outgoing_callinfo(call_vc_callagent_state_t *pa
 	case VC_CALL_ORIG_TYPE_PINLOCK:
 		{
 			CALL_ENG_DEBUG(ENG_DEBUG, "PIN LOCK!!!!");
-			pagent->bonly_sos_call = TRUE;
-/*PDIAL_SEND_DTMF*/
 			_vc_core_util_strcpy(pcall_object->source_tel_number, sizeof(pcall_object->source_tel_number), psetup_call_info->source_tel_number);
-/*PDIAL_SEND_DTMF*/
 			_vc_core_util_strcpy(pcall_object->tel_number, sizeof(pcall_object->tel_number), psetup_call_info->tel_number);
 		}
 		break;
 	case VC_CALL_ORIG_TYPE_NOSIM:	/*no sim (pagent->bis_no_sim == TRUE)*/
 		{
-			pagent->bonly_sos_call = TRUE;
-/*PDIAL_SEND_DTMF*/
 			_vc_core_util_strcpy(pcall_object->source_tel_number, sizeof(pcall_object->source_tel_number), psetup_call_info->source_tel_number);
-/*PDIAL_SEND_DTMF*/
 			_vc_core_util_strcpy(pcall_object->tel_number, sizeof(pcall_object->tel_number), psetup_call_info->tel_number);
 		}
 		break;
 	case VC_CALL_ORIG_TYPE_NORMAL:
 	case VC_CALL_ORIG_TYPE_SAT:
 		{
-/*PDIAL_SEND_DTMF*/
 			_vc_core_util_strcpy(pcall_object->source_tel_number, sizeof(pcall_object->source_tel_number), psetup_call_info->source_tel_number);
-/*PDIAL_SEND_DTMF*/
 			_vc_core_util_strcpy(pcall_object->tel_number, sizeof(pcall_object->tel_number), psetup_call_info->tel_number);
 		}
 		break;
 	case VC_CALL_ORIG_TYPE_VOICEMAIL:
 		{
-/*PDIAL_SEND_DTMF*/
 			_vc_core_util_strcpy(pcall_object->source_tel_number, sizeof(pcall_object->source_tel_number), psetup_call_info->source_tel_number);
-/*PDIAL_SEND_DTMF*/
 			_vc_core_util_strcpy(pcall_object->tel_number, sizeof(pcall_object->tel_number), psetup_call_info->tel_number);
 		}
 		break;
@@ -596,7 +598,7 @@ static gboolean __call_vc_create_outgoing_callinfo(call_vc_callagent_state_t *pa
 
 	/*Check for Emergency Number */
 	_vc_core_util_extract_call_number(pcall_object->tel_number, call_number, sizeof(call_number));
-	pcall_object->bemergency_number = _vc_core_util_check_emergency_number(pagent->card_type, call_number, pagent->bis_no_sim, &pcall_object->ecc_category);
+	pcall_object->bemergency_number = _vc_core_ecc_check_emergency_number(pagent->tapi_handle, pagent->card_type, call_number, pagent->bis_no_sim, &pcall_object->ecc_category);
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "no_sim=%d, emergency_number=%d", pagent->bis_no_sim, pcall_object->bemergency_number);
 
@@ -675,7 +677,7 @@ static gboolean __call_vc_request_sat_call(call_vc_callagent_state_t *pagent, in
 		{
 			pagent->call_manager.setupcall_info.satcall_setup_info.redial = TRUE;
 		}
-	case TAPI_SAT_SETUP_CALL_PUT_ALL_OTHER_CALLS_ON_HOLD:	/*Fall Through*/
+	case TAPI_SAT_SETUP_CALL_PUT_ALL_OTHER_CALLS_ON_HOLD:	/*Fall Through */
 		{
 			if (_vc_core_cm_isexists_active_call(&pagent->call_manager) && _vc_core_cm_isexists_held_call(&pagent->call_manager)) {
 				CALL_ENG_DEBUG(ENG_DEBUG, "Both Activee & Hld call exists, SAT Call cannot be continued");
@@ -710,7 +712,7 @@ static gboolean __call_vc_request_sat_call(call_vc_callagent_state_t *pagent, in
 		{
 			pagent->call_manager.setupcall_info.satcall_setup_info.redial = TRUE;
 		}
-	case TAPI_SAT_SETUP_CALL_DISCONN_ALL_OTHER_CALLS:	/*Fall Through*/
+	case TAPI_SAT_SETUP_CALL_DISCONN_ALL_OTHER_CALLS:	/*Fall Through */
 		{
 			if (_vc_core_cm_isexists_active_call(&pagent->call_manager) || _vc_core_cm_isexists_held_call(&pagent->call_manager)) {
 				/*Disconnect all calls and setup call */
@@ -804,7 +806,7 @@ voicecall_error_t _vc_core_engine_prepare_call(voicecall_engine_t *pvoicecall_ag
 	TelSimCardStatus_t sim_status;
 	TelSimCardType_t card_type = 0;
 	int sim_changed = 0;
-	gboolean status = FALSE;
+	int status = 0;
 	int nIndex = 0;
 	int error_code = 0;
 
@@ -817,10 +819,10 @@ voicecall_error_t _vc_core_engine_prepare_call(voicecall_engine_t *pvoicecall_ag
 		return ERROR_VOICECALL_INVALID_TELEPHONE_NUMBER;
 	}
 
-	CALL_ENG_KPI("tel_check_service_ready start");
-	tapi_err = tel_check_service_ready(&status);
-	CALL_ENG_KPI("tel_check_service_ready done");
-	if (TAPI_API_SUCCESS != tapi_err || FALSE == status) {
+	CALL_ENG_KPI("tel_check_modem_power_status start");
+	tapi_err = tel_check_modem_power_status(pagent->tapi_handle, &status);
+	CALL_ENG_KPI("tel_check_modem_power_status done");
+	if (TAPI_API_SUCCESS != tapi_err || 1 /* offline */ == status || 2 /* Error */== status) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "Tapi not initialized");
 		return ERROR_VOICECALL_PHONE_NOT_INITIALIZED;
 	}
@@ -834,7 +836,7 @@ voicecall_error_t _vc_core_engine_prepare_call(voicecall_engine_t *pvoicecall_ag
 
 	/*memset(&sim_status, 0, sizeof(sim_status));*/
 	CALL_ENG_KPI("tel_get_sim_init_info start");
-	tapi_err = tel_get_sim_init_info(&sim_status, &sim_changed);
+	tapi_err = tel_get_sim_init_info(pagent->tapi_handle, &sim_status, &sim_changed);
 	CALL_ENG_KPI("tel_get_sim_init_info done");
 
 	if (TAPI_API_SUCCESS != tapi_err) {
@@ -844,26 +846,29 @@ voicecall_error_t _vc_core_engine_prepare_call(voicecall_engine_t *pvoicecall_ag
 		psetup_call_info->call_type = VC_CALL_ORIG_TYPE_NOSIM;
 	} else {
 		CALL_ENG_KPI("tel_get_sim_type start");
-		tel_get_sim_type(&card_type);
+		tapi_err = tel_get_sim_type(pagent->tapi_handle, &card_type);
+		if (TAPI_API_SUCCESS != tapi_err) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "tel_get_sim_type failed.. tapi_err = %d", tapi_err);
+		}
 		CALL_ENG_KPI("tel_get_sim_type done");
 		pagent->card_type = card_type;
 
 		CALL_ENG_DEBUG(ENG_DEBUG, "card_status = %d, card_type = %d", sim_status, pagent->card_type);
 		switch (sim_status) {
-		case TAPI_SIM_STATUS_CARD_NOT_PRESENT:	/* = 0x01, /**<  Card not present **/
-		case TAPI_SIM_STATUS_CARD_REMOVED:	/* =0x0b, /**<  Card removed **/
+		case TAPI_SIM_STATUS_CARD_NOT_PRESENT:	/* = 0x01, <  Card not present **/
+		case TAPI_SIM_STATUS_CARD_REMOVED:	/* =0x0b, <  Card removed **/
 			pagent->bis_no_sim = TRUE;
 			break;
-		case TAPI_SIM_STATUS_CARD_ERROR:	/* = 0x00, /**< Bad card / On the fly SIM gone bad **/
-		case TAPI_SIM_STATUS_SIM_INITIALIZING:	/* = 0x02, /**<  Sim is Initializing state **/
-		case TAPI_SIM_STATUS_SIM_INIT_COMPLETED:	/* = 0x03, /**<  Sim Initialization ok **/
-		case TAPI_SIM_STATUS_SIM_PIN_REQUIRED:	/* = 0x04, /**<  PIN  required state **/
-		case TAPI_SIM_STATUS_SIM_PUK_REQUIRED:	/* = 0x05, /**<  PUK required state **/
-		case TAPI_SIM_STATUS_CARD_BLOCKED:	/* = 0x06,              /**<  PIN/PUK blocked(permanently blocked- All the attempts for PIN/PUK failed) **/
-		case TAPI_SIM_STATUS_SIM_NCK_REQUIRED:	/* = 0x07,              /**<  Network Control Key required state **/
-		case TAPI_SIM_STATUS_SIM_NSCK_REQUIRED:	/* = 0x08,              /**<  Network Subset Control Key required state **/
-		case TAPI_SIM_STATUS_SIM_SPCK_REQUIRED:	/* = 0x09,              /**<  Service Provider Control Key required state **/
-		case TAPI_SIM_STATUS_SIM_CCK_REQUIRED:	/* = 0x0a,              /**<  Corporate Control Key required state **/
+		case TAPI_SIM_STATUS_CARD_ERROR:	/* = 0x00, < Bad card / On the fly SIM gone bad **/
+		case TAPI_SIM_STATUS_SIM_INITIALIZING:	/* = 0x02, <  Sim is Initializing state **/
+		case TAPI_SIM_STATUS_SIM_INIT_COMPLETED:	/* = 0x03, <  Sim Initialization ok **/
+		case TAPI_SIM_STATUS_SIM_PIN_REQUIRED:	/* = 0x04, <  PIN  required state **/
+		case TAPI_SIM_STATUS_SIM_PUK_REQUIRED:	/* = 0x05, <  PUK required state **/
+		case TAPI_SIM_STATUS_CARD_BLOCKED:	/* = 0x06,              <  PIN/PUK blocked(permanently blocked- All the attempts for PIN/PUK failed) **/
+		case TAPI_SIM_STATUS_SIM_NCK_REQUIRED:	/* = 0x07,              <  Network Control Key required state **/
+		case TAPI_SIM_STATUS_SIM_NSCK_REQUIRED:	/* = 0x08,              <  Network Subset Control Key required state **/
+		case TAPI_SIM_STATUS_SIM_SPCK_REQUIRED:	/* = 0x09,              <  Service Provider Control Key required state **/
+		case TAPI_SIM_STATUS_SIM_CCK_REQUIRED:	/* = 0x0a,              <  Corporate Control Key required state **/
 		case TAPI_SIM_STATUS_SIM_LOCK_REQUIRED:
 			pagent->bis_no_sim = FALSE;
 			break;
@@ -1133,7 +1138,7 @@ static gboolean __call_vc_handle_sat_engine_events(call_vc_callagent_state_t *pc
 								call_vc_sat_callinfo.sat_mo_call_ctrl_res = CALL_CHANGED_TO_SS;
 								CALL_ENG_DEBUG(ENG_DEBUG, "VC Call Control Response Event: %d", call_vc_sat_callinfo.sat_mo_call_ctrl_res);
 							} else {
-								objectInfo.bemergency_number = _vc_core_util_check_emergency_number(pagent->card_type, objectInfo.connected_telnumber, pagent->bis_no_sim, &objectInfo.ecc_category);
+								objectInfo.bemergency_number = _vc_core_ecc_check_emergency_number(pagent->tapi_handle, pagent->card_type, objectInfo.connected_telnumber, pagent->bis_no_sim, &objectInfo.ecc_category);
 								_vc_core_cm_set_outgoing_call_info(&pagent->call_manager, &objectInfo);
 
 								call_vc_sat_callinfo.duration = psatsetup_info->satengine_setupcall_data.duration;
@@ -1205,7 +1210,6 @@ static gboolean __call_vc_reject_call_full_idle_cb(gpointer puser_data)
 {
 	call_vc_callagent_state_t *pcall_agent = (call_vc_callagent_state_t *)puser_data;
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
-	int pReqId = VC_RQSTID_DEFAULT;
 	call_vc_call_objectinfo_t call_object;
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Rejecting the [Call:%d] in IDLE CB", gincoming_call_handle);
@@ -1215,7 +1219,7 @@ static gboolean __call_vc_reject_call_full_idle_cb(gpointer puser_data)
 
 		if (VC_CALL_STATE_REJECTED == call_object.state) {
 			/*Answer the incoming call by accepting or rejecting the call */
-			tapi_err = tel_answer_call(gincoming_call_handle, TAPI_CALL_ANSWER_REJECT, &pReqId);
+			tapi_err = tel_answer_call(pcall_agent->tapi_handle, gincoming_call_handle, TAPI_CALL_ANSWER_REJECT, _vc_core_engine_answer_call_resp_cb, NULL);
 			if (TAPI_API_SUCCESS != tapi_err) {
 				CALL_ENG_DEBUG(ENG_ERR, "tel_answer_call failed, Error: %d", tapi_err);
 			}
@@ -1229,14 +1233,14 @@ static gboolean __call_vc_reject_call_full_idle_cb(gpointer puser_data)
 /*Always reject the call, if the reject call handle is valid*/
 static gboolean __call_vc_reject_call_idle_cb(gpointer puser_data)
 {
+	call_vc_callagent_state_t *pcall_agent = (call_vc_callagent_state_t *)puser_data;
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
-	int pReqId = VC_RQSTID_DEFAULT;
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Rejecting the [Call Handle :%d] in IDLE CB", gincoming_call_handle);
 
 	if (gphone_rejected_call != -1) {
 		/*Answer the incoming call by accepting or rejecting the call */
-		tapi_err = tel_answer_call(gphone_rejected_call, TAPI_CALL_ANSWER_REJECT, &pReqId);
+		tapi_err = tel_answer_call(pcall_agent->tapi_handle, gphone_rejected_call, TAPI_CALL_ANSWER_REJECT, _vc_core_engine_answer_call_resp_cb, NULL);
 		if (TAPI_API_SUCCESS != tapi_err) {
 			CALL_ENG_DEBUG(ENG_ERR, "tel_answer_call failed, Error: %d", tapi_err);
 		}
@@ -1379,752 +1383,303 @@ void _vc_core_engine_handle_incoming_tapi_events(void *mt_data, void *userdata)
 
 }
 
-static void __call_vc_handle_tapi_events(TelTapiEvent_t *event, void *userdata)
+static void __call_vc_handle_tapi_events(TapiHandle *handle, const char *noti_id, void *data, void *user_data)
 {
-	int event_type = event->EventType;
-	int status = event->Status;
-	char *data = event->pData;
 
 	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
 
 	VOICECALL_RETURN_IF_FAIL(pagent != NULL);
 
-	CALL_ENG_DEBUG(ENG_WARN, "event_type:[0x%x], status= %d", event_type, status);
+	CALL_ENG_DEBUG(ENG_WARN, "event_type:[%s]", noti_id);
 
 	/* Process TAPI events */
-	switch (event_type) {
-#ifdef _INCOM_END_
-	case TAPI_EVENT_CALL_INCOM_IND:
-		{
-			int current_mt_call_handle = -1;
-			CALL_ENG_DEBUG(ENG_DEBUG, "event_type == TAPI_EVENT_CALL_INCOM_IND...");
+	if (strcmp(noti_id, TAPI_NOTI_VOICE_CALL_STATUS_IDLE) == 0) {
+		/* End IND */
+		call_vc_call_objectinfo_t objectInfo;
+		voicecall_call_state_t present_call_state = VC_CALL_STATE_NONE;
+		call_vc_handle incoming_call_handle = VC_TAPI_INVALID_CALLHANDLE;
+		TelTapiEndCause_t tapi_cause = TAPI_CALL_END_NO_CAUSE;
+		call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
+		TelCallStatusIdleNoti_t callIdleInfo;
 
-			/*Safety Check to avoid the mutiple incoming noti for the same call */
-			current_mt_call_handle = _vc_core_cm_get_incoming_call_handle(&pagent->call_manager);
-			CALL_ENG_DEBUG(ENG_ERR, "current_mt_call_handle = %d", current_mt_call_handle);
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_VOICE_CALL_STATUS_IDLE..");
 
-			if (current_mt_call_handle != VC_TAPI_INVALID_CALLHANDLE) {
-				TelCallIncomingCallInfo_t mt_call_info;
-				CALL_ENG_DEBUG(ENG_ERR, "Already an Incoming Call exits ,Problem in accpeting the incoming call, Current Call Details");
-				CALL_VC_DUMP_CALLDETAILS(&pagent->call_manager);
-				CALL_ENG_DEBUG(ENG_ERR, "****************Currently received call details *************************");
+		/* tapicallback data =  TelCallStatusIdleNoti_t */
+		if (data != NULL) {
+			memset(&callIdleInfo, 0, sizeof(TelCallStatusIdleNoti_t));
+			memcpy(&callIdleInfo, data, sizeof(TelCallStatusIdleNoti_t));
 
-				memset(&mt_call_info, 0, sizeof(TelCallIncomingCallInfo_t));
-				memcpy(&mt_call_info, data, sizeof(TelCallIncomingCallInfo_t));
-				CALL_ENG_DEBUG(ENG_ERR, "****************call handle = [%d] *************************", mt_call_info.CallHandle);
-				CALL_ENG_DEBUG(ENG_ERR, "****************call Number = [%s] *************************", mt_call_info.szCallingPartyNumber);
-				CALL_ENG_DEBUG(ENG_ERR, "**************** Ignoring this incoming notification *************************");
-				return;
-			}
+			call_handle = callIdleInfo.id;
+			tapi_cause = callIdleInfo.cause;
+		}
 
-			memset(&gincoming_call_info, 0, sizeof(TelCallIncomingCallInfo_t));
-			memcpy(&gincoming_call_info, data, sizeof(TelCallIncomingCallInfo_t));
-			gincoming_call_handle = gincoming_call_info.CallHandle;
+		CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d,end cause:%d", call_handle, tapi_cause);
 
-			CALL_ENG_DEBUG(ENG_DEBUG, "CallHandle = %d,  Number = %s", gincoming_call_info.CallHandle, gincoming_call_info.szCallingPartyNumber);
+		/*the end of incoming call rejected by callagent, because the call had come before the phone is initialized */
+		if (call_handle == gphone_rejected_call) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "Rejected call..phone not initialized");
 
-			/* Reject the Incoming call */
-			if (FALSE == gphone_init_finished) {
-				CALL_ENG_DEBUG(ENG_ERR, "Phone is not initialized, So reject the Call");
+			gphone_rejected_call = VC_TAPI_INVALID_CALLHANDLE;
 
-				gphone_rejected_call = gincoming_call_handle;
-
-				/*Reject the Call in the Idle Callback */
-				g_idle_add_full(G_PRIORITY_HIGH_IDLE, __call_vc_reject_call_idle_cb, pagent, NULL);
-
-				return;
-			}
-
-			/* Check the IO State before accepting the call */
-			switch (pagent->io_state) {
-			case VC_INOUT_STATE_OUTGOING_WAIT_HOLD:
-			case VC_INOUT_STATE_OUTGOING_WAIT_ALERT:
-			case VC_INOUT_STATE_OUTGOING_WAIT_ORIG:
-			case VC_INOUT_STATE_OUTGOING_WAIT_CONNECTED:
-			case VC_INOUT_STATE_INCOME_END:	/*If the Previous End event is still not prcocessed then reject the call */
-				{
-					call_vc_call_objectinfo_t objectInfo;
-
-					/* setting the new member info */
-					_vc_core_cm_clear_call_object(&objectInfo);
-					objectInfo.call_handle = gincoming_call_handle;
-					_vc_core_cm_change_call_state(&objectInfo, VC_CALL_STATE_REJECTED);
-
-					/* add new member info */
-					_vc_core_cm_add_call_object(&pagent->call_manager, &objectInfo);
-
-					/*Reject the Call in the Idle Callback */
-					g_idle_add_full(G_PRIORITY_HIGH_IDLE, __call_vc_reject_call_full_idle_cb, pagent, NULL);
-
-					return;
-				}
-				break;
-				/*If Outgoing call is in any of the following wait state during an Incoming Event Cancel the Outgoing Call */
-			case VC_INOUT_STATE_OUTGOING_WAIT_RELEASE:	/*If Outgoing call is in any of the following wait state during an Incoming Event Cancel the Outgoing Call */
-			case VC_INOUT_STATE_OUTGOING_ABORTED:
-			case VC_INOUT_STATE_OUTGOING_SHOW_REDIALCAUSE:
-			case VC_INOUT_STATE_OUTGOING_WAIT_REDIAL:
-			case VC_INOUT_STATE_OUTGOING_SHOW_RETRY_CALLBOX:
-				{
-					int mo_call_handle = -1;
-					mo_call_handle = _vc_core_cm_get_outgoing_call_handle(&pagent->call_manager);
-					_vc_core_cm_remove_call_object(&pagent->call_manager, mo_call_handle);
-
-					/* Inform the Client that waiting outgoing call are cleaned up to accept the incoming call , */
-					_vc_core_ca_send_event_to_client(pagent, VC_ACTION_INCOM_FORCE, mo_call_handle, 0, NULL);
-				}
-			default:
-				break;
-			}
-
-			/*If Incoming End event is still pending, First Process the incoming end indication before processing the new
-			   Incoming Call */
-			if (VC_INOUT_STATE_INCOME_END == pagent->io_state) {
-				int mt_call_handle = -1;
-
-				CALL_ENG_DEBUG(ENG_ERR, "Previous Incoming End Call Not processed, Processing Here");
-				mt_call_handle = _vc_core_cm_get_incoming_call_handle(&pagent->call_manager);
-				if (mt_call_handle != -1) {
-					__call_vc_incomingcall_endhandle(pagent, mt_call_handle);
-				}
-			}
-
-			/* Handle Incoming Call */
-			if (TRUE == _vc_core_tapi_event_handle_incoming_event(pagent, gincoming_call_handle, &gincoming_call_info)) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "Using Idle Add Full with G_PRIORITY_HIGH_IDLE for processing Incoming Call");
-				g_idle_add_full(G_PRIORITY_HIGH_IDLE, __call_vc_incoming_idle_cb, pagent, NULL);
-			}
-
+			/*If no more calls available, End the Application */
+			__vc_core_check_engine_active_task(pagent);
 			return;
 		}
-		break;
-#endif
-	case TAPI_EVENT_CALL_RELEASE_CNF:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_EVENT_CALL_RELEASE_CNF..");
 
-			if (TAPI_CAUSE_SUCCESS == status) {
-				/*Ignore this event as endication will be received from TAPI for the call release request */
-				CALL_ENG_DEBUG(ENG_DEBUG, "Success response for Call Release request");
-				break;
-			} else {
-				/*Call Release request failed, handle the call end process in this event itself as the end indication may not be released */
-				CALL_ENG_DEBUG(ENG_ERR, "Call Release request failed, proceeding with Call end process");
-			}
-		}
-	case TAPI_EVENT_CALL_END_IND:	/*Fall Through */
-		{
-			call_vc_call_objectinfo_t objectInfo;
-			voicecall_call_state_t present_call_state = VC_CALL_STATE_NONE;
-			call_vc_handle incoming_call_handle = VC_TAPI_INVALID_CALLHANDLE;
-			TelTapiEndCause_t tapi_cause = TAPI_CALL_END_NO_CAUSE;
-			call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-			TelCallEndInfo_t callEndInfo;
+		incoming_call_handle = _vc_core_cm_get_incoming_call_handle(&pagent->call_manager);
+		present_call_state = _vc_core_cm_get_call_state(&pagent->call_manager, call_handle);
 
-			CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_EVENT_CALL_END_IND..");
-
-			if (TAPI_EVENT_CALL_RELEASE_CNF == event_type) {
-				/* tapicallback data =  Call Handle */
-				memset(&call_handle, 0, sizeof(call_vc_handle));
-				memcpy(&call_handle, data, sizeof(call_vc_handle));
-
-				/*Tapi doesn't send cause for TAPI_EVENT_CALL_RELEASE_CNF */
-				tapi_cause = TAPI_CALL_END_NO_CAUSE;
-			} else {
-				/* tapicallback data =  CallEndInfo */
-				memset(&callEndInfo, 0, sizeof(TelCallEndInfo_t));
-				memcpy(&callEndInfo, data, sizeof(TelCallEndInfo_t));
-
-				call_handle = callEndInfo.pCallHandle;
-				tapi_cause = callEndInfo.CallEndCause;
-			}
-
-			CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d,end cause:%d", call_handle, tapi_cause);
-
-			/*the end of incoming call rejected by callagent, because the call had come before the phone is initialized */
-			if (call_handle == gphone_rejected_call) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "Rejected call..phone not initialized");
-
-				gphone_rejected_call = VC_TAPI_INVALID_CALLHANDLE;
-
+		CALL_ENG_DEBUG(ENG_DEBUG, "New Call Handle = %d, Already registered MT call handle : %d", call_handle, incoming_call_handle);
+		switch (present_call_state) {
+		case VC_CALL_STATE_NONE:
+		case VC_CALL_STATE_ENDED:
+		case VC_CALL_STATE_ENDED_FINISH:
+			{
+				CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d state is %d", call_handle, present_call_state);
 				/*If no more calls available, End the Application */
 				__vc_core_check_engine_active_task(pagent);
 				return;
 			}
+			break;
+		case VC_CALL_STATE_REJECTED:
+			{
+				/*End of incoming call (not registered as incoming call in CallAgent) rejected by callagent */
+				if (incoming_call_handle != call_handle) {
+					_vc_core_cm_remove_call_object(&pagent->call_manager, call_handle);
+					CALL_ENG_DEBUG(ENG_DEBUG, "end of call rejected by callagent");
 
-			incoming_call_handle = _vc_core_cm_get_incoming_call_handle(&pagent->call_manager);
-			present_call_state = _vc_core_cm_get_call_state(&pagent->call_manager, call_handle);
-
-			CALL_ENG_DEBUG(ENG_DEBUG, "New Call Handle = %d, Already registered MT call handle : %d", call_handle, incoming_call_handle);
-			switch (present_call_state) {
-			case VC_CALL_STATE_NONE:
-			case VC_CALL_STATE_ENDED:
-			case VC_CALL_STATE_ENDED_FINISH:
-				{
-					CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d state is %d", call_handle, present_call_state);
 					/*If no more calls available, End the Application */
 					__vc_core_check_engine_active_task(pagent);
 					return;
 				}
-				break;
-			case VC_CALL_STATE_REJECTED:
-				{
-					/*End of incoming call (not registered as incoming call in CallAgent) rejected by callagent */
-					if (incoming_call_handle != call_handle) {
-						_vc_core_cm_remove_call_object(&pagent->call_manager, call_handle);
-						CALL_ENG_DEBUG(ENG_DEBUG, "end of call rejected by callagent");
-
-						/*If no more calls available, End the Application */
-						__vc_core_check_engine_active_task(pagent);
-						return;
-					}
-				}
-				break;
-			default:
-				break;
 			}
-
-			/*End of the call rejected by user or by callagent (when hold is failed) */
-			if ((VC_INOUT_STATE_INCOME_WAIT_RELEASE == pagent->io_state) && (incoming_call_handle == call_handle)) {
-				_vc_core_cm_remove_call_object(&pagent->call_manager, call_handle);
-
-				/*Change the In Out state to None*/
-				_vc_core_ca_change_inout_state(pagent, VC_INOUT_STATE_NONE);
-
-				/*Notify Client about rejected Event*/
-				_vc_core_ca_send_event_to_client(pagent, VC_CALL_REJECTED_END, call_handle, 0, NULL);
-
-				return;
-			}
-
-			/*End of Incoming Call */
-			if (incoming_call_handle == call_handle) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "Adding Incoming End Event to Idle Callback");
-				_vc_core_ca_change_inout_state(pagent, VC_INOUT_STATE_INCOME_END);
-				/*Make sure that the End Indication is processed always after the Incoming Indication , as both are
-				   processed in Idle Add Callbacks */
-				g_idle_add(__call_vc_incoming_call_end_idle_cb, pagent);
-				return;
-			}
-
-			/*End of Outgoing Call */
-			if (_vc_core_cm_get_outgoing_call_handle(&pagent->call_manager) == call_handle) {
-				__call_vc_outgoingcall_endhandle(pagent, call_handle, TAPI_EVENT_CALL_END_IND, tapi_cause);
-				return;
-			}
-
-			/*End of Normal Connected Call */
-			_vc_core_tapi_event_handle_call_end_event(pagent, event_type, call_handle, tapi_cause);
-
-			CALL_VC_DUMP_CALLDETAILS(&pagent->call_manager);
-			_vc_core_cm_clear_call_object(&objectInfo);
-			if (FALSE == _vc_core_cm_get_call_object(&pagent->call_manager, call_handle, &objectInfo)) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "Call Already Cleared for Call Handle = %d", call_handle);
-
-				/*
-				 * Because of _vc_core_tapi_rqst_answer_call( .., VC_ANSWER_HOLD_ACTIVE_AND_ACCEPT,.. ) inside _vc_core_tapi_event_handle_call_end_event(),
-				 * pagent->call_manager is cleared. so, we didn't send VC_CALL_NORMAL_END to call-ui.
-				 * so we should send this event to call-ui.
-				 */
-				{
-					voice_call_end_cause_type_t end_cause_type;
-					_vc_core_tapi_event_get_end_cause_type(event_type, tapi_cause, &end_cause_type);
-					_vc_core_ca_send_event_to_client(pagent, VC_CALL_NORMAL_END, call_handle, end_cause_type, NULL);
-				}
-			} else {
-				_vc_core_ca_send_event_to_client(pagent, VC_CALL_NORMAL_END, objectInfo.call_handle, objectInfo.end_cause_type, NULL);
-			}
+			break;
+		default:
+			break;
 		}
-		break;
-	case TAPI_EVENT_CALL_RELEASE_ALL_CNF:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_EVENT_CALL_RELEASE_ALL_CNF");
-		}
-		break;
-	case TAPI_EVENT_CALL_RELEASE_ALL_ACTIVE_CNF:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_EVENT_CALL_RELEASE_ALL_ACTIVE_CNF");
-		}
-		break;
-	case TAPI_EVENT_CALL_RELEASE_ALL_HELD_CNF:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_EVENT_CALL_RELEASE_ALL_HELD_CNF");
-		}
-		break;
-	case TAPI_EVENT_CALL_ALERT_IND:
-		{
-			call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-			call_vc_handle mo_call_handle = VC_TAPI_INVALID_CALLHANDLE;
 
-			CALL_ENG_KPI("TAPI_EVENT_CALL_ALERT_IND START");
-			/*There are possiblities, that TAPI issued the Alert Notification and it is pending in the gmain loop, but meanwhile, the call
-			   is released by the user - so ignore the event if it doesn't match with the IN OUT Wait state */
-			if (VC_INOUT_STATE_OUTGOING_WAIT_ALERT != pagent->io_state) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "Io State not in WAIT_ORIG, current io state is : %d", pagent->io_state);
-				return;
-			}
-			/*tapi_data = (call_handle)*/
-			memcpy(&call_handle, data, sizeof(call_vc_handle));
-			CALL_ENG_DEBUG(ENG_DEBUG, "Alert Call Handle = %d", call_handle);
+		/*End of the call rejected by user or by callagent (when hold is failed) */
+		if ((VC_INOUT_STATE_INCOME_WAIT_RELEASE == pagent->io_state) && (incoming_call_handle == call_handle)) {
+			_vc_core_cm_remove_call_object(&pagent->call_manager, call_handle);
 
-			mo_call_handle = _vc_core_cm_get_outgoing_call_handle(&pagent->call_manager);
-			CALL_ENG_DEBUG(ENG_DEBUG, "MO Call Handle = %d", mo_call_handle);
+			/*Change the In Out state to None*/
+			_vc_core_ca_change_inout_state(pagent, VC_INOUT_STATE_NONE);
 
-			/*Get the outgoing call handle from CallManger and check*/
-			if ((VC_TAPI_INVALID_CALLHANDLE == call_handle) || (mo_call_handle != call_handle)) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "Outgoing call does not exist or call_handle doesn't match");
-				break;
-			}
+			/*Notify Client about rejected Event*/
+			_vc_core_ca_send_event_to_client(pagent, VC_CALL_REJECTED_END, call_handle, 0, NULL);
 
-			_vc_core_tapi_event_handle_alert_event(pagent, call_handle);
-			CALL_ENG_KPI("TAPI_EVENT_CALL_ALERT_IND done");
-		}
-		break;
-	case TAPI_EVENT_CALL_SETUP_CNF:
-		{
-			call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-			call_vc_call_objectinfo_t objectInfo;
-
-			CALL_ENG_DEBUG(ENG_DEBUG, "Data Received for Setup CNF is %p", data);
-			CALL_ENG_KPI("Set Up CNF start");
-
-			if (TRUE == _vc_core_cm_get_outgoing_call_info(&pagent->call_manager, &objectInfo)) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "MO call index (%d)",objectInfo.call_id);
-			} else {
-				CALL_ENG_DEBUG(ENG_ERR, "EXCEPTION:Outgoing call Info Missing..");
-			}
-
-			/*Copy Telephony Data */
-			/* tapi_data = (call_handle) */
-			if (data != NULL) {
-				memcpy(&call_handle, data, sizeof(call_vc_handle));
-				CALL_ENG_DEBUG(ENG_DEBUG, "Received Call Handle = %d", call_handle);
-			}
-
-			if (VC_INOUT_STATE_OUTGOING_WAIT_ORIG != pagent->io_state) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "Io State not in WAIT_ORIG, current io state is : %d", pagent->io_state);
-				return;
-			}
-
-			if (TAPI_CAUSE_SUCCESS == status) {
-				/* Get the outgoing call handle from CallManger and check */
-				if ((VC_TAPI_INVALID_CALLHANDLE == call_handle)) {
-					CALL_ENG_DEBUG(ENG_DEBUG, "Outgoing call does not exist or call_handle doesn't match");
-					break;
-				}
-
-				/* Set the Call Handle to the CallbObject for future reference */
-				objectInfo.call_handle = call_handle;
-				_vc_core_cm_set_outgoing_call_info(&pagent->call_manager, &objectInfo);
-
-				_vc_core_tapi_event_handle_originated_event(pagent, call_handle);
-			} else {
-				CALL_ENG_DEBUG(ENG_DEBUG, "MO Call SetupCNF Failed with error cause: %d", status);
-
-				_vc_core_cm_clear_call_object(&objectInfo);
-
-				__call_vc_outgoingcall_endhandle(pagent, objectInfo.call_handle, TAPI_EVENT_CALL_END_IND, TAPI_CC_CAUSE_FACILITY_REJECTED);
-			}
-			CALL_ENG_KPI("Set Up CNF done");
-		}
-		break;
-	case TAPI_EVENT_CALL_ANSWER_CNF:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_EVENT_CALL_ANSWER_CNF");
-
-			if (status != TAPI_CAUSE_SUCCESS) {
-				/*If IO State is waiting for Answer Response */
-				if ((VC_INOUT_STATE_INCOME_WAIT_CONNECTED == pagent->io_state) || (VC_INOUT_STATE_INCOME_WAIT_HOLD_CONNECTED == pagent->io_state) || (VC_INOUT_STATE_INCOME_WAIT_RELEASE_ACTIVE_CONNECTED == pagent->io_state)) {
-					int mt_call_handle = -1;
-
-					mt_call_handle = _vc_core_cm_get_incoming_call_handle(&pagent->call_manager);
-
-					if (mt_call_handle != -1) {
-						CALL_ENG_DEBUG(ENG_DEBUG, "mt_call_handle = %d", mt_call_handle);
-
-						/*Send Hold Failed Notification to client UI */
-						if (pagent->callagent_state == CALL_VC_CA_STATE_WAIT_HOLD) {
-							_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
-							_vc_core_ca_send_event_to_client(pagent, VC_ERROR_OCCURED, ERROR_VOICECALL_HOLD_FAILED, 0, NULL);
-						}
-
-						/*Send Incoming call MT End Indication to Client UI */
-						_vc_core_ca_change_inout_state(pagent, VC_INOUT_STATE_INCOME_END);
-						g_idle_add(__call_vc_incoming_call_end_idle_cb, pagent);
-					}
-				}
-			}else {
-				_vc_core_ca_send_event_to_client(pagent, VC_CALL_ANSWER_CNF, 0, 0, NULL);
-			}
-		}
-		break;
-	case TAPI_EVENT_CALL_CONNECTED_IND:
-		{
-			call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-
-			CALL_ENG_DEBUG(ENG_DEBUG, "event_type == TAPI_EVENT_CALL_CONNECTED_IND...");
-			CALL_ENG_KPI("TAPI_EVENT_CALL_CONNECTED_IND start");
-
-			/*tapi callback data = (call_handle)*/
-			memcpy(&call_handle, data, sizeof(int));
-			CALL_ENG_DEBUG(ENG_DEBUG, "IO State: %d", pagent->io_state);
-			CALL_ENG_DEBUG(ENG_DEBUG, "Connected Call Handle = %d", call_handle);
-
-			if (call_handle == _vc_core_cm_get_incoming_call_handle(&pagent->call_manager)) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "Incoming call is being connected...");
-			} else if (call_handle == _vc_core_cm_get_outgoing_call_handle(&pagent->call_manager)) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "Outgoing call is being connected...");
-			} else {
-				CALL_ENG_DEBUG(ENG_ERR, "invalid connected event Call Handle = %d", call_handle);
-
-				if ((VC_INVALID_CALL_INDEX != pagent->call_manager.mtcall_index) || (VC_INVALID_CALL_INDEX != pagent->call_manager.setupcall_info.mocall_index)) {
-					CALL_ENG_DEBUG(ENG_DEBUG, "incoming/outgoin calls call exits, invalid call handle [PROBLEM]");
-					CALL_VC_DUMP_CALLDETAILS(&pagent->call_manager);
-
-					assert(0);
-				} else {
-					CALL_ENG_DEBUG(ENG_ERR, "No pending calls to connect, ignoreing connect event for call handle= %d", call_handle);
-					return;
-				}
-				break;
-			}
-
-			/*Handle Connected Call Event */
-			_vc_core_tapi_event_handle_call_connect_event(pagent, call_handle);
-			CALL_ENG_KPI("TAPI_EVENT_CALL_CONNECTED_IND done");
-		}
-		break;
-	case TAPI_EVENT_CALL_HOLD_CNF:
-		{
-			call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-
-			CALL_ENG_DEBUG(ENG_DEBUG, "event_type == TAPI_EVENT_CALL_HOLD_CNF...");
-			if (TAPI_CAUSE_SUCCESS == status) {
-				/*tapicallback data = call_handle*/
-				memcpy(&call_handle, data, sizeof(call_vc_handle));
-			} else {
-				_vc_core_cm_get_first_active_call_handle(&pagent->call_manager, &call_handle);
-			}
-
-			if (_vc_core_tapi_event_handle_call_held_event(pagent, call_handle, status) == FALSE) {
-				_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
-			} else {
-				/*
-				   Be carefull in clearing the end call member, because _vc_core_engine_status_is_any_call_ending
-				   function depends on the end call object status. If it is cleared often, the check by
-				   _vc_core_engine_status_is_any_call_ending becomes invalid
-				 */
-				_vc_core_cm_clear_endcall_member(&pagent->call_manager);
-			}
-		}
-		break;
-	case TAPI_EVENT_CALL_RETRIEVE_CNF:
-		{
-			call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-
-			CALL_ENG_DEBUG(ENG_DEBUG, "event_type == TAPI_EVENT_CALL_RETRIEVE_CNF...");
-
-			if (TAPI_CAUSE_SUCCESS == status) {
-				/*tapicallback data = call_handle*/
-				memcpy(&call_handle, data, sizeof(call_vc_handle));
-			} else {
-				_vc_core_cm_get_first_held_call_handle(&pagent->call_manager, &call_handle);
-			}
-
-			if (_vc_core_tapi_event_handle_call_retrieve_event(pagent, call_handle, status) == FALSE) {
-				_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
-			} else {
-				/*
-				   Be carefull in clearing the end call member, because _vc_core_engine_status_is_any_call_ending
-				   function depends on the end call object status. If it is cleared often, the check by
-				   _vc_core_engine_status_is_any_call_ending becomes invalid
-				 */
-				_vc_core_cm_clear_endcall_member(&pagent->call_manager);
-			}
-
-		}
-		break;
-	case TAPI_EVENT_CALL_SETUPCONFERENCE_CNF:
-		{
-			call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-
-			CALL_ENG_DEBUG(ENG_DEBUG, "event_type == TAPI_EVENT_CALL_SETUPCONFERENCE_CNF...");
-
-			if (TAPI_CAUSE_SUCCESS == status) {
-				/*tapicallback data = call_handle*/
-				memcpy(&call_handle, data, sizeof(call_vc_handle));
-			} else {
-				call_handle = 0;
-			}
-
-			_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
-			_vc_core_tapi_event_handle_call_join_event(pagent, call_handle, status);
-		}
-		break;
-	case TAPI_EVENT_CALL_SPLITCONFERENCE_CNF:
-		{
-			call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-
-			CALL_ENG_DEBUG(ENG_DEBUG, "event_type == TAPI_EVENT_CALL_SPLITCONFERENCE_CNF...");
-
-			if (TAPI_CAUSE_SUCCESS == status) {
-				/*tapicallback data = call_handle*/
-				memcpy(&call_handle, data, sizeof(call_vc_handle));
-			}
-
-			_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
-			_vc_core_tapi_event_handle_call_split_event(pagent, call_handle, status);
-		}
-		break;
-	case TAPI_EVENT_CALL_TRANSFER_CNF:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "event_type == TAPI_EVENT_CALL_TRANSFER_CNF");
-
-			_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
-			_vc_core_tapi_event_handle_call_transfer_event(pagent, status);
-		}
-		break;
-	case TAPI_EVENT_CALL_RETRIEVE_IND:
-	case TAPI_EVENT_CALL_HOLD_IND:
-	case TAPI_EVENT_CALL_TRANSFER_IND:
-	case TAPI_EVENT_CALL_SETUPCONFERENCE_IND:
-	case TAPI_EVENT_CALL_BARRING_IND:
-	case TAPI_EVENT_CALL_WAITING_IND:
-	case TAPI_EVENT_CALL_COND_FORWARDING_IND:
-	case TAPI_EVENT_CALL_UNCOND_FORWARDING_IND:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "Received Indication %d", event_type);
-			if (TRUE == __call_vc_is_callagent_waitstate(pagent)) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "[Now tapi requesting...callagent_state=%d, not display network ind]", pagent->callagent_state);
-				return;
-
-			} else {
-				call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-
-				/*tapicallback data = call_handle + cause*/
-				memcpy(&call_handle, data, sizeof(call_vc_handle));
-
-				CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d", call_handle);
-
-				_vc_core_tapi_event_handle_notification(pagent, event_type, 0);
-			}
-		}
-		break;
-	case TAPI_EVENT_CALL_CUGINFO_IND:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "Received TAPI_EVENT_CALL_CUGINFO_IND");
-
-			if (TRUE == __call_vc_is_callagent_waitstate(pagent)) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "[Now tapi requesting...callagent_state=%d, not display network ind]", pagent->callagent_state);
-				return;
-
-			} else {
-				int cugIndex = 0;
-				call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-
-				/*tapicallback data = call_handle + cause*/
-				memcpy(&call_handle, data, sizeof(call_vc_handle));
-				memcpy(&cugIndex, data + sizeof(call_vc_handle), sizeof(int));
-
-				/*cugindex is not used inside this function*/
-				/*It may be used in the future*/
-				_vc_core_tapi_event_handle_notification(pagent, event_type, cugIndex);
-			}
-		}
-		break;
-	case TAPI_EVENT_CALL_CALLINGNAMEINFO_IND:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "Received TAPI_EVENT_CALL_CALLINGNAMEINFO_IND");
-			CALL_ENG_DEBUG(ENG_DEBUG, "Event Not Handled, Feature Not Implemented");
-
-#ifdef _CALLING_NAME_INFO_
-			if (TRUE == __call_vc_is_callagent_waitstate(pagent)) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "[Now tapi requesting...callagent_state=%d, not display network ind]", pagent->callagent_state);
-				return;
-
-			} else {
-				call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-				/*Structure for calling name information */
-				TelCallingNameInfo_t calling_nameinfo;
-				memset(&calling_nameinfo, 0, sizeof(TelCallingNameInfo_t));
-
-				/*TapiCallingNameInfo is padded as second parameneter
-				tapicallback data = call_handle + cause*/
-				memcpy(&call_handle, data, sizeof(call_vc_handle));
-				memcpy(&calling_nameinfo, data + sizeof(call_vc_handle), sizeof(TelCallingNameInfo_t));
-
-				/*calling_info is not used in this function, so not passed.
-				It may be used in the future*/
-				_vc_core_tapi_event_handle_notification(pagent, event_type, 0);
-			}
-#endif
-		}
-		break;
-#ifdef _OLD_TAPI_
-	case TAPI_EVENT_CALL_SSNOTIFY_IND:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "Received TAPI_EVENT_CALL_SSNOTIFY_IND");
-			CALL_ENG_DEBUG(ENG_DEBUG, "Event Not Handled, Feature Not Implemented");
-
-			if (TRUE == __call_vc_is_callagent_waitstate(pagent)) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "[Now tapi requesting...callagent_state=%d, not display network ind]", pagent->callagent_state);
-				return TRUE;
-
-			} else {
-				tapi_call_ss_codes_t ss_code;
-
-				/*ss_code is padded as first parameter in the data
-				data = ss_code*/
-				memcpy(&ss_code, data, sizeof(tapi_call_ss_codes_t));
-				_vc_core_tapi_event_handle_notification(pagent, event_type, ss_code);
-
-			}
-		}
-		break;
-
-	case TAPI_EVENT_CALL_REDIRECT_CNF:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "Received TAPI_EVENT_CALL_REDIRECT_CNF");
-			CALL_ENG_DEBUG(ENG_DEBUG, "Event Not Handled, Feature Not Implemented");
-
-			/*TODO abthul, not used currently */
 			return;
+		}
 
-			if (TRUE == __call_vc_is_callagent_waitstate(pagent)) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "[Now tapi requesting...callagent_state=%d, not display network ind]", pagent->callagent_state);
+		/*End of Incoming Call */
+		if (incoming_call_handle == call_handle) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "Adding Incoming End Event to Idle Callback");
+			_vc_core_ca_change_inout_state(pagent, VC_INOUT_STATE_INCOME_END);
+			/*Make sure that the End Indication is processed always after the Incoming Indication , as both are
+			   processed in Idle Add Callbacks */
+			g_idle_add(__call_vc_incoming_call_end_idle_cb, pagent);
+			return;
+		}
+
+		/*End of Outgoing Call */
+		if (_vc_core_cm_get_outgoing_call_handle(&pagent->call_manager) == call_handle) {
+			__call_vc_outgoingcall_endhandle(pagent, call_handle, TAPI_NOTI_VOICE_CALL_STATUS_IDLE, tapi_cause);
+			return;
+		}
+
+		/*End of Normal Connected Call */
+		_vc_core_tapi_event_handle_call_end_event(pagent, noti_id, call_handle, tapi_cause);
+
+		CALL_VC_DUMP_CALLDETAILS(&pagent->call_manager);
+		_vc_core_cm_clear_call_object(&objectInfo);
+		if (FALSE == _vc_core_cm_get_call_object(&pagent->call_manager, call_handle, &objectInfo)) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "Call Already Cleared for Call Handle = %d", call_handle);
+
+			/*
+			 * Because of _vc_core_tapi_rqst_answer_call( .., VC_ANSWER_HOLD_ACTIVE_AND_ACCEPT,.. ) inside _vc_core_tapi_event_handle_call_end_event(),
+			 * pagent->call_manager is cleared. so, we didn't send VC_CALL_NORMAL_END to call-ui.
+			 * so we should send this event to call-ui.
+			 */
+			{
+				voice_call_end_cause_type_t end_cause_type;
+				_vc_core_tapi_event_get_end_cause_type(pagent, noti_id, tapi_cause, &end_cause_type);
+				_vc_core_ca_send_event_to_client(pagent, VC_CALL_NORMAL_END, call_handle, end_cause_type, NULL);
+			}
+		} else {
+			_vc_core_ca_send_event_to_client(pagent, VC_CALL_NORMAL_END, objectInfo.call_handle, objectInfo.end_cause_type, NULL);
+		}
+	} else if (strcmp(noti_id, TAPI_NOTI_VOICE_CALL_STATUS_ACTIVE) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "event_type == TAPI_NOTI_VOICE_CALL_STATUS_ACTIVE...");
+		call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
+		TelCallStatusActiveNoti_t callActiveInfo;
+
+		if (data != NULL) {
+			memset(&callActiveInfo, 0, sizeof(TelCallStatusActiveNoti_t));
+			memcpy(&callActiveInfo, data, sizeof(TelCallStatusActiveNoti_t));
+			call_handle = callActiveInfo.id;
+		}
+		CALL_ENG_DEBUG(ENG_DEBUG, "IO State: %d", pagent->io_state);
+		CALL_ENG_DEBUG(ENG_DEBUG, "Connected Call Handle = %d", call_handle);
+
+		if (call_handle == _vc_core_cm_get_incoming_call_handle(&pagent->call_manager)) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "Incoming call is being connected...");
+		} else if (call_handle == _vc_core_cm_get_outgoing_call_handle(&pagent->call_manager)) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "Outgoing call is being connected...");
+		} else {
+			CALL_ENG_DEBUG(ENG_ERR, "invalid connected event Call Handle = %d", call_handle);
+
+			if ((VC_INVALID_CALL_INDEX != pagent->call_manager.mtcall_index) || (VC_INVALID_CALL_INDEX != pagent->call_manager.setupcall_info.mocall_index)) {
+				CALL_ENG_DEBUG(ENG_DEBUG, "incoming/outgoin calls call exits, invalid call handle [PROBLEM]");
+				CALL_VC_DUMP_CALLDETAILS(&pagent->call_manager);
+
+				assert(0);
+			} else {
+				CALL_ENG_DEBUG(ENG_ERR, "No pending calls to connect, ignoreing connect event for call handle= %d", call_handle);
 				return;
-			} else {
-				gboolean bValue;
-
-				/*bValue is padded as first parameter in data from TAPI
-				data = bValue*/
-				memcpy(&bValue, data, sizeof(gboolean));
-				_vc_core_tapi_event_handle_notification(pagent, event_type, bValue);
 			}
+			return;
 		}
-#endif
-		break;
-	case TAPI_EVENT_CALL_FORWARD_IND:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "Received TAPI_EVENT_CALL_FORWARD_IND");
 
-			if (TRUE == __call_vc_is_callagent_waitstate(pagent)) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "[Now tapi requesting...callagent_state=%d, not display network ind]", pagent->callagent_state);
-				return;
+		/*Handle Connected Call Event */
+		_vc_core_tapi_event_handle_call_connect_event(pagent, call_handle);
+		CALL_ENG_KPI("TAPI_NOTI_VOICE_CALL_STATUS_ACTIVE done");
+	} else if (strcmp(noti_id, TAPI_NOTI_VOICE_CALL_STATUS_DIALING) == 0) {
+		/*Dialing IND*/
+		call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
+		TelCallStatusDialingNoti_t callDialingInfo;
+		call_vc_call_objectinfo_t objectInfo;
 
-			} else {
-				call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-				TelCallForwardType_t forwardind_type = -1;
+		CALL_ENG_DEBUG(ENG_DEBUG, "Data Received for DIALING_IND is %p", data);
 
-				/*tapicallback data = call_handle + forwardind_type*/
-				memcpy(&call_handle, data, sizeof(call_vc_handle));
-				memcpy(&forwardind_type, data + sizeof(call_vc_handle), sizeof(TelCallForwardType_t));
-
-				_vc_core_tapi_event_handle_notification(pagent, event_type, forwardind_type);
-			}
+		if (TRUE == _vc_core_cm_get_outgoing_call_info(&pagent->call_manager, &objectInfo)) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "MO call index (%d)",objectInfo.call_id);
+		} else {
+			CALL_ENG_DEBUG(ENG_ERR, "EXCEPTION:Outgoing call Info Missing..");
 		}
-		break;
-	case TAPI_EVENT_CALL_AOCINFO_IND:
-		{
-			TelCallAocInfo_t aoc_info;
-			call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-			memset(&aoc_info, 0, sizeof(TelCallAocInfo_t));
 
-			CALL_ENG_DEBUG(ENG_DEBUG, "Recived TAPI_EVENT_CALL_AOCINFO_IND...");
 
-			/*data = call_handle + tapi_call_aoc_info_t */
-			memcpy(&call_handle, data, sizeof(int));
-			memcpy(&aoc_info, (data + sizeof(int)), sizeof(TelCallAocInfo_t));
-
-			CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d", call_handle);
-			_vc_core_tapi_event_handle_aoc(pagent, call_handle, &aoc_info);
+		/* tapicallback data =  TelCallStatusHeldNoti_t */
+		if (data != NULL) {
+			memset(&callDialingInfo, 0, sizeof(TelCallStatusDialingNoti_t));
+			memcpy(&callDialingInfo, data, sizeof(TelCallStatusDialingNoti_t));
+			call_handle = callDialingInfo.id;
+			CALL_ENG_DEBUG(ENG_DEBUG, "Received Call Handle = %d", call_handle);
 		}
-		break;
-	case TAPI_EVENT_SS_AOC_RSP:
-		{
-			TelCallAocInfo_t aoc_info;
 
-			CALL_ENG_DEBUG(ENG_DEBUG, "Recived TAPI_EVENT_SS_AOC_RSP");
-
-			if (TAPI_CAUSE_SUCCESS == status) {
-				memset(&aoc_info, 0, sizeof(TelCallAocInfo_t));
-				memcpy(&aoc_info, data, sizeof(TelCallAocInfo_t));
-
-				switch (aoc_info.AocType) {
-				case TAPI_SS_AOC_TYPE_PUC:
-					CALL_ENG_DEBUG(ENG_DEBUG, "Recived aoc_ppm = %f", aoc_info.PPM);
-					pagent->aoc_ppm = aoc_info.PPM;
-					break;
-				default:
-					CALL_ENG_DEBUG(ENG_DEBUG, "Action not defined for AOC Type : %d", aoc_info.AocType);
-				}
-			}
+		if (VC_INOUT_STATE_OUTGOING_WAIT_ORIG != pagent->io_state) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "Io State not in WAIT_ORIG, current io state is : %d", pagent->io_state);
+			return;
 		}
-		break;
-	case TAPI_EVENT_CALL_CONNECTEDNUMBERINFO_IND:
-		{
-			TelCallConnectedNumberInfo_t connected_number_info;
-			call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-			memset(&connected_number_info, 0, sizeof(TelCallConnectedNumberInfo_t));
 
-			CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_EVENT_CALL_CONNECTEDNUMBERINFO_IND");
-
-			/*data = callhandle + 0(dwParam)*/
-			memcpy(&call_handle, data, sizeof(call_vc_handle));
-			memcpy(&connected_number_info, (data + sizeof(call_vc_handle)), sizeof(TelCallConnectedNumberInfo_t));
-
-			CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d", call_handle);
-
-			/*Abthul:todo , Check the usage of connected number info*/
-			_vc_core_tapi_event_connected_line_ind_handle(pagent, call_handle, &connected_number_info);
+		/* Get the outgoing call handle from CallManger and check */
+		if ((VC_TAPI_INVALID_CALLHANDLE == call_handle)) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "Outgoing call does not exist or call_handle doesn't match");
+			return;
 		}
-		break;
-	case TAPI_EVENT_CALL_SEND_DTMF_CNF:
-		{
-			CALL_ENG_DEBUG(ENG_DEBUG, "event_type == TAPI_EVENT_CALL_SEND_DTMF_CNF");
 
-			if (TAPI_CAUSE_SUCCESS != status) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "Tapi Error Code %d", status);
-				/*Forward the events to client */
-				_vc_core_ca_send_event_to_client(pagent, VC_CALL_DTMF_ACK, FALSE, 0, NULL);
-			} else {
-				/*Forward the events to client */
-				_vc_core_ca_send_event_to_client(pagent, VC_CALL_DTMF_ACK, TRUE, 0, NULL);
-			}
+		/* Set the Call Handle to the CallbObject for future reference */
+		objectInfo.call_handle = call_handle;
+		_vc_core_cm_set_outgoing_call_info(&pagent->call_manager, &objectInfo);
+
+		_vc_core_tapi_event_handle_originated_event(pagent, call_handle);
+		CALL_ENG_KPI("TAPI_NOTI_VOICE_CALL_STATUS_DIALING done");
+	} else if (strcmp(noti_id, TAPI_NOTI_VOICE_CALL_STATUS_ALERT) == 0) {
+		call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
+		call_vc_handle mo_call_handle = VC_TAPI_INVALID_CALLHANDLE;
+		TelCallStatusAlertNoti_t callAlertInfo;
+
+		CALL_ENG_KPI("TAPI_NOTI_VOICE_CALL_STATUS_ALERT START");
+		/*There are possiblities, that TAPI issued the Alert Notification and it is pending in the gmain loop, but meanwhile, the call
+		   is released by the user - so ignore the event if it doesn't match with the IN OUT Wait state */
+		if (VC_INOUT_STATE_OUTGOING_WAIT_ALERT != pagent->io_state) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "Io State not in WAIT_ORIG, current io state is : %d", pagent->io_state);
+			return;
 		}
-		break;
-	case TAPI_EVENT_SOUND_VOLUMECTRL_RSP:
-		{
-			int tapi_sound_path = 0;
-			int volume_level = 0;
-			tapi_sound_volumn_ctrl_res snd_resp_data;
 
-			memset(&snd_resp_data, 0, sizeof(tapi_sound_volumn_ctrl_res));
-			memcpy(&snd_resp_data, data, sizeof(tapi_sound_volumn_ctrl_res));
-
-			int i = 0;
-			tapi_sound_path = pagent->curr_tapi_path;
-			for (i = 0; i < snd_resp_data.num_record; i++) {
-				if (tapi_sound_path == snd_resp_data.pinfo[i].type) {
-					volume_level = snd_resp_data.pinfo[i].level;
-					break;
-				}
-			}
-			CALL_ENG_DEBUG(ENG_DEBUG, "Changed Vol Type = %d, Vol Level = %d", tapi_sound_path, volume_level);
-
-			_vc_core_ca_send_event_to_client(pagent, VC_CALL_GET_VOLUME_RESP, tapi_sound_path, volume_level, NULL);
+		if (data != NULL) {
+			memset(&callAlertInfo, 0, sizeof(TelCallStatusAlertNoti_t));
+			memcpy(&callAlertInfo, data, sizeof(TelCallStatusAlertNoti_t));
+			call_handle = callAlertInfo.id;
 		}
-		break;
-	default:
-		CALL_ENG_DEBUG(ENG_DEBUG, "Default: event_type = %d", event_type);
-		break;
+
+		CALL_ENG_DEBUG(ENG_DEBUG, "Alert Call Handle = %d", call_handle);
+
+		mo_call_handle = _vc_core_cm_get_outgoing_call_handle(&pagent->call_manager);
+		CALL_ENG_DEBUG(ENG_DEBUG, "MO Call Handle = %d", mo_call_handle);
+
+		/*Get the outgoing call handle from CallManger and check*/
+		if ((VC_TAPI_INVALID_CALLHANDLE == call_handle) || (mo_call_handle != call_handle)) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "Outgoing call does not exist or call_handle doesn't match");
+			return;
+		}
+
+		_vc_core_tapi_event_handle_alert_event(pagent, call_handle);
+		CALL_ENG_KPI("TAPI_NOTI_VOICE_CALL_STATUS_ALERT done");
+	} else if (strcmp(noti_id, TAPI_NOTI_VOICE_CALL_STATUS_INCOMING) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_VOICE_CALL_STATUS_INCOMING is not used.");
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_INFO_ACTIVE) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_INFO_ACTIVE");
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_IND_ACTIVATE, 0, 0, NULL);
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_INFO_HELD) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_INFO_HELD");
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_IND_HOLD, 0, 0, NULL);
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_INFO_TRANSFERED) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_INFO_TRANSFERRED");
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_IND_TRANSFER, 0, 0, NULL);
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_INFO_JOINED) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_INFO_JOINED");
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_IND_SETUPCONFERENCE, 0, 0, NULL);
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_INFO_WAITING) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_INFO_WAITING");
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_IND_WAITING, 0, 0, NULL);
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_INFO_FORWARDED) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_INFO_FORWARDED");
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_IND_FORWARD, VC_FRWD_IND_INCOM_IS_FRWD, 0, NULL);
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_INFO_BARRED_OUTGOING) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_INFO_BARRED_OUTGOING");
+		pagent->barring_ind_type = VC_BARR_IND_ALL;
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_INFO_CUG) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_INFO_CUG");
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_IND_CUGINFO, 0, 0, NULL);
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_INFO_CALL_NAME_INFORMATION) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_INFO_CALL_NAME_INFORMATION");
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_IND_CALLINGNAMEINFO, 0, 0, NULL);
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_INFO_DEFLECTED) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_INFO_DEFLECTED");
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_INFO_FORWARD_UNCONDITIONAL) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_INFO_FORWARD_UNCONDITIONAL");
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_IND_SSNOTIFY, VC_SSNOTIFY_IND_CFU, 0, NULL);
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_INFO_FORWARD_CONDITIONAL) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_INFO_FORWARD_CONDITIONAL");
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_IND_SSNOTIFY, VC_SSNOTIFY_IND_ALL_COND_FORWARDING, 0, NULL);
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_SOUND_WBAMR) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_SOUND_WBAMR");
+		TelCallSoundWbamrNoti_t wbamrInfo;
+		int wbamr_status = FALSE;
+
+		if (data != NULL) {
+			memset(&wbamrInfo, 0, sizeof(TelCallSoundWbamrNoti_t));
+			memcpy(&wbamrInfo, data, sizeof(TelCallSoundWbamrNoti_t));
+		}
+
+		CALL_ENG_DEBUG(ENG_DEBUG, "WBAMR is %d", wbamrInfo);
+		if (wbamrInfo == TAPI_CALL_SOUND_WBAMR_STATUS_ON) {
+			wbamr_status = TRUE;
+		}
+
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_NOTI_WBAMR, wbamr_status, 0, NULL);
+	} else if (strcmp(noti_id, TAPI_NOTI_CALL_SOUND_NOISE_REDUCTION) == 0) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "TAPI_NOTI_CALL_SOUND_NOISE_REDUCTION");
+	} else {
+		CALL_ENG_DEBUG(ENG_DEBUG, "ERROR!! Noti is not defined");
 	}
-	CALL_ENG_DEBUG(ENG_DEBUG, "tapi event(%d) processed done.", event_type);
+
+	CALL_ENG_DEBUG(ENG_DEBUG, "tapi noti(%s) processed done.", noti_id);
 
 	return;
 }
 
-static gboolean __call_vc_outgoingcall_endhandle(call_vc_callagent_state_t *pagent, call_vc_handle call_handle, int type, TelTapiEndCause_t tapi_cause)
+static gboolean __call_vc_outgoingcall_endhandle(call_vc_callagent_state_t *pagent, call_vc_handle call_handle, const char *type, TelTapiEndCause_t tapi_cause)
 {
 	call_vc_call_objectinfo_t objectInfo;
 	voice_call_end_cause_type_t endcause_type = 0;
@@ -2136,7 +1691,7 @@ static gboolean __call_vc_outgoingcall_endhandle(call_vc_callagent_state_t *page
 
 	/*Inform Client App about MO Call Disconnect */
 	_vc_core_ca_change_inout_state(pagent, VC_INOUT_STATE_OUTGOING_ABORTED);
-	_vc_core_tapi_event_get_end_cause_type(type, tapi_cause, &endcause_type);
+	_vc_core_tapi_event_get_end_cause_type(pagent, type, tapi_cause, &endcause_type);
 	_vc_core_ca_send_event_to_client(pagent, VC_CALL_OUTGOING_END, call_handle, (int)endcause_type, NULL);
 
 	/* Response call setup result to SAT if this is SAT call */
@@ -2260,7 +1815,7 @@ static gboolean __call_vc_is_callagent_waitstate(call_vc_callagent_state_t *page
  * @return		This function returns TRUE if dtmf is possible or else FALSE
  * @param[in]		pcall_agent			Pointer to the call agent structure
  */
-gboolean __vc_core_is_dtmf_possible(call_vc_callagent_state_t *pcall_agent)
+static gboolean __vc_core_is_dtmf_possible(call_vc_callagent_state_t *pcall_agent)
 {
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
 	CALL_ENG_DEBUG(ENG_DEBUG, "");
@@ -2763,22 +2318,12 @@ voicecall_error_t _vc_core_engine_send_sat_response(voicecall_engine_t *pvoiceca
 void _vc_core_engine_engine_finish(voicecall_engine_t *pvoicecall_agent)
 {
 	call_vc_callagent_state_t *pcall_agent = (call_vc_callagent_state_t *)pvoicecall_agent;
-	int error_code = 0;
-	int index = 0;
-
 	VOICECALL_RETURN_IF_FAIL(pvoicecall_agent != NULL);
 
 	/*Unsubscribe Events */
 	CALL_ENG_DEBUG(ENG_DEBUG, "Unsubscribing Events");
-	for (index = 0; index < CALL_VC_TAPI_SUBSCRIPTION_MAX; index++) {
-		error_code = tel_deregister_event(pcall_agent->subscription_id[index]);
-		if (error_code != TAPI_API_SUCCESS) {
-			CALL_ENG_DEBUG(ENG_DEBUG, "tel_deregister_event failed. sub id is %d error_code is %d", pcall_agent->subscription_id[index], error_code);
-			break;
-		}
-	}
 
-	tel_deinit();
+	tel_deinit(pcall_agent->tapi_handle);
 
 	VOICECALL_RETURN_IF_FAIL(pcall_agent != NULL);
 	_vc_core_ca_finish_agent(pcall_agent);
@@ -2795,13 +2340,13 @@ void _vc_core_engine_engine_finish(voicecall_engine_t *pvoicecall_agent)
 voicecall_error_t voicecall_request_sat_menu(voicecall_engine_t *pvoicecall_agent)
 {
 	call_vc_callagent_state_t *pagent = (call_vc_callagent_state_t *)pvoicecall_agent;
-	TelSatSetupMenuInfo_t sim_menu;
-	
+	TelSatSetupMenuInfo_t sim_menu;	/*LiMo SAT*/
+
 	VOICECALL_RETURN_VALUE_IF_FAIL(pagent != NULL, ERROR_VOICECALL_INVALID_ARGUMENTS);
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "");
 	memset(&sim_menu, 0, sizeof(TelSatSetupMenuInfo_t));
-
+	/*LiMo SAT*/
 	if (FALSE == TelTapiSatGetMainMenuList(&sim_menu)) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "TelTapiSatGetMainMenuList failed");
 		return ERROR_VOICECALL_REQUEST_FAILED;
@@ -2820,7 +2365,7 @@ voicecall_error_t voicecall_request_sat_menu(voicecall_engine_t *pvoicecall_agen
 voicecall_error_t voicecall_request_sat_menu_title(voicecall_engine_t *pvoicecall_agent, char *title)
 {
 	call_vc_callagent_state_t *pagent = (call_vc_callagent_state_t *)pvoicecall_agent;
-	TelSatMainMenuTitleInfo_t sat_menu_title;
+	TelSatMainMenuTitleInfo_t sat_menu_title;	/*LiMo SAT*/
 
 	VOICECALL_RETURN_VALUE_IF_FAIL(pagent != NULL, ERROR_VOICECALL_INVALID_ARGUMENTS);
 	VOICECALL_RETURN_VALUE_IF_FAIL(title != NULL, ERROR_VOICECALL_INVALID_ARGUMENTS);
@@ -2828,7 +2373,6 @@ voicecall_error_t voicecall_request_sat_menu_title(voicecall_engine_t *pvoicecal
 	CALL_ENG_DEBUG(ENG_DEBUG, "");
 
 	memset(&sat_menu_title, 0, sizeof(TelSatMainMenuTitleInfo_t));
-
 	if (TRUE == TelTapiSatGetMainMenuTitle(&sat_menu_title)) {
 		if (TRUE == sat_menu_title.bIsMainMenuPresent) {
 			strcpy(title, (char *)sat_menu_title.mainMenuTitle.string);
@@ -2878,7 +2422,7 @@ voicecall_error_t _vc_core_engine_prepare_redial(voicecall_engine_t *pvoicecall_
 	/*Set Engine IO State */
 	_vc_core_ca_change_inout_state(pagent, VC_INOUT_STATE_OUTGOING_SHOW_REDIALCAUSE);
 
-	/*Abthul:todo Set SAT Redial Data */
+	/*todo Set SAT Redial Data */
 
 	return ERROR_VOICECALL_NONE;
 }
@@ -2892,7 +2436,7 @@ voicecall_error_t _vc_core_engine_prepare_redial(voicecall_engine_t *pvoicecall_
 * @param[out]	bredial_duration	Contains TRUE if SAT redial duration is enabled, FALSE otherwise
 * @remarks		pvoicecall_agent and bredial_duration cannot be NULL
 */
-voicecall_error_t voicecall_get_sat_redial_duration_status(voicecall_engine_t *pvoicecall_agent, gboolean * bredial_duration)
+voicecall_error_t voicecall_get_sat_redial_duration_status(voicecall_engine_t *pvoicecall_agent, gboolean *bredial_duration)
 {
 	call_vc_callagent_state_t *pagent = (call_vc_callagent_state_t *)pvoicecall_agent;
 	call_vc_satsetup_info_t *pcall_vc_satcall_info = NULL;
@@ -2956,13 +2500,12 @@ voicecall_error_t _vc_core_engine_get_sat_dtmf_hidden_mode(voicecall_engine_t *p
 * @param[in]		audio_path		audio path to be changed
 * @remarks		pvoicecall_agent cannot be NULL
 */
-voicecall_error_t _vc_core_engine_change_audio_path(voicecall_engine_t *pvoicecall_agent, voicecall_audio_path_t audio_path)
+voicecall_error_t _vc_core_engine_change_audio_path(voicecall_engine_t *pvoicecall_agent, voicecall_audio_path_t audio_path, gboolean bextra_volume)
 {
 	call_vc_callagent_state_t *pcall_agent = (call_vc_callagent_state_t *)pvoicecall_agent;
-	tapi_sound_audio_path_t tapi_audio_path = TAPI_SOUND_HANDSET;
+	TelCallSoundPathInfo_t tapi_sound_path;
 	/*Enum for encapsulating errors from TAPI Lib */
 	TapiResult_t tapi_error = TAPI_API_SUCCESS;
-	int ReqId = VC_RQSTID_DEFAULT;
 
 	VOICECALL_RETURN_VALUE_IF_FAIL(pcall_agent != NULL, ERROR_VOICECALL_INVALID_ARGUMENTS);
 
@@ -2974,37 +2517,37 @@ voicecall_error_t _vc_core_engine_change_audio_path(voicecall_engine_t *pvoiceca
 	switch (audio_path) {
 	case VC_AUDIO_PATH_HANDSET:
 		{
-			tapi_audio_path = TAPI_SOUND_HANDSET;
+			tapi_sound_path.path = TAPI_SOUND_PATH_HANDSET;
 		}
 		break;
 	case VC_AUDIO_PATH_HEADSET:
 		{
-			tapi_audio_path = TAPI_SOUND_HEADSET;
+			tapi_sound_path.path = TAPI_SOUND_PATH_HEADSET;
 		}
 		break;
 	case VC_AUDIO_PATH_HANDSFREE:
 		{
-			tapi_audio_path = TAPI_SOUND_HANDSFREE;
+			tapi_sound_path.path = TAPI_SOUND_PATH_HANDSFREE;
 		}
 		break;
 	case VC_AUDIO_PATH_BLUETOOTH:
 		{
-			tapi_audio_path = TAPI_SOUND_BLUETOOTH;
+			tapi_sound_path.path = TAPI_SOUND_PATH_BLUETOOTH;
 		}
 		break;
 	case VC_AUDIO_PATH_STEREO_BLUETOOTH:
 		{
-			tapi_audio_path = TAPI_SOUND_STEREO_BLUETOOTH;
+			tapi_sound_path.path = TAPI_SOUND_PATH_STEREO_BLUETOOTH;
 		}
 		break;
 	case VC_AUDIO_PATH_SPK_PHONE:
 		{
-			tapi_audio_path = TAPI_SOUND_SPK_PHONE;
+			tapi_sound_path.path = TAPI_SOUND_PATH_SPK_PHONE;
 		}
 		break;
 	case VC_AUDIO_PATH_HEADSET_3_5PI:
 		{
-			tapi_audio_path = TAPI_SOUND_HEADSET_3_5PI;
+			tapi_sound_path.path = TAPI_SOUND_PATH_HEADSET_3_5PI;
 		}
 		break;
 	default:
@@ -3015,9 +2558,16 @@ voicecall_error_t _vc_core_engine_change_audio_path(voicecall_engine_t *pvoiceca
 		break;
 	}
 
-	CALL_ENG_DEBUG(ENG_DEBUG, "tapi_audio_path: %d", tapi_audio_path);
-	tapi_error = tel_set_sound_path(tapi_audio_path, &ReqId);
+	CALL_ENG_DEBUG(ENG_DEBUG, "tapi_audio_path: %d(extra voluem: %d)", tapi_sound_path, bextra_volume);
+	if ((bextra_volume)
+		&& ((tapi_sound_path.path == TAPI_SOUND_PATH_HANDSET)
+		|| (tapi_sound_path.path = TAPI_SOUND_PATH_SPK_PHONE))) {
+			tapi_sound_path.ex_volume = TAPI_SOUND_EX_VOLUME_ON;
+	} else {
+		tapi_sound_path.ex_volume = TAPI_SOUND_EX_VOLUME_OFF;
+	}
 
+	tapi_error = tel_set_call_sound_path(pcall_agent->tapi_handle, &tapi_sound_path, _vc_core_engine_set_sound_path_resp_cb, NULL);
 	if (tapi_error != TAPI_API_SUCCESS) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tel_set_sound_path error: %d", tapi_error);
 		return ERROR_VOICECALL_TAPI_ERROR;
@@ -3028,13 +2578,13 @@ voicecall_error_t _vc_core_engine_change_audio_path(voicecall_engine_t *pvoiceca
 
 voicecall_error_t _vc_core_engine_set_audio_mute(voicecall_engine_t *pvoicecall_agent, gboolean bmute_audio)
 {
+	call_vc_callagent_state_t *pcall_agent = (call_vc_callagent_state_t *)pvoicecall_agent;
 	TapiResult_t error = TAPI_API_SUCCESS;
-	tapi_sound_mic_mute_t micmute_set = TAPI_SOUND_MIC_UNMUTE;
-	int req_id = VC_RQSTID_DEFAULT;
+	TelSoundMuteStatus_t micmute_set = TAPI_SOUND_MUTE_STATUS_OFF; 
 
-	micmute_set = (TRUE == bmute_audio) ? TAPI_SOUND_MIC_MUTE : TAPI_SOUND_MIC_UNMUTE;
+	micmute_set = (TRUE == bmute_audio) ? TAPI_SOUND_MUTE_STATUS_ON : TAPI_SOUND_MUTE_STATUS_OFF;
 
-	error = tel_set_sound_mute_status(micmute_set, &req_id);
+	error = tel_set_call_mute_status(pcall_agent->tapi_handle, micmute_set, _vc_core_engine_set_mute_status_resp_cb, NULL);
 
 	if (error != TAPI_API_SUCCESS) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tel_set_sound_mute_status Error: %d", error);
@@ -3059,8 +2609,7 @@ voicecall_error_t _vc_core_engine_set_audio_volume(voicecall_engine_t *pvoicecal
 	call_vc_callagent_state_t *pcall_agent = (call_vc_callagent_state_t *)pvoicecall_agent;
 	/*Enum for encapsulating errors from TAPI Lib */
 	TapiResult_t error = TAPI_API_SUCCESS;
-	tapi_sound_volume_control_t vol_control;
-	int ReqId = VC_RQSTID_DEFAULT;
+	TelCallVolumeInfo_t vol_info;
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Start! path(%d), volume(%d)", audio_path_type, vol_level);
 
@@ -3074,24 +2623,25 @@ voicecall_error_t _vc_core_engine_set_audio_volume(voicecall_engine_t *pvoicecal
 		return ERROR_VOICECALL_CALL_INFO_NOT_AVAILABLE;
 	}
 
-	vol_control.volume = vol_level;
+	vol_info.volume = vol_level;
+	vol_info.type = TAPI_SOUND_TYPE_VOICE;
 	switch (audio_path_type) {
 	case VC_AUDIO_PATH_HEADSET:
-		vol_control.vol_type = TAPI_SOUND_VOL_HEADSET_VOICE;
+		vol_info.device = TAPI_SOUND_DEVICE_HEADSET;
 		break;
 	case VC_AUDIO_PATH_BLUETOOTH:
 	case VC_AUDIO_PATH_STEREO_BLUETOOTH:
-		vol_control.vol_type = TAPI_SOUND_VOL_BT_VOICE;
+		vol_info.device = TAPI_SOUND_DEVICE_BLUETOOTH;
 		break;
 	case VC_AUDIO_PATH_SPK_PHONE:
-		vol_control.vol_type = TAPI_SOUND_VOL_SPK_PHONE;
+		vol_info.device = TAPI_SOUND_DEVICE_SPEAKER_PHONE;
 		break;
 	default:
-		vol_control.vol_type = TAPI_SOUND_VOL_VOICE;
+		vol_info.device = TAPI_SOUND_DEVICE_RECEIVER;
 		break;
 	}
 
-	error = tel_set_sound_volume_info(vol_control, &ReqId);
+	error = tel_set_call_volume_info(pcall_agent->tapi_handle, &vol_info, _vc_core_engine_set_volume_resp_cb, NULL);
 
 	if (error != TAPI_API_SUCCESS) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "Tapi API Error: %d", error);
@@ -3119,8 +2669,7 @@ voicecall_error_t _vc_core_engine_get_audio_volume(voicecall_engine_t *pvoicecal
 {
 	call_vc_callagent_state_t *pcall_agent = (call_vc_callagent_state_t *)pvoicecall_agent;
 	TapiResult_t error = TAPI_API_SUCCESS;
-	tapi_sound_volume_type_t volume_type = TAPI_SOUND_VOL_VOICE;
-	int ReqId = VC_RQSTID_DEFAULT;
+	TelSoundDevice_t volume_type = TAPI_SOUND_DEVICE_RECEIVER;
 
 	VOICECALL_RETURN_VALUE_IF_FAIL(pcall_agent != NULL, ERROR_VOICECALL_INVALID_ARGUMENTS);
 	VOICECALL_RETURN_VALUE_IF_NOT_IN_RANGE(audio_path_type, VC_AUDIO_PATH_HANDSET, VC_AUDIO_PATH_HEADSET_3_5PI, ERROR_VOICECALL_INVALID_ARGUMENTS);
@@ -3132,24 +2681,24 @@ voicecall_error_t _vc_core_engine_get_audio_volume(voicecall_engine_t *pvoicecal
 
 	switch (audio_path_type) {
 	case VC_AUDIO_PATH_HEADSET:
-		volume_type = TAPI_SOUND_VOL_HEADSET_VOICE;
+		volume_type = TAPI_SOUND_DEVICE_HEADSET;
 		break;
 	case VC_AUDIO_PATH_BLUETOOTH:
 	case VC_AUDIO_PATH_STEREO_BLUETOOTH:
-		volume_type = TAPI_SOUND_VOL_BT_VOICE;
+		volume_type = TAPI_SOUND_DEVICE_BLUETOOTH;
 		break;
 	case VC_AUDIO_PATH_SPK_PHONE:
-		volume_type = TAPI_SOUND_VOL_SPK_PHONE;
+		volume_type = TAPI_SOUND_DEVICE_SPEAKER_PHONE;
 		break;
 	default:
-		volume_type = TAPI_SOUND_VOL_VOICE;
+		volume_type = TAPI_SOUND_DEVICE_RECEIVER;
 		break;
 	}
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "volume_type = %d", volume_type);
 
 	pcall_agent->curr_tapi_path = volume_type;
-	error = tel_get_sound_volume_info(volume_type, &ReqId);
+	error = tel_get_call_volume_info(pcall_agent->tapi_handle, volume_type, TAPI_SOUND_TYPE_VOICE, _vc_core_engine_get_volume_resp_cb, NULL);
 
 	if (error != TAPI_API_SUCCESS) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "Tapi API Error: %d", error);
@@ -3218,4 +2767,339 @@ voicecall_error_t _vc_core_engine_set_to_default_values(voicecall_engine_t *pvoi
 	CALL_ENG_DEBUG(ENG_DEBUG, "End");
 
 	return ERROR_VOICECALL_NONE;
+}
+
+void _vc_core_engine_dial_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_dial_call_resp_cb");
+
+	call_vc_call_objectinfo_t objectInfo;
+	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
+
+	if (TAPI_CAUSE_SUCCESS != result) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "MO Call Dial call Failed with error cause: %d", result);
+
+		_vc_core_cm_clear_call_object(&objectInfo);
+
+		__call_vc_outgoingcall_endhandle(pagent, objectInfo.call_handle, TAPI_NOTI_VOICE_CALL_STATUS_IDLE, TAPI_CC_CAUSE_FACILITY_REJECTED);
+		/* Need to make warning popup for abnormal status... */
+	}
+}
+
+void _vc_core_engine_answer_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_answer_call_resp_cb");
+
+	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
+	if (result != TAPI_CAUSE_SUCCESS) {
+		/*If IO State is waiting for Answer Response */
+		if ((VC_INOUT_STATE_INCOME_WAIT_CONNECTED == pagent->io_state) || (VC_INOUT_STATE_INCOME_WAIT_HOLD_CONNECTED == pagent->io_state) || (VC_INOUT_STATE_INCOME_WAIT_RELEASE_ACTIVE_CONNECTED == pagent->io_state)) {
+			int mt_call_handle = -1;
+
+			mt_call_handle = _vc_core_cm_get_incoming_call_handle(&pagent->call_manager);
+
+			if (mt_call_handle != -1) {
+				CALL_ENG_DEBUG(ENG_DEBUG, "mt_call_handle = %d", mt_call_handle);
+
+				/*Send Hold Failed Notification to client UI */
+				if (pagent->callagent_state == CALL_VC_CA_STATE_WAIT_HOLD) {
+					_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
+					_vc_core_ca_send_event_to_client(pagent, VC_ERROR_OCCURED, ERROR_VOICECALL_HOLD_FAILED, 0, NULL);
+				}
+
+				/*Send Incoming call MT End Indication to Client UI */
+				_vc_core_ca_change_inout_state(pagent, VC_INOUT_STATE_INCOME_END);
+				g_idle_add(__call_vc_incoming_call_end_idle_cb, pagent);
+			}
+		}
+	} else {
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_ANSWER_CNF, 0, 0, NULL);
+	}
+}
+
+void _vc_core_engine_end_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_end_call_resp_cb..");
+
+	TelCallEndCnf_t callEndInfo ;
+	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
+	TelCallEndType_t call_end_type = TAPI_CALL_END;
+	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
+
+	memset(&callEndInfo, 0, sizeof(TelCallEndCnf_t));
+	memcpy(&callEndInfo, tapi_data, sizeof(TelCallEndCnf_t));
+
+	call_handle = callEndInfo.id;
+	call_end_type = callEndInfo.type;
+
+	if (TAPI_CAUSE_SUCCESS == result) {
+		/*Ignore this event as endication will be received from TAPI for the call release request */
+		CALL_ENG_DEBUG(ENG_DEBUG, "Success response for tel_end_call request");
+	} else {
+		CALL_ENG_DEBUG(ENG_ERR, "Call Release request failed, proceeding with Call end process");
+		call_vc_call_objectinfo_t objectInfo;
+		voicecall_call_state_t present_call_state = VC_CALL_STATE_NONE;
+		call_vc_handle incoming_call_handle = VC_TAPI_INVALID_CALLHANDLE;
+		TelTapiEndCause_t tapi_cause = TAPI_CALL_END_NO_CAUSE;
+
+		CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d,end cause:%d", call_handle, tapi_cause);
+
+		/*the end of incoming call rejected by callagent, because the call had come before the phone is initialized */
+		if (call_handle == gphone_rejected_call) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "Rejected call..phone not initialized");
+
+			gphone_rejected_call = VC_TAPI_INVALID_CALLHANDLE;
+
+			/*If no more calls available, End the Application */
+			__vc_core_check_engine_active_task(pagent);
+			return;
+		}
+
+		incoming_call_handle = _vc_core_cm_get_incoming_call_handle(&pagent->call_manager);
+		present_call_state = _vc_core_cm_get_call_state(&pagent->call_manager, call_handle);
+
+		CALL_ENG_DEBUG(ENG_DEBUG, "New Call Handle = %d, Already registered MT call handle : %d", call_handle, incoming_call_handle);
+		switch (present_call_state) {
+		case VC_CALL_STATE_NONE:
+		case VC_CALL_STATE_ENDED:
+		case VC_CALL_STATE_ENDED_FINISH:
+			{
+				CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d state is %d", call_handle, present_call_state);
+				/*If no more calls available, End the Application */
+				__vc_core_check_engine_active_task(pagent);
+				return;
+			}
+			break;
+		case VC_CALL_STATE_REJECTED:
+			{
+				/*End of incoming call (not registered as incoming call in CallAgent) rejected by callagent */
+				if (incoming_call_handle != call_handle) {
+					_vc_core_cm_remove_call_object(&pagent->call_manager, call_handle);
+					CALL_ENG_DEBUG(ENG_DEBUG, "end of call rejected by callagent");
+
+					/*If no more calls available, End the Application */
+					__vc_core_check_engine_active_task(pagent);
+					return;
+				}
+			}
+			break;
+		default:
+			break;
+		}
+
+		/*End of the call rejected by user or by callagent (when hold is failed) */
+		if ((VC_INOUT_STATE_INCOME_WAIT_RELEASE == pagent->io_state) && (incoming_call_handle == call_handle)) {
+			_vc_core_cm_remove_call_object(&pagent->call_manager, call_handle);
+
+			/*Change the In Out state to None*/
+			_vc_core_ca_change_inout_state(pagent, VC_INOUT_STATE_NONE);
+
+			/*Notify Client about rejected Event*/
+			_vc_core_ca_send_event_to_client(pagent, VC_CALL_REJECTED_END, call_handle, 0, NULL);
+
+			return;
+		}
+
+		/*End of Incoming Call */
+		if (incoming_call_handle == call_handle) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "Adding Incoming End Event to Idle Callback");
+			_vc_core_ca_change_inout_state(pagent, VC_INOUT_STATE_INCOME_END);
+			/*Make sure that the End Indication is processed always after the Incoming Indication , as both are
+			   processed in Idle Add Callbacks */
+			g_idle_add(__call_vc_incoming_call_end_idle_cb, pagent);
+			return;
+		}
+
+		/*End of Outgoing Call */
+		if (_vc_core_cm_get_outgoing_call_handle(&pagent->call_manager) == call_handle) {
+			__call_vc_outgoingcall_endhandle(pagent, call_handle, TAPI_NOTI_VOICE_CALL_STATUS_IDLE, tapi_cause);
+			return;
+		}
+
+		/*End of Normal Connected Call */
+		_vc_core_tapi_event_handle_call_end_event(pagent, "", call_handle, tapi_cause);
+
+		CALL_VC_DUMP_CALLDETAILS(&pagent->call_manager);
+		_vc_core_cm_clear_call_object(&objectInfo);
+		if (FALSE == _vc_core_cm_get_call_object(&pagent->call_manager, call_handle, &objectInfo)) {
+			CALL_ENG_DEBUG(ENG_DEBUG, "Call Already Cleared for Call Handle = %d", call_handle);
+
+			/* jspark
+			 * Because of _vc_core_tapi_rqst_answer_call( .., VC_ANSWER_HOLD_ACTIVE_AND_ACCEPT,.. ) inside _vc_core_tapi_event_handle_call_end_event(),
+			 * pagent->call_manager is cleared. so, we didn't send VC_CALL_NORMAL_END to call-ui.
+			 * so we should send this event to call-ui.
+			 */
+			{
+				voice_call_end_cause_type_t end_cause_type;
+				_vc_core_tapi_event_get_end_cause_type(pagent, "", tapi_cause, &end_cause_type);
+				_vc_core_ca_send_event_to_client(pagent, VC_CALL_NORMAL_END, call_handle, end_cause_type, NULL);
+			}
+		} else {
+			_vc_core_ca_send_event_to_client(pagent, VC_CALL_NORMAL_END, objectInfo.call_handle, objectInfo.end_cause_type, NULL);
+		}
+	}
+	return;
+}
+
+void _vc_core_engine_hold_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_hold_call_resp_cb");
+	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
+	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
+
+	if (TAPI_CAUSE_SUCCESS == result) {
+		memcpy(&call_handle, tapi_data, sizeof(call_vc_handle));
+	} else {
+		_vc_core_cm_get_first_active_call_handle(&pagent->call_manager, &call_handle);
+	}
+
+	if (_vc_core_tapi_event_handle_call_held_event(pagent, call_handle, result) == FALSE) {
+		_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
+	} else {
+		/*
+		   Be carefull in clearing the end call member, because _vc_core_engine_status_is_any_call_ending
+		   function depends on the end call object status. If it is cleared often, the check by
+		   _vc_core_engine_status_is_any_call_ending becomes invalid
+		 */
+		_vc_core_cm_clear_endcall_member(&pagent->call_manager);
+	}
+}
+
+void _vc_core_engine_active_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_active_call_resp_cb");
+	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
+	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
+	TelCallActiveCnf_t callActiveInfo;
+
+	if (TAPI_CAUSE_SUCCESS == result) {
+		memset(&callActiveInfo, 0, sizeof(TelCallActiveCnf_t));
+		memcpy(&callActiveInfo, tapi_data, sizeof(TelCallActiveCnf_t));
+		call_handle = callActiveInfo.id;
+	} else {
+		_vc_core_cm_get_first_held_call_handle(&pagent->call_manager, &call_handle);
+	}
+
+	if (_vc_core_tapi_event_handle_call_retrieve_event(pagent, call_handle, result) == FALSE) {
+		_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
+	} else {
+		/*
+		   Be carefull in clearing the end call member, because _vc_core_engine_status_is_any_call_ending
+		   function depends on the end call object status. If it is cleared often, the check by
+		   _vc_core_engine_status_is_any_call_ending becomes invalid
+		 */
+		_vc_core_cm_clear_endcall_member(&pagent->call_manager);
+	}
+}
+
+void _vc_core_engine_swap_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_swap_call_resp_cb : %d", result);
+}
+
+void _vc_core_engine_join_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
+	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
+	TelCallJoinCnf_t callJoinInfo;
+
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_join_call_resp_cb...");
+
+	if (TAPI_CAUSE_SUCCESS == result) {
+		memset(&callJoinInfo, 0, sizeof(TelCallJoinCnf_t));
+		memcpy(&callJoinInfo, tapi_data, sizeof(TelCallJoinCnf_t));
+		call_handle = callJoinInfo.id;
+	} else {
+		call_handle = 0;
+	}
+
+	_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
+	_vc_core_tapi_event_handle_call_join_event(pagent, call_handle, result);
+}
+
+void _vc_core_engine_split_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
+	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
+	TelCallSplitCnf_t callSplitInfo;
+
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_split_call_resp_cb");
+
+	if (TAPI_CAUSE_SUCCESS == result) {
+		memset(&callSplitInfo, 0, sizeof(TelCallSplitCnf_t));
+		memcpy(&callSplitInfo, tapi_data, sizeof(TelCallSplitCnf_t));
+		call_handle = callSplitInfo.id;
+	}
+
+	_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
+	_vc_core_tapi_event_handle_call_split_event(pagent, call_handle, result);
+}
+
+void _vc_core_engine_transfer_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
+
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_transfer_call_resp_cb");
+
+	_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
+	_vc_core_tapi_event_handle_call_transfer_event(pagent, result);
+}
+
+void _vc_core_engine_dtmf_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
+
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_dtmf_call_resp_cb");
+
+	if (TAPI_CAUSE_SUCCESS != result) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "Tapi Error Code %d", result);
+		/*Forward the events to client */
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_DTMF_ACK, FALSE, 0, NULL);
+	} else {
+		/*Forward the events to client */
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_DTMF_ACK, TRUE, 0, NULL);
+	}
+}
+
+void _vc_core_engine_set_volume_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_set_volume_resp_cb : %d", result);
+}
+
+void _vc_core_engine_get_volume_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	int tapi_sound_path = 0;
+	int volume_level = 0;
+	TelCallGetVolumeInfoResp_t snd_resp_data;
+	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
+
+	memset(&snd_resp_data, 0, sizeof(TelCallGetVolumeInfoResp_t));
+	memcpy(&snd_resp_data, tapi_data, sizeof(TelCallGetVolumeInfoResp_t));
+
+	int i = 0;
+	tapi_sound_path = pagent->curr_tapi_path;
+	for (i = 0; i < snd_resp_data.record_num; i++) {
+		if (tapi_sound_path == snd_resp_data.record[i].device) {
+			volume_level = snd_resp_data.record[i].volume;
+			break;
+		}
+	}
+	CALL_ENG_DEBUG(ENG_DEBUG, "Changed Vol Type = %d, Vol Level = %d", tapi_sound_path, volume_level);
+
+	_vc_core_ca_send_event_to_client(pagent, VC_CALL_GET_VOLUME_RESP, tapi_sound_path, volume_level, NULL);
+}
+
+void _vc_core_engine_set_sound_path_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_set_sound_path_resp_cb : %d", result);
+}
+
+void _vc_core_engine_set_mute_status_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_set_mute_status_resp_cb : %d", result);
+}
+
+void _vc_core_engine_get_aoc_info_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_get_aoc_info_cb : %d", result);
 }

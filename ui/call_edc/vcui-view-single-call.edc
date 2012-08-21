@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 group {
     name: "incall";
     parts {
@@ -31,22 +30,24 @@ group {
 			type: SWALLOW;
 			description {
 				state: "default" 0.0;
-				visible: 1; 
+				visible: 1;
 				rel1 { relative: INCALL_BACKGROUND_CID_L INCALL_BACKGROUND_CID_T; to: "background";}
 				rel2 { relative: INCALL_BACKGROUND_CID_R INCALL_BACKGROUND_CID_B; to: "background";}
 			}
-			description { 
+			description {
 				state: "hide" 0.0;
 				inherit: "default" 0.0;
 				visible: 0;
-			} 
+			}
 		}
 
-		part { name: "bg_alpha";
-			type: RECT;
+		part { name: "call_bg_img";
+			type: SWALLOW;
+			mouse_events: 0;
 			description {
 				state: "default" 0.0;
-				color: COLOR_BG_ALPHA;
+				rel1 { relative: 0 0; to: "background";}
+				rel2 { relative: 1 1; to: "background";}
 			}
 		}
 			   
@@ -59,7 +60,7 @@ group {
 			}
 		}
 
-		part { name: "swl_cid_dim"; // for held call dim
+		part { name: "swl_cid_dim";
 			type: RECT;
 			scale: 1;			
 			description {
@@ -82,91 +83,150 @@ group {
 				rel2 { relative: 1.0 1.0; to: "swl_cid";}
 			}
 		}
-		
-		part { name: "txt_call_name"; // call name or number
-			type: TEXT;
-			effect: SHADOW;
-			scale: 1;
+
+		part { name: "swl_share_background";
+			type: RECT;
 			description {
 				state: "default" 0.0;
-				rel1 { relative: INCALL_NAME_L INCALL_NAME_T; }
-				rel2 { relative: INCALL_NAME_R INCALL_NAME_B;  }				
-				text { font, FONT_SLP_Roman; size, 76; align, 0.5 0.5; }
-				color: 255 255 255 255;
-				color2: 0 0 0 255;
+				visible: 0;
+				color: 50 42 37 255;
+				rel1 { relative: INCALL_BACKGROUND_SHARE_L INCALL_BACKGROUND_SHARE_T; to: "background";}
+				rel2 { relative: INCALL_BACKGROUND_SHARE_R INCALL_BACKGROUND_SHARE_B; to: "background";}
+			}
+			description {
+				state: "show" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
 			}
 		}
 
- 		part { name: "txt_contact_phone_type"; // contact phone type -> call number
-			type: TEXT;
-			effect: SHADOW;
+		part { name: "caller_info";
+			type: SWALLOW;
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				rel1 { relative: INCALL_NUMBER_L INCALL_NUMBER_T; }
-				rel2 { relative: INCALL_NUMBER_R INCALL_NUMBER_B;  }				
-				text { font, FONT_SLP_Roman; size, 48; align, 0.5 0.5; }
-				color: 255 255 255 255;
-				color2: 0 0 0 255;
-			}
-		}
-
-		part { name: "txt_timer";
-			type: TEXT;
-			effect: SHADOW;
-			scale: 1;
-			description {
-				state: "default" 0.0;
-				rel1 { relative: INCALL_TIMER_L INCALL_TIMER_T; }
-				rel2 { relative: INCALL_TIMER_R INCALL_TIMER_B; }				
-				text { font, FONT_SLP_Roman; size, 48; align, 1.0 0.5; }
-				color: 255 255 255 255;
-				color2: 0 0 0 255;
+				visible: 1;
+				rel1 { relative: CALLER_INFO_L CALLER_INFO_T; to: "background";}
+				rel2 { relative: CALLER_INFO_R CALLER_INFO_B; to: "background";}
 			}
 			description {
-				state: "end" 0.0;
+				state: "show" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+			}
+			description {
+				state: "hide" 0.0;
 				inherit: "default" 0.0;
 				visible: 0;
 			}
 		}
 
-		part { name: "btn_bigend";
+		part { name: "btn_hold_swap";
 			type: SWALLOW;
 			scale: 1;
 			description {
 				state: "default" 0.0;
 				visible: 0;
 				fixed: 1 1;
-				rel1 { relative: SIX_BTN_BIG_END_L 1.0; to: "background";}
-				rel2 { relative: SIX_BTN_BIG_END_R 1.0; to: "background";}
+				rel1 { relative: INCALL_HOLD_L INCALL_HOLD_B; to: "background";}
+				rel2 { relative: INCALL_HOLD_R INCALL_HOLD_B; to: "background";}
 			}
 			description {
 				state: "show" 0.0;
 				inherit: "default" 0.0;
 				visible: 1;
-				rel1 { relative: SIX_BTN_BIG_END_L SIX_BTN_BIG_END_T; to: "background";}
-				rel2 { relative: SIX_BTN_BIG_END_R SIX_BTN_BIG_END_B; to: "background";}
+				rel1 { relative: INCALL_HOLD_L INCALL_HOLD_T; to: "background";}
+				rel2 { relative: INCALL_HOLD_R INCALL_HOLD_B; to: "background";}
+			}
+			description {
+				state: "hide" 0.0;
+				inherit: "default" 0.0;
+				visible: 0;
 			}
 		}
 
-		part { name: "btn_speaker";
+		part { name: "txt_hold_swap";
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				rel1 { relative: INCALL_HOLD_TXT_L INCALL_HOLD_TXT_B; to: "background";}
+				rel2 { relative: INCALL_HOLD_TXT_R INCALL_HOLD_TXT_B; to: "background";}
+				text { font, FONT_SLP_Roman; size, 26; align, 0.0 0.5; text_class, TEXT_CLASS_SLP_ROMAN; }
+				color: 204 204 204 255;
+				color2: 0 0 0 255;
+			}
+			description {
+				state: "show" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				rel1 { relative: INCALL_HOLD_TXT_L INCALL_HOLD_TXT_T; to: "background";}
+				rel2 { relative: INCALL_HOLD_TXT_R INCALL_HOLD_TXT_B; to: "background";}
+			}
+			description {
+				state: "hide" 0.0;
+				inherit: "default" 0.0;
+				visible: 0;
+			}
+		}
+
+		part { name: "btn_bg";
 			type: SWALLOW;
 			scale: 1;
 			description {
 				state: "default" 0.0;
 				visible: 0;
-				fixed: 1 1;
-				rel1 { relative: SIX_BTN_1_L 1.0; to: "background";}
-				rel2 { relative: SIX_BTN_1_R 1.0; to: "background";}
-			}			
+				rel1 { relative: SIX_BTN_LAYOUT_L SIX_BTN_LAYOUT_B; to: "background";}
+				rel2 { relative: SIX_BTN_LAYOUT_R SIX_BTN_LAYOUT_B; to: "background";}
+			}
 			description {
 				state: "show" 0.0;
 				inherit: "default" 0.0;
 				visible: 1;
-				rel1 { relative: SIX_BTN_1_L SIX_BTN_2_T; to: "background";}
-				rel2 { relative: SIX_BTN_1_R SIX_BTN_2_B; to: "background";}
+				rel1 { relative: SIX_BTN_LAYOUT_L SIX_BTN_LAYOUT_T; to: "background";}
+				rel2 { relative: SIX_BTN_LAYOUT_R SIX_BTN_LAYOUT_B; to: "background";}
 			}
 		}
+
+		part { name: "btn_region";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				rel1 { relative: 0 0; to: "btn_bg"; }
+				rel2 { relative: 1 1; to: "btn_bg"; }
+			}
+			description {
+				state: "show" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+			}
+		}
+
+		part { name: "keypad_region";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				rel1 { relative: KEYPAD_AREA_L KEYPAD_AREA_T; to: "background";}
+				rel2 { relative: KEYPAD_AREA_R KEYPAD_AREA_B; to: "background";}
+			}
+			description {
+				state: "show" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+			}
+			description {
+				state: "hide" 0.0;
+				inherit: "default" 0.0;
+				visible: 0;
+			}
+		}
+
      }//parts
 			
 	programs {
@@ -175,18 +235,21 @@ group {
 			source: "ALLBTN";
 			action: STATE_SET "show" 0.0;
 			transition: DECELERATE 0.5; //LINEAR 1.0;
-			target: "btn_bigend";
-			target: "btn_speaker";
+			target: "btn_hold_swap";
+			target: "txt_hold_swap";
+			target: "btn_bg";
+			target: "btn_region";
 		}
-
 		program { name: "show_no_effect_allbtn";
 			signal: "SHOW_NO_EFFECT";
 			source: "ALLBTN";
 			action: STATE_SET "show" 0.0;
-			target: "btn_bigend";
-			target: "btn_speaker";
-		}		
-		
+			target: "btn_hold_swap";
+			target: "txt_hold_swap";
+			target: "btn_bg";
+			target: "btn_region";
+		}
+
 		program { name: "hide_dim_cid";
 			signal: "HIDE_DIM";
 			source: "CID";
@@ -205,6 +268,19 @@ group {
 			action: STATE_SET "hd" 0.0;
 			target: "swl_cid_dim";
 		}
+		program { name: "show_share_bg";
+			signal: "SHOW_SHARE_BG";
+			source: "Share_BG";
+			action: STATE_SET "show" 0.0;
+			target: "swl_share_background";
+		}
+		program { name: "hide_share_bg";
+			signal: "HIDE_SHARE_BG";
+			source: "Share_BG";
+			action: STATE_SET "default" 0.0;
+			target: "swl_share_background";
+		}
+
 		program { name: "show_cid_bg";
 			signal: "SHOW_CID_BG";
 			source: "CID_BG";
@@ -216,6 +292,36 @@ group {
 			source: "CID_BG";
 			action: STATE_SET "hide" 0.0;
 			target: "swl_cid_background";
+		}
+
+		program { name: "show_keypadbtn";
+			signal: "SHOW";
+			source: "KEYPAD_BTN";
+			action: STATE_SET "show" 0.0;
+			target: "keypad_region";
+		}
+		program { name: "hide_keypadbtn";
+			signal: "HIDE";
+			source: "KEYPAD_BTN";
+			action: STATE_SET "hide" 0.0;
+			target: "keypad_region";
+		}
+
+		program { name: "show_after_keypad";
+			signal: "SHOW";
+			source: "CALL_AREA";
+			action: STATE_SET "show" 0.0;
+			target: "caller_info";
+			target: "btn_hold_swap";
+			target: "txt_hold_swap";
+		}
+		program { name: "hide_caller_info";
+			signal: "HIDE";
+			source: "CALL_AREA";
+			action: STATE_SET "hide" 0.0;
+			target: "caller_info";
+			target: "btn_hold_swap";
+			target: "txt_hold_swap";
 		}
 	}
 }

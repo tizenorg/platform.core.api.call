@@ -1,0 +1,260 @@
+/*
+ * Copyright 2012  Samsung Electronics Co., Ltd
+ *
+ * Licensed under the Flora License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.tizenopensource.org/license
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+group{
+	name: "separator-layout";
+	parts{
+		part { name: "background";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: 0 0 0 153;
+			}
+		}
+		
+		part { name: "top_horiz_sep";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 0 1;
+				rel1 { relative: 0 0; offset: 0 -1; to: "background";}
+				rel2 { relative: 1 0; to: "background";}
+				color: 80 80 80 192;
+			}
+		}
+
+		part { name: "topline_left_vert_1";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: 1 1;
+				rel1 { relative: TOPLINE_LEFT_VERT_SEP_1_L TOPLINE_LEFT_VERT_SEP_1_T; to: "background";}
+				rel2 { relative: TOPLINE_LEFT_VERT_SEP_1_R TOPLINE_LEFT_VERT_SEP_1_B; to: "background";}
+				color: 70 70 70 255;
+			}
+		}
+
+		part { name: "topline_left_vert_2";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				min: 1 1;
+				rel1 { relative: TOPLINE_LEFT_VERT_SEP_2_L TOPLINE_LEFT_VERT_SEP_2_T; to: "background";}
+				rel2 { relative: TOPLINE_LEFT_VERT_SEP_2_R TOPLINE_LEFT_VERT_SEP_2_B; to: "background";}
+				color: 35 33 31 255;
+			}
+		}
+
+		part { name: "topline_right_vert_1";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 1 0;
+				rel1 { relative: TOPLINE_RIGHT_VERT_SEP_1_L TOPLINE_RIGHT_VERT_SEP_1_T; to: "background";}
+				rel2 { relative: TOPLINE_RIGHT_VERT_SEP_1_R TOPLINE_RIGHT_VERT_SEP_1_B; to: "background";}
+				color: 70 70 70 255;
+			}
+		}
+
+		part { name: "topline_right_vert_2";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 1 0;
+				rel1 { relative: TOPLINE_RIGHT_VERT_SEP_2_L TOPLINE_RIGHT_VERT_SEP_2_T; to: "background";}
+				rel2 { relative: TOPLINE_RIGHT_VERT_SEP_2_R TOPLINE_RIGHT_VERT_SEP_2_B; to: "background";}
+				color: 35 33 31 255;
+			}
+		}
+
+		part { name: "topline_horiz_sep_1";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 0 1;
+				rel1 { relative: TOPLINE_HORIZ_SEP_1_L TOPLINE_HORIZ_SEP_1_T; to: "background";}
+				rel2 { relative: TOPLINE_HORIZ_SEP_1_R TOPLINE_HORIZ_SEP_1_B; to: "background";}
+				color: 70 70 70 255;
+			}
+		}
+
+		part { name: "topline_horiz_sep_2";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 0 1;
+				rel1 { relative: TOPLINE_HORIZ_SEP_2_L TOPLINE_HORIZ_SEP_2_T; to: "background";}
+				rel2 { relative: TOPLINE_HORIZ_SEP_2_R TOPLINE_HORIZ_SEP_2_B; to: "background";}
+				color: 35 33 31 255;
+			}
+		}
+
+		part { name: "botline_left_vert_1";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 1 0;
+				rel1 { relative: BOTLINE_LEFT_VERT_SEP_1_L BOTLINE_LEFT_VERT_SEP_1_T; to: "background";}
+				rel2 { relative: BOTLINE_LEFT_VERT_SEP_1_R BOTLINE_LEFT_VERT_SEP_1_B; to: "background";}
+				color: 70 70 70 255;
+			}
+		}
+
+		part { name: "botline_left_vert_2";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 1 0;
+				rel1 { relative: BOTLINE_LEFT_VERT_SEP_2_L BOTLINE_LEFT_VERT_SEP_2_T; to: "background";}
+				rel2 { relative: BOTLINE_LEFT_VERT_SEP_2_R BOTLINE_LEFT_VERT_SEP_2_B; to: "background";}
+				color: 35 33 31 255;
+			}
+		}
+
+		part { name: "botline_right_vert_1";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 1 0;
+				rel1 { relative: BOTLINE_RIGHT_VERT_SEP_1_L BOTLINE_RIGHT_VERT_SEP_1_T; to: "background";}
+				rel2 { relative: BOTLINE_RIGHT_VERT_SEP_1_R BOTLINE_RIGHT_VERT_SEP_1_B; to: "background";}
+				color: 70 70 70 255;
+			}
+		}
+
+		part { name: "botline_right_vert_2";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 1 0;
+				rel1 { relative: BOTLINE_RIGHT_VERT_SEP_2_L BOTLINE_RIGHT_VERT_SEP_2_T; to: "background";}
+				rel2 { relative: BOTLINE_RIGHT_VERT_SEP_2_R BOTLINE_RIGHT_VERT_SEP_2_B; to: "background";}
+				color: 35 33 31 255;
+			}
+		}
+
+		part { name: "botline_horiz_sep_1";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 0 1;
+				rel1 { relative: BOTLINE_HORIZ_SEP_1_L BOTLINE_HORIZ_SEP_1_T; to: "background";}
+				rel2 { relative: BOTLINE_HORIZ_SEP_1_R BOTLINE_HORIZ_SEP_1_B; to: "background";}
+				color: 70 70 70 255;
+			}
+		}
+
+		part { name: "botline_horiz_sep_2";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				min: 0 1;
+				rel1 { relative: BOTLINE_HORIZ_SEP_2_L BOTLINE_HORIZ_SEP_2_T; to: "background";}
+				rel2 { relative: BOTLINE_HORIZ_SEP_2_R BOTLINE_HORIZ_SEP_2_B; to: "background";}
+				color: 35 33 31 255;
+			}
+		}
+	}
+
+    programs{
+
+	}
+}
+
+group{
+	name: "button-layout";
+	parts{
+		part { name: "background";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: COLOR_BG_ALPHA;
+			}
+		}
+
+		/*TOP LEFT BUTTON*/
+		part { name: "top_left_button";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: TOP_LEFT_BUTTON_L TOP_LEFT_BUTTON_T; to: "background";}
+				rel2 { relative: TOP_LEFT_BUTTON_R TOP_LEFT_BUTTON_B; to: "background";}
+			}
+		}
+
+		/*TOP MIDDLE BUTTON*/
+		part { name: "top_middle_button";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: TOP_MIDDLE_BUTTON_L TOP_MIDDLE_BUTTON_T; to: "background";}
+				rel2 { relative: TOP_MIDDLE_BUTTON_R TOP_MIDDLE_BUTTON_B; to: "background";}
+			}
+		}
+
+		/*TOP RIGHT BUTTON*/
+		part { name: "top_right_button";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: TOP_RIGHT_BUTTON_L TOP_RIGHT_BUTTON_T; to: "background";}
+				rel2 { relative: TOP_RIGHT_BUTTON_R TOP_RIGHT_BUTTON_B; to: "background";}
+			}
+		}
+
+		/*BOTTOM LEFT BUTTON*/
+		part { name: "bottom_left_button";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: BOTTOM_LEFT_BUTTON_L BOTTOM_LEFT_BUTTON_T; to: "background";}
+				rel2 { relative: BOTTOM_LEFT_BUTTON_R BOTTOM_LEFT_BUTTON_B; to: "background";}
+			}
+		}
+
+		/*BOTTOM MIDDLE BUTTON*/
+		part { name: "bottom_middle_button";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: BOTTOM_MIDDLE_BUTTON_L BOTTOM_MIDDLE_BUTTON_T; to: "background";}
+				rel2 { relative: BOTTOM_MIDDLE_BUTTON_R BOTTOM_MIDDLE_BUTTON_B; to: "background";}
+			}
+		}
+
+		/*BOTTOM RIGHT BUTTON*/
+		part { name: "bottom_right_button";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: BOTTOM_RIGHT_BUTTON_L BOTTOM_RIGHT_BUTTON_T; to: "background";}
+				rel2 { relative: BOTTOM_RIGHT_BUTTON_R BOTTOM_RIGHT_BUTTON_B; to: "background";}
+			}
+		}
+	}
+
+    programs{
+
+	}
+}

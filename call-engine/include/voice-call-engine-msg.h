@@ -81,8 +81,7 @@ typedef enum _vc_engine_msgid_t  {
 	VC_ENGINE_MSG_ACCEPT_CHOICE_BOX_TO_UI, /**< Accept choice box to UI */ 
 	VC_ENGINE_MSG_MESSAGE_BOX_TO_UI, /**< Create Message box */ 
 	VC_ENGINE_MSG_REDIAL_TO_UI, /* To send the redial message to the UI */ 
-	VC_ENGINE_MSG_STOPPED_RECORDING_TO_UI, /* Save file event sent to the UI */ 
-	VC_ENGINE_MSG_CREATE_NEWVOICEFILE_TO_UI, /* User input for voice_recording */ 
+	VC_ENGINE_MSG_NOTI_WBAMR_TO_UI, /* WBAMR notification */
 	VC_ENGINE_MSG_MAX_TO_UI 
 } vc_engine_msgid_t;
 
@@ -117,10 +116,8 @@ typedef enum _vc_engine_msgbox_string_id_t {
 	IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL,
 	IDS_CALL_POP_WAITING_ACTIVE,
 	IDS_CALL_BODY_CALLENDED, 
-#ifdef	PDIAL_SEND_DTMF
 	IDS_CALL_POP_INVALID_DTMF,
 	IDS_CALL_POP_DTMF_SENT, 
-#endif
 	IDS_CALL_MAX 
 } vc_engine_msgbox_string_id_t;
 
@@ -165,6 +162,7 @@ typedef struct {
 	int brejected;
 	int brestricted;
 	int bpayphone;
+	int bday_remaining_days;
 	char call_num[VC_PHONE_NUMBER_LENGTH_MAX];
 	char call_name[VC_DISPLAY_NAME_LENGTH_MAX];
 	char call_file_path[VC_IMAGE_PATH_LENGTH_MAX];
@@ -175,6 +173,7 @@ typedef struct {
 	vc_engine_msg_hdr_type hdr;
 	int contact_index;
 	int phone_type;
+	int bday_remaining_days;
 	char call_num[VC_PHONE_NUMBER_LENGTH_MAX];
 	char call_name[VC_DISPLAY_NAME_LENGTH_MAX];
 	char call_file_path[VC_IMAGE_PATH_LENGTH_MAX];
@@ -276,18 +275,15 @@ typedef struct {
 
 typedef struct {
 	vc_engine_msg_hdr_type hdr;
-	int type;
-	char saved_filename[VC_RECORD_FULL_FILE_PATH_LENGTH];
-} vc_engine_stopped_recording_type;
-
-#ifdef	PDIAL_SEND_DTMF
-typedef struct {
-	vc_engine_msg_hdr_type hdr;
 	gboolean bstatus;
 	int string_id;
 	char display_string[VC_DISPLAY_NAME_LENGTH_MAX];
 } vc_engine_dtmf_ack_type;
-#endif
+
+typedef struct {
+	vc_engine_msg_hdr_type hdr;
+	int bstatus;
+} vc_engine_wbamr_status_type;
 
 typedef union {
 	vc_engine_msg_hdr_type hdr;
@@ -334,12 +330,8 @@ typedef union {
 	vc_engine_accept_choice_box_type accept_choice_box;
 	vc_engine_msg_box_type msg_box;
 	vc_engine_redial_type redial;
-	vc_engine_stopped_recording_type stopped_recording;
-	vc_engine_common_type voice_record;
-	
-#ifdef	PDIAL_SEND_DTMF
 	vc_engine_dtmf_ack_type dtmf_progress;
-#endif
+	vc_engine_wbamr_status_type wbamr_status;
 } vc_engine_msg_type;
 
 typedef enum {
@@ -396,6 +388,7 @@ typedef union {
 	vcui_common_type accept;
 	vcui_accept_with_type accept_with_type;
 	vcui_common_type reject;
+	vcui_common_type reject_with_msg;
 	vcui_common_type end;
 	vcui_common_with_handle_type end_with_handle;
 	vcui_common_type end_all_calls;
@@ -418,8 +411,6 @@ typedef union {
 	vcui_common_type headset_off;
 	vcui_common_with_redial_type redial_type;
 	vcui_common_type redial_stop;
-	vcui_common_type record_stop;
-	vcui_common_type record_start;
 	vcui_dtmf_type dtmf;
 } vcui_msg_type;
 #ifdef __cplusplus

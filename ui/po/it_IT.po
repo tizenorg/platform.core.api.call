@@ -1,3 +1,21 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "Accetta"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Muto"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Connessione..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Rifiutata"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Salvato"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Invio..."
+
 msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
 msgstr "Crea messaggio di rifiuto"
 
@@ -67,9 +85,6 @@ msgstr "In attesa"
 msgid "IDS_CALL_BUTTON_JOIN"
 msgstr "In conf."
 
-msgid "IDS_CALL_BUTTON_MUTE_ABB"
-msgstr "Muto"
-
 msgid "IDS_CALL_BUTTON_REJECT"
 msgstr "Rifiuta"
 
@@ -98,10 +113,10 @@ msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
 msgstr "Errore di sistema"
 
 msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
-msgstr "Blocco di tutte le chiamate entranti"
+msgstr "Tutte le chiamate in arrivo bloccate"
 
 msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
-msgstr "Blocco di tutte le chiamate uscenti"
+msgstr "Tutte le chiamate in uscita bloccate"
 
 msgid "IDS_CALL_POP_CALLFAILED"
 msgstr "Chiamata non riuscita"
@@ -191,13 +206,13 @@ msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
 msgstr "Chiamate internazionali in uscita bloccate tranne verso proprio paese"
 
 msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
-msgstr "Uscenti internazionali bloccate"
+msgstr "Chiamate internazionali in uscita bloccate"
 
 msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
 msgstr "Telefono non inizializzato"
 
 msgid "IDS_CALL_POP_PS_REJECTED"
-msgstr "4422341526 rifiutato"
+msgstr "%s rifiutato"
 
 msgid "IDS_CALL_POP_REDIALLING"
 msgstr "Ricomposizione..."
@@ -206,7 +221,7 @@ msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
 msgstr "Servizio non consentito"
 
 msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
-msgstr "Solo chiamate di emergenza. Inserire scheda SIM per accedere ai servizi di rete"
+msgstr "Solo chiamate di emergenza.\nInserire scheda SIM per accedere ai servizi di rete"
 
 msgid "IDS_CALL_POP_SPLIT_FAILED"
 msgstr "Divisione non eseguita"
@@ -224,7 +239,7 @@ msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
 msgstr "Scambio non supportato"
 
 msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
-msgstr "Commutato su auricolare BT"
+msgstr "Commutato su auricolare Bluetooth"
 
 msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
 msgstr "Telefono attivato"
@@ -301,23 +316,11 @@ msgstr "Memoria insufficiente. Eliminare alcuni elementi"
 msgid "IDS_CALL_SK3_END_CALL"
 msgstr "Termina"
 
-msgid "IDS_MSGC_OPT_SOUND"
-msgstr "Suono"
-
 msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
 msgstr "Servizio non disponibile"
 
 msgid "IDS_CALL_SK3_KEYPAD"
 msgstr "Tastiera"
-
-msgid "IDS_CALL_POP_CONNECTING"
-msgstr "Connessione..."
-
-msgid "IDS_CALL_POP_REJECTED"
-msgstr "Rifiutata"
-
-msgid "IDS_CALL_POP_SENDING"
-msgstr "Invio..."
 
 msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
 msgstr "Nasc. tastiera"
@@ -328,6 +331,183 @@ msgstr "Reg"
 msgid "IDS_CALL_POP_UNKNOWNREJECTED"
 msgstr "Chiamata sconosciuta rifiutata"
 
-msgid "IDS_CALL_POP_SAVED"
-msgstr "Salvato"
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "Passa a"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "Seleziona numero"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "tra %d giorni"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "Domani"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "Tra 1 settimana"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "Metti %s in attesa"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "Fine chiamata con %s"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "Accetta chiamata dopo"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "Termina tutte le chiamate"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "Disattiva riduzione disturbi"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "Attiva riduzione disturbi"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "Incrementa bassi"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "Incrementa alti"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "Ottimiz. per orecchio sx"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "Ottimiz. per orecchio dx"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Impossibile attivare la riduzione rumore con volume aggiuntivo attivato"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "Impossibile attivare la riduzione fruscio se è connesso l'auricolare"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Impossibile attivare la riduzione fruscio se è attivo l'auricolare Bluetooth"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "Impossibile attivare la riduzione fruscio durante le chiamate a banda larga"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "Per utilizzare questa funzione, è necessario verificare l'equalizzazione personale ottimale nelle impostazioni di chiamata"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "Impossibile attivare equalizzatore audio in chiamata se l'altoparlante è attivo"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "Impossibile attivare equalizzatore audio in chiamata se gli auricolari sono connessi"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Impossibile attivare equalizzatore audio in chiamata se l'auricolare Bluetooth è attivo"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "Impossibile utilizzare l'intervallo di volume aggiuntivo se gli auricolari o l'auricolare Bluetooth sono connessi"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "Chiamata..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "Gestisci conferenza"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Impossibile attivare equalizzatore audio in chiamata con volume aggiuntivo attivato"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "Impossibile attivare equalizzatore audio in chiamata durante le chiamate a banda larga"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "Suono"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "Impossibile attivare la riduzione fruscio se è attivo l'altoparlante"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "Rifiuta messaggi"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "Chiamata vocale"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "Videochiamata"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "Condividi"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "Tastiera"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "Termina"
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "Vivavoce"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "Fonte audio"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "Telefono"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "Muto"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "Aggiungi a Rubrica"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "Chiama"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "Videoch."
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "Messaggio"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "Agg. a Rubrica"
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "Messaggio"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "Scambia"
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "Altro"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "Condividi file con ChatON"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "Condividi"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d volte"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "Chiamata gruppo (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "Immagine salvata"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "Video salvati"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "Scatta una foto"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "Video live"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "Vedi contatto"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d chiamate senza risposta"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "Chiamata persa"
 

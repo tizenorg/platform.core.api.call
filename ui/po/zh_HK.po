@@ -1,3 +1,21 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "接受"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "靜音"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "連接中..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "已拒絕"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "已儲存"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "正在發送..."
+
 msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
 msgstr "建立拒絕訊息"
 
@@ -20,7 +38,7 @@ msgid "IDS_CALL_BODY_CALL_REJECTED"
 msgstr "通話已拒絕"
 
 msgid "IDS_CALL_BODY_DISCONNECTED"
-msgstr "已中斷"
+msgstr "已中斷連接"
 
 msgid "IDS_CALL_BODY_INVALID_NUMBER"
 msgstr "號碼無效"
@@ -67,9 +85,6 @@ msgstr "保留"
 msgid "IDS_CALL_BUTTON_JOIN"
 msgstr "加入"
 
-msgid "IDS_CALL_BUTTON_MUTE_ABB"
-msgstr "靜音"
-
 msgid "IDS_CALL_BUTTON_REJECT"
 msgstr "拒絕"
 
@@ -83,7 +98,7 @@ msgid "IDS_CALL_BUTTON_UNHOLD"
 msgstr "不保留"
 
 msgid "IDS_CALL_OPT_CONFERENCE_CALL"
-msgstr "會議通話"
+msgstr "電話會議"
 
 msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
 msgstr "結束目前通話並接聽"
@@ -206,7 +221,7 @@ msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
 msgstr "服務不允許"
 
 msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
-msgstr "只限 SOS 通話。 請插入 SIM 卡以存取網絡服務"
+msgstr "只限 SOS 通話。\n請插入 SIM 卡以存取網絡服務"
 
 msgid "IDS_CALL_POP_SPLIT_FAILED"
 msgstr "分割失敗"
@@ -301,23 +316,11 @@ msgstr "記憶體不足。請刪除一些項目"
 msgid "IDS_CALL_SK3_END_CALL"
 msgstr "結束通話"
 
-msgid "IDS_MSGC_OPT_SOUND"
-msgstr "聲音"
-
 msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
 msgstr "無可用服務"
 
 msgid "IDS_CALL_SK3_KEYPAD"
 msgstr "鍵盤"
-
-msgid "IDS_CALL_POP_CONNECTING"
-msgstr "連接中..."
-
-msgid "IDS_CALL_POP_REJECTED"
-msgstr "已拒絕"
-
-msgid "IDS_CALL_POP_SENDING"
-msgstr "正在發送..."
 
 msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
 msgstr "隱藏鍵盤"
@@ -328,6 +331,183 @@ msgstr "錄音"
 msgid "IDS_CALL_POP_UNKNOWNREJECTED"
 msgstr "已拒絕不明來電"
 
-msgid "IDS_CALL_POP_SAVED"
-msgstr "已儲存"
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "切換"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "選擇號碼"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "在 %d 天後"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "明天"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "一週內"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "保留與 %s 的通話"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "結束與 %s 的通話"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "稍後接聽來電"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "結束全部通話"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "減少噪音關"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "減少噪音開"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "加強低音"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "加強高音"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "已針對左耳優化"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "已針對右耳優化"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "啟用最大音量時無法開啟減少噪音"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "耳機連接時無法開啟減少噪音"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "藍牙耳機啟用時無法開啟減少噪音"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "寬頻通話期間無法開啟減少噪音"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "欲使用此功能，必須檢查通話設定下的優化我的均衡器"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "當揚聲器開啟時無法啟用來電音效均衡器"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "當耳機連接時無法啟用來電音效均衡器"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "當藍牙耳機開啟時無法啟用來電音效均衡器"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "當耳機或藍牙耳機已連接時無法使用增強音量"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "正在通話..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "管理電話會議"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "額外音量啟用時無法啟用來電音效均衡器"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "無法在寬頻通話期間啟用來電音效均衡器"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "聲音"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "揚聲器啟用時無法開啟減少噪音"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "拒絕訊息"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "語音通話"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "視像通話"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "分享"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "鍵盤"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "結束通話"
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "揚聲器"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "音源"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "電話"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "靜音"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "加到聯絡人"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "語音通話"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "視像通話"
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "訊息"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "加入到聯絡人"
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "訊息"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "切換"
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "更多"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "透過 ChatON 分享檔案"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "共享"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d 次"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "群組通話（%d）"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "儲存的圖像"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "儲存的視像"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "拍照"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "即時視像"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "檢視聯絡人"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d 個未接電話"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "未接電話"
 

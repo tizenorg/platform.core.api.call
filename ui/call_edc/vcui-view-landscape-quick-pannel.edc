@@ -1,0 +1,122 @@
+/*
+ * Copyright 2012  Samsung Electronics Co., Ltd
+ *
+ * Licensed under the Flora License, Version 1.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.tizenopensource.org/license
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+group {
+	name: "quickpanel-lscape";
+	parts {
+
+		part { name: "background";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: 20 20 20 255;
+			}
+		}
+
+		part { name: "swl_cid";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: LSCAPE_QUICKPANEL_CID_L LSCAPE_QUICKPANEL_CID_T; to: "background";}
+				rel2 { relative: LSCAPE_QUICKPANEL_CID_R LSCAPE_QUICKPANEL_CID_B; to: "background";}
+			}
+		}
+
+		part { name: "btn_left";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				fixed: 1 1;
+				rel1 { relative: LSCAPE_QUICKPANEL_BTN_MUTE_L LSCAPE_QUICKPANEL_BTN_MUTE_T; to: "background";}
+				rel2 { relative: LSCAPE_QUICKPANEL_BTN_MUTE_R LSCAPE_QUICKPANEL_BTN_MUTE_B; to: "background";}
+			}
+		}
+
+		part { name: "btn_right";
+			type: SWALLOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				fixed: 1 1;
+				rel1 { relative: LSCAPE_QUICKPANEL_BTN_END_L LSCAPE_QUICKPANEL_BTN_END_T; to: "background";}
+				rel2 { relative: LSCAPE_QUICKPANEL_BTN_END_R LSCAPE_QUICKPANEL_BTN_END_B; to: "background";}
+			}
+		}
+
+		part { name: "txt_area";
+			type: RECT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				rel1 { relative: LSCAPE_QUICKPANEL_NAME_L LSCAPE_QUICKPANEL_NAME_T; to: "background";}
+				rel2 { relative: LSCAPE_QUICKPANEL_NAME_R LSCAPE_QUICKPANEL_NAME_B;  to: "background";}
+			}
+		}
+
+		part { name: "txt_call_name";
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: 0 0; to: "txt_area";}
+				rel2 { relative: 0 1;  to: "txt_padding";}
+				max: LSCAPE_QP_NAME_WIDTH LSCAPE_QP_NAME_HEIGHT;
+				min: QP_STR_MIN_WIDTH LSCAPE_QP_NAME_HEIGHT;
+				fixed: 0 1;
+				align: 0 0;
+				text { font, FONT_SLP_Regular; size, 32; align: 0 0.5; text_class, TEXT_CLASS_SLP_ROMAN; }
+				color: 249 249 249 255;
+				color2: 0 0 0 128;
+			}
+		}
+
+		part { name: "txt_padding";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				fixed: 1 0;
+				min: QP_CID_L_PAD 0;
+				align: 1 0;
+				visible: 0;
+				rel1 { relative: 0 0; to: "txt_timer";}
+				rel2 { relative: 0 1; to: "txt_timer";}
+			}
+		}
+
+		part { name: "txt_timer";
+			type: TEXT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: 1.0 0; to: "txt_area";}
+				rel2 { relative: 1.0 1;  to: "txt_area";}
+				max: LSCAPE_QP_NAME_WIDTH LSCAPE_QP_NAME_HEIGHT;
+				min: QP_STR_MIN_WIDTH LSCAPE_QP_NAME_HEIGHT;
+				fixed: 0 1;
+				align: 1 0;
+				text { font, FONT_SLP_Regular; size, 32; align: 1 0.5; min: 1 0; text_class, TEXT_CLASS_SLP_ROMAN; }
+				color: 98 161 22 255;
+				color2: 0 0 0 191;
+			}
+		}
+	}
+}

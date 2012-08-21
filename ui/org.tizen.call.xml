@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.call" version="0.2.380" install-location="internal-only">
+	<label>Call</label>
+	<author email="sungjoon.won@samsung.com" href="www.samsung.com">Sung Joon Won</author>
+	<author email="jm15.kim@samsung.com" href="www.samsung.com">Jungmin Kim</author>
+	<description>Voice call Application</description>
+	<ui-application appid="org.tizen.call" exec="/opt/apps/org.tizen.call/bin/voice-call-ui" nodisplay="true" multiple="false" type="capp" taskmanage="false">
+		<icon>org.tizen.call.png</icon>
+		<label>Call</label>
+		<application-service>
+			<operation name="http://tizen.org/appsvc/operation/call"/>
+			<uri name="tel"/>
+		</application-service>
+	</ui-application>
+</manifest>

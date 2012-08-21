@@ -26,19 +26,19 @@
 #include <aul.h>
 
 /*  Voice Call  <-- BT */
-#define DBUS_BT_MATCH_RULE 			"type='signal',path='/org/projectx/bluetooth_event',interface='User.Bluetooth.AG'"
-#define DBUS_BT_OBJECT_REQUEST  		"/org/projectx/bluetooth_event"
+#define DBUS_BT_MATCH_RULE			"type='signal',path='/org/projectx/bluetooth_event',interface='User.Bluetooth.AG'"
+#define DBUS_BT_OBJECT_REQUEST		"/org/projectx/bluetooth_event"
 #define DBUS_BT_INTERFACE_REQUEST	"User.Bluetooth.AG"
-#define DBUS_BT_METHOD_REQUEST 		"Request"
+#define DBUS_BT_METHOD_REQUEST		"Request"
 
 /*  Voice Call  --> BT */
 #define DBUS_BT_SERVICE				"org.projectx.bluetooth"
-#define DBUS_BT_OBJECT_RESPONSE  		"/org/projectx/btcall_event"
-#define DBUS_BT_INTERFACE_RESPONSE 	"User.Bluetooth.AG"
+#define DBUS_BT_OBJECT_RESPONSE		"/org/projectx/btcall_event"
+#define DBUS_BT_INTERFACE_RESPONSE	"User.Bluetooth.AG"
 #define DBUS_BT_METHOD_RESPONSE		"Response"
-//#define DBUS_BT_METHOD_CONNECT                "Connect"
+/*#define DBUS_BT_METHOD_CONNECT                "Connect"*/
 
-#define BT_PKG          "org.tizen.bluetooth"
+#define BT_PKG	"org.tizen.bluetooth"
 
 static DBusGConnection *gconnection = NULL;
 
@@ -49,7 +49,7 @@ typedef struct _dbus_dest_t {
 	char *method;
 } dbus_dest_t;
 
-static int vc_engine_send_via_dbus(DBusGConnection * conn, dbus_dest_t * dest, int first_arg_type, ...)
+static int vc_engine_send_via_dbus(DBusGConnection *conn, dbus_dest_t *dest, int first_arg_type, ...)
 {
 	DBusMessage *msg;
 	DBusMessageIter iter;
@@ -60,10 +60,10 @@ static int vc_engine_send_via_dbus(DBusGConnection * conn, dbus_dest_t * dest, i
 	dbus_int32_t val_int;
 	char *val_str;
 
-	CALL_ENG_DEBUG(ENG_DEBUG, "path:%s, interface:%s, method:%s \n", dest->object_path, dest->interface, dest->method);
+	CALL_ENG_DEBUG(ENG_DEBUG, "path:%s, interface:%s, method:%s", dest->object_path, dest->interface, dest->method);
 	msg = dbus_message_new_signal(dest->object_path, dest->interface, dest->method);
 	if (msg == NULL) {
-		CALL_ENG_DEBUG(ENG_DEBUG, "dbus_message_new_signal failed.\n");
+		CALL_ENG_DEBUG(ENG_DEBUG, "dbus_message_new_signal failed.");
 		return VC_ERROR;
 	}
 	dbus_message_set_destination(msg, dest->service);
@@ -117,18 +117,15 @@ void vc_engine_on_dbus_send_response_to_bt(connectivity_bt_ag_param_info_t bt_re
 		DBUS_BT_INTERFACE_RESPONSE,
 		DBUS_BT_METHOD_RESPONSE
 	};
-	CALL_ENG_DEBUG(ENG_DEBUG, "..\n");
+	CALL_ENG_DEBUG(ENG_DEBUG, "..");
 
-	vc_engine_send_via_dbus(gconnection, &bt_dbus_dest, 
-			DBUS_TYPE_INT32, &bt_resp_info.param1,
-			DBUS_TYPE_INT32, &bt_resp_info.param2,
-			DBUS_TYPE_INT32, &bt_resp_info.param3,
-			DBUS_TYPE_STRING, bt_resp_info.param4,
-			DBUS_TYPE_INVALID); 	
+	vc_engine_send_via_dbus(gconnection, &bt_dbus_dest, DBUS_TYPE_INT32, &bt_resp_info.param1, \
+			DBUS_TYPE_INT32, &bt_resp_info.param2, DBUS_TYPE_INT32, &bt_resp_info.param3, DBUS_TYPE_STRING, bt_resp_info.param4, \
+			DBUS_TYPE_INVALID);
 }
 
 /* Handle all bluetooth relative signal */
-static void vc_engine_on_dbus_parsing_bt(void *user_data, DBusMessage * message)
+static void vc_engine_on_dbus_parsing_bt(void *user_data, DBusMessage *message)
 {
 	DBusMessageIter iter;
 	connectivity_bt_ag_param_info_t bt_event_info = { 0, };
@@ -146,14 +143,14 @@ static void vc_engine_on_dbus_parsing_bt(void *user_data, DBusMessage * message)
 	if (dbus_message_iter_next(&iter))
 		dbus_message_iter_get_basic(&iter, &bt_event_info.param4);
 
-	CALL_ENG_DEBUG(ENG_DEBUG,"param1:[%d], param2[%d], param3[%d], param4[%s] \n",
+	CALL_ENG_DEBUG(ENG_DEBUG, "param1:[%d], param2[%d], param3[%d], param4[%s]",
 			bt_event_info.param1, bt_event_info.param2, bt_event_info.param3, bt_event_info.param4);
 
 	_vc_bt_handle_bt_events(pcall_core, &bt_event_info);
 }
 
 /* Handle all dbus signal */
-static DBusHandlerResult vc_engine_on_dbus_receive(DBusConnection * connection, DBusMessage * message, void *user_data)
+static DBusHandlerResult vc_engine_on_dbus_receive(DBusConnection *connection, DBusMessage *message, void *user_data)
 {
 	int type;
 
@@ -163,12 +160,12 @@ static DBusHandlerResult vc_engine_on_dbus_receive(DBusConnection * connection, 
 
 	type = dbus_message_get_type(message);
 	if (type != DBUS_MESSAGE_TYPE_SIGNAL) {
-		/* 
+		/*
 		 * INVALID: 0
 		 * METHOD_CALL: 1
 		 * METHOD_CALL_RETURN: 2
 		 * ERROR: 3
-		 * SIGNAL: 4 
+		 * SIGNAL: 4
 		 */
 		return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
 	}
@@ -185,9 +182,9 @@ static DBusHandlerResult vc_engine_on_dbus_receive(DBusConnection * connection, 
 
 	/* Check BT Signal */
 	if ((strcmp(object_path, DBUS_BT_OBJECT_REQUEST) == 0) && (strcmp(interface_name, DBUS_BT_INTERFACE_REQUEST) == 0)) {
-		CALL_ENG_DEBUG(ENG_DEBUG, "received DBus BT signal!\n");
+		CALL_ENG_DEBUG(ENG_DEBUG, "received DBus BT signal!");
 		if (strcmp(method_name, DBUS_BT_METHOD_REQUEST) == 0) {
-			CALL_ENG_DEBUG(ENG_DEBUG, "BT Method :[Request] \n");
+			CALL_ENG_DEBUG(ENG_DEBUG, "BT Method :[Request]");
 			vc_engine_on_dbus_parsing_bt(user_data, message);
 			return DBUS_HANDLER_RESULT_HANDLED;
 		}
@@ -202,26 +199,25 @@ int vc_engine_dbus_receiver_setup()
 	DBusError derror;
 	int ret;
 
-	// connectio to dbus-daemon.    
+	/*connectio to dbus-daemon.*/
 	gconnection = dbus_g_bus_get(DBUS_BUS_SYSTEM, &error);
 	if (!gconnection) {
-		printf("Could not get connection: %s\n", error->message);
+		CALL_ENG_DEBUG(ENG_ERR,"Could not get connection: %s", error->message);
 		return FALSE;
 	}
-	
+
 	dbus_error_init(&derror);
 
 	dbus_bus_add_match(dbus_g_connection_get_connection(gconnection), DBUS_BT_MATCH_RULE, &derror);
-	if (dbus_error_is_set(&derror))	// failure
-	{
-		CALL_ENG_DEBUG(ENG_DEBUG, "Failed to dbus_bus_add_match(%s): %s\n", DBUS_BT_MATCH_RULE, derror.message);
+	if (dbus_error_is_set(&derror)) {	/*failure*/
+		CALL_ENG_DEBUG(ENG_ERR, "Failed to dbus_bus_add_match(%s): %s", DBUS_BT_MATCH_RULE, derror.message);
 		dbus_error_free(&derror);
 		return FALSE;
 	}
-	// register event filter to handle received dbus-message.   
+	/*register event filter to handle received dbus-message.*/
 	ret = dbus_connection_add_filter(dbus_g_connection_get_connection(gconnection), vc_engine_on_dbus_receive, NULL, NULL);
 	if (ret != TRUE) {
-		CALL_ENG_DEBUG(ENG_DEBUG, "Failed to dbus_connection_add_filter");
+		CALL_ENG_DEBUG(ENG_ERR, "Failed to dbus_connection_add_filter");
 		return FALSE;
 	}
 

@@ -25,13 +25,15 @@ extern "C" {
 #include <stdio.h>
 #include <mm_message.h>
 #include <mm_player.h>
-#include <mm_sound.h>
+#include <media/sound_manager.h>
 #include <mm_sound_private.h>
 #include <mm_types.h>
 #include <mm_error.h>
 #include <glib.h>
 
 #define VOICE_CALL_SND_RINGTONE_PATH_LEN			256	/**<Max File length for Ringtone */
+
+#define VOICE_CALL_SND_RINGTONE_VOL_MAX				15
 
 /**
  * This enum defines the sound actions with respect to the sound conflict notifications
@@ -53,34 +55,21 @@ typedef enum _voicecall_snd_status_t {
 typedef enum _voicecall_snd_audio_type_t {
 	VOICE_CALL_AUDIO_NONE,					/**< none */
 	VOICE_CALL_AUDIO_SPEAKER,			/**< System LoudSpeaker Audio */
-	VOICE_CALL_AUDIO_RECEIVER,			/**< System receiver Audio */
+	VOICE_CALL_AUDIO_RECEIVER_EARJACK,			/**< System receiver Audio */
 	VOICE_CALL_AUDIO_HEADSET,			/**< System Headset Audio */
-	VOICE_CALL_AUDIO_EARJACK,			/**< System Earjack Audio */
 	VOICE_CALL_AUDIO_MAX,
 } voicecall_snd_audio_type_t;
 
-#ifdef _NEW_SND_
 /**
 * This enumeration defines names of the on call sound path status
 */
 typedef enum _voicecall_snd_path_t {
 	VOICE_CALL_SND_PATH_NONE,					/**< none */
 	VOICE_CALL_SND_PATH_SPEAKER,			/**< System LoudSpeaker path */
-	VOICE_CALL_SND_PATH_RECEIVER,			/**< System Receiver path */
+	VOICE_CALL_SND_PATH_RECEIVER_EARJACK,			/**< System Receiver or Earjack */
 	VOICE_CALL_SND_PATH_BT,				/**< System BT Headset path */
-	VOICE_CALL_SND_PATH_EARJACK,			/**< System Earjack path */
 	VOICE_CALL_SND_PATH_MAX,
 } voicecall_snd_path_t;
-#endif
-
-/**
-* This enumeration defines voice recorder status
-*/
-typedef enum __voicecall_snd_record_status_t {
-	VOICE_CALL_REC_NONE,
-	VOICE_CALL_REC_ON,
-	VOICE_CALL_REC_PAUSED
-} voicecall_snd_record_status_t;
 
 /**
 * This enumeration defines volume alert type
@@ -131,7 +120,6 @@ typedef enum __voicecall_snd_mm_path_type_t {
 	VOICE_CALL_MM_RING_TONE,	/*When playing the incoming call ringtone */
 	VOICE_CALL_MM_SECOND_CALL_TONE,	/*When playing the second incoming call tone */
 	VOICE_CALL_MM_SIGNAL_TONE,	/*When playing the outgoing call fail signal tone */
-	VOICE_CALL_MM_RECORD,	/*When playing the voice recording beep during call */
 	VOICE_CALL_MM_VOICE,	/*During outgoing call and connected call */
 	VOICE_CALL_MM_RESET,	/*This should be used when app is closed after call */
 	VOICE_CALL_MM_MUTE_PLAY,	/*This should be used when ringtone needs to be played when mute profile is enabled */
@@ -152,22 +140,23 @@ typedef void (*voicecall_snd_callback) (gpointer pdata);
  */
 typedef struct __voicecall_snd_mgr_t {
 	MMHandleType pmm_player;		/**< Handle to MM Player */
+	sound_call_session_h psnd_session;
 	system_audio_route_t backup_route_policy;
 	int vibration_handle;					 /**< Handle to System Vibration Module*/
 
 	gboolean bsound_cm_state;
 
 	voicecall_snd_status_t ringtone_sound_status;		/**< Holds a current sound play status for Ringtone player*/
-#ifdef _NEW_SND_
-	voicecall_snd_path_t old_snd_path;				/**< Holds a old sound path status*/ 
-	voicecall_snd_path_t current_snd_path;				/**< Holds a current sound path status*/ 
-#endif
+	voicecall_snd_path_t old_snd_path;				/**< Holds a old sound path status*/
+	voicecall_snd_path_t current_snd_path;				/**< Holds a current sound path status*/
 	void *pcall_core;					/**< Holds a pointer to the voicecall core Handle */
 	gboolean bcall_audio_status[VOICE_CALL_AUDIO_MAX];		  /**< Holds of status of the #voicecall_snd_audio_type_t*/
 	gboolean bmute_status;			/**< voice mute*/
+	gboolean bextra_volume_status;	/**< Extra volume*/
 
 	gboolean bincreasingmelody;				/**<TRUE - Increasing Melody Activated, FALSE - Otherwise*/
 	int increment_melody_value;				/**<specifies the current level of increasing melody*/
+	int org_ringtone_value;				/**<specifies the current level of ringtone value*/
 	gboolean bvibration;					/**<TRUE - Vibration activated, FALSE -otherwise*/
 	gboolean bvibration_then_melody;			/**<TRUE - Vibration then meldody is activated, FALSE -otherwise*/
 	gboolean balternate_play;
@@ -196,10 +185,6 @@ typedef struct __voicecall_snd_mgr_t {
 	gpointer psignal_play_end_cb_data;			/**< Sound Play end callback data */
 
 	voicecall_snd_status_t effect_tone_status;
-
-#ifdef VOICE_CALL_RINGTONE_ELEVATOR
-	guint ring_elvator_timerid;
-#endif
 } voicecall_snd_mgr_t;
 
  /**
@@ -285,7 +270,7 @@ void voicecall_snd_stop_effect_tone(voicecall_snd_mgr_t *papp_snd);
  * @return		void
  * @param[in]		papp_snd			Handle to Sound Manager
  */
-void voicecall_snd_change_mm_path(voicecall_snd_mgr_t *papp_snd, voicecall_snd_mm_path_type_t mm_path_type);
+void voicecall_snd_change_mm_path(voicecall_snd_mgr_t *papp_snd);
 
 /**
  * This function changes the sound path according to the current status
@@ -298,7 +283,6 @@ void voicecall_snd_change_path_real(voicecall_snd_mgr_t *papp_snd);
 
 void voicecall_snd_change_modem_path(voicecall_snd_mgr_t *papp_snd);
 
-#ifdef _NEW_SND_
 /**
  * This function sets the status of the given call audio type
  *
@@ -310,26 +294,6 @@ void voicecall_snd_change_modem_path(voicecall_snd_mgr_t *papp_snd);
 void voicecall_snd_set_path_status(voicecall_snd_mgr_t *papp_snd, voicecall_snd_path_t path);
 
 voicecall_snd_path_t voicecall_snd_get_path_status(voicecall_snd_mgr_t *papp_snd);
-#else
-/**
- * This function sets the status of the given call audio type
- *
- * @return		void
- * @param[in]		papp_snd		Handle to Sound Manager
- * @param[in]		snd_audio_type		Type of the Device to be changed
- * @param[in]		status				Status, TRUE - Enable, FALSE -Disable
- */
-void voicecall_snd_set_status(voicecall_snd_mgr_t *papp_snd, voicecall_snd_audio_type_t snd_audio_type, gboolean status);
-
-/**
- * This function returns the current status of the given call audio type
- *
- * @return		Returns TRUE if given call audio type is enables or FALSE otherwise
- * @param[in]		papp_snd		Handle to Sound Manager
- * @param[in]		snd_audio_type		Type of the Device to be changed
- */
-gboolean voicecall_snd_get_status(voicecall_snd_mgr_t *papp_snd, voicecall_snd_audio_type_t snd_audio_type);
-#endif
 
 /**
 * This function sets the volume level for the given volume alert type
@@ -374,12 +338,23 @@ void voicecall_snd_register_cm(voicecall_snd_mgr_t *papp_snd);
 */
 void voicecall_snd_unregister_cm(voicecall_snd_mgr_t *papp_snd);
 
+/**
+ * This function sets the status of the given call audio type
+ *
+ * @return		void
+ * @param[in]		papp_snd		Handle to Sound Manager
+ * @param[in]		snd_audio_type		Type of the Device to be changed
+ * @param[in]		status				Status, TRUE - Enable, FALSE -Disable
+ */
+void voicecall_snd_set_status(voicecall_snd_mgr_t *papp_snd, voicecall_snd_audio_type_t snd_audio_type, gboolean status);
+
 void voicecall_snd_prepare_alert(voicecall_snd_mgr_t *papp_snd, int call_handle);
 void voicecall_snd_play_alert(voicecall_snd_mgr_t *papp_snd);
 
 void voicecall_snd_set_to_defaults(voicecall_snd_mgr_t *papp_snd);
 
 gboolean voicecall_snd_is_effect_playing(voicecall_snd_mgr_t *papp_snd);
+
 #ifdef __cplusplus
 }
 #endif

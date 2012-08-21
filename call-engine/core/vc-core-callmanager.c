@@ -532,7 +532,7 @@ void _vc_core_cm_set_group_state(call_vc_manager_t *pMng, int nGroup, call_vc_gr
 	VOICECALL_RETURN_IF_FAIL(pMng != NULL);
 	/*Only Group 0 and Group 1 are possible */
 	VOICECALL_RETURN_IF_FAIL((nGroup >= CALL_VC_CALL_GROUP_0 && nGroup < CALL_VC_CALL_GROUP_MAX));
-	
+
 	pMng->callgroup_info[nGroup].state = state;
 }
 
@@ -1821,8 +1821,8 @@ int _vc_core_cm_get_new_callId(call_vc_manager_t *pMng)
 	int i = 0;
 
 	VOICECALL_RETURN_VALUE_IF_FAIL(pMng != NULL, VC_TAPI_INVALID_CALLHANDLE);
-	
-	memset(bCheck, 0, sizeof(bCheck));
+
+	memset(bCheck, 0, VC_MAX_CALL_ID);
 	for (i = 0; i < VC_MAX_CALL_MEMBER; i++) {
 		if ((pMng->callobject_info[i].state != VC_CALL_STATE_ENDED) && (pMng->callobject_info[i].state != VC_CALL_STATE_ENDED_FINISH)) {
 			VOICECALL_RETURN_INVALID_IF_FAIL(((pMng->callobject_info[i].call_id >= 0) && (pMng->callobject_info[i].call_id <= VC_MAX_CALL_ID)));

@@ -59,9 +59,9 @@ typedef struct {
  * This structure is used to handle SAT setup information
  */
 typedef struct {
-	TelSatSetupCallIndCallData_t satengine_setupcall_data;	/**< Sat call setup proactive command*/
-	TelSatCallCtrlIndData_t satengine_callctrl_data;	/**< Sat call control confirm data*/
-	TelSatSendDtmfIndDtmfData_t satengine_dtmf_data;	/**< Sat send dtmf data*/
+	TelSatSetupCallIndCallData_t satengine_setupcall_data;	/**< Sat call setup proactive command : LiMo SAT*/
+	TelSatCallCtrlIndData_t satengine_callctrl_data;	/**< Sat call control confirm data : LiMo SAT*/
+	TelSatSendDtmfIndDtmfData_t satengine_dtmf_data;	/**< Sat send dtmf data : LiMo SAT*/
 	int satengine_event_type;								/**< Event type of Sat engine */
 	gboolean redial;												/**< Redial yes? or No? */
 	TelCallCause_t tapi_cause;								/**< Tapi Success / Error Cause */
@@ -621,4 +621,13 @@ gboolean call_vc_cm_search_holdcall_ctinfo(call_vc_manager_t *pMng, call_vc_hand
 * @param[in]		pMng		Pointer to the call manager structure
 */
 int _vc_core_cm_get_new_callId(call_vc_manager_t *pMng);
+
+/**
+ * This function checks if outgoing call exists
+ *
+ * @return		Returns TRUE if outgoing call exist FALSE otherwise
+ * @param[in]		pMng		Pointer to the call manager structure
+ * @see			_vc_core_cm_isexists_incoming_call, _vc_core_cm_isexists_connected_call
+ */
+gboolean _vc_core_cm_isexits_outgoing_call(call_vc_manager_t *pMng);
 #endif				/* __VC_CORE_CALL_MANAGER_H_ */

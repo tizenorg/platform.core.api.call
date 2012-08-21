@@ -28,17 +28,16 @@
 #include "vc-core-error.h"
 #include "vc-core-engine-types.h"
 
-#include "TelDefines.h"
-#include "TelNetwork.h"
-#include "TelSim.h"
-#include "TapiCommon.h"
-#include "TapiEvent.h"
-#include "ITapiCall.h"
-#include "ITapiSim.h"
-#include "ITapiNetwork.h"
-#include "ITapiSound.h"
-#include "ITapiSs.h"
-#include "ITapiSat.h"
+#ifdef DRM_USED
+#include "drm-service-types.h"
+#include "drm-service.h"
+#endif
+
+#include <tapi_common.h>
+#include <TapiUtility.h>
+#include <ITapiCall.h>
+#include <ITapiSat.h>
+#include <ITapiSim.h>
 
 #include "vconf.h"
 #include "vconf-keys.h"
@@ -47,11 +46,62 @@
 #include <dlog.h>
 #endif
 
-#define CALL_NETWORK_MCC_UK	0xEA	/*234*/
-#define CALL_NETWORK_MCC_IE	0x110	/*272*/
-#define CALL_NETWORK_MCC_UKRAINE	0xFF	/*255*/
-#define CALL_NETWORK_MCC_SAMSUNG_SUWON_3G	450001	/*450001*/
-#define CALL_NETWORK_MCC_ITALY	222
+/* Mcc */
+#define CALL_NETWORK_MCC_UK				234		/*UK = 234*/
+#define CALL_NETWORK_MCC_IRELAND		272		/*Ireland = 272*/
+#define CALL_NETWORK_MCC_UAE			424		/*UAE = 424*/
+#define CALL_NETWORK_MCC_GHANA			620		/*Ghana = 620*/
+#define CALL_NETWORK_MCC_ISRAEL			425		/*Israel = 425*/
+#define CALL_NETWORK_MCC_CROATIA		219		/*Croatia = 219*/
+#define CALL_NETWORK_MCC_SERBIA			220		/*Serbia = 220*/
+#define CALL_NETWORK_MCC_RUSSIA			250		/*Russia = 250*/
+
+#define CALL_NETWORK_MCC_TAIWAN			466		/*Taiwan = 466*/
+#define CALL_NETWORK_MCC_HONGKONG		454		/*Hongkong = 454*/
+#define CALL_NETWORK_MCC_MALAYSIA       502		/*MALAYSIA = 502*/
+#define CALL_NETWORK_MCC_AUSTRALIA		505		/*Australia = 505*/
+#define CALL_NETWORK_MCC_NEWZEALAND		530		/*NewZealand = 530*/
+
+#define CALL_NETWORK_MCC_USA			310		/*USA = 310*/
+#define CALL_NETWORK_MCC_CANADA			302		/*Canada = 302*/
+#define CALL_NETWORK_MCC_BRASIL			724		/*Brasil = 724*/
+#define CALL_NETWORK_MCC_MEXICO			334		/*Mexico = 334*/
+#define CALL_NETWORK_MCC_URGUAY			748		/*Urguay = 748*/
+#define CALL_NETWORK_MCC_COLOMBIA		732		/*Colombia = 732*/
+#define CALL_NETWORK_MCC_CHILE			730		/*Chile = 730*/
+#define CALL_NETWORK_MCC_PERU			716		/*Peru = 716*/
+#define CALL_NETWORK_MCC_VENEZUELA		734		/*Venezuela = 734*/
+#define CALL_NETWORK_MCC_GUATEMALA		704		/*Guatemala = 704*/
+#define CALL_NETWORK_MCC_ELSALVADOR		706		/*El Salvador = 706*/
+#define CALL_NETWORK_MCC_NICARAGUA		710		/*Nicaragua = 710*/
+#define CALL_NETWORK_MCC_PANAMA			714		/*Panama = 714*/
+
+#define CALL_NETWORK_MCC_JAPAN			440		/*Japan = 440*/
+#define CALL_NETWORK_MCC_KOREA			450		/*Korae = 450*/
+#define CALL_NETWORK_MCC_CHINA			460		/*China = 460*/
+
+#define CALL_NETWORK_MCC_FRANCE			208		/*France = 208*/
+#define CALL_NETWORK_MCC_PORTUGAL		268		/*Protugal = 268*/
+#define CALL_NETWORK_MCC_ROMANIA		226		/*Romania = 226*/
+#define CALL_NETWORK_MCC_DE				262		/*DE = 262(0x106)*/
+
+#define CALL_NETWORK_MCC_TEST_USA		0x001	/*Test MMC*/
+
+/* MNC */
+#define CALL_NETWORK_MNC_01			1		/*MNC 01*/
+#define CALL_NETWORK_MNC_02			2		/*MNC 02*/
+#define CALL_NETWORK_MNC_03			3		/*MNC 03*/
+#define CALL_NETWORK_MNC_04			4		/*MNC 04*/
+#define CALL_NETWORK_MNC_05			5		/*MNC 05*/
+#define CALL_NETWORK_MNC_06			6		/*MNC 06*/
+#define CALL_NETWORK_MNC_11			11		/*MNC 11	for +Movil in Panama*/
+#define CALL_NETWORK_MNC_20			20		/*MNC 20	for TELCEL in Mexico*/
+#define CALL_NETWORK_MNC_123		123		/*MNC 123	for Movistar in Colombia*/
+#define CALL_NETWORK_MNC_103		103		/*MNC 103	for TIGO in Colombia*/
+#define CALL_NETWORK_MNC_111		111		/*MNC 111	for TIGO in Colombia*/
+#define CALL_NETWORK_MNC_30			30		/*MNC 30	for Movistar in Nicaragua*/
+#define CALL_NETWORK_MNC_300		300		/*MNC 30	for Movistar in Nicaragua*/
+#define CALL_NETWORK_MNC_TEST_USA	0x01	/*Test MNC*/
 
 #define IS_DIGIT(value)		((value) >= '0' && (value) <= '9')
 
@@ -100,17 +150,6 @@
 #endif				/*#ifndef min*/
 
 typedef unsigned int call_vc_handle;
-
-#ifdef TIMER_ENABLED
-#define	GET_CURR_TIME()	_vc_core_util_get_curr_time()
-#define	PRINT_DIFF_TIME(start, end, message)	_vc_core_util_print_diff_time(start, end, message)
-#define	PRINT_CURRENT_TIME(message) _vc_core_util_print_curr_time(message)
-
-#else
-#define	GET_CURR_TIME()	0
-#define		PRINT_DIFF_TIME(start, end, message)
-#define	PRINT_CURRENT_TIME(message)
-#endif
 
 /**
  * This enumeration defines SS's SI vaild types
@@ -167,15 +206,6 @@ void call_vc_print_diff_time(time_t time1, time_t time2);
 #endif
 
 /**
- * This function checks whether the given number is emergency number by verifying with sim emergency numbers
- *
- * @return		TRUE if the number is emergency number, FALSE otherwise
- * @param[in]		card_type	simcard type
- * @param[in]		pNumber		number to be verified
- */
-gboolean _vc_core_util_check_emergency_number(TelSimCardType_t card_type, char *pNumber, gboolean b_is_no_sim, int *ecc_category);
-
-/**
  * This function checks whether the given number is SS string or not
  *
  * @return		TRUE if the number is SS string, FALSE otherwise
@@ -191,7 +221,6 @@ gboolean _vc_core_util_check_ss_string(const char *pNumber);
  */
 gboolean _vc_core_util_check_incall_ss_string(const char *number);
 
-/*PDIAL_SEND_DTMF*/
 /**
 * This function extracts the dtmf number from the given telephone number
 *
@@ -200,7 +229,6 @@ gboolean _vc_core_util_check_incall_ss_string(const char *number);
 * @param[out] dtmf_buf_len		size of dtmf number buffer
 */
 gboolean _vc_core_util_extract_dtmf_number(const char *tel_number, char *dtmf_number, const int dtmf_buf_len);
-/*PDIAL_SEND_DTMF*/
 
 /**
  * This function checks whether the given number ia a valid dtmf number or not
@@ -257,6 +285,16 @@ gboolean _vc_core_util_check_zuhause_status(void);
 */
 gboolean _vc_core_util_get_mcc(unsigned long *mcc);
 
+/**
+* This function retreive mnc information from the telephony
+*
+* @internal
+* @return		TRUE on success, FALSE - otherwise
+* @param[out]		mnc	mnc information to be retreived
+*/
+gboolean _vc_core_util_get_mnc(unsigned long *mnc);
+
+
 gboolean _vc_core_util_set_call_status(int call_status);
 gboolean _vc_core_util_check_video_call_status(void);
 gboolean _vc_core_util_get_SAP_status();
@@ -283,15 +321,6 @@ char *_vc_core_util_get_date_time(time_t time);
  * @param[in]	void
  */
 gboolean _vc_core_util_phonelock_status(void);
-
-gboolean _vc_core_util_set_sleep_status(call_vc_power_mode_t type);
-gboolean _vc_core_util_get_call_alert_type(int *alert_type);
-
-#ifdef TIMER_ENABLED	/*unused*/
-clock_t _vc_core_util_get_curr_time();
-void _vc_core_util_print_diff_time(clock_t start, clock_t end, char *message);
-void _vc_core_util_print_curr_time(char *message);
-#endif
 
 void _vc_core_util_download_test_call(char *result);
 

@@ -1,3 +1,21 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "Aceitar"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Silenciar"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "A ligar..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Rejeitado"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Guardado"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "A enviar..."
+
 msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
 msgstr "Criar mensagem de rejeição"
 
@@ -50,7 +68,7 @@ msgid "IDS_CALL_BUTTON_ACCEPT"
 msgstr "Aceitar"
 
 msgid "IDS_CALL_BUTTON_ADD_CALL"
-msgstr "Ad. cham."
+msgstr "Adicionar"
 
 msgid "IDS_CALL_BUTTON_CONTACTS"
 msgstr "Contactos"
@@ -59,7 +77,7 @@ msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
 msgstr "Terminar"
 
 msgid "IDS_CALL_BUTTON_HEADSET"
-msgstr "Auric."
+msgstr "Auricular"
 
 msgid "IDS_CALL_BUTTON_HOLD"
 msgstr "Reter"
@@ -67,14 +85,11 @@ msgstr "Reter"
 msgid "IDS_CALL_BUTTON_JOIN"
 msgstr "Aderir"
 
-msgid "IDS_CALL_BUTTON_MUTE_ABB"
-msgstr "Desl. mic."
-
 msgid "IDS_CALL_BUTTON_REJECT"
 msgstr "Rejeitar"
 
 msgid "IDS_CALL_BUTTON_SPEAKER"
-msgstr "Altifal."
+msgstr "Altifalante"
 
 msgid "IDS_CALL_BUTTON_SPLIT"
 msgstr "Dividir"
@@ -206,7 +221,7 @@ msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
 msgstr "Serviço não permitido"
 
 msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
-msgstr "Apenas chamada SOS. Insira o cartão SIM para aceder aos serviços de rede"
+msgstr "Apenas chamada SOS.\nInsira o cartão SIM para aceder aos serviços de rede"
 
 msgid "IDS_CALL_POP_SPLIT_FAILED"
 msgstr "Falha ao dividir"
@@ -301,23 +316,11 @@ msgstr "Memória insuficiente. Apague alguns itens"
 msgid "IDS_CALL_SK3_END_CALL"
 msgstr "Ter. ch."
 
-msgid "IDS_MSGC_OPT_SOUND"
-msgstr "Som"
-
 msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
 msgstr "Serviço não disponível"
 
 msgid "IDS_CALL_SK3_KEYPAD"
 msgstr "Teclado"
-
-msgid "IDS_CALL_POP_CONNECTING"
-msgstr "A ligar..."
-
-msgid "IDS_CALL_POP_REJECTED"
-msgstr "Rejeitado"
-
-msgid "IDS_CALL_POP_SENDING"
-msgstr "A enviar..."
 
 msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
 msgstr "Ocultar teclado"
@@ -328,6 +331,183 @@ msgstr "GRAV."
 msgid "IDS_CALL_POP_UNKNOWNREJECTED"
 msgstr "Chamada anónima rejeitada"
 
-msgid "IDS_CALL_POP_SAVED"
-msgstr "Guardado"
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "Trocar"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "Seleccionar número"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "dentro de %d dias"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "Amanhã"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "Dentro de uma semana"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "Colocar %s em espera"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "Terminar chamada com %s"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "Aceitar chamada depois de"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "Terminar todas chamadas"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "Desligar redução de ruído"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "Ligar redução de ruído"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "Ampl. tons graves"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "Ampl. tons agudos"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "Optimizada p/ ouvido esq."
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "Optimizada p/ ouvido dir."
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Impossível ligar a redução de ruído quando o volume extra está activado"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "Impossível ligar a redução de ruído quando o auricular está ligado"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Impossível ligar a redução de ruído quando o auricular Bluetooth está ligado"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "Impossível ligar a redução de ruído durante as chamadas de banda larga"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "Para utilizar esta função, tem de marcar Optimizar EQ para mim nas definições de Chamada"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "Impossível activar o EQ do som de chamada recebida quando o altifalante está ligado"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "Impossível activar o EQ do som de chamada recebida quando os auscultadores estão ligados"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Impossível activar o EQ do som de chamada recebida quando o auricular Bluetooth está ligado"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "Impossível utilizar o intervalo de volume extra quando estão ligados auscultadores ou auriculares BT"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "A chamar..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "Gerir chamada de conferência"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Impossível activar o EQ do som de chamada recebida quando o volume extra está activado"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "Impossível activar o EQ do som de chamada recebida durante chamadas de banda larga"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "Som"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "Impossível ligar a redução de ruído quando o altifalante está ligado"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "Mensagens de rejeição"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "Chamada de voz"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "Vídeochamada"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "Partilhar"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "Teclado"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "Terminar"
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "Altifal."
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "Fonte áudio"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "Telefone"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "Silenciar"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "Adic. a Contactos"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "Chamada de voz"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "Ch. víd."
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "Mensagem"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "Adic. a Contact."
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "Mensagem"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "Alter."
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "Mais"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "Partilhar fich. via ChatON"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "Partilhar"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d vezes"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "Chamada grupo (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "Imagem guardada"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "Vídeo guardado"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "Tirar uma fotografia"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "Vídeo direc."
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "Ver contacto"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d chamadas perdidas"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "Chamada não atendida"
 

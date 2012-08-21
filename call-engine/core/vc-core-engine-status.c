@@ -64,7 +64,7 @@ voicecall_error_t _vc_core_engine_status_isrestricted_call(voicecall_engine_t *p
 * @remarks		pvoicecall_agent and prestricted cannot be NULL.
 *				This API shall only be used with the incoming call handle before it is connected
 */
-voicecall_error_t _vc_core_engine_status_get_calling_namemode(voicecall_engine_t *pvoicecall_agent, int call_handle, gboolean * bcalling_namemode)
+voicecall_error_t _vc_core_engine_status_get_calling_namemode(voicecall_engine_t *pvoicecall_agent, int call_handle, gboolean *bcalling_namemode)
 {
 	call_vc_callagent_state_t *pagent = (call_vc_callagent_state_t *)pvoicecall_agent;
 	call_vc_call_objectinfo_t call_object;
@@ -372,31 +372,6 @@ voicecall_error_t _vc_core_engine_status_check_emergency_byindex(voicecall_engin
 
 	*pbemergency_call = pcall_manager->callobject_info[mo_call_index].bemergency_number;
 	return ERROR_VOICECALL_NONE;
-}
-
-/**
-* This function checks and returns the FDN status
-*
-* @return		ERROR_VOICECALL_NONE on success or return value contains appropriate error code on failure
-* @param[in]		pcall_agent	Handle to Voicecall Engine - Currently not used, reserved for future use
-* @param[out]	bfdn_enabled	TRUE - if FDN is enabled, FALSE  otherwise
-* @remarks		pvoicecall_agent and bfdn_anabled cannot be NULL
-*/
-voicecall_error_t _vc_core_engine_status_isenabled_fdn(voicecall_engine_t *pcall_agent, gboolean *bfdn_enabled)
-{
-	gboolean bfdn = FALSE;
-	VOICECALL_RETURN_VALUE_IF_FAIL(bfdn_enabled != NULL, ERROR_VOICECALL_INVALID_ARGUMENTS);
-	VOICECALL_RETURN_VALUE_IF_FAIL(pcall_agent != NULL, ERROR_VOICECALL_INVALID_ARGUMENTS);
-
-	CALL_ENG_KPI("tel_get_sim_fdn_status start");
-	if (TAPI_API_SUCCESS == tel_get_sim_fdn_status(&bfdn)) {
-		*bfdn_enabled = bfdn;
-		return ERROR_VOICECALL_NONE;
-	}
-	CALL_ENG_KPI("tel_get_sim_fdn_status done");
-
-	*bfdn_enabled = FALSE;
-	return ERROR_VOICECALL_TAPI_ERROR;
 }
 
 /**

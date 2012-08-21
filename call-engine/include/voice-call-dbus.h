@@ -15,8 +15,8 @@
  */
 
 
-#ifndef _VOICE_CALLD_H_
-#define _VOICE_CALLD_H_
+#ifndef _VOICE_CALL_DBUS_H_
+#define _VOICE_CALL_DBUS_H_
 
 #ifdef __cplusplus
 extern "C" {

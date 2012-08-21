@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 #ifndef __VC_CORE_CALL_AGENT_H_
 #define __VC_CORE_CALL_AGENT_H_
 
@@ -25,10 +24,11 @@
 #endif
 
 /**< Maximum Telephony Event */
-#define CALL_VC_TAPI_CALL_EVENT_MAX_NUM		33
-#define CALL_VC_SIMATK_EVENT_MAX_NUM		3	/**< Maximum SIM ATK Event */
-#define CALL_VC_TAPI_READY_EVENT_NUM		1	/**< Tapi Service Ready Event */
-#define CALL_VC_TAPI_SUBSCRIPTION_MAX		(CALL_VC_TAPI_CALL_EVENT_MAX_NUM+CALL_VC_TAPI_READY_EVENT_NUM+CALL_VC_SIMATK_EVENT_MAX_NUM)
+#define CALL_VC_TAPI_CALL_EVENT_MAX_NUM	33
+#define CALL_VC_SIMATK_EVENT_MAX_NUM	3	/**< Maximum SIM ATK Event */
+#define CALL_VC_TAPI_READY_EVENT_NUM	1	/**< Tapi Service Ready Event */
+#define CALL_VC_TAPI_FACTORY_EVENT_NUM	1	/**< Tapi Service FACTORY Event */
+#define CALL_VC_TAPI_SUBSCRIPTION_MAX		(CALL_VC_TAPI_CALL_EVENT_MAX_NUM+CALL_VC_TAPI_READY_EVENT_NUM+CALL_VC_SIMATK_EVENT_MAX_NUM+CALL_VC_TAPI_FACTORY_EVENT_NUM)
 
 /**
  * This enumeration provides CA STATEs
@@ -66,6 +66,7 @@ typedef enum {
  * This structure defines voicecall agent data
  */
 typedef struct _voicecall_engine_t {
+	TapiHandle *tapi_handle;
 	call_vc_ca_state_t callagent_state;			/**< Call Agent State */
 	voicecall_inout_state_t io_state;		/**< Voicecall Engine IO State */
 	call_vc_manager_t call_manager;			/**< Handle for the Call Manager */
@@ -73,7 +74,6 @@ typedef struct _voicecall_engine_t {
 
 	gboolean bdtmf_ring;					/**< dtmf ring? */
 
-	gboolean bonly_sos_call;					/**< only SOS calls possible , if TRUE */
 	gboolean bis_no_sim;						/**< SIM not available , if TRUE */
 	gboolean bdownload_call;					/**< Automated call test after binary download , if TRUE */
 
@@ -81,6 +81,7 @@ typedef struct _voicecall_engine_t {
 	/*tapi_call_ccbs_info_t	ccbs_info[CALL_VC_CCBS_NUMBER_MAX]; < call control for busy subscriber info */
 	int ccbs_index;												  /**< Index for  ccbs_info*/
 
+	int barring_ind_type;									/* barring ind type */
 	/*AOC*/
 	float aoc_ppm;												/**< Price per unit value of currency meter */
 

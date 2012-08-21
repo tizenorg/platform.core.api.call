@@ -224,9 +224,29 @@ voicecall_error_t _vc_core_engine_status_isvalid_ss_code(voicecall_engine_t *pvo
 */
 voicecall_error_t _vc_core_engine_status_is_zuhause_area(voicecall_engine_t *pvoicecall_agent, gboolean *bzuhause);
 
+/**
+* This function checks whether the given incoming call is a restricted call or not
+*
+* @return		ERROR_VOICECALL_NONE on success or return value contains appropriate error code on failure
+* @param[in]	pvoicecall_agent	Handle to voicecall engine
+* @param[in]	call_handle		Call handle of the call to be checked
+* @param[out]	pbrestricted		Pointer to the restricted name mode
+* @remarks		pvoicecall_agent and prestricted cannot be NULL.
+*				This API shall only be used with the incoming call handle before it is connected
+*/
+voicecall_error_t _vc_core_engine_status_get_calling_namemode(voicecall_engine_t *pvoicecall_agent, int call_handle, gboolean *bcalling_namemode);
+
 voicecall_error_t _vc_core_engine_status_dump_call_details(voicecall_engine_t *pvoicecall_agent);
 
+/**
+* This function checks the possiblity of making private calls
+*
+* @param[in]		pvoicecall_agent	Handle to Voicecall Engine
+* @param[out]		b_download_call		Contains TRUE if zuhause area, FALSE otherwise
+* @remarks			pvoicecall_agent and pbprivate_call cannot be NULL
+*/
 void _vc_core_engine_status_set_download_call(voicecall_engine_t *pvoicecall_agent, gboolean b_download_call);
+
 gboolean _vc_core_engine_status_get_download_call(voicecall_engine_t *pvoicecall_agent);
 
 #endif				/* __VC_CORE_ENGINE_STATUS_H_ */

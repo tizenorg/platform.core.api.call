@@ -1,9 +1,9 @@
 Name:       org.tizen.call
 Summary:    call application
-Version:    0.2.333
+Version:    0.2.380
 Release:    1
-Group:      Applications
-License:    Flora Software License 
+Group:      comm
+License:    Flora Software License
 Source0:    %{name}-%{version}.tar.gz
 BuildRequires:  pkgconfig(appcore-efl)
 BuildRequires:  pkgconfig(elementary)
@@ -15,7 +15,7 @@ BuildRequires:  pkgconfig(sensor)
 BuildRequires:  pkgconfig(dlog)
 BuildRequires:  pkgconfig(aul)
 BuildRequires:  pkgconfig(contacts-service)
-BuildRequires:  pkgconfig(ui-gadget)
+BuildRequires:  pkgconfig(ui-gadget-1)
 BuildRequires:  pkgconfig(tapi)
 BuildRequires:  pkgconfig(mm-sound)
 BuildRequires:  pkgconfig(mm-camcorder)
@@ -27,8 +27,15 @@ BuildRequires:  pkgconfig(ecore-x)
 BuildRequires:  pkgconfig(ecore-input)
 BuildRequires:  pkgconfig(icu-i18n)
 BuildRequires:  pkgconfig(appsvc)
+BuildRequires:  pkgconfig(glib-2.0)
+BuildRequires:  pkgconfig(capi-base-common)
 BuildRequires:  pkgconfig(notification)
-BuildRequires:  libug-contacts-devel
+BuildRequires:  pkgconfig(phone-misc)
+BuildRequires:  pkgconfig(minicontrol-provider)
+BuildRequires:  pkgconfig(capi-media-sound-manager)
+BuildRequires:  pkgconfig(dbus-1)
+BuildRequires:  pkgconfig(dbus-glib-1)
+BuildRequires:  libug-contacts-devel 
 BuildRequires:  cmake
 BuildRequires:  gettext-tools
 BuildRequires:  edje-tools
@@ -41,8 +48,8 @@ call application.
 %prep
 %setup -q
 
-%build
 
+%build
 %define PREFIX    "/opt/apps/org.tizen.call"
 cmake . -DCMAKE_INSTALL_PREFIX=%{PREFIX}
 
@@ -54,13 +61,18 @@ rm -rf %{buildroot}
 %make_install
 
 %post
-/usr/bin/vconftool set -t int "memory/call/state" "0" -g 6521 -i
-/usr/bin/vconftool set -t int "db/call/vol_level" "4" -g 6521
+# 5000 is inhouse user id
+# do not use relative path
 chown -R 5000:5000 /opt/apps/org.tizen.call/data
+/usr/bin/vconftool set -t int memory/call/state "0" -g 6521 -i
+/usr/bin/vconftool set -t int "db/call/vol_level" "4" -g 6521
 
 %files
-/opt/apps/org.tizen.call/bin/*
-/opt/apps/org.tizen.call/res/*
-/opt/share/applications/org.tizen.call.desktop
-%dir /opt/apps/org.tizen.call/data
-
+%defattr(-,root,root,-)
+/opt/apps/org.tizen.call/bin/voice-call-ui
+/opt/apps/org.tizen.call/res/edje/*.edj
+/opt/apps/org.tizen.call/res/images/*.png
+/opt/apps/org.tizen.call/res/locale/*/LC_MESSAGES/voice-call-ui.mo
+/opt/apps/org.tizen.call/res/media/*.wav
+/opt/share/packages/org.tizen.call.xml
+/opt/share/icons/default/small/org.tizen.call.png

@@ -23,6 +23,7 @@
 #include "vc-core-engine-group.h"
 #include "vc-core-engine-status.h"
 #include <stdbool.h>
+#include <tapi_common.h>
 
 /*Voicecall Engine Exposed API's */
 
@@ -273,12 +274,13 @@ void _vc_core_engine_engine_finish(voicecall_engine_t *pvoicecall_agent);
 /**
 * This function changes the voice audio path
  *
-* @return		ERROR_VOICECALL_NONE on success or return value contains appropriate error code on failure
+ * @return		ERROR_VOICECALL_NONE on success or return value contains appropriate error code on failure
  * @param[in]		pvoicecall_agent		Handle to Voicecall Engine
-* @param[in]		audio_path		audio path to be changed
-* @remarks		pvoicecall_agent cannot be NULL
+ * @param[in]		audio_path		audio path to be changed
+ * @param[in]		bextra_volume		TRUE - extra volume on, FALSE - extra volume off
+ * @remarks		pvoicecall_agent cannot be NULL
  */
-voicecall_error_t _vc_core_engine_change_audio_path(voicecall_engine_t *pvoicecall_agent, voicecall_audio_path_t audio_path);
+voicecall_error_t _vc_core_engine_change_audio_path(voicecall_engine_t *pvoicecall_agent, voicecall_audio_path_t audio_path, gboolean bextra_volume);
 
 /**
 * This function sets the voice call audio volume for the given audio path type
@@ -310,6 +312,7 @@ voicecall_error_t _vc_core_engine_set_audio_mute(voicecall_engine_t *pvoicecall_
 * @remarks		pvoicecall_agent cannot be NULL
  */
 voicecall_error_t _vc_core_engine_get_audio_volume(voicecall_engine_t *pvoicecall_agent, voicecall_audio_path_t audio_path_type);
+
 
 #ifdef _SAT_MENU_
 /**
@@ -351,7 +354,7 @@ voicecall_error_t _vc_core_engine_prepare_redial(voicecall_engine_t *pvoicecall_
  * @param[out]	bredial_duration	Contains TRUE if SAT redial duration is enabled, FALSE otherwise
  * @remarks		pvoicecall_agent and bredial_duration cannot be NULL
  */
-voicecall_error_t voicecall_get_sat_redial_duration_status(voicecall_engine_t *pvoicecall_agent, gboolean * bredial_duration);
+voicecall_error_t voicecall_get_sat_redial_duration_status(voicecall_engine_t *pvoicecall_agent, gboolean *bredial_duration);
 
 /**
  * This function sets the current duration and retireives the modified remaining SAT redial duration
@@ -364,7 +367,7 @@ voicecall_error_t voicecall_get_sat_redial_duration_status(voicecall_engine_t *p
 voicecall_error_t voicecall_get_set_sat_remaining_duration(voicecall_engine_t *pvoicecall_agent, long *remaining_duration);
 #endif
 
-voicecall_error_t _vc_core_engine_get_sat_dtmf_hidden_mode(voicecall_engine_t *pvoicecall_agent, gboolean * bhidden_mode);
+voicecall_error_t _vc_core_engine_get_sat_dtmf_hidden_mode(voicecall_engine_t *pvoicecall_agent, gboolean *bhidden_mode);
 
 /**
 * This function sends response to sat based on the given sat response type
@@ -377,4 +380,23 @@ voicecall_error_t _vc_core_engine_get_sat_dtmf_hidden_mode(voicecall_engine_t *p
 voicecall_error_t _vc_core_engine_send_sat_response(voicecall_engine_t *pvoicecall_agent, voicecall_engine_sat_rqst_resp_type sat_rqst_resp_type, call_vc_sat_reponse_type_t sat_response_type);
 
 voicecall_error_t _vc_core_engine_set_to_default_values(voicecall_engine_t *pvoicecall_agent);
+
+/* Tapi response call back */
+void _vc_core_engine_dial_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_answer_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_end_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_hold_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_active_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_swap_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_join_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_split_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_transfer_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_dtmf_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_set_volume_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_get_volume_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_set_sound_path_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_set_mute_status_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+void _vc_core_engine_get_aoc_info_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);
+/* Tapi response call back end */
+
 #endif				/* __VC_CORE_ENGINE_H_ */

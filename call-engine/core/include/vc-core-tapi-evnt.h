@@ -32,16 +32,6 @@
 gboolean _vc_core_tapi_event_connected_line_ind_handle(call_vc_callagent_state_t *pcall_agent, call_vc_handle call_handle, TelCallConnectedNumberInfo_t *connected_number_info);
 
 /**
- * This function handles different type of tapi indications given in tapi_event_type
- *
- * @return		Returns TRUE on success and FALSE on failure
- * @param[in]		pcall_agent			Pointer to the call agent state
- * @param[in]		tapi_event_type		Tapi Event Type
- * @param[in]		param2				sub param associated with tapi_event_type
- */
-gboolean _vc_core_tapi_event_handle_notification(call_vc_callagent_state_t *pcall_agent, int tapi_event_type, int param2);
-
-/**
  * This function handles the AOC Event
  *
  * @return		Returns TRUE on success and FALSE on failure
@@ -55,11 +45,12 @@ gboolean _vc_core_tapi_event_handle_aoc(call_vc_callagent_state_t *pcall_agent, 
  * This function retreives the voicecall engine specific end cause type for the given tapi end cause type
  *
  * @return		Returns TRUE on success and FALSE on failure
- * @param[in]		type				tapi event type
+ * @param[in]		pcall_agent		Pointer to the call agent state
+ * @param[in]		noti_id				tapi event type
  * @param[in]		cause			tapi call end cause
  * @param[out]	end_cause_type	voicecall engine end cause
  */
-void _vc_core_tapi_event_get_end_cause_type(int type, TelTapiEndCause_t cause, voice_call_end_cause_type_t *end_cause_type);
+void _vc_core_tapi_event_get_end_cause_type(call_vc_callagent_state_t *pcall_agent, const char *noti_id, TelTapiEndCause_t cause, voice_call_end_cause_type_t *end_cause_type);
 
 /**
 * This function Copies Telephony incoming call data to voice call incoming call data
@@ -108,7 +99,7 @@ gboolean _vc_core_tapi_event_handle_alert_event(call_vc_callagent_state_t *pcall
  * @param[in]		handle			Call Handle of the call being ended
  * @param[in]		cause			Tapi End Cause
  */
-gboolean _vc_core_tapi_event_handle_call_end_event(call_vc_callagent_state_t *pcall_agent, int type, call_vc_handle handle, TelTapiEndCause_t cause);
+gboolean _vc_core_tapi_event_handle_call_end_event(call_vc_callagent_state_t *pcall_agent, const char * noti_id, call_vc_handle handle, TelTapiEndCause_t cause);
 
 /**
  * This function handles the tapi call connect event

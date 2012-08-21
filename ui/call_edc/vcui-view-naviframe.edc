@@ -14,17 +14,29 @@
  * limitations under the License.
  */
 
-
 group {
-	name: "navigation_view";
-	parts {
-		part {
+    name: "navigation_view";
+    parts {
+        part {
 			name: "base";
 			type: RECT;
 			description {
-				state: "default" 0.0;
-				color: 0 0 0 0;
+                state: "default" 0.0;
+                color: 0 0 0 0;
+            }
+        }
+
+		part { name: "swl_msglist";
+			type: SWALLOW;
+			description {
+				state: "show" 0.0;
+				rel1 { relative: REJECT_W_MSG_LIST_L REJECT_W_MSG_LIST_T; to: "base";}
+				rel2 { relative: REJECT_W_MSG_LIST_R REJECT_W_MSG_LIST_B; to: "base";}
+			}
+			description {
+				state: "hide" 0.0;
+				visible: 0;
 			}
 		}
-	}
+    }
 }

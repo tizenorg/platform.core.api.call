@@ -74,6 +74,6 @@ voicecall_error_t _vc_core_engine_group_get_call_handle_byposition(voicecall_eng
 * @param[out]	bcall_exists		Contains TRUE if call exists in the given group, FALSE otherwise
 * @remarks		pvoicecall_agent and bcall_exists cannot be NULL.
 */
-voicecall_error_t _vc_core_engine_group_isexists_connected_call_ingroup(voicecall_engine_t *pvoicecall_agent, int group_index, gboolean * bcall_exists);
+voicecall_error_t _vc_core_engine_group_isexists_connected_call_ingroup(voicecall_engine_t *pvoicecall_agent, int group_index, gboolean *bcall_exists);
 
 #endif				/*__VC_CORE_ENGINE_GROUP_H_*/

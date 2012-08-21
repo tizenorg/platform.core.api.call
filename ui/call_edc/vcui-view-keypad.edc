@@ -14,38 +14,7 @@
  * limitations under the License.
  */
 
-
-#define	KEYPAD_EACH_BTN_WIDTH 200
-#define	KEYPAD_COL1_BTN_L_PAD 40
-#define	KEYPAD_COL2_BTN_L_PAD 260
-#define	KEYPAD_COL3_BTN_L_PAD 480
-
-#define	KEYPAD_EACH_BTN_HEIGHT 138
-#define	KEYPAD_BTN_TXT_REGION_HEIGHT 112
-#define	KEYPAD_ROW1_BTN_T_PAD 0
-#define	KEYPAD_ROW2_BTN_T_PAD 158
-#define	KEYPAD_ROW3_BTN_T_PAD 316
-#define	KEYPAD_ROW4_BTN_T_PAD 474
-
-#define RIGHT_ICON_L_PAD 28
-#define RIGHT_ICON_WIDTH 70
-#define RIGHT_ICON_HEIGHT 36
-
-#define LEFT_TXT_L_PAD 24
-#define LEFT_TXT_WIDTH 64
-#define RIGHT_TXT_TYPE1_L_PAD 28
-#define RIGHT_TXT_TYPE2_L_PAD 10
-
-#define	REL_KEYPAD_BTN_W(x) ((x)/KEYPAD_EACH_BTN_WIDTH)
-
-#define	KEYPAD_BTN_LEFT_TXT_L REL_KEYPAD_BTN_W(LEFT_TXT_L_PAD)
-#define	KEYPAD_BTN_LEFT_TXT_R REL_KEYPAD_BTN_W(LEFT_TXT_L_PAD+LEFT_TXT_WIDTH)
-#define	KEYPAD_BTN_RIGHT_TXT_TYPE1_L REL_KEYPAD_BTN_W(LEFT_TXT_L_PAD+LEFT_TXT_WIDTH+RIGHT_TXT_TYPE1_L_PAD)
-#define	KEYPAD_BTN_RIGHT_TXT_TYPE2_L REL_KEYPAD_BTN_W(LEFT_TXT_L_PAD+LEFT_TXT_WIDTH+RIGHT_TXT_TYPE2_L_PAD)
-#define KEYPAD_BTN_RIGHT_ICON_L REL_KEYPAD_BTN_W(LEFT_TXT_L_PAD+LEFT_TXT_WIDTH+RIGHT_ICON_L_PAD)
-#define KEYPAD_BTN_RIGHT_ICON_R REL_KEYPAD_BTN_W(LEFT_TXT_L_PAD+LEFT_TXT_WIDTH+RIGHT_ICON_L_PAD+RIGHT_ICON_WIDTH)
-
-#define PART_KEYPAD_CUSTOM_TWO_LABLE(txt, offx, offy, file, file_press,label_left_text,label_left_font,label_left_size,label_right_text,label_right_font,label_right_size, right_txt_lpad) \
+#define PART_KEYPAD_CUSTOM_TWO_LABLE(txt, offx, offy, label_left_text, label_left_size, label_right_text, label_right_size, right_txt_lpad) \
 			part { \
 				name: txt; \
 				type: IMAGE; \
@@ -53,19 +22,15 @@
 				mouse_events: 1; \
 				description { \
 					state: "default" 0.0; \
-					rel1 { relative: REL_KEYPAD_W(offx) REL_KEYPAD_H(offy); to:"keypad/bg";} \
-					rel2 { relative: REL_KEYPAD_W(offx+KEYPAD_EACH_BTN_WIDTH) REL_KEYPAD_H(offy+KEYPAD_EACH_BTN_HEIGHT); to:"keypad/bg"; } \
-					color: 255 255 255 179; \
-					image { \
-						normal: file; \
-						border: 7 7 7 7; \
-						border_scale: 1; \
-					} \
+					visible: 0; \
+					rel1 { relative: REL_KEYPAD_W(offx) REL_KEYPAD_H(offy); to:"keypad/area";} \
+					rel2 { relative: REL_KEYPAD_W(offx+KEYPAD_EACH_BTN_WIDTH) REL_KEYPAD_H(offy+KEYPAD_EACH_BTN_HEIGHT); to:"keypad/area"; } \
 				} \
 				description { \
 					state: "pressed" 0.0; \
 					inherit: "default" 0.0; \
-					image.normal: file_press; \
+					visible: 1; \
+					image.normal: IMG_SRC_DIR/"vc_keypad_btn_press.png"; \
 				} \
 				description { \
 					state: "hide" 0.0; \
@@ -87,11 +52,12 @@
 					align: 0.5 0.5; \
 					color: 221 210 202 255; \
 					text { \
-						font: label_left_font; \
+						font: FONT_SLP_Light; \
 						text: label_left_text; \
 						size: label_left_size; \
 						min:  1 1; \
 						align: 0.5 0.5; \
+						text_class: TEXT_CLASS_SLP_LIGHT; \
 					} \
 				} \
 				description { \
@@ -114,11 +80,12 @@
 					align: 0.5 0.5; \
 					color: 221 210 202 255; \
 					text { \
-						font: label_right_font; \
+						font: FONT_SLP_Roman; \
 						text: label_right_text; \
 						size: label_right_size; \
 						min:  1 1; \
 						align: 0.0 0.5; \
+						text_class: TEXT_CLASS_SLP_ROMAN; \
 					} \
 				} \
 				description { \
@@ -126,30 +93,35 @@
 					inherit: "default" 0.0; \
 					visible: 0; \
 				} \
-			} 
+			} \
+			part { name: "over_"txt; \
+				mouse_events: 1; \
+				repeat_events: 1; \
+				ignore_flags: ON_HOLD; \
+				description { state: "default" 0.0; \
+					rel1 { relative: 0 0; to: txt; } \
+					rel2 { relative: 1 1; to: txt; } \
+				} \
+			}
 
 
-#define PART_KEYPAD_CUSTOM_ONELABEL_ONEICON(txt, offx, offy, file, file_press,icon_right,icon_right_sizex,icon_right_sizey,label_left_text,label_left_font,label_left_size) \
+#define PART_KEYPAD_CUSTOM_ONELABEL_ONEICON(txt, offx, offy, icon_right, icon_right_sizex, icon_right_sizey, label_left_text, label_left_size) \
 			part { \
 				name: txt; \
 				type: IMAGE; \
 				scale: 1; \
-				mouse_events: 1; \
+				mouse_events: 0; \
 				description { \
 					state: "default" 0.0; \
-					rel1 { relative: REL_KEYPAD_W(offx) REL_KEYPAD_H(offy); to:"keypad/bg";} \
-					rel2 { relative: REL_KEYPAD_W(offx+KEYPAD_EACH_BTN_WIDTH) REL_KEYPAD_H(offy+KEYPAD_EACH_BTN_HEIGHT); to:"keypad/bg"; } \
-					color: 255 255 255 179; \
-					image { \
-						normal: file; \
-						border: 7 7 7 7; \
-						border_scale: 1; \
-					} \
+					visible: 0; \
+					rel1 { relative: REL_KEYPAD_W(offx) REL_KEYPAD_H(offy); to:"keypad/area";} \
+					rel2 { relative: REL_KEYPAD_W(offx+KEYPAD_EACH_BTN_WIDTH) REL_KEYPAD_H(offy+KEYPAD_EACH_BTN_HEIGHT); to:"keypad/area"; } \
 				} \
 				description { \
 					state: "pressed" 0.0; \
 					inherit: "default" 0.0; \
-					image.normal: file_press; \
+					visible: 1; \
+					image.normal: IMG_SRC_DIR/"vc_keypad_btn_press.png"; \
 				} \
 				description { \
 					state: "hide" 0.0; \
@@ -171,11 +143,12 @@
 					align: 0.5 0.5; \
 					color: 221 210 202 255; \
 					text { \
-						font: label_left_font; \
+						font: FONT_SLP_Light; \
 						text: label_left_text; \
 						size: label_left_size; \
 						min:  1 1; \
 						align: 0.5 0.5; \
+						text_class: TEXT_CLASS_SLP_LIGHT; \
 					} \
 				} \
 				description { \
@@ -204,15 +177,22 @@
 					inherit: "default" 0.0; \
 					visible: 0; \
 				} \
-			} 
-	
-
+			} \
+			part { name: "over_"txt; \
+				mouse_events: 1; \
+				repeat_events: 1; \
+				ignore_flags: ON_HOLD; \
+				description { state: "default" 0.0; \
+					rel1 { relative: 0 0; to: txt; } \
+					rel2 { relative: 1 1; to: txt; } \
+				} \
+			}
 
 #define PROG_KEYPAD(txt) \
 	program { \
 		name: "down_"txt; \
 		signal: "mouse,down,*"; \
-		source: txt; \
+		source: "over_"txt; \
 		script { \
 			set_state(PART:txt, "pressed", 0.0); \
 			emit("pad_down", txt); \
@@ -221,7 +201,7 @@
 	program { \
 		name: "ani_"txt; \
 		signal: "ani"; \
-		source: txt; \
+		source: "over_"txt; \
 		action: STATE_SET "default" 0.0; \
 		transition: SINUSOIDAL 0.1; \
 		target: txt; \
@@ -229,16 +209,17 @@
 	program { \
 		name: "up_"txt; \
 		signal: "mouse,up,1"; \
-		source: txt; \
+		source: "over_"txt; \
 		script { \
+			set_state(PART:txt, "default", 0.0); \
 			emit("pad_up", txt); \
-			emit("ani", txt); \
+			emit("ani", "over_"txt); \
 		} \
 	} \
 	program { \
 		name: "clicked_"txt; \
 		signal: "mouse,clicked,1"; \
-		source: txt; \
+		source: "over_"txt; \
 		script { \
 			emit("pad_clicked", txt); \
 		} \
@@ -247,70 +228,124 @@
 #define TARGET_KEYPAD(txt) \
 	target: txt;	\
 	target: txt"_left";	\
-	target: txt"_right";	
+	target: txt"_right"; \
+	target: "over_"txt;
 
-group{
-	name: "keypad";
-		parts {
-		     part { name: "background";
-			type: RECT;
-			description {
-				state: "default" 0.0;
-				color: COLOR_DEFAULT;
-			}
-		}
+#define SEPARATOR_LINE_1(part_name, left, right, top, bottom) \
+	part { name: part_name; \
+		type: RECT; \
+		scale: 1; \
+		description { \
+			state: "default" 0.0; \
+			min: 1 1; \
+			rel1 { relative: left top; to: "background"; } \
+			rel2 { relative: right bottom; to: "background"; } \
+			color: 140 136 137 255; \
+		} \
+	}
 
-		part { name: "swl_cid_background";
-			type: SWALLOW;
-			description {
-				state: "default" 0.0;
-				rel1 { relative: DIALLING_BACKGROUND_CID_L DIALLING_BACKGROUND_CID_T; to: "background";}
-				rel2 { relative: DIALLING_BACKGROUND_CID_R DIALLING_BACKGROUND_CID_B; to: "background";}
-			}
-		}
+#define SEPARATOR_LINE_2(part_name, left, right, top, bottom) \
+	part { name: part_name; \
+		type: RECT; \
+		scale: 1; \
+		description { \
+			state: "default" 0.0; \
+			min: 1 1; \
+			rel1 { relative: left top; to: "background"; } \
+			rel2 { relative: right bottom; to: "background"; } \
+			color: 91 91 91 255; \
+		} \
+	}
 
-		part { name: "bg_alpha";
+group {
+	name: "keypad-separator";
+	parts {
+		part { name: "background";
 			type: RECT;
 			description {
 				state: "default" 0.0;
 				color: COLOR_BG_ALPHA;
 			}
 		}
-			   
 
-		part { name: "keypad/bg";
+		SEPARATOR_LINE_1("row1_left_vert_1", KEYPAD_ROW1_LVERT_SEP1_L, KEYPAD_ROW1_LVERT_SEP1_R, KEYPAD_ROW1_LVERT_SEP1_T, KEYPAD_ROW1_LVERT_SEP1_B)
+		SEPARATOR_LINE_2("row1_left_vert_2", KEYPAD_ROW1_LVERT_SEP2_L, KEYPAD_ROW1_LVERT_SEP2_R, KEYPAD_ROW1_LVERT_SEP2_T, KEYPAD_ROW1_LVERT_SEP2_B)
+		SEPARATOR_LINE_1("row1_right_vert_1", KEYPAD_ROW1_RVERT_SEP1_L, KEYPAD_ROW1_RVERT_SEP1_R, KEYPAD_ROW1_RVERT_SEP1_T, KEYPAD_ROW1_RVERT_SEP1_B)
+		SEPARATOR_LINE_2("row1_right_vert_2", KEYPAD_ROW1_RVERT_SEP2_L, KEYPAD_ROW1_RVERT_SEP2_R, KEYPAD_ROW1_RVERT_SEP2_T, KEYPAD_ROW1_RVERT_SEP2_B)
+
+		SEPARATOR_LINE_1("row1_horiz_1", KEYPAD_ROW1_HORIZ_SEP1_L, KEYPAD_ROW1_HORIZ_SEP1_R, KEYPAD_ROW1_HORIZ_SEP1_T, KEYPAD_ROW1_HORIZ_SEP1_B)
+		SEPARATOR_LINE_2("row1_horiz_2", KEYPAD_ROW1_HORIZ_SEP2_L, KEYPAD_ROW1_HORIZ_SEP2_R, KEYPAD_ROW1_HORIZ_SEP2_T, KEYPAD_ROW1_HORIZ_SEP2_B)
+
+		SEPARATOR_LINE_1("row2_left_vert_1", KEYPAD_ROW2_LVERT_SEP1_L, KEYPAD_ROW2_LVERT_SEP1_R, KEYPAD_ROW2_LVERT_SEP1_T, KEYPAD_ROW2_LVERT_SEP1_B)
+		SEPARATOR_LINE_2("row2_left_vert_2", KEYPAD_ROW2_LVERT_SEP2_L, KEYPAD_ROW2_LVERT_SEP2_R, KEYPAD_ROW2_LVERT_SEP2_T, KEYPAD_ROW2_LVERT_SEP2_B)
+		SEPARATOR_LINE_1("row2_right_vert_1", KEYPAD_ROW2_RVERT_SEP1_L, KEYPAD_ROW2_RVERT_SEP1_R, KEYPAD_ROW2_RVERT_SEP1_T, KEYPAD_ROW2_RVERT_SEP1_B)
+		SEPARATOR_LINE_2("row2_right_vert_2", KEYPAD_ROW2_RVERT_SEP2_L, KEYPAD_ROW2_RVERT_SEP2_R, KEYPAD_ROW2_RVERT_SEP2_T, KEYPAD_ROW2_RVERT_SEP2_B)
+
+		SEPARATOR_LINE_1("row2_horiz_1", KEYPAD_ROW2_HORIZ_SEP1_L, KEYPAD_ROW2_HORIZ_SEP1_R, KEYPAD_ROW2_HORIZ_SEP1_T, KEYPAD_ROW2_HORIZ_SEP1_B)
+		SEPARATOR_LINE_2("row2_horiz_2", KEYPAD_ROW2_HORIZ_SEP2_L, KEYPAD_ROW2_HORIZ_SEP2_R, KEYPAD_ROW2_HORIZ_SEP2_T, KEYPAD_ROW2_HORIZ_SEP2_B)
+
+		SEPARATOR_LINE_1("row3_left_vert_1", KEYPAD_ROW3_LVERT_SEP1_L, KEYPAD_ROW3_LVERT_SEP1_R, KEYPAD_ROW3_LVERT_SEP1_T, KEYPAD_ROW3_LVERT_SEP1_B)
+		SEPARATOR_LINE_2("row3_left_vert_2", KEYPAD_ROW3_LVERT_SEP2_L, KEYPAD_ROW3_LVERT_SEP2_R, KEYPAD_ROW3_LVERT_SEP2_T, KEYPAD_ROW3_LVERT_SEP2_B)
+		SEPARATOR_LINE_1("row3_right_vert_1", KEYPAD_ROW3_RVERT_SEP1_L, KEYPAD_ROW3_RVERT_SEP1_R, KEYPAD_ROW3_RVERT_SEP1_T, KEYPAD_ROW3_RVERT_SEP1_B)
+		SEPARATOR_LINE_2("row3_right_vert_2", KEYPAD_ROW3_RVERT_SEP2_L, KEYPAD_ROW3_RVERT_SEP2_R, KEYPAD_ROW3_RVERT_SEP2_T, KEYPAD_ROW3_RVERT_SEP2_B)
+
+		SEPARATOR_LINE_1("row3_horiz_1", KEYPAD_ROW3_HORIZ_SEP1_L, KEYPAD_ROW3_HORIZ_SEP1_R, KEYPAD_ROW3_HORIZ_SEP1_T, KEYPAD_ROW3_HORIZ_SEP1_B)
+		SEPARATOR_LINE_2("row3_horiz_2", KEYPAD_ROW3_HORIZ_SEP2_L, KEYPAD_ROW3_HORIZ_SEP2_R, KEYPAD_ROW3_HORIZ_SEP2_T, KEYPAD_ROW3_HORIZ_SEP2_B)
+
+		SEPARATOR_LINE_1("row4_left_vert_1", KEYPAD_ROW4_LVERT_SEP1_L, KEYPAD_ROW4_LVERT_SEP1_R, KEYPAD_ROW4_LVERT_SEP1_T, KEYPAD_ROW4_LVERT_SEP1_B)
+		SEPARATOR_LINE_2("row4_left_vert_2", KEYPAD_ROW4_LVERT_SEP2_L, KEYPAD_ROW4_LVERT_SEP2_R, KEYPAD_ROW4_LVERT_SEP2_T, KEYPAD_ROW4_LVERT_SEP2_B)
+		SEPARATOR_LINE_1("row4_right_vert_1", KEYPAD_ROW4_RVERT_SEP1_L, KEYPAD_ROW4_RVERT_SEP1_R, KEYPAD_ROW4_RVERT_SEP1_T, KEYPAD_ROW4_RVERT_SEP1_B)
+		SEPARATOR_LINE_2("row4_right_vert_2", KEYPAD_ROW4_RVERT_SEP2_L, KEYPAD_ROW4_RVERT_SEP2_R, KEYPAD_ROW4_RVERT_SEP2_T, KEYPAD_ROW4_RVERT_SEP2_B)
+	}
+}
+
+group{
+	name: "keypad";
+		parts {
+			part { name: "background";
+			type: RECT;
+			description {
+				state: "default" 0.0;
+				color: 255 255 255 0;
+			}
+		}
+
+		part { name: "keypad/area";
 			type: SWALLOW;
 			scale: 1;
 			description {
 				state: "default" 0.0;
 				visible: 0;
-				rel1 { relative: DIALLING_KEYPAD_L DIALLING_KEYPAD_B; to: "background";}
-				rel2 { relative: DIALLING_KEYPAD_R DIALLING_KEYPAD_B; to: "background";}
+				rel1 { relative: 0 1; to: "background"; }
+				rel2 { relative: 1 1; to: "background"; }
 			}
 			description {
 				state: "show" 0.0;
 				visible: 1;
-				rel1 { relative: DIALLING_KEYPAD_L DIALLING_KEYPAD_T; to: "background";}
-				rel2 { relative: DIALLING_KEYPAD_R DIALLING_KEYPAD_B; to: "background";}
+				rel1 { relative: 0 0; to: "background"; }
+				rel2 { relative: 1 1; to: "background"; }
 			}
 			description { 
 				state: "hide" 0.0; 
 				inherit: "default" 0.0;
-				visible: 0; 
 			} 
 		}
                 
 		part {
 			name: "textblock/bg";
-			type: SWALLOW;
+			type: IMAGE;
 			mouse_events: 0;
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				rel1 { relative:DIALLING_ENTRY_TEXT_L DIALLING_ENTRY_TEXT_T  ; to: "background";}
-				rel2 { relative: DIALLING_ENTRY_TEXT_R DIALLING_ENTRY_TEXT_B ; to: "background";}
-				//rel2 { relative: 1.0 0.0; to: "button/bg";}
-				//	color: 246 245 237 255; 
+				rel1 { relative: KEYPAD_ENTRY_TEXT_L KEYPAD_ENTRY_TEXT_T; to: "keypad/area"; }
+				rel2 { relative: KEYPAD_ENTRY_TEXT_R KEYPAD_ENTRY_TEXT_B; to: "keypad/area"; }
+				color: 255 255 255 179;
+				image {
+					normal: IMG_SRC_DIR/"vc_keypad_btn_normal.png";
+					border: 9 9 9 9;
+					border_scale: 1;
+				}
 			}
 		}
 
@@ -322,104 +357,73 @@ group{
 				state: "default" 0.0;
 				fixed: 1 1;
 				align: 0.5 0.5;
-				rel1 { relative: 0.0 0.0; to: "textblock/bg"; }
+				rel1 { relative: 0.04 0.0; to: "textblock/bg"; }
 				rel2 { relative: 1.0 1.0; to: "textblock/bg"; }
-			}
-			description { 
-				state: "hide" 0.0; 
-				inherit: "default" 0.0;
-				visible: 0; 
-			} 				
-		}
-
-		part { 
-			name: "txt_timer";
-			type: TEXT;
-			effect: SHADOW;
-			scale: 1;
-			description {
-				state: "default" 0.0;
-				visible: 0;				
-				rel1 { relative: INCALL_DIALER_TIMER_L INCALL_DIALER_TIMER_T; to:"background";}
-				rel2 { relative: INCALL_DIALER_TIMER_R INCALL_DIALER_TIMER_B; to:"background";}				
-				text { font, FONT_SLP_Roman; size, 48; align, 1.0 0.5; }
-				color: 255 255 255 255;
-				color2: 0 0 0 255;
 			}
 			description {
 				state: "show" 0.0;
 				inherit: "default" 0.0;
-				visible: 1;
-			}	
-			description { 
-				state: "hide" 0.0; 
+			}
+			description {
+				state: "hide" 0.0;
 				inherit: "default" 0.0;
-				visible: 0; 
-			} 			
+				visible: 0;
+			}
 		}
 
+		part {
+			name: "keypad_btns/bg";
+			type: IMAGE;
+			mouse_events: 0;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 { relative: KEYPAD_BTNS_BG_L KEYPAD_BTNS_BG_T; to: "keypad/area"; }
+				rel2 { relative: KEYPAD_BTNS_BG_R KEYPAD_BTNS_BG_B; to: "keypad/area"; }
+				color: 255 255 255 179;
+				image {
+					normal: IMG_SRC_DIR/"vc_keypad_btn_normal.png";
+					border: 9 9 9 9;
+					border_scale: 1;
+				}
+			}
+		}
 
-		part { 
-			name: "txt_call_name"; // call name or number
-			type: TEXT;
-			effect: SHADOW;
+		part {
+			name: "separator/bg";
+			type: SWALLOW;
 			scale: 1;
 			description {
 				state: "default" 0.0;
 				visible: 0;
-				rel1 { relative: INCALL_DIALER_NAME_L INCALL_DIALER_NAME_T;to: "background";}
-				rel2 { relative: INCALL_DIALER_NAME_R INCALL_DIALER_NAME_B;to: "background";  }				
-				text { font, FONT_SLP_Roman; size, 48; align, 0.0 0.5; }
-				color: 255 255 255 255;
-				color2: 0 0 0 255;
+				rel1 { relative: 0 0; to: "keypad_btns/bg"; }
+				rel2 { relative: 1 1; to: "keypad_btns/bg"; }
 			}
 			description {
 				state: "show" 0.0;
 				inherit: "default" 0.0;
 				visible: 1;
-			}		
+			}
 			description { 
 				state: "hide" 0.0; 
 				inherit: "default" 0.0;
-				visible: 0; 
-			} 			
+				visible: 0;
+			} 
 		}
 
-		PART_KEYPAD_CUSTOM_ONELABEL_ONEICON("1", KEYPAD_COL1_BTN_L_PAD, KEYPAD_ROW1_BTN_T_PAD, 	IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_icon.png", RIGHT_ICON_WIDTH, RIGHT_ICON_HEIGHT, "1", FONT_SLP_Roman, KEYPAD_BTN_TXT_REGION_HEIGHT)
-		PART_KEYPAD_CUSTOM_TWO_LABLE("2", KEYPAD_COL2_BTN_L_PAD, KEYPAD_ROW1_BTN_T_PAD,	IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png", "2", FONT_SLP_Roman, KEYPAD_BTN_TXT_REGION_HEIGHT, "ABC", FONT_SLP_Roman, 32, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
-		PART_KEYPAD_CUSTOM_TWO_LABLE("3", KEYPAD_COL3_BTN_L_PAD, KEYPAD_ROW1_BTN_T_PAD,	IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png", "3", FONT_SLP_Roman, KEYPAD_BTN_TXT_REGION_HEIGHT, "DEF", FONT_SLP_Roman, 32, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
-		PART_KEYPAD_CUSTOM_TWO_LABLE("4", KEYPAD_COL1_BTN_L_PAD, KEYPAD_ROW2_BTN_T_PAD,	IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png", "4", FONT_SLP_Roman, KEYPAD_BTN_TXT_REGION_HEIGHT, "GHI", FONT_SLP_Roman, 32, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
-		PART_KEYPAD_CUSTOM_TWO_LABLE("5", KEYPAD_COL2_BTN_L_PAD, KEYPAD_ROW2_BTN_T_PAD,	IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png", "5", FONT_SLP_Roman, KEYPAD_BTN_TXT_REGION_HEIGHT, "JKL", FONT_SLP_Roman, 32, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
-		PART_KEYPAD_CUSTOM_TWO_LABLE("6", KEYPAD_COL3_BTN_L_PAD, KEYPAD_ROW2_BTN_T_PAD, IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png", "6", FONT_SLP_Roman, KEYPAD_BTN_TXT_REGION_HEIGHT, "MNO", FONT_SLP_Roman, 32, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
-		PART_KEYPAD_CUSTOM_TWO_LABLE("7", KEYPAD_COL1_BTN_L_PAD, KEYPAD_ROW3_BTN_T_PAD,	IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png", "7", FONT_SLP_Roman, KEYPAD_BTN_TXT_REGION_HEIGHT, "PQRS", FONT_SLP_Roman, 32, KEYPAD_BTN_RIGHT_TXT_TYPE2_L)
-		PART_KEYPAD_CUSTOM_TWO_LABLE("8", KEYPAD_COL2_BTN_L_PAD, KEYPAD_ROW3_BTN_T_PAD,	IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png", "8", FONT_SLP_Roman, KEYPAD_BTN_TXT_REGION_HEIGHT, "TUV", FONT_SLP_Roman, 32, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
-		PART_KEYPAD_CUSTOM_TWO_LABLE("9", KEYPAD_COL3_BTN_L_PAD, KEYPAD_ROW3_BTN_T_PAD,	IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png", "9", FONT_SLP_Roman, KEYPAD_BTN_TXT_REGION_HEIGHT, "WXYZ", FONT_SLP_Roman, 32, KEYPAD_BTN_RIGHT_TXT_TYPE2_L)
-		PART_KEYPAD_CUSTOM_TWO_LABLE("star", KEYPAD_COL1_BTN_L_PAD, KEYPAD_ROW4_BTN_T_PAD,	IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png", "*", FONT_SLP_Roman, KEYPAD_BTN_TXT_REGION_HEIGHT, "P", FONT_SLP_Roman, 64, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
-		PART_KEYPAD_CUSTOM_TWO_LABLE("0", KEYPAD_COL2_BTN_L_PAD, KEYPAD_ROW4_BTN_T_PAD,	IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png", "0", FONT_SLP_Roman, KEYPAD_BTN_TXT_REGION_HEIGHT, "+", FONT_SLP_Roman, 64, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
-		PART_KEYPAD_CUSTOM_TWO_LABLE("sharp", KEYPAD_COL3_BTN_L_PAD, KEYPAD_ROW4_BTN_T_PAD,	IMG_SRC_DIR/"./keypad/vc_keypad_btn_normal.png", IMG_SRC_DIR/"./keypad/vc_keypad_btn_press.png", "#", FONT_SLP_Roman, KEYPAD_BTN_TXT_REGION_HEIGHT, "", FONT_SLP_Roman, 64, KEYPAD_BTN_RIGHT_TXT_TYPE2_L)
+		PART_KEYPAD_CUSTOM_ONELABEL_ONEICON("1", KEYPAD_COL1_BTN_L_PAD, KEYPAD_ROW1_BTN_T_PAD, IMG_SRC_DIR/"vc_keypad_btn_icon.png", RIGHT_ICON_WIDTH, RIGHT_ICON_HEIGHT, "1", KEYPAD_BTN_TXT_REGION_HEIGHT)
+		PART_KEYPAD_CUSTOM_TWO_LABLE("2", KEYPAD_COL2_BTN_L_PAD, KEYPAD_ROW1_BTN_T_PAD,	"2", KEYPAD_BTN_TXT_REGION_HEIGHT, "ABC", 32, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
+		PART_KEYPAD_CUSTOM_TWO_LABLE("3", KEYPAD_COL3_BTN_L_PAD, KEYPAD_ROW1_BTN_T_PAD,	"3", KEYPAD_BTN_TXT_REGION_HEIGHT, "DEF", 32, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
+		PART_KEYPAD_CUSTOM_TWO_LABLE("4", KEYPAD_COL1_BTN_L_PAD, KEYPAD_ROW2_BTN_T_PAD,	"4", KEYPAD_BTN_TXT_REGION_HEIGHT, "GHI", 32, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
+		PART_KEYPAD_CUSTOM_TWO_LABLE("5", KEYPAD_COL2_BTN_L_PAD, KEYPAD_ROW2_BTN_T_PAD,	"5", KEYPAD_BTN_TXT_REGION_HEIGHT, "JKL", 32, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
+		PART_KEYPAD_CUSTOM_TWO_LABLE("6", KEYPAD_COL3_BTN_L_PAD, KEYPAD_ROW2_BTN_T_PAD, "6", KEYPAD_BTN_TXT_REGION_HEIGHT, "MNO", 32, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
+		PART_KEYPAD_CUSTOM_TWO_LABLE("7", KEYPAD_COL1_BTN_L_PAD, KEYPAD_ROW3_BTN_T_PAD,	"7", KEYPAD_BTN_TXT_REGION_HEIGHT, "PQRS", 32, KEYPAD_BTN_RIGHT_TXT_TYPE2_L)
+		PART_KEYPAD_CUSTOM_TWO_LABLE("8", KEYPAD_COL2_BTN_L_PAD, KEYPAD_ROW3_BTN_T_PAD,	"8", KEYPAD_BTN_TXT_REGION_HEIGHT, "TUV", 32, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
+		PART_KEYPAD_CUSTOM_TWO_LABLE("9", KEYPAD_COL3_BTN_L_PAD, KEYPAD_ROW3_BTN_T_PAD,	"9", KEYPAD_BTN_TXT_REGION_HEIGHT, "WXYZ", 32, KEYPAD_BTN_RIGHT_TXT_TYPE2_L)
+		PART_KEYPAD_CUSTOM_TWO_LABLE("star", KEYPAD_COL1_BTN_L_PAD, KEYPAD_ROW4_BTN_T_PAD,	"*", KEYPAD_BTN_TXT_REGION_HEIGHT, "", 64, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
+		PART_KEYPAD_CUSTOM_TWO_LABLE("0", KEYPAD_COL2_BTN_L_PAD, KEYPAD_ROW4_BTN_T_PAD,	"0", KEYPAD_BTN_TXT_REGION_HEIGHT, "", 64, KEYPAD_BTN_RIGHT_TXT_TYPE1_L)
+		PART_KEYPAD_CUSTOM_TWO_LABLE("sharp", KEYPAD_COL3_BTN_L_PAD, KEYPAD_ROW4_BTN_T_PAD,	"#", KEYPAD_BTN_TXT_REGION_HEIGHT, "", 64, KEYPAD_BTN_RIGHT_TXT_TYPE2_L)
 
-
-		part { 
-			name: "btn_hide";
-			type: SWALLOW;
-			scale: 1;
-			description {
-				state: "default" 0.0;
-				rel1 { relative: DIALER_BTN1_L DIALER_BTN1_T; to: "background";}
-				rel2 { relative: DIALER_BTN1_R DIALER_BTN1_B; to: "background";}
-			}
-		}        
-
-		part { 
-			name: "btn_end";
-			type: SWALLOW;
-			scale: 1;
-			description {
-				state: "default" 0.0;
-				rel1 { relative: DIALER_BTN2_L DIALER_BTN2_T; to: "background";}
-				rel2 { relative: DIALER_BTN2_R DIALER_BTN2_B; to: "background";}
-			}
-		}
 	}
 
 	programs{
@@ -428,44 +432,31 @@ group{
 			source: "KEYPADBTN";
 			action: STATE_SET "show" 0.0;
 			transition: LINEAR 0.5;
-			target: "keypad/bg";
+			target: "keypad/area";
 			after: "show_keypadbtn_next";
 		}
 		program { name: "show_keypadbtn_next";
 			action: STATE_SET "show" 0.0;
-			target: "txt_call_name";
-			target: "txt_timer";			
-		}		
+			target: "textblock/textarea";
+			target: "separator/bg";
+		}
 		program { name: "hide_keypadbtn";
 			signal: "HIDE";
 			source: "KEYPADBTN";
 			action: STATE_SET "hide" 0.0;
 			target: "textblock/textarea";
-			target: "txt_call_name";
-			target: "txt_timer";						
+			target: "separator/bg";
 			after: "hide_keypadbtn_next";
-		}				
+		}
 		program { name: "hide_keypadbtn_next";
 			action: STATE_SET "hide" 0.0;
 			transition: ACCELERATE 0.5;
-			target: "keypad/bg";	
-			TARGET_KEYPAD("1")
-			TARGET_KEYPAD("2")
-			TARGET_KEYPAD("3")
-			TARGET_KEYPAD("4")
-			TARGET_KEYPAD("5")
-			TARGET_KEYPAD("6")
-			TARGET_KEYPAD("7")
-			TARGET_KEYPAD("8")
-			TARGET_KEYPAD("9")
-			TARGET_KEYPAD("star")
-			TARGET_KEYPAD("0")
-			TARGET_KEYPAD("sharp")
+			target: "keypad/area";
 			after: "hide_keypadbtn_done";
-		}		
+		}
 		program { name: "hide_keypadbtn_done";
 			action: SIGNAL_EMIT "DONE" "HIDEKEYPAD";
-		}			
+		}
 		PROG_KEYPAD("1")
 		PROG_KEYPAD("2")
 		PROG_KEYPAD("3")

@@ -1,14 +1,32 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "同意"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "消音"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "接続中..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "拒否されました。"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "保存​しま​した。"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "送信中..."
+
 msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
-msgstr "拒否​メッセージ​の​作成"
+msgstr "着信​拒否​メッセージ​を​作成"
 
 msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
-msgstr "拒否​メッセージ​リスト​は​空​です"
+msgstr "着信​拒否​メッセージ​リスト​が​ありません。"
 
 msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
-msgstr "拒否してSMS送信"
+msgstr "拒否してメッセージ送信"
 
 msgid "IDS_CALL_BODY_CALL"
-msgstr "通話設定"
+msgstr "通話"
 
 msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
 msgstr "発信​相手​は​電話​に​出られ​ません"
@@ -23,7 +41,7 @@ msgid "IDS_CALL_BODY_DISCONNECTED"
 msgstr "切断しました。"
 
 msgid "IDS_CALL_BODY_INVALID_NUMBER"
-msgstr "番号​が​無効​です"
+msgstr "番号​が​無効​です。"
 
 msgid "IDS_CALL_BODY_IN_CALL"
 msgstr "通話中"
@@ -38,7 +56,7 @@ msgid "IDS_CALL_BODY_NUMBER_CHANGED"
 msgstr "番号​が​変更​されました"
 
 msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
-msgstr "番号​が​存在​しません"
+msgstr "番号​が​存在​しません。"
 
 msgid "IDS_CALL_BODY_ON_HOLD_ABB"
 msgstr "保留中"
@@ -67,9 +85,6 @@ msgstr "保留"
 msgid "IDS_CALL_BUTTON_JOIN"
 msgstr "参加"
 
-msgid "IDS_CALL_BUTTON_MUTE_ABB"
-msgstr "ミュート"
-
 msgid "IDS_CALL_BUTTON_REJECT"
 msgstr "拒否"
 
@@ -92,10 +107,10 @@ msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
 msgstr "現在の通話を保留にして応答"
 
 msgid "IDS_CALL_OPT_PRIVATE"
-msgstr "個人携帯"
+msgstr "非公開"
 
 msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
-msgstr "システム​エラー"
+msgstr "システムエラー"
 
 msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
 msgstr "全ての​着信​が​規制​されて​います"
@@ -113,7 +128,7 @@ msgid "IDS_CALL_POP_CALLNOTCALLOWED"
 msgstr "通話​は​許可されて​いません"
 
 msgid "IDS_CALL_POP_CALL_BARRED"
-msgstr "通話​は​規制​されて​います"
+msgstr "通話は制限されています。"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
 msgstr "通話​を​転送する：常時"
@@ -131,7 +146,7 @@ msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
 msgstr "通話転送されました"
 
 msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
-msgstr "番号​が​正しく​ありません"
+msgstr "番号​が​正しく​ありません。"
 
 msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
 msgstr "オフライン​から​他の​ネットワーク​サービス​の​接続先​に​変更"
@@ -143,7 +158,7 @@ msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
 msgstr "送信​に​失敗​しました。​リトライ"
 
 msgid "IDS_CALL_POP_EMERGENCY_CALL"
-msgstr "緊急通話"
+msgstr "緊急通報"
 
 msgid "IDS_CALL_POP_FDNCALLONLY"
 msgstr "FDN電話​限定​です"
@@ -176,13 +191,13 @@ msgid "IDS_CALL_POP_NETWORKBUSY"
 msgstr "ネットワーク​混雑中"
 
 msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
-msgstr "ネットワーク​を​利用​できません"
+msgstr "ネットワーク​を​利用​できません。"
 
 msgid "IDS_CALL_POP_NOCREDITLEFT"
 msgstr "料金​上限​設定​を​超えて​います"
 
 msgid "IDS_CALL_POP_NOSERVICE"
-msgstr "サービスが利用できません。"
+msgstr "サービス​が​利用​でき​ません。"
 
 msgid "IDS_CALL_POP_OPERATION_REFUSED"
 msgstr "操作​は​拒否​されました"
@@ -206,7 +221,7 @@ msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
 msgstr "サービス​は​許可されて​いません"
 
 msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
-msgstr "SOS​通話​のみ。​ SIM​​カード​を​挿入して、​ネットワーク​サービス​に​アクセス​します"
+msgstr "SOS​通話​のみ。​\nSIM​​カード​を​挿入して、​ネットワーク​サービス​に​アクセス​します"
 
 msgid "IDS_CALL_POP_SPLIT_FAILED"
 msgstr "分割​に​失敗​しました"
@@ -230,7 +245,7 @@ msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
 msgstr "本体​に​切り​替え​ます"
 
 msgid "IDS_CALL_POP_TRANSFER_FAILED"
-msgstr "転送​に​失敗​しました"
+msgstr "転送​に​失敗​しました。"
 
 msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
 msgstr "転送​に​対応​して​いません"
@@ -263,7 +278,7 @@ msgid "IDS_CALL_POP_WRONG_GROUP"
 msgstr "グループ​が​間違って​います"
 
 msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
-msgstr "着信拒否時にSMS送信"
+msgstr "着信拒否時にメッセージ送信"
 
 msgid "IDS_CALL_POP_END_ACTIVE_CALL"
 msgstr "現在の​通話​を​終了"
@@ -290,34 +305,22 @@ msgid "IDS_CALL_BUTTON_RECEIVER"
 msgstr "受話​器"
 
 msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
-msgstr "アカウント​の​登録​に​失敗​しました"
+msgstr "アカウント​の​登録​に​失敗​しました。"
 
 msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
 msgstr "現在の​通話​を​保留"
 
 msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
-msgstr "メモリーが​不足​しています。​いくつかのアイテム​を​削除​してください"
+msgstr "メモリが不足しています。不要なアイテムを削除してください。"
 
 msgid "IDS_CALL_SK3_END_CALL"
 msgstr "通話​を​終了​"
-
-msgid "IDS_MSGC_OPT_SOUND"
-msgstr "サウンド"
 
 msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
 msgstr "サービス​を​利用​できません"
 
 msgid "IDS_CALL_SK3_KEYPAD"
 msgstr "キーパッド"
-
-msgid "IDS_CALL_POP_CONNECTING"
-msgstr "接続中..."
-
-msgid "IDS_CALL_POP_REJECTED"
-msgstr "拒否されました。"
-
-msgid "IDS_CALL_POP_SENDING"
-msgstr "送信中..."
 
 msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
 msgstr "キーパッド​を​非表示"
@@ -328,6 +331,183 @@ msgstr "録音"
 msgid "IDS_CALL_POP_UNKNOWNREJECTED"
 msgstr "非通知​通話​を​拒否​しました"
 
-msgid "IDS_CALL_POP_SAVED"
-msgstr "保存しました。"
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "切替"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "番号​を​選択"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "%d日で"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "明日"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "一週間​以内"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "%sを保留にします。"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "%sとの通話を終了します。"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "通話状態の選択"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "全ての​相手​と​終話"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "ノイズキャンセラOFF"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "ノイズキャンセラON"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "低音強調"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "高音強調"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "左耳に最適化"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "右耳に最適化"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "最大音量制限が有効のときは、ノイズキャンセラをONにできません。"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "イヤホン​が​接続​されて​いる​とき​は、​ノイズ​キャンセラ​を​ON​に​できません。"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Bluetooth​ヘッドセット​が​ON​の​とき​は、​ノイズ​キャンセラ​を​ON​に​できません。"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "広帯域​で​通話中​は、​ノイズ​リダクション​を​ON​に​できません"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "この機能を使うには、通話設定の最適EQを確認する必要があります。"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "スピーカーがONのときは、通話音EQを有効にできません。"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "イヤホンが接続されているときは、通話音EQを有効にできません。"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "BluetoothヘッドセットがONのときは、通話音EQを有効にできません。"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "イヤホンまたはBTヘッドセットを接続しているときは、最大音量域を使用できません。"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "呼び出し中..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "グループ通話を​管理"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "最大音量制限が​​設定されている​​場合、​​通話音EQを​​有効に​​できません。"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "広帯域で通話中は、通話音EQを有効にできません。"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "サウンド"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "スピーカーがONのときは、ノイズキャンセラをONにできません。"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "着信拒否メッセージ"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "音声通話"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "テレビ電話"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "共有"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "キーパッド"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "通話​を​終了"
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "スピーカー"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "オーディオ​ソース"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "本体"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "消音"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "連絡先に追加"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "発信"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "テレビ電話"
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "メッセージ"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "新規電話帳​作成"
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "メッセージ"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "通話相手を切替"
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "その他"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "ChatONでファイルを共有"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "共有"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d回"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "グループ​通話​（%d）"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "保存​画像"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "保存​動画"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "写真​を​撮影"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "ライブ​動画"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "連絡先を表示"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d​​件の不在着信"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "不在着信"
 

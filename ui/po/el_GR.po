@@ -1,3 +1,21 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "Αποδ."
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Σίγαση"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Σύνδεση..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Απόρριψη"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Αποθηκεύτηκε"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Αποστολή..."
+
 msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
 msgstr "Δημιουργία μηνύματος απόρριψης"
 
@@ -66,9 +84,6 @@ msgstr "Αναμονή"
 
 msgid "IDS_CALL_BUTTON_JOIN"
 msgstr "Ένωση"
-
-msgid "IDS_CALL_BUTTON_MUTE_ABB"
-msgstr "Σίγαση"
 
 msgid "IDS_CALL_BUTTON_REJECT"
 msgstr "Απόρριψη"
@@ -206,7 +221,7 @@ msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
 msgstr "Δεν επιτρέπεται η υπηρεσία"
 
 msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
-msgstr "Μόνο κλήση SOS. Τοποθετήστε την κάρτα SIM για πρόσβαση στις υπηρεσίες δικτύου"
+msgstr "Μόνο κλήση SOS.\nΤοποθετήστε την κάρτα SIM για πρόσβαση στις υπηρεσίες δικτύου"
 
 msgid "IDS_CALL_POP_SPLIT_FAILED"
 msgstr "Αποτυχία διαχωρισμού"
@@ -301,23 +316,11 @@ msgstr "Δεν υπάρχει αρκετή μνήμη. Διαγράψτε ορι
 msgid "IDS_CALL_SK3_END_CALL"
 msgstr "Τερμ.κλ."
 
-msgid "IDS_MSGC_OPT_SOUND"
-msgstr "Ήχος"
-
 msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
 msgstr "Μη διαθέσιμη λειτουργία"
 
 msgid "IDS_CALL_SK3_KEYPAD"
 msgstr "Πληκτρολ."
-
-msgid "IDS_CALL_POP_CONNECTING"
-msgstr "Σύνδεση..."
-
-msgid "IDS_CALL_POP_REJECTED"
-msgstr "Απόρριψη"
-
-msgid "IDS_CALL_POP_SENDING"
-msgstr "Αποστολή..."
 
 msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
 msgstr "Απόκρ. πληκτρ."
@@ -328,6 +331,183 @@ msgstr "Εγγρ."
 msgid "IDS_CALL_POP_UNKNOWNREJECTED"
 msgstr "Άγνωστη κλήση απορρίφθηκε"
 
-msgid "IDS_CALL_POP_SAVED"
-msgstr "Αποθηκεύτηκε"
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "Αλλαγή"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "Επιλογή αριθμού"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "σε %d ημέρες"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "Αύριο"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "Σε 1 εβδομάδα"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "Θέτοντας %s σε αναμονή"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "Τερματισμός κλήσης με %s"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "Αποδοχή κλήσης μετά"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "Τερματ. όλων κλήσεων"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "Απενεργοποίηση μείωσης θορύβου"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "Η μείωση θορύβου ενεργοποιήθηκε"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "Ενίσχ.χαμηλών τόνων"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "Ενίσχ. υψηλών τόνων"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "Βελτ. για το αριστ. αυτί"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "Βελτιστ. για το δεξί αυτί"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Δεν είναι δυνατή η ενεργοποίηση της μείωσης θορύβου όταν είναι ενεργοποιημένη η επιλογή της επιπλέον έντασης"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "Δεν είναι δυνατή η ενεργοποίηση της μείωσης θορύβου όταν είναι συνδεδεμένα τα ακουστικά"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Δεν είναι δυνατή η ενεργοποίηση της μείωσης θορύβου όταν είναι ενεργά τα ακουστικά Bluetooth"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "Δεν είναι δυνατή η ενεργοποίηση της μείωσης θορύβου κατά τις ευρυζωνικές κλήσεις"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "Για να χρησιμοποιήσετε αυτήν τη λειτουργία, θα πρέπει να επιλέξετε το στοιχείο “αυτόματη βελτιστοποίηση ισοσταθμιστή” από τις Ρυθμίσεις κλήσης"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "Δεν είναι δυνατή η ενεργοποίηση του ισοσταθμιστή ήχου κατά την κλήση όταν το ηχείο είναι ενεργό"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "Δεν είναι δυνατή η ενεργοποίηση του ισοσταθμιστή ήχου κατά την κλήση όταν είναι συνδεδεμένα τα ακουστικά"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Δεν είναι δυνατή η ενεργοποίηση του ισοσταθμιστή ήχου κατά την κλήση όταν είναι ενεργό το ακουστικό Bluetooth"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "Δεν είναι δυνατή η χρήση του εύρους επιπλέον έντασης όταν είναι συνδεδεμένα ακουστικά ή ακουστικό BT"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "Κλήση..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "Διαχείριση τηλεφωνικής συνδιάσκεψης"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Δεν είναι δυνατή η ενεργοποίηση του ισοσταθμιστή ήχου κατά την κλήση όταν έχει ενεργοποιηθεί η επιπλέον ένταση"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "Δεν είναι δυνατή η ενεργοποίηση του ισοσταθμιστή ήχου κατά τις ευρυζωνικές κλήσεις"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "Ήχος"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "Δεν είναι δυνατή η ενεργοποίηση της μείωσης θορύβου όταν είναι ενεργοποιημένο το ηχείο"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "Απόρριψη μηνυμάτων"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "Φωνητική κλήση"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "Κλήση βίντεο"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "Κοινόχρηστο"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "Πληκτ/γιο"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "Τερμ.κλ."
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "Ηχείο"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "Πηγή ήχου"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "Τηλέφωνο"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "Σίγαση"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "Προσθ. στις Επαφ."
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "Φωνητική κλήση"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "Κλ.βίντεο"
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "Μήνυμα"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "Πρ. στις Επαφές"
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "Μήνυμα"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "Εναλλ."
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "Περισσότ."
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "Κοινή χρ.αρχ. μέσω ChatON"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "Κοινόχρηστο"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d φορές"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "Ομαδική κλήση (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "Αποθηκευμένη εικόνα"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "Αποθηκευμένο βίντεο"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "Λήψη εικόνας"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "Ζωντ. βίντεο"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "Προβολή επαφής"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d αναπάντητες κλήσεις"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "Αναπάντητη κλήση"
 

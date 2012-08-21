@@ -51,27 +51,4 @@ gboolean _voicecall_dvc_get_earjack_connected(void);
  */
 void _voicecall_dvc_control_lcd_state(voicecall_lcd_control_t state);
 
-/**
- * This function return the proximity sensor status.
- *
- * @return	int		proximity sensor status. 1:new 2:far
- * @param[in]	void
- */
-int _voicecall_dvc_get_proximity_sensor_state(void);
-
- /**
- * This function init proximity sensor.
- *
- * @return	gboolean	init success or not/
- * @param[in]	void *
- */
-gboolean _voicecall_dvc_proximity_sensor_init(void *data);
-
-/**
- * This function init proximity sensor.
- *
- * @return	gboolean	init success or not/
- * @param[in]	void *
- */
-gboolean _voicecall_dvc_proximity_sensor_deinit(void);
 #endif

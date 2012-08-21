@@ -1,3 +1,21 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "OK"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Stil"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Verbinden..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Geweigerd"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Opgeslagen"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Verzenden..."
+
 msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
 msgstr "Weigeringsbericht maken"
 
@@ -50,7 +68,7 @@ msgid "IDS_CALL_BUTTON_ACCEPT"
 msgstr "Opnemen"
 
 msgid "IDS_CALL_BUTTON_ADD_CALL"
-msgstr "Nwe oproep"
+msgstr "Nieuwe opr."
 
 msgid "IDS_CALL_BUTTON_CONTACTS"
 msgstr "Contacten"
@@ -66,9 +84,6 @@ msgstr "In wacht"
 
 msgid "IDS_CALL_BUTTON_JOIN"
 msgstr "Deeln."
-
-msgid "IDS_CALL_BUTTON_MUTE_ABB"
-msgstr "Dempen"
 
 msgid "IDS_CALL_BUTTON_REJECT"
 msgstr "Weigeren"
@@ -134,7 +149,7 @@ msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
 msgstr "Nummer onjuist"
 
 msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
-msgstr "Voor netwerkdiensten vliegtuigprofiel in ander profiel wijzigen"
+msgstr "Voor netwerkdiensten offlineprofiel in ander profiel wijzigen"
 
 msgid "IDS_CALL_POP_DIALLING"
 msgstr "Kiezen..."
@@ -197,7 +212,7 @@ msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
 msgstr "Telefoon niet geïnitialiseerd"
 
 msgid "IDS_CALL_POP_PS_REJECTED"
-msgstr "4422341526 geweigerd"
+msgstr "%s geweigerd"
 
 msgid "IDS_CALL_POP_REDIALLING"
 msgstr "Opnieuw kiezen..."
@@ -206,7 +221,7 @@ msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
 msgstr "Dienst niet toegestaan"
 
 msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
-msgstr "Alleen noodoproepen mogelijk. Voor netwerkdiensten SIM-kaart plaatsen"
+msgstr "Alleen noodoproepen mogelijk.\nVoor netwerkdiensten SIM-kaart plaatsen"
 
 msgid "IDS_CALL_POP_SPLIT_FAILED"
 msgstr "Uit multiparty halen mislukt"
@@ -260,7 +275,7 @@ msgid "IDS_CALL_POP_WAITING_ACTIVE"
 msgstr "Wisselgesprek"
 
 msgid "IDS_CALL_POP_WRONG_GROUP"
-msgstr "Groep onjuist"
+msgstr "Onjuiste groep"
 
 msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
 msgstr "Oproep met bericht weigeren"
@@ -301,23 +316,11 @@ msgstr "Onvoldoende geheugen. Wis een aantal items"
 msgid "IDS_CALL_SK3_END_CALL"
 msgstr "Einde"
 
-msgid "IDS_MSGC_OPT_SOUND"
-msgstr "Geluid"
-
 msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
 msgstr "Service niet beschikbaar"
 
 msgid "IDS_CALL_SK3_KEYPAD"
-msgstr "Toetsen-\nbord"
-
-msgid "IDS_CALL_POP_CONNECTING"
-msgstr "Verbinden..."
-
-msgid "IDS_CALL_POP_REJECTED"
-msgstr "Geweigerd"
-
-msgid "IDS_CALL_POP_SENDING"
-msgstr "Verzenden..."
+msgstr "Toetsenbord"
 
 msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
 msgstr "Verberg toetsen"
@@ -328,6 +331,183 @@ msgstr "Opn."
 msgid "IDS_CALL_POP_UNKNOWNREJECTED"
 msgstr "Onbekende oproep geweigerd"
 
-msgid "IDS_CALL_POP_SAVED"
-msgstr "Opgeslagen"
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "Wisselen"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "Selecteer nummer"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "over %d dagen"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "Morgen"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "Over een week"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "%s in de wacht zetten"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "Oproep beëindigen met %s"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "Oproep accepteren na"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "Alle gespr. beëindigen"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "Ruisonderdrukking uit"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "Ruisonderdrukking aan"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "Lage tonen boost"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "Hoge tonen boost"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "Optimaal voor linkeroor"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "Optimaal voor rechteroor"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Kan ruisreductie niet activeren terwijl extra volume is ingeschakeld"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "Kan ruisreductie niet activeren wanneer oortelefoon is aangesloten"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Kan ruisreductie niet activeren wanneer Bluetooth-headset is ingeschakeld"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "Kan ruisreductie niet inschakelen tijdens breedbandoproepen"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "Als u deze functie wilt gebruiken, moet u EQ voor mij optimaliseren inschakelen onder Oproepinstellingen"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "Kan EQ toon tijdens gesprek niet activeren wanneer luidspreker is ingeschakeld"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "Kan EQ toon tijdens gesprek niet activeren wanneer headset is aangesloten"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Kan EQ toon tijdens gesprek niet activeren wanneer Bluetooth-headset is ingeschakeld"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "Kan extra volumebereik niet gebruiken wanneer BT-headset of oortjes zijn aangesloten"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "Bellen..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "Vergaderoproep beheren"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Kan EQ toon tijdens gesprek niet activeren wanneer extra volume is ingeschakeld"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "Kan EQ toon tijdens gesprek niet activeren tijdens breedbandoproepen"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "Geluid"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "Kan ruisreductie niet activeren wanneer luidspreker is ingeschakeld"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "Weigerberichten"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "Spraakoproep"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "Video-oproep"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "Delen"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "Toetsenbord"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "Einde opr."
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "Speaker"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "Audiobron"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "Telefoon"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "Stil"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "Toevoegen aan contacten"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "Spraakopr."
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "Video"
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "Bericht"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "Toev. aan cont."
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "Bericht"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "Wissel"
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "Meer"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "Bestand delen via ChatON"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "Delen"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d keer"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "Groepsoproep (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "Opgesl. afbeelding"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "Opgeslagen video"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "Foto nemen"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "Live video"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "Contact tonen"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d gemiste opr."
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "Gemiste oproep"
 

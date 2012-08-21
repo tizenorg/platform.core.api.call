@@ -11,34 +11,34 @@ SET(UI_SRCS
 	../call-engine/core/vc-core-engine-group.c 
 	../call-engine/core/vc-core-svcall.c
 	../call-engine/core/vc-core-tapi-rqst.c
+	../call-engine/core/vc-core-ecc.c
 	../call-engine/voice-call-core.c
 	../call-engine/voice-call-sound.c
 	../call-engine/voice-call-service.c
 	../call-engine/voice-call-device.c
 	../call-engine/voice-call-bt.c
 	../call-engine/voice-call-engine.c
-	../call-engine/voice-call-dbus.c	
-	vcui-application.c
-	vcui-app-window.c
-	vcui-view-choice.c
-	vcui-engine-interface.c
-	vcui-document.c 
-	vcui-view-dialing.c 
-	vcui-view-incoming.c 
-	vcui-view-incoming-lock.c
-	vcui-view-keypad.c
-	vcui-view-elements.c
-	vcui-view-common.c 
-	vcui-view-single-call.c
-	vcui-view-multi-call-split.c
-	vcui-view-multi-call-conf.c
-	vcui-view-multi-call-list.c
-	vcui-view-popup.c
-	vcui-doc-launch.c
-	vcui-view-callend.c
- )
+	../call-engine/voice-call-dbus.c
+	./src/vcui-application.c
+	./src/vcui-app-window.c
+	./src/vcui-view-choice.c
+	./src/vcui-document.c
+	./src/vcui-view-dialing.c
+	./src/vcui-view-incoming-lock.c
+	./src/vcui-view-keypad.c
+	./src/vcui-view-elements.c
+	./src/vcui-view-common.c
+	./src/vcui-view-single-call.c
+	./src/vcui-view-multi-call-split.c
+	./src/vcui-view-multi-call-conf.c
+	./src/vcui-view-multi-call-list.c
+	./src/vcui-view-popup.c
+	./src/vcui-doc-launch.c
+	./src/vcui-view-callend.c
+	./src/vcui-view-quickpanel.c	#_QUICKPANNEL_SUPPORT_
+)
 
-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR} ../call-engine/include ../call-engine/core/include)
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR} ../call-engine/include ../call-engine/core/include ./src/include)
 
 SET(PREFIX ${CMAKE_INSTALL_PREFIX})
 SET(BINDIR "${PREFIX}/bin")
@@ -63,18 +63,17 @@ ADD_DEFINITIONS("-DCALL_DEBUG_ON_DLOG")
 ADD_DEFINITIONS("-DSWAP_SUPPORT")
 ADD_DEFINITIONS("-DCALL_VC_SEND_SAT_RESPONSE_ORIG")
 ADD_DEFINITIONS("-DRELEASE_ALL_AND_ACCEPT_SUPPORT")
-ADD_DEFINITIONS("-DVC_ENG_FDN_SUPPORT")
+
+# for SOUND
 
 # for debuging			
-#ADD_DEFINITIONS("-DTIMER_ENABLED")
 #ADD_DEFINITIONS("-DVOICECALL_KPI")
 #ADD_DEFINITIONS("-DCALLDETAILS_DUMP")
 
 #for UI
-ADD_DEFINITIONS("-DEND_KEY_PROCESSING")
+#ADD_DEFINITIONS("-DSEND_END_TO_UG")
 ADD_DEFINITIONS("-DPDIAL_SEND_DTMF")
-#ADD_DEFINITIONS("-DBG")
-ADD_DEFINITIONS("-D_NEW_SND_")
+ADD_DEFINITIONS("-D_QUICKPANNEL_SUPPORT_")
 ADD_DEFINITIONS("-DSIGNAL_HANDLER")
 
 INCLUDE(FindPkgConfig)
@@ -82,15 +81,17 @@ pkg_check_modules(ui_pkgs REQUIRED
 	appcore-efl
 	vconf
 	utilX
+	phone-misc
 	alsa
 	pmapi	
 	sensor
 	dlog
 	aul
 	contacts-service
-	ui-gadget
+	ui-gadget-1
 	tapi 
 	contacts-service 
+	capi-media-sound-manager
 	mm-sound
 	mm-camcorder
 	mm-player
@@ -108,6 +109,9 @@ pkg_check_modules(ui_pkgs REQUIRED
 	icu-i18n
 	appsvc
 	notification
+	minicontrol-provider
+	dbus-1
+	dbus-glib-1
 )
 
 
@@ -128,7 +132,7 @@ ADD_DEFINITIONS("-DIMGDIR=\"${IMGDIR}\"")
 ADD_DEFINITIONS("-DMEDIADIR=\"${MEDIADIR}\"")
 
 ADD_EXECUTABLE(voice-call-ui ${UI_SRCS})
-TARGET_LINK_LIBRARIES(voice-call-ui "-pie" ${ui_pkgs_LDFLAGS})
+TARGET_LINK_LIBRARIES(voice-call-ui "-pie" "-ldl" ${ui_pkgs_LDFLAGS})
 message(${ui_pkgs_LDFLAGS})
 
 ADD_CUSTOM_TARGET(voice-call-ui.edj
@@ -153,11 +157,12 @@ INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/themes/call_theme.edj DESTINATION ${ED
 # install ini file ( not used)
 #INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/voice-call-ui.ini DESTINATION share/process-info)
 
-# install desktop file & icon
+# install manifest file & icon
 SET(PREFIX ${CMAKE_INSTALL_PREFIX})
-CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/org.tizen.call.desktop.in ${CMAKE_CURRENT_SOURCE_DIR}/org.tizen.call.desktop)
-INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/org.tizen.call.desktop DESTINATION /opt/share/applications)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/org.tizen.call.xml DESTINATION /opt/share/packages)
+INSTALL(FILES ${CMAKE_CURRENT_SOURCE_DIR}/org.tizen.call.png DESTINATION /opt/share/icons/default/small)
 INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/images/hd/icon/ DESTINATION ${IMGDIR} FILES_MATCHING PATTERN "*.png")
+INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/images/hd/landscape/ DESTINATION ${IMGDIR} FILES_MATCHING PATTERN "*.png")
 INSTALL(DIRECTORY ../call-engine/sounds/ DESTINATION ${MEDIADIR} FILES_MATCHING PATTERN "*.wav")
 
 # install application HOME directory

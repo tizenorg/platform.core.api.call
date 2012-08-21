@@ -19,6 +19,12 @@
 #include "vc-core-tapi-rqst.h"
 #include "vc-core-util.h"
 #include "vc-core-engine-types.h"
+#include "vc-core-engine.h"
+
+/* DTMF Duration */
+#define PSH_SOUND_DTMFTONE_LONG			300
+#define PSH_SOUND_DTMFTONE_SHORT		200
+#define PSH_DTMF_DEFAULT_DURATION		0x01	/*PSH_SOUND_DTMFTONE_LONG*/
 
 static int gcall_vc_callmember_count = 0;
 static gboolean gcall_vc_callend_wait = FALSE;
@@ -37,9 +43,10 @@ static gboolean glong_dtmf_mode = FALSE;
 *
 * @internal
 * @return		Returns TRUE on success or FALSE on failure
+* @param[in]		pcall_agent		Pointer to the call agent state
 * @param[in]		call_handle		handle of the call to be splitted
 */
-static gboolean __call_vc_split_member(call_vc_handle call_handle);
+static gboolean __call_vc_split_member(call_vc_callagent_state_t *pcall_agent, call_vc_handle call_handle);
 
  /**
  * This function prepares for a call setup
@@ -105,18 +112,16 @@ gboolean _vc_core_tapi_rqst_prepare_setup_call(call_vc_callagent_state_t *pcall_
 gboolean _vc_core_tapi_rqst_setup_call(call_vc_callagent_state_t *pcall_agent)
 {
 	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-	TelCallSetupParams_t setupCallInfo;
+	TelCallDial_t dialCallInfo;
 /*	TelCallCugInfo_t pCugInfo = {0,};*/
 	call_vc_call_objectinfo_t callobject_info = { 0 };
 /*	TelCallIdentityMode_t	identityMode = TAPI_CALL_IDENTITY_DEFAULT;*/
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
 	int ReqId = VC_RQSTID_DEFAULT;
-	clock_t start;
-	clock_t end;
 
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
 
-	memset(&setupCallInfo, 0, sizeof(TelCallSetupParams_t));
+	memset(&dialCallInfo, 0, sizeof(TelCallDial_t));
 
 	/* Get the Outgoing Call Info */
 	_vc_core_cm_clear_call_object(&callobject_info);
@@ -127,47 +132,47 @@ gboolean _vc_core_tapi_rqst_setup_call(call_vc_callagent_state_t *pcall_agent)
 	/* set setupCallInfo structure for call setup */
 	if (callobject_info.bemergency_number == TRUE) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "Emergency call!");
-		setupCallInfo.CallType = TAPI_CALL_TYPE_E911;
+		dialCallInfo.CallType = TAPI_CALL_TYPE_E911;
 		/*setupCallInfo.Ecc = callobject_info.ecc_category;
 		CALL_ENG_DEBUG(ENG_DEBUG,"Emergency call, ecc_category:[%d]!", callobject_info.ecc_category);*/
 	} else {
 		CALL_ENG_DEBUG(ENG_DEBUG, "Normal call!");
-		setupCallInfo.CallType = TAPI_CALL_TYPE_VOICE;
+		dialCallInfo.CallType = TAPI_CALL_TYPE_VOICE;
 	}
 
 	/*Set the Call Object MO Flag as TRUE */
 	callobject_info.mo = TRUE;
 
 	/* cli setting */
-	if (_vc_core_util_extract_call_number_without_cli(callobject_info.source_tel_number, setupCallInfo.szNumber, sizeof(setupCallInfo.szNumber)) == FALSE) {
+	if (_vc_core_util_extract_call_number_without_cli(callobject_info.source_tel_number, dialCallInfo.szNumber, sizeof(dialCallInfo.szNumber)) == FALSE) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "No proper number = %s", callobject_info.source_tel_number);
 		return FALSE;
 	}
-	CALL_ENG_DEBUG(ENG_DEBUG, "tapi callnum=[%s]", setupCallInfo.szNumber);
+	CALL_ENG_DEBUG(ENG_DEBUG, "tapi callnum=[%s]", dialCallInfo.szNumber);
 
 
 	/* CUG settings */
 #ifdef _TAPI_CUG_
-	setupCallInfo.pCugInfo = &pCugInfo;
+	dialCallInfo.pCugInfo = &pCugInfo;
 	if (FALSE == callobject_info.cug_info.bcug_used) {
-		setupCallInfo.pCugInfo->bCugFlag = FALSE;
+		dialCallInfo.pCugInfo->bCugFlag = FALSE;
 	} else {
-		setupCallInfo.pCugInfo->bCugFlag = TRUE;
+		dialCallInfo.pCugInfo->bCugFlag = TRUE;
 		/*if the index is 0, use pref cug, so no cug index */
 		if (0 == callobject_info.cug_info.cug_index) {
-			setupCallInfo.pCugInfo->Option = TAPI_CALL_CUG_NO_INFO;
-			setupCallInfo.pCugInfo->Index = 0;
+			dialCallInfo.pCugInfo->Option = TAPI_CALL_CUG_NO_INFO;
+			dialCallInfo.pCugInfo->Index = 0;
 		} else {
 			if ((FALSE == callobject_info.cug_info.bpref_cug) && (FALSE == callobject_info.cug_info.boa_cug)) {
-				setupCallInfo.pCugInfo->Option = TAPI_CALL_CUG_SUPRESS_OA_AND_CUG;
+				dialCallInfo.pCugInfo->Option = TAPI_CALL_CUG_SUPRESS_OA_AND_CUG;
 			} else if (FALSE == callobject_info.cug_info.bpref_cug) {
-				setupCallInfo.pCugInfo->Option = TAPI_CALL_CUG_SUPRESS_PRF_CUG;
+				dialCallInfo.pCugInfo->Option = TAPI_CALL_CUG_SUPRESS_PRF_CUG;
 			} else if (FALSE == callobject_info.cug_info.boa_cug) {
-				setupCallInfo.pCugInfo->Option = TAPI_CALL_CUG_SUPRESS_OA;
+				dialCallInfo.pCugInfo->Option = TAPI_CALL_CUG_SUPRESS_OA;
 			} else {
-				setupCallInfo.pCugInfo->Option = TAPI_CALL_CUG_NO_INFO;
+				dialCallInfo.pCugInfo->Option = TAPI_CALL_CUG_NO_INFO;
 			}
-			setupCallInfo.pCugInfo->Index = callobject_info.cug_info.cug_index;
+			dialCallInfo.pCugInfo->Index = callobject_info.cug_info.cug_index;
 		}
 	}
 #endif
@@ -196,7 +201,7 @@ gboolean _vc_core_tapi_rqst_setup_call(call_vc_callagent_state_t *pcall_agent)
 	}
 #endif
 
-	CALL_ENG_DEBUG(ENG_DEBUG, "call_type = %d", setupCallInfo.CallType);
+	CALL_ENG_DEBUG(ENG_DEBUG, "call_type = %d", dialCallInfo.CallType);
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Call Type by Source: %d", callobject_info.call_type);
 	if (VC_CALL_ORIG_TYPE_SAT == callobject_info.call_type) {
@@ -206,10 +211,11 @@ gboolean _vc_core_tapi_rqst_setup_call(call_vc_callagent_state_t *pcall_agent)
 	}
 	/*CALL_ENG_DEBUG(ENG_DEBUG,"Call Initiated by SAT: %d",setupCallInfo.bRequestedBySAT);*/
 
-	CALL_ENG_KPI("tel_exe_call_mo start");
+	CALL_ENG_KPI("tel_dial_call start");
 	/*This Function originates MO Call set-up, This is asynchronous function */
-	tapi_err = tel_exe_call_mo(&setupCallInfo, (TS_UINT *) &call_handle, &ReqId);
-	CALL_ENG_KPI("tel_exe_call_mo done");
+
+	tapi_err = tel_dial_call(pcall_agent->tapi_handle, &dialCallInfo, _vc_core_engine_dial_call_resp_cb, NULL);
+	CALL_ENG_KPI("tel_dial_call done");
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "ReqId is = %d", ReqId);
 
@@ -245,7 +251,7 @@ gboolean _vc_core_tapi_rqst_answer_call(call_vc_callagent_state_t *pcall_agent, 
 	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
 	/*Encapsulates Errors and Warnings from TAPI Library */
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
-	int ReqId = VC_RQSTID_DEFAULT;
+
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
 	VOICECALL_RETURN_FALSE_IF_FAIL(error_code != NULL);
 
@@ -261,11 +267,9 @@ gboolean _vc_core_tapi_rqst_answer_call(call_vc_callagent_state_t *pcall_agent, 
 		return FALSE;
 	}
 
-	/*
-	   Process the answer call request only when the state is in income and it is not ended.
+	/* Process the answer call request only when the state is in income and it is not ended.
 	   This must be checked as both incoming event and incoming end event from tapi are added to g_idle_add
-	   so any change in state should be noted before accepting the call
-	*/
+	   so any change in state should be noted before accepting the call */
 	if ((VC_INOUT_STATE_INCOME_BOX != pcall_agent->io_state) || (VC_INOUT_STATE_INCOME_END == pcall_agent->io_state)) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "IO State not in VC_INOUT_STATE_INCOME_BOX, Current state: %d", pcall_agent->io_state);
 		*error_code = ERROR_VOICECALL_PREVIOUS_REQUEST_IN_PROGRESS;
@@ -285,7 +289,7 @@ gboolean _vc_core_tapi_rqst_answer_call(call_vc_callagent_state_t *pcall_agent, 
 	case VC_ANSWER_NORMAL:
 		{
 			/*Answer a call by accepting or rejecting a call */
-			tapi_err = tel_answer_call(call_handle, TAPI_CALL_ANSWER_ACCEPT, &ReqId);
+			tapi_err = tel_answer_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_ANSWER_ACCEPT, _vc_core_engine_answer_call_resp_cb, NULL);
 			if (TAPI_API_SUCCESS == tapi_err) {
 				_vc_core_ca_change_inout_state(pcall_agent, VC_INOUT_STATE_INCOME_WAIT_CONNECTED);
 			}
@@ -294,7 +298,7 @@ gboolean _vc_core_tapi_rqst_answer_call(call_vc_callagent_state_t *pcall_agent, 
 	case VC_ANSWER_HOLD_ACTIVE_AND_ACCEPT:
 		{
 			/*Answer a call by accepting or rejecting a call */
-			tapi_err = tel_answer_call(call_handle, TAPI_CALL_ANSWER_HOLD_AND_ACCEPT, &ReqId);
+			tapi_err = tel_answer_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_ANSWER_HOLD_AND_ACCEPT, _vc_core_engine_answer_call_resp_cb, NULL);
 			if (TAPI_API_SUCCESS == tapi_err) {
 				_vc_core_ca_change_inout_state(pcall_agent, VC_INOUT_STATE_INCOME_WAIT_HOLD_CONNECTED);
 				_vc_core_ca_change_agent_state(pcall_agent, CALL_VC_CA_STATE_WAIT_HOLD);
@@ -304,7 +308,7 @@ gboolean _vc_core_tapi_rqst_answer_call(call_vc_callagent_state_t *pcall_agent, 
 	case VC_ANSWER_RELEASE_ACTIVE_AND_ACCEPT:
 		{
 			/*Answer a call by accepting or rejecting a call */
-			tapi_err = tel_answer_call(call_handle, TAPI_CALL_ANSWER_REPLACE, &ReqId);
+			tapi_err = tel_answer_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_ANSWER_REPLACE, _vc_core_engine_answer_call_resp_cb, NULL);
 			if (TAPI_API_SUCCESS == tapi_err) {
 				_vc_core_ca_change_inout_state(pcall_agent, VC_INOUT_STATE_INCOME_WAIT_RELEASE_ACTIVE_CONNECTED);
 			}
@@ -401,7 +405,7 @@ gboolean _vc_core_tapi_rqst_response_call(call_vc_callagent_state_t *pcall_agent
 gboolean _vc_core_tapi_rqst_release_active_calls(call_vc_callagent_state_t *pcall_agent)
 {
 	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-	int pReqId = VC_RQSTID_DEFAULT;
+
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
 	int nPos;
 	int nCount = 0;
@@ -419,11 +423,11 @@ gboolean _vc_core_tapi_rqst_release_active_calls(call_vc_callagent_state_t *pcal
 			CALL_ENG_DEBUG(ENG_DEBUG, "End Single call..");
 
 			/* Use ReleaseAll api in case single call is ended - this is caused by modem limitation */
-			tapi_err = tel_release_call_all(&pReqId);
+			tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END_ALL, _vc_core_engine_end_call_resp_cb, NULL)
 		} else
 #endif
 		{
-			tapi_err = tel_release_call_all_active(&pReqId);
+			tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END_ACTIVE_ALL, _vc_core_engine_end_call_resp_cb, NULL)
 		}
 
 		if (TAPI_API_SUCCESS != tapi_err) {
@@ -460,12 +464,12 @@ gboolean _vc_core_tapi_rqst_release_active_calls(call_vc_callagent_state_t *pcal
 				CALL_ENG_DEBUG(ENG_DEBUG, "End Single call..");
 
 				/* Use ReleaseAll api in case single call is ended - this is caused by modem limitation */
-				tapi_err = tel_release_call_all(&pReqId);
+				tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END_ALL, _vc_core_engine_end_call_resp_cb, NULL);
 			} else
 #endif
 			{
 				/*Releases the call identified by Call Handle irrespective of call is hold or active state */
-				tapi_err = tel_release_call(call_handle, &pReqId);
+				tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END, _vc_core_engine_end_call_resp_cb, NULL);
 			}
 
 			if (TAPI_API_SUCCESS != tapi_err) {
@@ -503,7 +507,7 @@ gboolean _vc_core_tapi_rqst_release_held_calls(call_vc_callagent_state_t *pcall_
 	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
 	call_vc_call_objectinfo_t callobject_info = { 0 };
 	int nCount = 0;
-	int pReqId = VC_RQSTID_DEFAULT;
+
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
 
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
@@ -518,11 +522,11 @@ gboolean _vc_core_tapi_rqst_release_held_calls(call_vc_callagent_state_t *pcall_
 			CALL_ENG_DEBUG(ENG_DEBUG, "End Single call..");
 
 			/* Use ReleaseAll api in case single call is ended - this is caused by modem limitation */
-			tapi_err = tel_release_call_all(&pReqId);
+			tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END_ALL, _vc_core_engine_end_call_resp_cb, NULL);
 		} else
 #endif
 		{
-			tapi_err = tel_release_call_all_held(&pReqId);
+			tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_HOLD_ALL, _vc_core_engine_end_call_resp_cb, NULL);
 		}
 
 		if (TAPI_API_SUCCESS != tapi_err) {
@@ -559,12 +563,12 @@ gboolean _vc_core_tapi_rqst_release_held_calls(call_vc_callagent_state_t *pcall_
 				CALL_ENG_DEBUG(ENG_DEBUG, "End Single call..");
 
 				/* Use ReleaseAll api in case single call is ended - this is caused by modem limitation */
-				tapi_err = tel_release_call_all(&pReqId);
+				tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END_ALL, _vc_core_engine_end_call_resp_cb, NULL);
 			} else
 #endif
 			{
 				/*Releases the call identified by Call Handle irrespective of call is hold or active state */
-				tapi_err = tel_release_call(call_handle, &pReqId);
+				tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END, _vc_core_engine_end_call_resp_cb, NULL);
 			}
 
 			if (TAPI_API_SUCCESS != tapi_err) {
@@ -599,7 +603,7 @@ gboolean _vc_core_tapi_rqst_release_held_calls(call_vc_callagent_state_t *pcall_
 gboolean _vc_core_tapi_rqst_release_all_calls(call_vc_callagent_state_t *pcall_agent)
 {
 	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-	int pReqId = VC_RQSTID_DEFAULT;
+
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
 
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
@@ -619,7 +623,7 @@ gboolean _vc_core_tapi_rqst_release_all_calls(call_vc_callagent_state_t *pcall_a
 	}
 
 	/*Releases All calls irrespective of call is in hold or active state */
-	tapi_err = tel_release_call_all(&pReqId);
+	tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END_ALL, _vc_core_engine_end_call_resp_cb, NULL);
 	if (TAPI_API_SUCCESS != tapi_err) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tel_release_call_all failed: Error _Code: %d", tapi_err);
 		return FALSE;
@@ -637,7 +641,7 @@ gboolean _vc_core_tapi_rqst_release_all_calls(call_vc_callagent_state_t *pcall_a
 gboolean _vc_core_tapi_rqst_release_incoming_call(call_vc_callagent_state_t *pcall_agent)
 {
 	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-	int pReqId = VC_RQSTID_DEFAULT;
+
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
 
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
@@ -656,7 +660,7 @@ gboolean _vc_core_tapi_rqst_release_incoming_call(call_vc_callagent_state_t *pca
 #endif
 	{
 		/*Releases the call identified by Call Handle irrespective of call is hold or active state */
-		tapi_err = tel_release_call(call_handle, &pReqId);
+		tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END, _vc_core_engine_end_call_resp_cb, NULL);
 	}
 
 	if (TAPI_API_SUCCESS != tapi_err) {
@@ -680,7 +684,7 @@ gboolean _vc_core_tapi_rqst_release_outgoing_call(call_vc_callagent_state_t *pca
 {
 
 	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
-	int pReqId = VC_RQSTID_DEFAULT;
+
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
 
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
@@ -695,12 +699,12 @@ gboolean _vc_core_tapi_rqst_release_outgoing_call(call_vc_callagent_state_t *pca
 		CALL_ENG_DEBUG(ENG_DEBUG, "End Single call..");
 
 		/* Use ReleaseAll api in case single call is ended - this is caused by modem limitation */
-		tapi_err = tel_release_call_all(&pReqId);
+		tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END_ALL, _vc_core_engine_end_call_resp_cb, NULL);
 	} else
 #endif
 	{
 		/*Releases the call identified by Call Handle irrespective of call is hold or active state */
-		tapi_err = tel_release_call(call_handle, &pReqId);
+		tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END, _vc_core_engine_end_call_resp_cb, NULL);
 	}
 
 	if (TAPI_API_SUCCESS != tapi_err) {
@@ -723,7 +727,6 @@ gboolean _vc_core_tapi_rqst_hold_call(call_vc_callagent_state_t *pcall_agent)
 {
 	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
-	int ReqId = VC_RQSTID_DEFAULT;
 
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
 
@@ -738,7 +741,7 @@ gboolean _vc_core_tapi_rqst_hold_call(call_vc_callagent_state_t *pcall_agent)
 
 	/* Hold the call */
 	/*Puts the given call on hold */
-	tapi_err = tel_hold_call(call_handle, &ReqId);
+	tapi_err = tel_hold_call(pcall_agent->tapi_handle, call_handle, _vc_core_engine_hold_call_resp_cb, NULL);
 	if (TAPI_API_SUCCESS != tapi_err) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tel_hold_call() Failed Error Code: %d", tapi_err);
 		return FALSE;
@@ -757,7 +760,6 @@ gboolean _vc_core_tapi_rqst_retrieve_call(call_vc_callagent_state_t *pcall_agent
 {
 	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
-	int ReqId = VC_RQSTID_DEFAULT;
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "...");
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
@@ -771,7 +773,7 @@ gboolean _vc_core_tapi_rqst_retrieve_call(call_vc_callagent_state_t *pcall_agent
 	CALL_ENG_DEBUG(ENG_DEBUG, "Cur held call_handle = %d.", call_handle);
 	/* activate the call */
 	/*This function retrieves the held call */
-	tapi_err = tel_retrieve_call(call_handle, &ReqId);
+	tapi_err = tel_active_call(pcall_agent->tapi_handle, call_handle, _vc_core_engine_active_call_resp_cb, NULL);
 	if (TAPI_API_SUCCESS != tapi_err) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tel_retrieve_call() Failed, Error Code: %d", tapi_err);
 		return FALSE;
@@ -790,7 +792,6 @@ gboolean _vc_core_tapi_rqst_swap_calls(call_vc_callagent_state_t *pcall_agent)
 {
 	call_vc_handle active_call = VC_TAPI_INVALID_CALLHANDLE, held_call = VC_TAPI_INVALID_CALLHANDLE;
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
-	int ReqId = VC_RQSTID_DEFAULT;
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "..");
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
@@ -809,7 +810,7 @@ gboolean _vc_core_tapi_rqst_swap_calls(call_vc_callagent_state_t *pcall_agent)
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Current Active call = %d, Hold call :%d", active_call, held_call);
 
-	tapi_err = tel_swap_call(active_call, held_call, &ReqId);
+	tapi_err = tel_swap_call(pcall_agent->tapi_handle, active_call, held_call, _vc_core_engine_swap_call_resp_cb, NULL);
 	if (TAPI_API_SUCCESS != tapi_err) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tel_swap_call() Failed, Error Code: %d", tapi_err);
 		return FALSE;
@@ -828,7 +829,6 @@ gboolean _vc_core_tapi_rqst_join_calls(call_vc_callagent_state_t *pcall_agent)
 {
 	call_vc_handle active_call = VC_TAPI_INVALID_CALLHANDLE, held_call = VC_TAPI_INVALID_CALLHANDLE;
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
-	int ReqId = VC_RQSTID_DEFAULT;
 
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
 
@@ -846,7 +846,7 @@ gboolean _vc_core_tapi_rqst_join_calls(call_vc_callagent_state_t *pcall_agent)
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Current Active call = %d, Hold call :%d", active_call, held_call);
 	/*This functions joins given two calls */
-	tapi_err = tel_join_call(active_call, held_call, &ReqId);
+	tapi_err = tel_join_call(pcall_agent->tapi_handle, active_call, held_call, _vc_core_engine_join_call_resp_cb, NULL);
 	if (TAPI_API_SUCCESS != tapi_err) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tel_join_call() Failed, Error Code: %d", tapi_err);
 		return FALSE;
@@ -865,7 +865,7 @@ gboolean _vc_core_tapi_rqst_join_calls(call_vc_callagent_state_t *pcall_agent)
 gboolean _vc_core_tapi_rqst_private_call(call_vc_callagent_state_t *pcall_agent, call_vc_handle call_handle)
 {
 
-	if (TRUE == __call_vc_split_member(call_handle)) {
+	if (TRUE == __call_vc_split_member(pcall_agent, call_handle)) {
 		_vc_core_ca_change_agent_state(pcall_agent, CALL_VC_CA_STATE_WAIT_SPLIT);
 		return TRUE;
 	} else {
@@ -874,10 +874,9 @@ gboolean _vc_core_tapi_rqst_private_call(call_vc_callagent_state_t *pcall_agent,
 	}
 }
 
-static gboolean __call_vc_split_member(call_vc_handle call_handle)
+static gboolean __call_vc_split_member(call_vc_callagent_state_t *pcall_agent, call_vc_handle call_handle)
 {
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
-	int ReqId = VC_RQSTID_DEFAULT;
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "...");
 	VOICECALL_RETURN_FALSE_IF_FAIL(call_handle != VC_TAPI_INVALID_CALLHANDLE);
@@ -885,7 +884,7 @@ static gboolean __call_vc_split_member(call_vc_handle call_handle)
 	CALL_ENG_DEBUG(ENG_DEBUG, "call_handle to be splited : %d", call_handle);
 
 	/*Splits a private call from multiparty call. */
-	tapi_err = tel_split_call(call_handle, &ReqId);
+	tapi_err = tel_split_call(pcall_agent->tapi_handle, call_handle, _vc_core_engine_split_call_resp_cb, NULL);
 	if (TAPI_API_SUCCESS != tapi_err) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tel_split_call() Failed, Error Code: %d", tapi_err);
 		return FALSE;
@@ -904,7 +903,6 @@ gboolean _vc_core_tapi_rqst_transfer_call(call_vc_callagent_state_t *pcall_agent
 {
 	call_vc_handle active_call = VC_TAPI_INVALID_CALLHANDLE;
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
-	int ReqId = VC_RQSTID_DEFAULT;
 
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
 
@@ -923,7 +921,7 @@ gboolean _vc_core_tapi_rqst_transfer_call(call_vc_callagent_state_t *pcall_agent
 
 	/*An explicit call transfer by connecting the two parties where in one party being
 	   active (active state) and another party being held (held state) */
-	tapi_err = tel_exe_call_explicit_transfer(active_call, &ReqId);
+	tapi_err = tel_transfer_call(pcall_agent->tapi_handle, active_call, _vc_core_engine_transfer_call_resp_cb, NULL);
 	if (TAPI_API_SUCCESS != tapi_err) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tel_exe_call_explicit_transfer() Failed, Error Code: %d", tapi_err);
 		return FALSE;
@@ -943,7 +941,6 @@ gboolean _vc_core_tapi_rqst_start_dtmf(call_vc_callagent_state_t *pcall_agent, c
 {
 	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
-	int ReqId = VC_RQSTID_DEFAULT;
 
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
 
@@ -960,7 +957,7 @@ gboolean _vc_core_tapi_rqst_start_dtmf(call_vc_callagent_state_t *pcall_agent, c
 
 	/* start DTMF */
 	/*This function sends one or more DTMF digits during call */
-	tapi_err = tel_send_call_dtmf(dtmf_string, &ReqId);
+	tapi_err = tel_call_dtmf(pcall_agent->tapi_handle, dtmf_string, _vc_core_engine_dtmf_call_resp_cb, NULL);
 
 	if (TAPI_API_SUCCESS != tapi_err) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tapi_call_dtmf Failed, Error Code: %d", tapi_err);
@@ -1026,7 +1023,6 @@ gboolean call_vc_send_uusinfo(call_vc_callagent_state_t *pcall_agent, call_vc_ha
 gboolean _vc_core_tapi_rqst_end_call_by_callhandle(call_vc_callagent_state_t *pcall_agent, call_vc_handle call_handle)
 {
 	call_vc_call_objectinfo_t callobject_info;
-	int pReqId = VC_RQSTID_DEFAULT;
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
 
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
@@ -1043,12 +1039,12 @@ gboolean _vc_core_tapi_rqst_end_call_by_callhandle(call_vc_callagent_state_t *pc
 			CALL_ENG_DEBUG(ENG_DEBUG, "End Single call..");
 
 			/* Use ReleaseAll api in case single call is ended - this is caused by modem limitation */
-			tapi_err = tel_release_call_all(&pReqId);
+			tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END_ALL, _vc_core_engine_end_call_resp_cb, NULL);
 		} else
 #endif
 		{
 			/*Releases the call identified by Call Handle irrespective of call is hold or active state */
-			tapi_err = tel_release_call(call_handle, &pReqId);
+			tapi_err = tel_end_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_END, _vc_core_engine_end_call_resp_cb, NULL);
 		}
 
 		if (TAPI_API_SUCCESS != tapi_err) {
@@ -1119,7 +1115,6 @@ gboolean _vc_core_tapi_rqst_reject_mt_call(call_vc_callagent_state_t *pcall_agen
 {
 	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
 	TapiResult_t tapi_err = TAPI_API_SUCCESS;
-	int pReqId = VC_RQSTID_DEFAULT;
 
 	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_agent != NULL);
 
@@ -1146,7 +1141,7 @@ gboolean _vc_core_tapi_rqst_reject_mt_call(call_vc_callagent_state_t *pcall_agen
 
 	if (TRUE == budub) {
 		/*Reject the Call for User Busy Scenario */
-		tapi_err = tel_answer_call(call_handle, TAPI_CALL_ANSWER_REJECT, &pReqId);
+		tapi_err = tel_answer_call(pcall_agent->tapi_handle, call_handle, TAPI_CALL_ANSWER_REJECT, _vc_core_engine_answer_call_resp_cb, NULL);
 
 		if (TAPI_API_SUCCESS != tapi_err) {
 			CALL_ENG_DEBUG(ENG_DEBUG, " tel_answer_call failed: %d", tapi_err);
@@ -1167,3 +1162,4 @@ gboolean _vc_core_tapi_rqst_reject_mt_call(call_vc_callagent_state_t *pcall_agen
 	_vc_core_ca_change_inout_state(pcall_agent, VC_INOUT_STATE_INCOME_WAIT_RELEASE);
 	return TRUE;
 }
+

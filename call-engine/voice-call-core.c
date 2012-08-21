@@ -15,6 +15,8 @@
  */
 
 
+#include <msg.h>
+
 #include "vc-core-util.h"
 #include "vc-core-engine-types.h"
 #include "vc-core-callagent.h"
@@ -24,8 +26,11 @@
 #include "voice-call-dbus.h"
 #include "voice-call-engine-msg.h"
 #include "voice-call-service.h"
+#include "voice-call-device.h"
+#include "voice-call-sound.h"
 
 #include "voice-call-bt.h"
+#include "phone-misc.h"
 #include "vc-core-engine.h"
 
 #include "voice-call-engine.h"
@@ -45,7 +50,7 @@
 gboolean mo_redial_timer_cb(void *data);
 
 #define SET_PATH_TIMER_VALUE	50
-static	guint g_set_path_timer_handler = 0;
+static guint g_set_path_timer_handler = 0;
 static gboolean __voicecall_core_set_path_timer_cb(gpointer puser_data);
 
 /* For Debug Information, Call Engine Event name string constant */
@@ -59,7 +64,7 @@ char *gszcall_engine_event[VC_ENGINE_EVENT_MAX] = {
 	"VC_CALL_INCOM_END",
 	"VC_CALL_INCOM_DROPPED",
 	"VC_CALL_REJECTED_END",
-	"VC_CALL_OUTGOING_END",		/* 10 */
+	"VC_CALL_OUTGOING_END",	/* 10 */
 
 	"VC_CALL_OUTGOING_ABORTED",
 	"VC_CALL_DTMF_ACK",
@@ -81,7 +86,7 @@ char *gszcall_engine_event[VC_ENGINE_EVENT_MAX] = {
 	"VC_CALL_IND_BARRING",
 	"VC_CALL_IND_WAITING",
 	"VC_CALL_IND_CUGINFO",
-	"VC_CALL_IND_SSNOTIFY", /* 30 */
+	"VC_CALL_IND_SSNOTIFY",	/* 30 */
 
 	"VC_CALL_IND_CALLINGNAMEINFO",
 	"VC_CALL_IND_REDIRECT_CNF",
@@ -98,18 +103,20 @@ char *gszcall_engine_event[VC_ENGINE_EVENT_MAX] = {
 	"VC_CALL_GET_VOLUME_RESP"
 };
 
-static void __voicecall_core_check_headset_earjack_status(call_vc_core_state_t *pcall_core);
+static gboolean __vc_core_is_answermode_enabled_from_testmode(void);
+static gboolean __vc_core_is_answermode_enabled(void);
+static void __voicecall_core_start_auto_answer(call_vc_core_state_t *pcall_core, gboolean isTestMode);
+static void __voicecall_core_cancel_auto_answer(call_vc_core_state_t *pcall_core);
+/*static void __voicecall_core_check_headset_earjack_status(call_vc_core_state_t *pcall_core);*/
 static void __vc_core_set_auto_redial_count(call_vc_core_state_t *pcall_core, int auto_redial_count);
-static gboolean __voicecall_core_callstatus_set_timer_cb(gpointer puser_data);
+/*static gboolean __voicecall_core_callstatus_set_timer_cb(gpointer puser_data);*/
 
 static int __voicecall_core_get_string_id_by_errorcode(int error_code);
 static void __voicecall_core_mocall_reset_engine_state(voicecall_engine_t *pcall_engine);
 static gboolean __voicecall_core_is_redial_cuase(int end_cause);
 
-#ifdef	PDIAL_SEND_DTMF
 static gboolean __voicecall_core_queue_dtmf_string(call_vc_core_state_t *pcall_core, char *dtmf_string, gboolean bsat_dtmf);
 static gboolean __voicecall_core_handle_dtmf_ack(call_vc_core_state_t *pcall_core, gboolean success);
-#endif
 
 /**
  * This function puts the currently active call on hold
@@ -122,7 +129,6 @@ inline gboolean voicecall_core_hold_call(voicecall_engine_t *pcall_engine)
 
 	voicecall_error_t error_code = ERROR_VOICECALL_NONE;
 
-	PRINT_CURRENT_TIME("Call Hold Start at");
 	error_code = _vc_core_engine_hold_call(pcall_engine);
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Error Code : %d", error_code);
@@ -139,7 +145,6 @@ inline gboolean voicecall_core_retrieve_call(voicecall_engine_t *pcall_engine)
 {
 	voicecall_error_t error_code = ERROR_VOICECALL_NONE;
 
-	PRINT_CURRENT_TIME("Call Retrieve Start at");
 	error_code = _vc_core_engine_retrieve_call(pcall_engine);
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Error Code : %d", error_code);
@@ -156,7 +161,6 @@ inline gboolean voicecall_core_swap_calls(voicecall_engine_t *pcall_engine)
 {
 	voicecall_error_t error_code = ERROR_VOICECALL_NONE;
 
-	PRINT_CURRENT_TIME("Call Swap Start at");
 	error_code = _vc_core_engine_swap_calls(pcall_engine);
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Error Code : %d", error_code);
@@ -229,7 +233,7 @@ inline gboolean voicecall_core_get_engine_state(voicecall_engine_t *pcall_engine
  * @param[out]	active_calls		TRUE - If active call exists or FALSE If active call doesn't exists
  * @param[out]	held_calls		TRUE - If held call exists or FALSE If held call doesn't exists
  */
-inline gboolean voicecall_core_is_call_exists(voicecall_engine_t *pcall_engine, gboolean * active_calls, gboolean * held_calls)
+inline gboolean voicecall_core_is_call_exists(voicecall_engine_t *pcall_engine, gboolean *active_calls, gboolean *held_calls)
 {
 	return (ERROR_VOICECALL_NONE == _vc_core_engine_status_isexists_any_call(pcall_engine, active_calls, held_calls)) ? TRUE : FALSE;
 }
@@ -381,9 +385,9 @@ inline gboolean voicecall_core_is_incall_request_possible(voicecall_engine_t *pc
  * @param[in]		pcall_engine		Handle to voicecall engine
  * @param[in]		audio_path		audio path to be changed
  */
-inline gboolean voicecall_core_change_audio_path(voicecall_engine_t *pcall_engine, voicecall_audio_path_t audio_path)
+inline gboolean voicecall_core_change_audio_path(voicecall_engine_t *pcall_engine, voicecall_audio_path_t audio_path, gboolean bextra_volume)
 {
-	return (ERROR_VOICECALL_NONE == _vc_core_engine_change_audio_path(pcall_engine, audio_path)) ? TRUE : FALSE;
+	return (ERROR_VOICECALL_NONE == _vc_core_engine_change_audio_path(pcall_engine, audio_path, bextra_volume)) ? TRUE : FALSE;
 }
 
 /**
@@ -555,7 +559,7 @@ inline gboolean voicecall_core_set_check_ss_on_end(call_vc_core_state_t *pcall_c
  * This function extracts vaild phone number
  *
  * @return		void
- * @param[in]		
+ * @param[in]
  */
 inline void voicecall_core_extract_phone_number(const char *source_tel_number, char *phone_number, const int buf_size)
 {
@@ -603,39 +607,6 @@ gboolean voicecall_core_get_status(call_vc_core_state_t *pcall_core, call_vc_cor
 	return FALSE;
 }
 
-#ifdef VC_ENG_FDN_SUPPORT
-gboolean voicecall_core_check_fdn_status(call_vc_core_state_t *pcall_core)
-{
-	gboolean bfdn_enabled = FALSE;
-
-	/*Check the FDN Status of the number with the contact */
-	_vc_core_engine_status_isenabled_fdn(pcall_core->pcall_engine, &bfdn_enabled);
-	voicecall_core_set_status(pcall_core, CALL_VC_CORE_FLAG_FDN_SVC_ENABLED, bfdn_enabled);
-
-	if (TRUE == bfdn_enabled) {
-		gboolean bct_exists = FALSE;
-
-		CALL_ENG_DEBUG(ENG_DEBUG, "FDN mode enabled..");
-		if (!bct_exists) {
-			vc_engine_msg_box_type event_data;
-			memset(&event_data, 0, sizeof(event_data));
-
-			CALL_ENG_DEBUG(ENG_DEBUG, "FDN only...");
-			_vc_core_engine_finalize_call(pcall_core->pcall_engine, VC_OUTGOING_CALL, -1);
-
-			event_data.string_id = IDS_CALL_POP_FDNCALLONLY;
-			vcall_engine_send_event_to_client(VC_ENGINE_MSG_MESSAGE_BOX_TO_UI, (void *)&event_data);
-			return FALSE;
-		}
-
-	} else {
-		CALL_ENG_DEBUG(ENG_DEBUG, "FDN mode disabled..");
-	}
-
-	return TRUE;
-}
-#endif
-
 static gboolean __voicecall_core_minute_minder(gpointer puser_data)
 {
 	CALL_ENG_DEBUG(ENG_DEBUG, "..");
@@ -671,9 +642,9 @@ static gboolean __voicecall_core_handle_call_end_on_silent_reject(call_vc_core_s
 	CALL_ENG_DEBUG(ENG_DEBUG, "call_handle = %d", call_handle);
 
 	if ((pcall_core->mtcall_silent_reject_handle == call_handle)) {
+		/*Call rejected due to lawmo lock */
 		if (FALSE == voicecall_core_is_connected_call_exist(pcall_core->pcall_engine)) {
 			/*Connected calls need to be checked, Connected emergency calls may be avaialble */
-			voicecall_snd_change_mm_path(pcall_core->papp_snd, VOICE_CALL_MM_RESET);
 			voicecall_core_set_to_default(pcall_core);
 		} else {
 			CALL_ENG_DEBUG(ENG_ERR, "Connected calls available");
@@ -715,7 +686,7 @@ static void __voicecall_core_processing_mo_cancel(call_vc_core_state_t *pcall_co
 		CALL_ENG_DEBUG(ENG_DEBUG, "Signal is playing, skipping cancel timer");
 		return;
 	}
-	
+
 	vc_engine_outgoing_end_type event_data;
 
 	/* normal outgong end */
@@ -757,7 +728,6 @@ static void __voicecall_core_mocall_signal_play_end_cb(gpointer pdata)
 
 	if (FALSE == voicecall_core_is_connected_call_exist(pcall_core->pcall_engine)) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "No More calls, resetting path");
-		voicecall_snd_change_mm_path(pcall_core->papp_snd, VOICE_CALL_MM_RESET);
 		_vc_core_util_set_call_status(VCONFKEY_CALL_OFF);
 	}
 
@@ -803,32 +773,20 @@ static void __voicecall_core_handle_normal_end(call_vc_core_state_t *pcall_core,
 	} else if ((TRUE == voicecall_core_is_incoming_call_exists(pcall_engine)) || (TRUE == voicecall_core_is_outgoing_call_exists(pcall_engine))) {
 		_vc_core_util_set_call_status(VCONFKEY_CALL_VOICE_CONNECTING);
 	} else {
-		/*Reset the Path. Actual path must be closed when modem path closed!! */
-		voicecall_snd_change_mm_path(pcall_core->papp_snd, VOICE_CALL_MM_RESET);
+		/*Reset the Path Actual path must be closed when modem path closed!! */
 		_vc_core_util_set_call_status(VCONFKEY_CALL_OFF);
 	}
 
 	if (FALSE == voicecall_snd_play_effect_tone(pcall_core->papp_snd, VOICE_CALL_SND_EFFECT_CALL_DISCONNECT)) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "Effect tone not played, check and play busy tone");
 	}
-
-#ifdef _NEW_SND_
-	if ((FALSE == voicecall_core_is_connected_call_exist(pcall_engine)) 
-	&& (TRUE == voicecall_core_is_incoming_call_exists(pcall_engine)) 
-	&& (voicecall_snd_get_path_status(pcall_core->papp_snd) == VOICE_CALL_SND_PATH_SPEAKER)) {
+	if ((FALSE == voicecall_core_is_connected_call_exist(pcall_engine))
+	    && (TRUE == voicecall_core_is_incoming_call_exists(pcall_engine))
+	    && (voicecall_snd_get_path_status(pcall_core->papp_snd) == VOICE_CALL_SND_PATH_SPEAKER)) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "Incoming Call: TRUE,Connected Call:FALSE, Speaker: TRUE. So change path to normal");
-		voicecall_snd_set_path_status(pcall_core->papp_snd, VOICE_CALL_SND_PATH_RECEIVER);
+		voicecall_snd_set_path_status(pcall_core->papp_snd, VOICE_CALL_SND_PATH_RECEIVER_EARJACK);
 		voicecall_snd_change_path(pcall_core->papp_snd);
 	}
-#else
-	if ((FALSE == voicecall_core_is_connected_call_exist(pcall_engine)) 
-	&& (TRUE == voicecall_core_is_incoming_call_exists(pcall_engine)) 
-	&& (TRUE == voicecall_snd_get_status(pcall_core->papp_snd, VOICE_CALL_AUDIO_SPEAKER))) {
-		CALL_ENG_DEBUG(ENG_DEBUG, "Incoming Call: TRUE,Connected Call:FALSE, Speaker: TRUE. So change path to normal");
-		voicecall_snd_set_status(pcall_core->papp_snd, VOICE_CALL_AUDIO_SPEAKER, FALSE);
-		voicecall_snd_change_path(pcall_core->papp_snd);
-	}
-#endif
 
 	voicecall_core_clear_connected_call(pcall_engine, call_handle);
 
@@ -903,8 +861,7 @@ static void __voicecall_core_handle_outgoingcall_end(call_vc_core_state_t *pcall
 		/* Set phonestatus value */
 		_vc_core_util_set_call_status(VCONFKEY_CALL_VOICE_ACTIVE);
 	} else if (FALSE == bsignal_play) {
-		/*Reset the Path. Actual path must be closed when modem path closed!! */
-		voicecall_snd_change_mm_path(pcall_core->papp_snd, VOICE_CALL_MM_RESET);
+		/*Reset the Path Actual path must be closed when modem path closed!! */
 		_vc_core_util_set_call_status(VCONFKEY_CALL_OFF);
 	} else {
 		/* othing to do. */
@@ -958,14 +915,10 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 			vc_engine_incoming_type event_data;
 
 			memset(&event_data, 0, sizeof(event_data));
+			event_data.bday_remaining_days = -1;
 
 			CALL_ENG_DEBUG(ENG_DEBUG, "tel_number:[%s]", (char *)param3);
 			_vc_core_util_strcpy(tel_number, sizeof(tel_number), (char *)param3);
-
-#ifdef _NEW_SND_
-#else
-			__voicecall_core_check_headset_earjack_status(pcall_core);
-#endif
 
 			/*Changing the path to headset/phone will be decided by user accept action.
 			   This will apply for second incoming call, if the first call was accpeted by BT Headset
@@ -979,6 +932,7 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 			voicecall_core_set_status(pcall_core, CALL_VC_CORE_FLAG_ACCEPT_BY_BT, FALSE);
 
 			if (_vc_core_util_check_video_call_status() == TRUE) {
+				/*Check for Lawmo Lock */
 				if (TRUE == __voicecall_core_silent_reject_mt(pcall_core, call_handle)) {
 					CALL_ENG_DEBUG(ENG_DEBUG, "Call rejected due to silent reject");
 					return TRUE;
@@ -1010,6 +964,68 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 				}
 				event_data.contact_index = -1;
 				event_data.phone_type = -1;
+			} else {
+				voicecall_contact_info_t ct_info;
+				memset(&ct_info, 0, sizeof(ct_info));
+				ct_info.ct_index = -1;
+
+				voicecall_service_contact_info_by_number(tel_number, &ct_info);
+
+				_vc_core_util_strcpy(event_data.call_name, sizeof(event_data.call_name), ct_info.display_name);
+				_vc_core_util_strcpy(event_data.call_file_path, sizeof(event_data.call_file_path), ct_info.caller_id_path);
+				_vc_core_util_strcpy(event_data.call_full_file_path, sizeof(event_data.call_full_file_path), ct_info.caller_full_id_path);
+				event_data.contact_index = ct_info.ct_index;
+				event_data.phone_type = ct_info.phone_type;
+				event_data.bday_remaining_days = ct_info.bday_remaining_days;
+
+				voicecall_snd_mgr_t *papp_snd = pcall_core->papp_snd;
+				char ringtone_path[VOICE_CALL_SND_RINGTONE_PATH_LEN] = { 0, };
+				memset(papp_snd->ring_tone, 0, VOICE_CALL_SND_RINGTONE_PATH_LEN);
+				if (TRUE == g_file_test(ct_info.ring_tone, G_FILE_TEST_EXISTS)) {
+					snprintf(ringtone_path, sizeof(ringtone_path), "file://%s", ct_info.ring_tone);
+					_vc_core_util_strcpy(papp_snd->ring_tone, VOICE_CALL_SND_RINGTONE_PATH_LEN, ringtone_path);
+					CALL_ENG_DEBUG(ENG_DEBUG, "From Contact Ringtone: %s", papp_snd->ring_tone);
+				} else {
+					/*Get Ringtone File From Settings */
+					CALL_ENG_DEBUG(ENG_DEBUG, "Invalid Ringtone from Contact: %s", ct_info.ring_tone);
+				}
+			}
+
+			/*Auto Reject Check */
+			if (vconf_get_bool(VCONFKEY_CISSAPPL_AUTO_REJECT_BOOL, &bauto_reject)) {
+				CALL_ENG_DEBUG(ENG_ERR, "vconf_get_bool failed.");
+			}
+
+			if (bauto_reject) {
+				CALL_ENG_DEBUG(ENG_DEBUG, "** Auto Reject Enabled. **");
+
+				if (vconf_get_bool(VCONFKEY_CISSAPPL_AUTO_REJECT_UNKNOWN_BOOL, &bauto_reject_unknown)) {
+					CALL_ENG_DEBUG(ENG_ERR, "vconf_get_bool failed.");
+				}
+				CALL_ENG_DEBUG(ENG_DEBUG, "bauto_reject_unknown:[%d]", bauto_reject_unknown);
+
+				if ((0 == strlen(tel_number)) && (TRUE == bauto_reject_unknown)) {
+					brejected_number = 1;
+					CALL_ENG_DEBUG(ENG_DEBUG, "Unknwon Rejected.");
+				} else {
+					phone_misc_h *handle = NULL;
+
+					handle = phone_misc_connect();
+					if (handle == NULL) {
+						CALL_ENG_DEBUG(ENG_ERR, "misc connect fail");
+						brejected_number = FALSE;
+					} else {
+						int ret = phone_misc_block_check(handle, tel_number);
+						if (ret > 0) {
+								brejected_number = TRUE;
+						} else {
+							brejected_number = FALSE;
+						}
+						phone_misc_disconnect(handle);
+						handle = NULL;
+					}
+					CALL_ENG_DEBUG(ENG_DEBUG, "Call Log DB rejected:[%d]", brejected_number);
+				}
 			}
 
 			/* send to ui */
@@ -1019,29 +1035,34 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 
 			vcall_engine_send_event_to_client(VC_ENGINE_MSG_INCOM_TO_UI, (void *)&event_data);
 
-			_vc_core_util_set_sleep_status(CALL_VC_POWER_PROHIBIT_DIMMING);
+			{
+				/* in case of rejected number, sound & callstatus is not processed */
+				if (!brejected_number) {
+					gboolean benabledTestMode = FALSE;
+					voicecall_snd_register_cm(pcall_core->papp_snd);
 
-			/* in case of rejected number, sound & callstatus is not processed */
-			if (!brejected_number) {
-				gboolean benabledTestMode = FALSE;
-				voicecall_snd_register_cm(pcall_core->papp_snd);
+					/*Send Incoming Call Event to Blue Tooth */
+					_vc_bt_send_response_to_bt(pcall_core, BT_AG_RES_CALL_INCOM, call_handle, tel_number);
 
-				/*Send Incoming Call Event to Blue Tooth */
-				_vc_bt_send_response_to_bt(pcall_core, BT_AG_RES_CALL_INCOM, call_handle, tel_number);
+					_vc_core_util_set_call_status(VCONFKEY_CALL_VOICE_CONNECTING);
 
-				CALL_ENG_DEBUG(ENG_DEBUG, "Preparing Sound ");
-				voicecall_snd_prepare_alert(pcall_core->papp_snd, call_handle);
-				if (FALSE == voicecall_core_is_connected_call_exist(pcall_core->pcall_engine)) {
-					CALL_ENG_DEBUG(ENG_DEBUG, "Changing MM Path just before playing the ring tone");
-					voicecall_snd_change_mm_path(pcall_core->papp_snd, VOICE_CALL_MM_RING_TONE);
-				} else {
-					CALL_ENG_DEBUG(ENG_DEBUG, "2nd MT call alert.");
+					benabledTestMode = __vc_core_is_answermode_enabled_from_testmode();
+					if ((TRUE == __vc_core_is_answermode_enabled()) || (TRUE == benabledTestMode)) {
+						CALL_ENG_DEBUG(ENG_DEBUG, "auto answer mode is enabled.");
+						__voicecall_core_start_auto_answer(pcall_core, benabledTestMode);
+					}
+
+					CALL_ENG_DEBUG(ENG_DEBUG, "Preparing Sound ");
+					voicecall_snd_prepare_alert(pcall_core->papp_snd, call_handle);
+					if (FALSE == voicecall_core_is_connected_call_exist(pcall_core->pcall_engine)) {
+						CALL_ENG_DEBUG(ENG_DEBUG, "Changing MM Path just before playing the ring tone");
+						sound_manager_call_session_set_mode(pcall_core->papp_snd->psnd_session, SOUND_CALL_SESSION_MODE_RINGTONE);
+					} else {
+						CALL_ENG_DEBUG(ENG_DEBUG, "2nd MT call alert.");
+					}
+					voicecall_snd_play_alert(pcall_core->papp_snd);
 				}
-				voicecall_snd_play_alert(pcall_core->papp_snd);
-
-				_vc_core_util_set_call_status(VCONFKEY_CALL_VOICE_CONNECTING);
 			}
-
 		}
 		break;
 
@@ -1071,7 +1092,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 
 			CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d, bemergency:[%d]", event_data.call_handle, event_data.bemergency);
 			vcall_engine_send_event_to_client(VC_ENGINE_MSG_OUTGOING_ORIG_TO_UI, (void *)&event_data);
-			_voicecall_dvc_proximity_sensor_init(pcall_core);
 
 			g_set_path_timer_handler = g_timeout_add(SET_PATH_TIMER_VALUE, __voicecall_core_set_path_timer_cb, pcall_core);
 
@@ -1087,8 +1107,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 			vc_engine_common_with_handle_type event_data;
 
 			memset(&event_data, 0, sizeof(event_data));
-
-			PRINT_CURRENT_TIME("Alert Indication received at ");
 
 			event_data.call_handle = call_handle;
 
@@ -1132,13 +1150,11 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 			event_data.bt_status = (int)_vc_bt_get_bt_status();
 
 			vcall_engine_send_event_to_client(VC_ENGINE_MSG_CONNECTED_TO_UI, (void *)&event_data);
-			_voicecall_dvc_proximity_sensor_init(pcall_core);
-
+			voicecall_snd_stop_alert(pcall_core->papp_snd);	/* To stop alert in case of call accept by AT command */
 			voicecall_snd_change_path(pcall_core->papp_snd);
 
-			/* Set phonestatus value */
+			/* Set phone-status value */
 			_vc_core_util_set_call_status(VCONFKEY_CALL_VOICE_ACTIVE);
-			_vc_core_util_set_sleep_status(CALL_VC_POWER_GRANT_DIMMING);
 
 			/* check minute minder */
 			if (vconf_get_bool(VCONFKEY_CISSAPPL_MINUTE_MINDER_BOOL, &bstatus)) {
@@ -1156,9 +1172,7 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 			/*Call is accepted, reset the flag */
 			voicecall_core_set_status(pcall_core, CALL_VC_CORE_FLAG_ACCEPT_BY_BT, FALSE);
 
-#ifdef PDIAL_SEND_DTMF
-			g_idle_add(voicecall_core_send_phone_number_dtmf, (gpointer) call_handle);
-#endif
+
 		}
 		break;
 
@@ -1167,7 +1181,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 			int call_handle = param1;
 			voice_call_end_cause_type_t end_cause = param2;
 			vc_engine_normal_end_type event_data;
-			int active_call_members = -1;
 
 			memset(&event_data, 0, sizeof(event_data));
 
@@ -1205,7 +1218,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 
 			__voicecall_core_handle_incoming_call_end(pcall_core, call_handle);
 
-			_vc_core_util_set_sleep_status(CALL_VC_POWER_GRANT_DIMMING);
 			vcall_engine_send_event_to_client(VC_ENGINE_MSG_INCOM_END_TO_UI, (void *)&event_data);
 		}
 		break;
@@ -1231,7 +1243,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 
 			__voicecall_core_handle_rejected_call_end(pcall_core, call_handle);
 
-			_vc_core_util_set_sleep_status(CALL_VC_POWER_GRANT_DIMMING);
 			vcall_engine_send_event_to_client(VC_ENGINE_MSG_REJECTED_END_TO_UI, (void *)&event_data);
 		}
 		break;
@@ -1243,11 +1254,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 			int bauto_redial = -1;
 
 			CALL_ENG_DEBUG(ENG_DEBUG, "end cause type :[%d]", end_cause_type);
-
-			if (vconf_get_bool(VCONFKEY_CISSAPPL_VOICE_AUTO_REDIAL_BOOL, &bauto_redial)) {
-				CALL_ENG_DEBUG(ENG_ERR, "vconf_get_bool failed.");
-			}
-
 			CALL_ENG_DEBUG(ENG_DEBUG, "bauto_redial:[%d]", bauto_redial);
 
 			if ((TRUE == bauto_redial) && (FALSE == voicecall_core_is_connected_call_exist(pcall_engine))
@@ -1268,7 +1274,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 			} else {
 				__voicecall_core_handle_outgoingcall_end(pcall_core, call_handle, end_cause_type);
 			}
-			_vc_core_util_set_sleep_status(CALL_VC_POWER_GRANT_DIMMING);
 		}
 		break;
 
@@ -1279,8 +1284,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 			memset(&event_data, 0, sizeof(event_data));
 
 			vcall_engine_send_event_to_client(VC_ENGINE_MSG_OUTGOING_ABORTED_TO_UI, (void *)&event_data);
-
-			_vc_core_util_set_sleep_status(CALL_VC_POWER_GRANT_DIMMING);
 		}
 		break;
 
@@ -1288,9 +1291,7 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 		{
 			gboolean bsuccess = param1;
 			CALL_ENG_DEBUG(ENG_DEBUG, "bsuccess:[%d]", bsuccess);
-#ifdef	PDIAL_SEND_DTMF
 			__voicecall_core_handle_dtmf_ack(pcall_core, bsuccess);
-#endif
 		}
 		break;
 
@@ -1302,10 +1303,8 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 
 	case VC_CALL_SS_HELD:
 		{
-			int io_state = -1;
 			int call_handle = param1;
 			vc_engine_common_type event_data;
-			PRINT_CURRENT_TIME("Call Hold Ends at");
 
 			/*  held popup shold not be displayed on outgoing popup */
 			memset(&event_data, 0, sizeof(event_data));
@@ -1321,7 +1320,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 		{
 			int call_handle = param1;
 			vc_engine_common_type event_data;
-			PRINT_CURRENT_TIME("Call Retrieve Ends at");
 
 			/*  held popup shold not be displayed on outgoing popup */
 			memset(&event_data, 0, sizeof(event_data));
@@ -1337,7 +1335,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 			vc_engine_common_type event_data;
 
 			int call_handle = param1;
-			PRINT_CURRENT_TIME("Call Swap Ends at");
 
 			memset(&event_data, 0, sizeof(event_data));
 
@@ -1351,8 +1348,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 	case VC_CALL_SS_SETUP_CONF:
 		{
 			vc_engine_common_type event_data;
-
-			PRINT_CURRENT_TIME("Setup Conf Ends at");
 
 			memset(&event_data, 0, sizeof(event_data));
 
@@ -1368,8 +1363,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 			vc_engine_common_with_handle_type event_data;
 			int call_handle = param1;
 			CALL_ENG_DEBUG(ENG_DEBUG, "The handle to be split is %d", call_handle);
-
-			PRINT_CURRENT_TIME("Split Conf Ends at");
 
 			memset(&event_data, 0, sizeof(event_data));
 			event_data.call_handle = call_handle;
@@ -1595,6 +1588,7 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 					_vc_core_util_strcpy(event_data.call_num, sizeof(event_data.call_num), pcall_core->call_setup_info.tel_number);
 					event_data.contact_index = -1;
 					event_data.phone_type = -1;
+					event_data.bday_remaining_days = -1;
 					_vc_core_util_strcpy(event_data.call_num, sizeof(event_data.call_num), psat_callinfo->disp_text);
 
 					vcall_engine_send_event_to_client(VC_ENGINE_MSG_OUTGOING_TO_UI, (void *)&event_data);
@@ -1668,7 +1662,7 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 							vcui_app_util_strcpy(new_display_data.name, sizeof(new_display_data.name), psat_call_info->disp_text);
 						}
 
-						/* todo, Check whether contact search need to be done for the SAT modified number */
+						/*todo, Check whether contact search need to be done for the SAT modified number */
 
 						/*Set the newly modified data to the CDM */
 						vcui_app_cdm_set_display_object(pdisplay_mgr, &new_display_data);
@@ -1720,6 +1714,18 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 			event_data.vol_alert_type = VOICE_CALL_VOL_TYPE_VOICE;
 			event_data.vol_level = param2;
 			vcall_engine_send_event_to_client(VC_ENGINE_MSG_GET_VOLUME_RESP_TO_UI, (void *)&event_data);
+		}
+		break;
+
+	case VC_CALL_NOTI_WBAMR:
+		{
+			vc_engine_wbamr_status_type event_data;
+
+			CALL_ENG_DEBUG(ENG_DEBUG, "Current WBAmr status %d", param1);
+
+			memset(&event_data, 0, sizeof(event_data));
+			event_data.bstatus = param1;
+			vcall_engine_send_event_to_client(VC_ENGINE_MSG_NOTI_WBAMR_TO_UI, (void *)&event_data);
 		}
 		break;
 
@@ -1866,21 +1872,20 @@ gboolean voicecall_core_set_to_default(call_vc_core_state_t *pcall_core)
 
 	_vc_core_util_set_call_status(VCONFKEY_CALL_OFF);
 	voicecall_core_set_status(pcall_core, CALL_VC_CORE_FLAG_NONE, TRUE);
-	_vc_core_util_set_sleep_status(CALL_VC_POWER_NORMAL_STATUS);
 
 	pcall_core->bt_connected = _vc_bt_get_bt_status();
 	if (FALSE == pcall_core->bt_connected) {
-#ifdef _NEW_SND_
-		voicecall_snd_set_path_status(pcall_core->papp_snd, VOICE_CALL_SND_PATH_RECEIVER);				
-#else
-		voicecall_snd_set_status(pcall_core->papp_snd, VOICE_CALL_AUDIO_HEADSET, pcall_core->bt_connected);
-#endif
+		voicecall_snd_set_path_status(pcall_core->papp_snd, VOICE_CALL_SND_PATH_RECEIVER_EARJACK);
 	} else {
 		CALL_ENG_DEBUG(ENG_DEBUG, "BT connected, Not changing the sound status");
 	}
 
 	/* sound reset */
 	voicecall_snd_unregister_cm(pcall_core->papp_snd);
+
+	if (vconf_set_int(VCONFKEY_FACTORY_CALL_CONNECT_STATE, VCONFKEY_FACTORY_CALL_DISCONNECTED)) {
+		CALL_ENG_DEBUG(ENG_ERR, "vconf_set_int failed.");
+	}
 
 	return TRUE;
 }
@@ -1927,7 +1932,7 @@ int voicecall_core_init(call_vc_core_state_t *pcall_core)
 	_vc_bt_status_init(pcall_core);
 
 	_voicecall_dvc_earjack_init(pcall_core);
- 
+
 	voicecall_core_set_status(pcall_core, CALL_VC_CORE_FLAG_NONE, TRUE);
 	return TRUE;
 }
@@ -1938,7 +1943,7 @@ int voicecall_core_init(call_vc_core_state_t *pcall_core)
  * @return		Returns TRUE on success or FALSE on failure
  * @param[in]		pcall_core		Handle to voicecall core
  * @param[in]		bemergency		emergency call or not from dialer
- * @param[in]		
+ * @param[in]
  */
 gboolean voicecall_core_setup_call(call_vc_core_state_t *pcall_core, gboolean bemergency)
 {
@@ -1946,7 +1951,6 @@ gboolean voicecall_core_setup_call(call_vc_core_state_t *pcall_core, gboolean be
 	voicecall_setup_info_t setupcall_info = { 0, };
 	voicecall_error_t error_code = -1;
 	gboolean bemergency_call = FALSE;
-	int io_state;
 	gboolean bmocall_exists = FALSE;
 	gboolean bmtcall_exists = FALSE;
 	int nw_status = 0;
@@ -2097,26 +2101,14 @@ gboolean voicecall_core_setup_call(call_vc_core_state_t *pcall_core, gboolean be
 
 		}
 
-#ifdef VC_ENG_FDN_SUPPORT
-		/*Check FDN Status */
-		if (setupcall_info.call_setup_by != VC_CALL_SETUP_BY_SAT) {
-			if (FALSE == voicecall_core_check_fdn_status(pcall_core)) {
-				voicecall_core_set_status(pcall_core, CALL_VC_CORE_FLAG_SETUPCALL_FAIL, TRUE);
-				return FALSE;
-			}
-		}
-#endif
-
 		/*Check for voicemail number if it is not an emergency call */
 	}
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "MO Call Setup OVer");
 
-#ifdef _NEW_SND_
-	if(_vc_bt_get_bt_status() == TRUE){
-		voicecall_snd_set_path_status(pcall_core->papp_snd,VOICE_CALL_SND_PATH_BT);
+	if (_vc_bt_get_bt_status() == TRUE) {
+		voicecall_snd_set_path_status(pcall_core->papp_snd, VOICE_CALL_SND_PATH_BT);
 	}
-#endif
 
 	voicecall_core_make_call(pcall_core);
 
@@ -2137,8 +2129,6 @@ gboolean voicecall_core_make_call(call_vc_core_state_t *pcall_core)
 	int call_handle = -1;
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "");
-
-	_vc_core_util_set_sleep_status(CALL_VC_POWER_PROHIBIT_DIMMING);
 
 	/*Make Actual Call with Voicecall Engine */
 	error_code = _vc_core_engine_make_call(pcall_engine, pcall_core->call_setup_info.mo_call_index, &call_handle);
@@ -2166,8 +2156,6 @@ gboolean voicecall_core_make_call(call_vc_core_state_t *pcall_core)
 		}
 		vcall_engine_send_event_to_client(VC_ENGINE_MSG_MESSAGE_BOX_TO_UI, (void *)&event_data);
 
-		_vc_core_util_set_sleep_status(CALL_VC_POWER_GRANT_DIMMING);
-
 		return FALSE;
 	}
 
@@ -2186,7 +2174,7 @@ gboolean voicecall_core_make_call(call_vc_core_state_t *pcall_core)
  *
  * @return		Returns TRUE on success or FALSE on failure
  * @param[in]		pcall_core		Handle to voicecall core
- * @param[in]		
+ * @param[in]
 */
 gboolean voicecall_core_process_sat_setup_call(vcall_engine_sat_setup_call_info_t *sat_setup_call_info)
 {
@@ -2224,7 +2212,7 @@ gboolean voicecall_core_process_sat_setup_call(vcall_engine_sat_setup_call_info_
  *
  * @return		Returns TRUE on success or FALSE on failure
  * @param[in]		pcall_core		Handle to voicecall core
- * @param[in]		
+ * @param[in]
 */
 gboolean voicecall_core_process_incoming_call(call_vc_core_incoming_info_t *incoming_call_info)
 {
@@ -2267,7 +2255,7 @@ gboolean voicecall_core_process_incoming_call(call_vc_core_incoming_info_t *inco
  *
  * @return		Returns TRUE on success or FALSE on failure
  * @param[in]		pcall_core		Handle to voicecall core
- * @param[in]		
+ * @param[in]
 */
 gboolean voicecall_core_answer_call(call_vc_core_state_t *pcall_core, gboolean auto_accept)
 {
@@ -2280,6 +2268,8 @@ gboolean voicecall_core_answer_call(call_vc_core_state_t *pcall_core, gboolean a
 
 	/*First Stop the Incoming alert */
 	voicecall_snd_stop_alert(pcall_core->papp_snd);
+
+	__voicecall_core_cancel_auto_answer(pcall_core);
 
 	_vc_core_engine_status_isexists_any_call(pcall_engine, &active_calls, &held_calls);
 	CALL_ENG_DEBUG(ENG_DEBUG, "active_calls=%d, held_calls=%d", active_calls, held_calls);
@@ -2334,6 +2324,7 @@ gboolean voicecall_core_answer_call_bytype(call_vc_core_state_t *pcall_core, voi
 
 	/*First Stop the Incoming alert */
 	voicecall_snd_stop_alert(pcall_core->papp_snd);
+	__voicecall_core_cancel_auto_answer(pcall_core);
 
 	error_code = _vc_core_engine_answer_call(pcall_engine, answer_type);
 
@@ -2366,6 +2357,8 @@ gboolean voicecall_core_reject_mt(call_vc_core_state_t *pcall_core, gboolean bUD
 
 	/* Stop Incmoing Call Alert */
 	voicecall_snd_stop_alert(papp_snd);
+
+	__voicecall_core_cancel_auto_answer(pcall_core);
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "bUDUB = %d", bUDUB);
 	error_code = _vc_core_engine_reject_call(pcall_engine, bUDUB);
@@ -2459,7 +2452,7 @@ gboolean voicecall_core_end_all_held_calls(call_vc_core_state_t *pcall_core)
  * This function cancel outgoing call
  *
  * @return		Returns TRUE -if answer is sucess, FALSE - otherwise
- * @param[in]		pcall_core		Handle to voicecall core		
+ * @param[in]		pcall_core		Handle to voicecall core
  */
 gboolean voicecall_core_cancel_call(call_vc_core_state_t *pcall_core)
 {
@@ -2555,7 +2548,7 @@ gboolean voicecall_core_cancel_call(call_vc_core_state_t *pcall_core)
  * This function process hold/retrive/swap conntected call
  *
  * @return		Returns TRUE -if answer is sucess, FALSE - otherwise
- * @param[in]		pcall_core		Handle to voicecall core		
+ * @param[in]		pcall_core		Handle to voicecall core
  */
 gboolean voicecall_core_process_hold_call(call_vc_core_state_t *pcall_core)
 {
@@ -2579,6 +2572,7 @@ gboolean voicecall_core_process_hold_call(call_vc_core_state_t *pcall_core)
 	CALL_ENG_DEBUG(ENG_DEBUG, "active calls: %d, held calls: %d", active_calls, held_calls);
 
 	if (active_calls && held_calls) {
+
 		/*Both Calls available, swap the calls */
 		if (FALSE == voicecall_core_swap_calls(pcall_engine)) {
 			return FALSE;
@@ -2605,7 +2599,7 @@ gboolean voicecall_core_process_hold_call(call_vc_core_state_t *pcall_core)
  * This function sets up a conference call
  *
  * @return		Returns TRUE on success or FALSE on failure
- * @param[in]		pcall_core		Handle to voicecall core		
+ * @param[in]		pcall_core		Handle to voicecall core
  */
 gboolean voicecall_core_setup_conference(call_vc_core_state_t *pcall_core)
 {
@@ -2613,7 +2607,6 @@ gboolean voicecall_core_setup_conference(call_vc_core_state_t *pcall_core)
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "");
 
-	PRINT_CURRENT_TIME("Setup Conf Start at");
 	return (ERROR_VOICECALL_NONE == _vc_core_engine_setup_conference(pcall_engine)) ? TRUE : FALSE;
 }
 
@@ -2621,7 +2614,7 @@ gboolean voicecall_core_setup_conference(call_vc_core_state_t *pcall_core)
  * This function splits the call corressponding to the given call handle and makes a private call
  *
  * @return		Returns TRUE on success or FALSE on failure
- * @param[in]		pcall_core		Handle to voicecall core		
+ * @param[in]		pcall_core		Handle to voicecall core
  * @param[in]		call_handle		Call to be splitted from the conference call
  */
 gboolean voicecall_core_make_private_call(call_vc_core_state_t *pcall_core, int call_handle)
@@ -2630,7 +2623,6 @@ gboolean voicecall_core_make_private_call(call_vc_core_state_t *pcall_core, int 
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "");
 
-	PRINT_CURRENT_TIME("Split Conf Start at");
 	return (ERROR_VOICECALL_NONE == _vc_core_engine_private_call(pcall_engine, call_handle)) ? TRUE : FALSE;
 }
 
@@ -2638,7 +2630,7 @@ gboolean voicecall_core_make_private_call(call_vc_core_state_t *pcall_core, int 
  * This function transfers the call from active call to the held call
  *
  * @return		Returns TRUE on success or FALSE on failure
- * @param[in]		pcall_core		Handle to voicecall core		
+ * @param[in]		pcall_core		Handle to voicecall core
  */
 gboolean voicecall_core_transfer_calls(call_vc_core_state_t *pcall_core)
 {
@@ -2653,7 +2645,7 @@ gboolean voicecall_core_transfer_calls(call_vc_core_state_t *pcall_core)
  * This function sends a dtmf string
  *
  * @return		Returns TRUE on success or FALSE on failure
- * @param[in]		pcall_core		Handle to voicecall core		
+ * @param[in]		pcall_core		Handle to voicecall core
  * @param[in]		dtmf_string		dtmf string to be sent
  */
 gboolean voicecall_core_send_dtmf(call_vc_core_state_t *pcall_core, char *dtmf_string)
@@ -2667,7 +2659,7 @@ gboolean voicecall_core_send_dtmf(call_vc_core_state_t *pcall_core, char *dtmf_s
 }
 
 /**
-* This function stops sound alert
+* This function stops sound alert in case of reject with msg
 *
 * @return		Returns TRUE on success or FALSE on failure
 * @param[in]		pcall_core		Handle to voicecall core
@@ -2706,11 +2698,6 @@ gboolean voicecall_core_start_redial(call_vc_core_state_t *pcall_core, int manua
 	int total_call_member = 0;
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "");
-
-	if (vconf_get_bool(VCONFKEY_CISSAPPL_VOICE_AUTO_REDIAL_BOOL, &auto_redial_status)) {
-		CALL_ENG_DEBUG(ENG_ERR, "vconf_get_bool failed.");
-	}
-
 	CALL_ENG_DEBUG(ENG_DEBUG, "auto_redial_status:[%d]", auto_redial_status);
 
 	redial_count = voicecall_core_get_auto_redial_count(pcall_core);
@@ -2739,8 +2726,6 @@ gboolean voicecall_core_start_redial(call_vc_core_state_t *pcall_core, int manua
 		voicecall_core_change_engine_state(pcall_core->pcall_engine, VC_INOUT_STATE_OUTGOING_WAIT_REDIAL);
 	} else {
 		CALL_ENG_DEBUG(ENG_DEBUG, "You dont need to redial close the MO Call Things");
-
-		voicecall_snd_change_mm_path(pcall_core->papp_snd, VOICE_CALL_MM_RESET);
 
 		/* __vcui_app_view_mo_canceltimer_cb() */
 		_vc_core_engine_status_get_call_handle_bytype(pcall_core->pcall_engine, VC_OUTGOING_CALL, &call_handle);
@@ -2810,7 +2795,6 @@ gboolean voicecall_core_stop_redial(call_vc_core_state_t *pcall_core)
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "coming inside voicecall_core_stop_redial");
 
-	voicecall_snd_change_mm_path(pcall_core->papp_snd, VOICE_CALL_MM_RESET);
 	_vc_core_util_set_call_status(VCONFKEY_CALL_OFF);
 
 	/*Cancel the Redial Timer */
@@ -2862,6 +2846,7 @@ static gboolean __voicecall_core_auto_answer_timer_cb(gpointer puser_data)
 	return FALSE;
 }
 
+#if 0
 static gboolean __voicecall_core_callstatus_set_timer_cb(gpointer puser_data)
 {
 	call_vc_core_state_t *pcall_core = (call_vc_core_state_t *)puser_data;
@@ -2875,6 +2860,7 @@ static gboolean __voicecall_core_callstatus_set_timer_cb(gpointer puser_data)
 
 	return FALSE;
 }
+#endif
 
 static gboolean __voicecall_core_auto_answer_idle_cb(gpointer puser_data)
 {
@@ -2904,6 +2890,111 @@ static gboolean __voicecall_core_auto_answer_idle_cb(gpointer puser_data)
 }
 
 /**
+* This function checks whether given answer mode is enabled or not
+*
+* @return		returns TRUE if given answer mode type is enabled in the settings or FALSE otherwise
+*
+*/
+static gboolean __vc_core_is_answermode_enabled_from_testmode(void)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "..");
+	int benabled = -1;
+	int ret = -1;
+
+	ret = vconf_get_int(VCONFKEY_TESTMODE_AUTO_ANSWER, &benabled);
+	if (0 == ret) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "benabled = %d", benabled);
+		if (TRUE == benabled)
+			return TRUE;
+		else
+			return FALSE;
+	} else {
+		CALL_ENG_DEBUG(ENG_DEBUG, "vconf_get_int FAILED");
+		return FALSE;
+	}
+}
+
+/**
+* This function checks whether given answer mode is enabled or not
+*
+* @return		returns TRUE if given answer mode type is enabled in the settings or FALSE otherwise
+*
+*/
+static gboolean __vc_core_is_answermode_enabled(void)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "coming inside voicecall_is_answermode_enabled");
+	int answer_mode_enabled = -1;
+	int ret = -1;
+
+	ret = vconf_get_int(VCONFKEY_CISSAPPL_ANSWERING_MODE_INT, &answer_mode_enabled);
+	if (0 == ret) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "answer_mode_enabled = %d", answer_mode_enabled);
+		if (2 == answer_mode_enabled)	/* here 2 is auto answer mode is enabled */
+			return TRUE;
+		else
+			return FALSE;
+	} else {
+		CALL_ENG_DEBUG(ENG_DEBUG, "vconf_get_int FAILED");
+		return FALSE;
+	}
+
+}
+
+/**
+* This function processes auto answer request
+*
+* @return		Returns void
+* @param[in]		pcall_core		Handle to voicecall core
+*/
+static void __voicecall_core_start_auto_answer(call_vc_core_state_t *pcall_core, gboolean isTestMode)
+{
+	gboolean earjack_connected = FALSE;
+	gboolean headset_connected = FALSE;
+
+	CALL_ENG_DEBUG(ENG_DEBUG, "..");
+
+	if (TRUE == isTestMode) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "In case Of Testmode, always auto answer enabled");
+
+		g_idle_add(__voicecall_core_auto_answer_idle_cb, pcall_core);
+		return;
+	}
+	earjack_connected = _voicecall_dvc_get_earjack_connected();
+
+	if (TRUE == earjack_connected) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "earjack is connected");
+	}
+	headset_connected = _vc_bt_get_bt_status();
+
+	if (TRUE == headset_connected) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "headset is connected");
+	}
+
+	if (TRUE == earjack_connected || TRUE == headset_connected) {
+		g_idle_add(__voicecall_core_auto_answer_idle_cb, pcall_core);
+	} else {
+		CALL_ENG_DEBUG(ENG_DEBUG, "Without earjack or headset, skip auto answer ");
+		return;
+	}
+}
+
+/**
+* This function cancels the auto answering timer
+*
+* @return		void
+* @param[in]		pcall_core		Handle to voicecall core
+*/
+static void __voicecall_core_cancel_auto_answer(call_vc_core_state_t *pcall_core)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "coming inside __voicecall_cancel_auto_answer");
+	if (pcall_core->auto_answer_timer > 0) {
+		g_source_remove(pcall_core->auto_answer_timer);
+		pcall_core->auto_answer_timer = 0;
+	}
+}
+
+#if 0
+/**
 * This function checks BT headset and Earjack status
 *
 * @return		void
@@ -2917,14 +3008,11 @@ static void __voicecall_core_check_headset_earjack_status(call_vc_core_state_t *
 	CALL_ENG_DEBUG(ENG_DEBUG, "Bt connected =%d", bt_connected);
 
 	pcall_core->bt_connected = bt_connected;
-#ifdef _NEW_SND_
-#else
-	voicecall_snd_set_status(pcall_core->papp_snd, VOICE_CALL_AUDIO_HEADSET, bt_connected);
-#endif
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Update the earjack status");
 	_voicecall_dvc_get_earjack_status(pcall_core);
 }
+#endif
 
 /**
  * This function parses the in call supplementary services string and returns the in call ss to be used
@@ -3142,12 +3230,6 @@ gboolean voicecall_core_start_incall_ss(call_vc_core_state_t *pcall_core, call_v
 			CALL_ENG_DEBUG(ENG_DEBUG, "Need to show a popup to the user ");
 			vcall_engine_send_event_to_client(VC_ENGINE_MSG_MESSAGE_BOX_TO_UI, (void *)&event_data);
 		}
-		/*
-		if ( !(vcui_app_doc_is_transfer_call_possible(papp_document) && TRUE == vcui_app_doc_transfer_calls(papp_document)) )
-		{
-			vcui_app_msgbox(papp_document, vcui_app_rsr_load_string(IDS_CALL_POP_OPERATION_REFUSED),GTK_MESSAGE_ALERT);
-		}
-		*/
 		break;
 	default:
 		CALL_ENG_DEBUG(ENG_DEBUG, "Invalid SS State");
@@ -3228,12 +3310,15 @@ gboolean voicecall_core_cancel_dtmf_queue(call_vc_core_state_t *pcall_core)
 	}
 
 	/*Remove Pauser Timer */
-	g_source_remove(pdtmf_info->dtmf_pause_timer);
-	pdtmf_info->dtmf_pause_timer = -1;
+	if (pdtmf_info->dtmf_pause_timer > 0) {
+		g_source_remove(pdtmf_info->dtmf_pause_timer);
+		pdtmf_info->dtmf_pause_timer = -1;
+	}
 
 	/*Reset the Status Flags */
 	pdtmf_info->bdtmf_queue = FALSE;
 	pdtmf_info->dtmf_index = 0;
+	pdtmf_info->bdtmf_wait = FALSE;
 	memset(pdtmf_info->dtmf_number, 0, sizeof(pdtmf_info->dtmf_number));
 	if (TRUE == pdtmf_info->bsat_dtmf) {
 		voicecall_core_send_sat_response(pcall_core->pcall_engine, SAT_RQST_SEND_DTMF, CALL_VC_ME_UNABLE_TO_PROCESS_COMMAND);
@@ -3275,7 +3360,7 @@ gboolean __voicecall_core_send_dtmf_idle_cb(gpointer pdata)
 		voicecall_core_cancel_dtmf_queue(pcall_core);
 		memset(&event_data, 0, sizeof(event_data));
 		event_data.bstatus = FALSE;
-		event_data.string_id = -1;
+		event_data.string_id = IDS_CALL_POP_DTMFSENDING_FAIL;
 		vcall_engine_send_event_to_client(VC_ENGINE_MSG_DTMF_ACK_TO_UI, (void *)&event_data);
 
 		if (TRUE == pdtmf_info->bsat_dtmf) {
@@ -3314,13 +3399,6 @@ static gboolean __voicecall_core_handle_dtmf_ack(call_vc_core_state_t *pcall_cor
 		CALL_ENG_DEBUG(ENG_DEBUG, "Current dtmf_index: %d,dtmf_max_length=%d", pdtmf_info->dtmf_index, pdtmf_info->dtmf_max_length);
 		CALL_ENG_DEBUG(ENG_DEBUG, "Current DTMF String: %s", &pdtmf_info->dtmf_number[pdtmf_info->dtmf_index]);
 
-		/*Update the DTMF Sending UI only, if it is available */
-		memset(&event_data, 0, sizeof(event_data));
-		event_data.bstatus = TRUE;
-		event_data.string_id = IDS_CALL_POP_SENDING;
-		snprintf(event_data.display_string, sizeof(event_data.display_string), &pdtmf_info->dtmf_number[pdtmf_info->dtmf_index]);
-		vcall_engine_send_event_to_client(VC_ENGINE_MSG_DTMF_ACK_TO_UI, (void *)&event_data);
-
 		/*Find the End of the queue */
 		if (pdtmf_info->dtmf_index >= pdtmf_info->dtmf_max_length) {
 
@@ -3328,8 +3406,8 @@ static gboolean __voicecall_core_handle_dtmf_ack(call_vc_core_state_t *pcall_cor
 
 			if (!((TRUE == pdtmf_info->bsat_dtmf) && (TRUE == pdtmf_info->bsat_hidden))) {
 				memset(&event_data, 0, sizeof(event_data));
-				event_data.bstatus = FALSE;
-				event_data.string_id = IDS_CALL_POP_DTMF_SENT;
+				event_data.bstatus = FALSE;	/*check it*/
+				event_data.string_id = IDS_CALL_POP_DTMF_SENT; /*check it*/
 				vcall_engine_send_event_to_client(VC_ENGINE_MSG_DTMF_ACK_TO_UI, (void *)&event_data);
 			}
 
@@ -3337,7 +3415,15 @@ static gboolean __voicecall_core_handle_dtmf_ack(call_vc_core_state_t *pcall_cor
 				voicecall_core_send_sat_response(pcall_core->pcall_engine, SAT_RQST_SEND_DTMF, CALL_VC_ME_RET_SUCCESS);
 			}
 		} else {
-			if (0 == strcasecmp(dtmf_string, "p")) {
+			if (0 == strcasecmp(dtmf_string, "p") || 0 == strcmp(dtmf_string, ",")) {
+				CALL_ENG_DEBUG(ENG_DEBUG, "Pause on the dtmf string");
+
+				memset(&event_data, 0, sizeof(event_data));
+				event_data.bstatus = TRUE;
+				event_data.string_id = IDS_CALL_POP_SENDING;
+				snprintf(event_data.display_string, sizeof(event_data.display_string), "%s", &pdtmf_info->dtmf_number[pdtmf_info->dtmf_index]);
+				vcall_engine_send_event_to_client(VC_ENGINE_MSG_DTMF_ACK_TO_UI, (void *)&event_data);
+
 				int dtmf_interval = 0;
 
 				if (FALSE == _vc_core_util_check_gcf_status()) {
@@ -3365,9 +3451,16 @@ static gboolean __voicecall_core_handle_dtmf_ack(call_vc_core_state_t *pcall_cor
 #else
 					dtmf_interval = (pdtmf_info->dtmf_index == 0) ? DTMF_PAUSE_TIMER_INTERVAL_GCF_FIRST : DTMF_PAUSE_TIMER_INTERVAL_GCF_REST;
 #endif
-					CALL_ENG_DEBUG(ENG_DEBUG, "dtmf_interval:%d", dtmf_interval);
 				}
+				CALL_ENG_DEBUG(ENG_DEBUG, "dtmf_interval:%d", dtmf_interval);
 				pdtmf_info->dtmf_pause_timer = g_timeout_add(dtmf_interval, __voicecall_core_dtmf_pause_timer_cb, pcall_core);
+			} else if (0 == strcasecmp(dtmf_string, "w") || 0 == strcmp(dtmf_string, ";")) {
+				CALL_ENG_DEBUG(ENG_DEBUG, "Wait on the dtmf string");
+				memset(&event_data, 0, sizeof(event_data));
+				event_data.bstatus = TRUE;
+				event_data.string_id = IDS_CALL_POP_UNAVAILABLE;	/*assign ID when string is added*/
+				snprintf(event_data.display_string, sizeof(event_data.display_string), "%s", &pdtmf_info->dtmf_number[pdtmf_info->dtmf_index]);
+				vcall_engine_send_event_to_client(VC_ENGINE_MSG_DTMF_ACK_TO_UI, (void *)&event_data);
 			} else {
 				g_idle_add_full(G_PRIORITY_HIGH_IDLE + 25, __voicecall_core_send_dtmf_idle_cb, pcall_core, NULL);
 			}
@@ -3431,22 +3524,17 @@ static gboolean __voicecall_core_queue_dtmf_string(call_vc_core_state_t *pcall_c
 		pdtmf_info->bsat_hidden = bhidden_mode;
 	}
 
-	/* Check: It takes only 40 characters from the source, rest of the characters are ignored */
+	/*It takes only 40 characters from the source, rest of the characters are ignored*/
 	memset(pdtmf_info->dtmf_number, 0, sizeof(pdtmf_info->dtmf_number));
-	if (1 < sizeof(pdtmf_info->dtmf_number))
-		_vc_core_util_strcpy(pdtmf_info->dtmf_number, VC_PHONE_NUMBER_LENGTH_MAX, "P");
-		
-	strncat(pdtmf_info->dtmf_number, dtmf_string, min((sizeof(pdtmf_info->dtmf_number) - 2), strlen(dtmf_string)));
-
+	strncpy(pdtmf_info->dtmf_number, dtmf_string, min((sizeof(pdtmf_info->dtmf_number) - 1), strlen(dtmf_string)));
 	pdtmf_info->dtmf_max_length = strlen(pdtmf_info->dtmf_number);
-
 	CALL_ENG_DEBUG(ENG_DEBUG, "Dtmf Number:%s ,dtmf_max_length:%d", pdtmf_info->dtmf_number, pdtmf_info->dtmf_max_length);
 
 	dtmf_digit[0] = pdtmf_info->dtmf_number[pdtmf_info->dtmf_index];
 	dtmf_digit[1] = '\0';
 
 	/*Send DTMF */
-	if (0 == strcasecmp(dtmf_digit, "p")) {
+	if (0 == strcasecmp(dtmf_digit, "p") || 0 == strcmp(dtmf_digit, ",")) {
 		int dtmf_interval = 0;
 
 		if (FALSE == _vc_core_util_check_gcf_status()) {
@@ -3478,6 +3566,9 @@ static gboolean __voicecall_core_queue_dtmf_string(call_vc_core_state_t *pcall_c
 			CALL_ENG_DEBUG(ENG_DEBUG, "updated dtmf_interval:%d", dtmf_interval);
 		}
 		pdtmf_info->dtmf_pause_timer = g_timeout_add(dtmf_interval, __voicecall_core_dtmf_pause_timer_cb, pcall_core);
+	} else if (0 == strcasecmp(dtmf_digit, "w") || 0 == strcmp(dtmf_digit, ";")) {
+		/* enable wait flag for dtmf sending */
+		pdtmf_info->bdtmf_wait = TRUE;
 	} else if ((ERROR_VOICECALL_NONE != _vc_core_engine_send_dtmf(pcall_core->pcall_engine, dtmf_digit))) {
 		if (!((TRUE == pdtmf_info->bsat_dtmf) && (TRUE == pdtmf_info->bsat_hidden))) {
 			memset(&event_data, 0, sizeof(event_data));
@@ -3496,7 +3587,12 @@ static gboolean __voicecall_core_queue_dtmf_string(call_vc_core_state_t *pcall_c
 	if (!((TRUE == pdtmf_info->bsat_dtmf) && (TRUE == pdtmf_info->bsat_hidden))) {
 		memset(&event_data, 0, sizeof(event_data));
 		event_data.bstatus = TRUE;
-		event_data.string_id = IDS_CALL_POP_SENDING;
+		CALL_ENG_DEBUG(ENG_DEBUG, "pdtmf_info->bdtmf_wait [%d]", pdtmf_info->bdtmf_wait);
+		if (pdtmf_info->bdtmf_wait) {
+			event_data.string_id = IDS_CALL_POP_UNAVAILABLE;
+		} else {
+			event_data.string_id = IDS_CALL_POP_SENDING;
+		}
 		_vc_core_util_strcpy(event_data.display_string, VC_PHONE_NUMBER_LENGTH_MAX, pdtmf_info->dtmf_number);
 		vcall_engine_send_event_to_client(VC_ENGINE_MSG_DTMF_ACK_TO_UI, (void *)&event_data);
 	} else {
@@ -3523,33 +3619,18 @@ gboolean voicecall_core_change_sound_path(call_vc_core_state_t *pcall_core, voic
 	switch (sound_path) {
 	case VOICE_CALL_AUDIO_SPEAKER:
 		{
-#ifdef _NEW_SND_
 			if (voicecall_snd_get_path_status(pcall_core->papp_snd) == VOICE_CALL_SND_PATH_BT) {
 				/*_vc_bt_send_response_to_bt(pcall_core, BT_AG_RES_SWITCH_TO_PHONE, -1, NULL);*/
 				_vc_bt_request_switch_headset_path(pcall_core, FALSE);
 			}
-			voicecall_snd_set_path_status(pcall_core->papp_snd, VOICE_CALL_SND_PATH_SPEAKER);				
-#else
-			if (TRUE == voicecall_snd_get_status(papp_snd, VOICE_CALL_AUDIO_HEADSET)) {
-				voicecall_snd_set_status(papp_snd, VOICE_CALL_AUDIO_HEADSET, FALSE);
-				/*_vc_bt_send_response_to_bt(pcall_core, BT_AG_RES_SWITCH_TO_PHONE, -1, NULL);*/
-				_vc_bt_request_switch_headset_path(pcall_core, FALSE);
-			}
-
-			voicecall_snd_set_status(papp_snd, VOICE_CALL_AUDIO_SPEAKER, TRUE);
-#endif
+			voicecall_snd_set_path_status(pcall_core->papp_snd, VOICE_CALL_SND_PATH_SPEAKER);
 			ret = TRUE;
 		}
 		break;
 
 	case VOICE_CALL_AUDIO_HEADSET:
 		{
-#ifdef _NEW_SND_
-			voicecall_snd_set_path_status(pcall_core->papp_snd, VOICE_CALL_SND_PATH_BT);				
-#else
-			voicecall_snd_set_status(papp_snd, VOICE_CALL_AUDIO_SPEAKER, FALSE);
-			voicecall_snd_set_status(papp_snd, VOICE_CALL_AUDIO_HEADSET, TRUE);
-#endif
+			voicecall_snd_set_path_status(pcall_core->papp_snd, VOICE_CALL_SND_PATH_BT);
 /*			_vc_bt_send_response_to_bt(pcall_core, BT_AG_RES_SWITCH_TO_HEADSET, -1, NULL);*/
 			_vc_bt_request_switch_headset_path(pcall_core, TRUE);
 
@@ -3557,23 +3638,13 @@ gboolean voicecall_core_change_sound_path(call_vc_core_state_t *pcall_core, voic
 		}
 		break;
 
-	case VOICE_CALL_AUDIO_EARJACK:
+	case VOICE_CALL_AUDIO_RECEIVER_EARJACK:
 		{
-#ifdef _NEW_SND_
 			if (voicecall_snd_get_path_status(pcall_core->papp_snd) == VOICE_CALL_SND_PATH_BT) {
 				/*_vc_bt_send_response_to_bt(pcall_core, BT_AG_RES_SWITCH_TO_PHONE, -1, NULL);*/
 				_vc_bt_request_switch_headset_path(pcall_core, FALSE);
 			}
-			voicecall_snd_set_path_status(pcall_core->papp_snd, VOICE_CALL_SND_PATH_EARJACK);				
-#else
-			voicecall_snd_set_status(papp_snd, VOICE_CALL_AUDIO_SPEAKER, FALSE);
-
-			if (TRUE == voicecall_snd_get_status(papp_snd, VOICE_CALL_AUDIO_HEADSET)) {
-				voicecall_snd_set_status(papp_snd, VOICE_CALL_AUDIO_HEADSET, FALSE);
-				/*_vc_bt_send_response_to_bt(pcall_core, BT_AG_RES_SWITCH_TO_PHONE, -1, NULL);*/
-				_vc_bt_request_switch_headset_path(pcall_core, FALSE);
-			}
-#endif
+			voicecall_snd_set_path_status(pcall_core->papp_snd, VOICE_CALL_SND_PATH_RECEIVER_EARJACK);
 			ret = TRUE;
 		}
 		break;
@@ -3598,81 +3669,76 @@ gboolean voicecall_core_get_sound_path(call_vc_core_state_t *pcall_core, int *so
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "..");
 
-#ifdef _NEW_SND_
-	switch (voicecall_snd_get_path_status(papp_snd))
-	{
-		case VOICE_CALL_SND_PATH_SPEAKER:
-			{
-				*sound_path = VOICE_CALL_AUDIO_SPEAKER;
-			}
-			break;
+	switch (voicecall_snd_get_path_status(papp_snd)) {
+	case VOICE_CALL_SND_PATH_SPEAKER:
+		{
+			*sound_path = VOICE_CALL_AUDIO_SPEAKER;
+		}
+		break;
 
-		case VOICE_CALL_SND_PATH_BT:
-			{
-				*sound_path = VOICE_CALL_AUDIO_HEADSET;
-			}
-			break;
+	case VOICE_CALL_SND_PATH_BT:
+		{
+			*sound_path = VOICE_CALL_AUDIO_HEADSET;
+		}
+		break;
 
-		case VOICE_CALL_SND_PATH_EARJACK:
-			{
-				*sound_path = VOICE_CALL_AUDIO_EARJACK;
-			}
-			break;
-
-		case VOICE_CALL_SND_PATH_RECEIVER:
-		default:
-			{
-				*sound_path = VOICE_CALL_AUDIO_RECEIVER;
-			}
-			break;
-
+	case VOICE_CALL_SND_PATH_RECEIVER_EARJACK:
+	default:
+		{
+			*sound_path = VOICE_CALL_AUDIO_RECEIVER_EARJACK;
+		}
+		break;
 	}
-#else
-	if (TRUE == voicecall_snd_get_status(papp_snd, VOICE_CALL_AUDIO_SPEAKER)) {
-		*sound_path = VOICE_CALL_AUDIO_SPEAKER;
-	} else if (TRUE == voicecall_snd_get_status(papp_snd, VOICE_CALL_AUDIO_HEADSET)) {
-		*sound_path = VOICE_CALL_AUDIO_HEADSET;
-	} else {
-		*sound_path = VOICE_CALL_AUDIO_EARJACK;
-	}
-#endif
 
 	return TRUE;
 }
 
 static gboolean __voicecall_core_is_redial_cuase(int end_cause)
 {
-	CALL_ENG_DEBUG(ENG_DEBUG, "end_cause(%d)",end_cause);
+	CALL_ENG_DEBUG(ENG_DEBUG, "end_cause(%d)", end_cause);
 
-	switch (end_cause)
-	{	
-		case VC_ENDCAUSE_CALL_BARRED:
-		case VC_ENDCAUSE_NO_SERVICE:
-		case VC_ENDCAUSE_USER_UNAVAILABLE:
-		case VC_ENDCAUSE_INVALID_NUMBER_FORMAT:
-		case VC_ENDCAUSE_NUMBER_CHANGED:
-		case VC_ENDCAUSE_NO_CREDIT:
-		case VC_ENDCAUSE_UNASSIGNED_NUMBER:
-			return FALSE;
+	switch (end_cause) {
+	case VC_ENDCAUSE_CALL_BARRED:
+	case VC_ENDCAUSE_NO_SERVICE:
+	case VC_ENDCAUSE_USER_UNAVAILABLE:
+	case VC_ENDCAUSE_INVALID_NUMBER_FORMAT:
+	case VC_ENDCAUSE_NUMBER_CHANGED:
+	case VC_ENDCAUSE_NO_CREDIT:
+	case VC_ENDCAUSE_UNASSIGNED_NUMBER:
+		return FALSE;
 
-		case VC_ENDCAUSE_CALL_ENDED:
-		case VC_ENDCAUSE_CALL_DISCONNECTED:
-		case VC_ENDCAUSE_NO_ANSWER:
-		case VC_ENDCAUSE_NW_BUSY:
-		case VC_ENDCAUSE_CALL_SERVICE_NOT_ALLOWED:
-		case VC_ENDCAUSE_NW_FAILED:
-		case VC_ENDCAUSE_REJECTED:
-		case VC_ENDCAUSE_USER_BUSY:
-		case VC_ENDCAUSE_WRONG_GROUP:
-		case VC_ENDCAUSE_CALL_NOT_ALLOWED:
-		case VC_ENDCAUSE_CALL_FAILED:
-		case VC_ENDCAUSE_NO_USER_RESPONDING:
-		case VC_ENDCAUSE_USER_ALERTING_NO_ANSWER:
-		case VC_ENDCAUSE_SERVICE_TEMP_UNAVAILABLE:
-		case VC_ENDCAUSE_USER_DOESNOT_RESPOND:
-		case VC_ENDCAUSE_IMEI_REJECTED:
-		case VC_ENDCAUSE_TAPI_ERROR:
-		default:
-			return TRUE;
+	case VC_ENDCAUSE_CALL_ENDED:
+	case VC_ENDCAUSE_CALL_DISCONNECTED:
+	case VC_ENDCAUSE_NO_ANSWER:
+	case VC_ENDCAUSE_NW_BUSY:
+	case VC_ENDCAUSE_CALL_SERVICE_NOT_ALLOWED:
+	case VC_ENDCAUSE_NW_FAILED:
+	case VC_ENDCAUSE_REJECTED:
+	case VC_ENDCAUSE_USER_BUSY:
+	case VC_ENDCAUSE_WRONG_GROUP:
+	case VC_ENDCAUSE_CALL_NOT_ALLOWED:
+	case VC_ENDCAUSE_CALL_FAILED:
+	case VC_ENDCAUSE_NO_USER_RESPONDING:
+	case VC_ENDCAUSE_USER_ALERTING_NO_ANSWER:
+	case VC_ENDCAUSE_SERVICE_TEMP_UNAVAILABLE:
+	case VC_ENDCAUSE_USER_DOESNOT_RESPOND:
+	case VC_ENDCAUSE_IMEI_REJECTED:
+	case VC_ENDCAUSE_TAPI_ERROR:
+	default:
+		return TRUE;
 	}
 }
+
+/**
+ * This function processed the supplementary services while on call
+ *
+ * @return		Returns TRUE If transfer call can be made or FALSE if not
+ * @param[in]		pcall_core		Handle to voicecall core
+ */
+void voicecall_core_process_dtmf_send_status(call_vc_core_state_t *pcall_core, gboolean bsuccess)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, " ..");
+	VOICECALL_RETURN_IF_FAIL(pcall_core);
+	__voicecall_core_handle_dtmf_ack(pcall_core, bsuccess);
+}
+

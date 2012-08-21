@@ -1,9 +1,0 @@
-call (0.2.333) unstable; urgency=low
-
-  * 1. Apply EFL migration change
-    2. Update bilerplate
-    3. Support appsvc mo call
-  * Git: pkgs/c/call
-  * Tag: call_0.2.333
-
- -- Jungmin Kim <jm15.kim@samsung.com>  Fri, 17 Feb 2012 21:14:16 +0900

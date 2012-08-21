@@ -146,7 +146,6 @@ typedef enum {
 	VC_ENDCAUSE_UNASSIGNED_NUMBER,				/**< Unassigned/Unallocated number*/
 	VC_ENDCAUSE_USER_DOESNOT_RESPOND,			/**< Called Party does not respond*/
 	VC_ENDCAUSE_IMEI_REJECTED,			/**< Called Party does not respond*/
-	/*VC_ENDCAUSE_SWITCHING_EQUIPMENT_CONGESTION,     /**<  Switching Equipment Congestion       : 20090627 match as NW_BUSY*/
 } voice_call_end_cause_type_t;
 
 /**
@@ -312,6 +311,8 @@ typedef enum _voicecall_engine_event_t {
 	VC_ACTION_NO_ACTIVE_TASK,			/**< This event will be published when engine becomes idle after executing/aborting a request from other apps - eg) if SAT request is not processed*/
 
 	VC_CALL_GET_VOLUME_RESP,			/**< Response data from tapi for get tapi sound volume*/
+
+	VC_CALL_NOTI_WBAMR,			/**< Notification Wideband amr */
 	VC_ENGINE_EVENT_MAX
 } voicecall_engine_event_t;
 
@@ -495,7 +496,7 @@ typedef enum {
  * This enumeration defines calling name mode to be verified dueing an incoming call
  */
 typedef enum {
-	CALL_VC_CALLING_NAME_MODE_AVAILABLE,	/**<  Calling Name Unavailable*/
+	CALL_VC_CALLING_NAME_MODE_AVAILABLE,	/**<  Calling Name available*/
 	CALL_VC_CALLING_NAME_MODE_RESTRICTED,		/**<  Calling Name restricted by the caller*/
 	CALL_VC_CALLING_NAME_MODE_UNAVAILABLE,	/**<  Calling Name Unavailable*/
 	CALL_VC_CALLING_NAME_MODE_AVAILABLE_RESTRICTED,		/**<  Calling name is available but restricted*/
@@ -527,9 +528,7 @@ typedef struct _call_vc_call_objectinfo_t {
 	call_vc_calling_name_mode_t bcalling_namemode;							/**< Name mode of calling name information */
 
 	/*Caller Details */
-/*PDIAL_SEND_DTMF*/
 	char source_tel_number[VC_PHONE_NUMBER_LENGTH_MAX];						/**< Source Telephone number */
-/*PDIAL_SEND_DTMF*/
 	char tel_number[VC_PHONE_NUMBER_LENGTH_MAX];						/**< Telephone number */
 	char calling_name[VC_PHONE_NAME_LENGTH_MAX];						/**< Calling part name */
 	char dtmf_number[VC_PHONE_NUMBER_LENGTH_MAX];						/**< DTMF number */

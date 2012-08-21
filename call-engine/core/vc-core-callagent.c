@@ -121,7 +121,6 @@ call_vc_callagent_state_t *_vc_core_ca_init_agent()
 void _vc_core_ca_init_data(call_vc_callagent_state_t *pagent)
 {
 	VOICECALL_RETURN_IF_FAIL(pagent != NULL);
-	pagent->bonly_sos_call = FALSE;
 	pagent->callagent_state = CALL_VC_CA_STATE_NORMAL;
 	pagent->io_state = VC_INOUT_STATE_NONE;
 	pagent->bis_no_sim = FALSE;
@@ -312,7 +311,8 @@ gboolean _vc_core_ca_send_sat_response(call_vc_callagent_state_t *pagent, voicec
 		CALL_ENG_DEBUG(ENG_DEBUG, "Invalid SAT Rquest Response Type");
 		break;
 	}
-	error_code = tel_send_sat_app_exec_result(&call_vc_sat_response);
+
+	error_code = tel_send_sat_app_exec_result(pagent->tapi_handle, &call_vc_sat_response);
 	if (error_code != TAPI_API_SUCCESS) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "Error tel_send_sat_app_exec_result():%#X", error_code);
 		return FALSE;
@@ -321,6 +321,7 @@ gboolean _vc_core_ca_send_sat_response(call_vc_callagent_state_t *pagent, voicec
 	else {
 		CALL_ENG_DEBUG(ENG_DEBUG, "tel_send_sat_app_exec_result: Success");
 	}
+
 	return TRUE;
 }
 
