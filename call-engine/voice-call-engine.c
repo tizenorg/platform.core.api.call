@@ -42,7 +42,7 @@ static app_cb_t *app_client_data = NULL;
 */
 gboolean vcall_engine_send_event_to_client(int event, void *pdata)
 {
-	CALL_ENG_DEBUG(ENG_DEBUG, "..");
+	CALL_ENG_DEBUG(ENG_DEBUG, "app_client_data(0x%x)..",app_client_data);
 	if (app_client_data->cb_func != NULL) {
 		CALL_ENG_DEBUG(ENG_DEBUG, "Sending Event to APP Client");
 		app_client_data->cb_func(event, pdata, app_client_data->puser_data);
@@ -68,11 +68,6 @@ int vcall_engine_init(vcall_engine_app_cb pcb_func, void *puser_data)
 	}
 	CALL_ENG_DEBUG(ENG_DEBUG, "global_pcall_core alloctated memory:[%d],global_pcall_core(0x%x)", sizeof(call_vc_core_state_t), global_pcall_core);
 
-	if (FALSE == voicecall_core_init(global_pcall_core)) {
-		CALL_ENG_DEBUG(ENG_DEBUG, "voicecall_core_init() failed");
-		return VCALL_ENGINE_API_FAILED;
-	}
-
 	app_client_data = (app_cb_t *) calloc(1, sizeof(app_cb_t));
 	if (app_client_data == NULL) {
 		CALL_ENG_DEBUG(ENG_ERR, "Memory Allocation Failed");
@@ -83,6 +78,12 @@ int vcall_engine_init(vcall_engine_app_cb pcb_func, void *puser_data)
 
 	CALL_ENG_DEBUG(ENG_DEBUG, "Init dbus connection");
 	vc_engine_dbus_receiver_setup();
+
+	if (FALSE == voicecall_core_init(global_pcall_core)) {
+		CALL_ENG_DEBUG(ENG_DEBUG, "voicecall_core_init() failed");
+		return VCALL_ENGINE_API_FAILED;
+	}
+
 	return VCALL_ENGINE_API_SUCCESS;
 
 }
@@ -101,8 +102,16 @@ int vcall_engine_process_normal_call(char *number, int ct_index, gboolean b_down
 	char number_after_removal[VC_PHONE_NUMBER_LENGTH_MAX] = {"\0",};
 	int io_state;
 
-	if (number == NULL || pcall_engine == NULL)
+	if (number == NULL || pcall_engine == NULL) {
+		CALL_ENG_DEBUG(ENG_ERR, "pcall_engine or number is NULL");
+		voicecall_core_set_status(global_pcall_core, CALL_VC_CORE_FLAG_SETUPCALL_FAIL, TRUE);
+		vc_engine_msg_box_type mbox_event_data;
+
+		memset(&mbox_event_data, 0, sizeof(mbox_event_data));
+		mbox_event_data.string_id = IDS_CALL_POP_PHONE_NOT_INITIALISED;
+		vcall_engine_send_event_to_client(VC_ENGINE_MSG_MESSAGE_BOX_TO_UI, (void *)&mbox_event_data);
 		return VCALL_ENGINE_API_FAILED;
+	}
 
 	_vc_core_engine_status_set_download_call(pcall_engine, b_download_call);
 
