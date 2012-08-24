@@ -81,7 +81,6 @@ pkg_check_modules(ui_pkgs REQUIRED
 	appcore-efl
 	vconf
 	utilX
-	phone-misc
 	alsa
 	pmapi	
 	sensor

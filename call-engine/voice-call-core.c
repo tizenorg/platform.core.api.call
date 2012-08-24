@@ -30,7 +30,6 @@
 #include "voice-call-sound.h"
 
 #include "voice-call-bt.h"
-#include "phone-misc.h"
 #include "vc-core-engine.h"
 
 #include "voice-call-engine.h"
@@ -988,43 +987,6 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 				} else {
 					/*Get Ringtone File From Settings */
 					CALL_ENG_DEBUG(ENG_DEBUG, "Invalid Ringtone from Contact: %s", ct_info.ring_tone);
-				}
-			}
-
-			/*Auto Reject Check */
-			if (vconf_get_bool(VCONFKEY_CISSAPPL_AUTO_REJECT_BOOL, &bauto_reject)) {
-				CALL_ENG_DEBUG(ENG_ERR, "vconf_get_bool failed.");
-			}
-
-			if (bauto_reject) {
-				CALL_ENG_DEBUG(ENG_DEBUG, "** Auto Reject Enabled. **");
-
-				if (vconf_get_bool(VCONFKEY_CISSAPPL_AUTO_REJECT_UNKNOWN_BOOL, &bauto_reject_unknown)) {
-					CALL_ENG_DEBUG(ENG_ERR, "vconf_get_bool failed.");
-				}
-				CALL_ENG_DEBUG(ENG_DEBUG, "bauto_reject_unknown:[%d]", bauto_reject_unknown);
-
-				if ((0 == strlen(tel_number)) && (TRUE == bauto_reject_unknown)) {
-					brejected_number = 1;
-					CALL_ENG_DEBUG(ENG_DEBUG, "Unknwon Rejected.");
-				} else {
-					phone_misc_h *handle = NULL;
-
-					handle = phone_misc_connect();
-					if (handle == NULL) {
-						CALL_ENG_DEBUG(ENG_ERR, "misc connect fail");
-						brejected_number = FALSE;
-					} else {
-						int ret = phone_misc_block_check(handle, tel_number);
-						if (ret > 0) {
-								brejected_number = TRUE;
-						} else {
-							brejected_number = FALSE;
-						}
-						phone_misc_disconnect(handle);
-						handle = NULL;
-					}
-					CALL_ENG_DEBUG(ENG_DEBUG, "Call Log DB rejected:[%d]", brejected_number);
 				}
 			}
 

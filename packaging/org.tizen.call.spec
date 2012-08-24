@@ -1,6 +1,6 @@
 Name:       org.tizen.call
 Summary:    call application
-Version:    0.2.380
+Version:    0.2.381
 Release:    1
 Group:      comm
 License:    Flora Software License
@@ -30,7 +30,6 @@ BuildRequires:  pkgconfig(appsvc)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  pkgconfig(capi-base-common)
 BuildRequires:  pkgconfig(notification)
-BuildRequires:  pkgconfig(phone-misc)
 BuildRequires:  pkgconfig(minicontrol-provider)
 BuildRequires:  pkgconfig(capi-media-sound-manager)
 BuildRequires:  pkgconfig(dbus-1)
