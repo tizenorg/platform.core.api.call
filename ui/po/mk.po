@@ -1,0 +1,513 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "Одгов."
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Искл.звук"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Поврзување..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Отфрлено"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Меморирано"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Се праќа..."
+
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "Направи порака за одбивање"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "Списокот одбиени пораки е празен"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "Одбивање со порака"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "Повик"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "Бројот е недостапен"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "Повикот е прекинат"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "Повикот е одбиен"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "Врската е прекината"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "Погрешен број"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "Активен"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "Конф.врска"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "Нема одговор"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "Бројот е сменет"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "Бројот не постои"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "На чекање"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "Луѓе"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "Прифати"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "Дод. повик"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "Именик"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "Крај"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "Слушал."
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "На чекање"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "Придружи"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "Отфрли"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "Звучник"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "Издвој"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "Врати"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "Конференција"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "Заврши го тековниот повик и одговори"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "Задржи го тековниот повик и одговори"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "Приватно"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "Системска грешка"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "Сите дојдовни повици се забранети"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "Сите појдовни повици се забранети"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "Неуспешен повик"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "Само итни повици"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "Не е дозволен повик"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "Повикот е забранет"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "Активно пренасочување на повиците: Секогаш"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "Активно пренасочување на повиците: Кога нема одговор"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "Активно пренасочување на повиците: Кога е недостапно"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "Активно пренасочување на повиците: Кога е зафатено"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "Повикот е пренасочен"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "Погрешен број"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "Смени од безмрежен во друг профил за мрежните услуги"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "Бирање..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "Неуспешно праќање. Обидете се повторно"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "SOS повик"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "Само фиксни повици"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "На чекање"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "Неуспешно задржување"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "Задржувањето не е поддржано"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "Забрана за дојдовни при роаминг"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "Нецелосно"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "Придружено"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "Неуспешно придружување"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "Придружувањето не е поддржано"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "Мрежата е зафатена"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "Мрежата е недостапна"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "Немате повеќе кредит"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "Нема услуга"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "Операцијата е одбиена"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "Забрани појдовни освен дома"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "Забранети појдовни меѓународни повици"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "Телефонот не е активиран"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "4422341526 одбиено"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "Повторно бирање..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "Услугата не е дозволена"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "Само SOS повици.\\Ставете ја SIM-картичката за да пристапите до мрежните услуги"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "Неуспешно издвојување"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "Издвојувањето не е поддржано"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "Префрлено"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "Неуспешно заменување"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "Заменувањето не е поддржано"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "Префрлено на BT слушалки"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "Префрлено на телефон"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "Неуспешно префрлување"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "Префрлувањето не е поддржано"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "Не може да се преземе"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Кога сте недостапни"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "Вратено"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "Враќањето не е поддржано"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "Корисникот е зафатен"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "Потврдете го SIM-от или вметнете важечки SIM"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "Не се дозволени гласовни повици за време на видео повик"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "Чекањето е активно"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "Погрешна група"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "Одбивање повик со порака"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "Прекини го активниот повик"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "Стави на чекање"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "Прекини повик на чекање"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "Прекини ги сите повици"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "Прекини активни повици (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "Прекини задржани повици (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "Слушалки"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "Приемник"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "Неуспешно регистрирање сметка"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "Задржи акт. повик"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "Нема доволно меморија. Избришете некој запис"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "Крај"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "Услугата е недостапна"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "Тастатура"
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "Сокриј тастат."
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "Сним."
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "Непознатиот повик е одбиен"
+
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "Префрли"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "Избери број"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "за %d денови"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "Утре"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "За една седмица"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "%s се задржува"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "Се завршува на повикот со %s"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "Прифати повик после"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "Прекини ги сите повици"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "Без намалување нејаснотии"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "Со намалување пречки"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "Засили ниски"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "Засили високи"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "Оптим. за левото уво"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "Оптим. за десното уво"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Не може да се вклучи намалувањето шум кога е вклучена дополнителна гласност"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "Не може да се вклучи намалувањето пречки кога се поврзани слушалки"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Не може да се вклучи намалувањето пречки кога се приклучени слушалки Bluetooth"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "Не може да се вклучи намалувањето пречки при широкопојасни повици"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "За да ја користите оваа функција, треба да го штиклирате Оптимизирај еквализација за мене во Опции за повик"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "Не може да се вклучи еквализација за повик кога е вклучен звучникот"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "Не може да се вклучи еквализација за повик кога се поврзани слушалки"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Не може да се вклучи еквализација за повик кога е вклучена слушалка Bluetooth"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "Не може да се користи опсегот на дополнителна гласност кога се поврзани слушалки или BT слушалка"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "Повикување..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "Уреди конференциски повик"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Не може да се вклучи еквализација за повик кога е вклучена дополнителна гласност"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "Не може да се вклучи еквализација за повик при широкопојасни повици"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "Звук"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "Не може да се вклучи намалувањето пречки кога е вклучен звучникот"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "Одбиј пораки"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "Гласовен повик"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "Видео повик"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "Сподели"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "Тастатура"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "Крај"
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "Звучник"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "Извор на звук"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "Телефон"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "Искл.ѕвонење"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "Дод. во Контакти"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "Повик"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "Видео п."
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "Порака"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "Дод. во Контакти"
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "Порака"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "Преф."
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "Повеќе"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "Сподели фајл преку ChatON"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "Сподели"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d пати"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "Конф. врска (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "Снимена слика"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "Сочувано видео"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "Сликање"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "Живо видео"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "Види контакт"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d пропуштени повици"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "Пропуштен повик"
+

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.call" version="0.2.381" install-location="internal-only">
+<manifest xmlns="http://tizen.org/ns/packages" package="org.tizen.call" version="0.2.382" install-location="internal-only">
 	<label>Call</label>
 	<author email="sungjoon.won@samsung.com" href="www.samsung.com">Sung Joon Won</author>
 	<author email="jm15.kim@samsung.com" href="www.samsung.com">Jungmin Kim</author>

@@ -1,513 +1,513 @@
 msgid "IDS_CALL_SK_ACCEPT"
-msgstr "接受"
+msgstr "Accep"
 
 msgid "IDS_CALL_BUTTON_MUTE_ABB"
-msgstr "静音"
+msgstr "Silenci"
 
 msgid "IDS_CALL_POP_CONNECTING"
-msgstr "连接中..."
+msgstr "Connectant..."
 
 msgid "IDS_CALL_POP_REJECTED"
-msgstr "被拒绝"
+msgstr "Rebutjat"
 
 msgid "IDS_CALL_POP_SAVED"
-msgstr "已保存"
+msgstr "Desat"
 
 msgid "IDS_CALL_POP_SENDING"
-msgstr "发送中…"
+msgstr "Enviant..."
 
 msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
-msgstr "新建拒绝信息"
+msgstr "Crear missatge de rebuig"
 
 msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
-msgstr "拒绝信息列表空"
+msgstr "La llista de missatges rebutjats és buida"
 
 msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
-msgstr "拒绝并发送短信"
+msgstr "Rebutjar amb un missatge"
 
 msgid "IDS_CALL_BODY_CALL"
-msgstr "通话"
+msgstr "Trucar"
 
 msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
-msgstr "被呼叫方不可用"
+msgstr "Multicon truc no disp"
 
 msgid "IDS_CALL_BODY_CALLENDED"
-msgstr "已结束通话"
+msgstr "Fi de trucada"
 
 msgid "IDS_CALL_BODY_CALL_REJECTED"
-msgstr "通话被拒绝"
+msgstr "Trucada rebutjada"
 
 msgid "IDS_CALL_BODY_DISCONNECTED"
-msgstr "已断开"
+msgstr "Desconnectat"
 
 msgid "IDS_CALL_BODY_INVALID_NUMBER"
-msgstr "数值无效"
+msgstr "Número no vàlid"
 
 msgid "IDS_CALL_BODY_IN_CALL"
-msgstr "通话中"
+msgstr "En trucada"
 
 msgid "IDS_CALL_BODY_MPTY"
-msgstr "多方通话"
+msgstr "Multiconferència"
 
 msgid "IDS_CALL_BODY_NO_ANSWER"
-msgstr "无应答"
+msgstr "No hi ha resposta"
 
 msgid "IDS_CALL_BODY_NUMBER_CHANGED"
-msgstr "号码已更改"
+msgstr "El número ha canviat"
 
 msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
-msgstr "号码不存在"
+msgstr "Aquest número no existeix"
 
 msgid "IDS_CALL_BODY_ON_HOLD_ABB"
-msgstr "保持中"
+msgstr "Retinguda"
 
 msgid "IDS_CALL_BODY_PEOPLE"
-msgstr "人员"
+msgstr "Gent"
 
 msgid "IDS_CALL_BUTTON_ACCEPT"
-msgstr "接受"
+msgstr "Acceptar"
 
 msgid "IDS_CALL_BUTTON_ADD_CALL"
-msgstr "添加呼叫"
+msgstr "Af trucada"
 
 msgid "IDS_CALL_BUTTON_CONTACTS"
-msgstr "联系人"
+msgstr "Contactes"
 
 msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
-msgstr "结束"
+msgstr "Finalitzar"
 
 msgid "IDS_CALL_BUTTON_HEADSET"
-msgstr "耳机"
+msgstr "Auricul"
 
 msgid "IDS_CALL_BUTTON_HOLD"
-msgstr "保持"
+msgstr "Retenir"
 
 msgid "IDS_CALL_BUTTON_JOIN"
-msgstr "加入"
+msgstr "Afegir"
 
 msgid "IDS_CALL_BUTTON_REJECT"
-msgstr "拒绝"
+msgstr "Rebutjar"
 
 msgid "IDS_CALL_BUTTON_SPEAKER"
-msgstr "扬声器"
+msgstr "Altaveu"
 
 msgid "IDS_CALL_BUTTON_SPLIT"
-msgstr "分开"
+msgstr "Dividir"
 
 msgid "IDS_CALL_BUTTON_UNHOLD"
-msgstr "取消保持"
+msgstr "Des. esp."
 
 msgid "IDS_CALL_OPT_CONFERENCE_CALL"
-msgstr "电话会议"
+msgstr "Multiconferència"
 
 msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
-msgstr "结束当前呼叫并应答"
+msgstr "Finalitzar la trucada actual i respondre"
 
 msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
-msgstr "保持当前电话并应答"
+msgstr "Retenir la trucada actual i respondre"
 
 msgid "IDS_CALL_OPT_PRIVATE"
-msgstr "私人"
+msgstr "Particular"
 
 msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
-msgstr "系统出错"
+msgstr "Error del sistema"
 
 msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
-msgstr "禁止所有来电"
+msgstr "Totes les trucades d'entrada restringides"
 
 msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
-msgstr "禁止全部拨出电话"
+msgstr "Totes les trucades de sortida restringides"
 
 msgid "IDS_CALL_POP_CALLFAILED"
-msgstr "通话失败"
+msgstr "Error de trucada"
 
 msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
-msgstr "仅限紧急通话"
+msgstr "Només trucades d'emergència"
 
 msgid "IDS_CALL_POP_CALLNOTCALLOWED"
-msgstr "禁止通话"
+msgstr "No es permet la trucada"
 
 msgid "IDS_CALL_POP_CALL_BARRED"
-msgstr "通话被限制"
+msgstr "Trucada restringida"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
-msgstr "激活呼叫转移:始终"
+msgstr "Activar desviació de trucada: Sempre"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
-msgstr "激活呼叫转移:无应答"
+msgstr "Activar desviació de trucada: si no hi ha resposta"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
-msgstr "激活呼叫转移:无法接通"
+msgstr "Activar desviació de trucada: si no localitzable"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
-msgstr "激活呼叫转移:遇忙"
+msgstr "Activar desviació de trucada: si ocupat"
 
 msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
-msgstr "呼叫已转移"
+msgstr "Trucada desviada"
 
 msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
-msgstr "错误号码"
+msgstr "Número incorrecte"
 
 msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
-msgstr "关闭飞行模式以使用网络服务"
+msgstr "Canviar perfil Fora de línia a un altre perfil per a serveis de xarxa"
 
 msgid "IDS_CALL_POP_DIALLING"
-msgstr "拨号中..."
+msgstr "Marcant..."
 
 msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
-msgstr "发送失败。再试"
+msgstr "Error en enviar. Tornar-ho a intentar"
 
 msgid "IDS_CALL_POP_EMERGENCY_CALL"
-msgstr "紧急呼叫"
+msgstr "Trucada d'emergència"
 
 msgid "IDS_CALL_POP_FDNCALLONLY"
-msgstr "仅限 FDN 呼叫"
+msgstr "Només trucades FDN"
 
 msgid "IDS_CALL_POP_HELD"
-msgstr "保持"
+msgstr "Retinguda"
 
 msgid "IDS_CALL_POP_HOLD_FAILED"
-msgstr "通话保持失败"
+msgstr "Error en retenir"
 
 msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
-msgstr "通话保持不支持"
+msgstr "No s'admet retenció"
 
 msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
-msgstr "漫游时呼入限制"
+msgstr "Trucades d'entrada bloquejades en itinerància"
 
 msgid "IDS_CALL_POP_INCOMPLETE"
-msgstr "不完整"
+msgstr "Incomplet"
 
 msgid "IDS_CALL_POP_JOINED"
-msgstr "已加入"
+msgstr "Unida"
 
 msgid "IDS_CALL_POP_JOIN_FAILED"
-msgstr "加入失败"
+msgstr "Error en unir"
 
 msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
-msgstr "不支持加入"
+msgstr "No s'admet la unió"
 
 msgid "IDS_CALL_POP_NETWORKBUSY"
-msgstr "网络繁忙"
+msgstr "Xarxa ocupada"
 
 msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
-msgstr "网络无法使用"
+msgstr "Xarxa no disponible"
 
 msgid "IDS_CALL_POP_NOCREDITLEFT"
-msgstr "无余额"
+msgstr "No hi ha crèdit"
 
 msgid "IDS_CALL_POP_NOSERVICE"
-msgstr "无服务"
+msgstr "Sense servei"
 
 msgid "IDS_CALL_POP_OPERATION_REFUSED"
-msgstr "拒绝操作"
+msgstr "Operació rebutjada"
 
 msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
-msgstr "除本国外的国际呼出"
+msgstr "Trucades internacionals de sortida bloquejades, excepte a casa"
 
 msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
-msgstr "禁止拨打国际长途"
+msgstr "Trucades de sortida internacionals restringides"
 
 msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
-msgstr "手机未初始化"
+msgstr "No s'ha inicialitzat el telèfon"
 
 msgid "IDS_CALL_POP_PS_REJECTED"
-msgstr "4422341526 rejected"
+msgstr "4422341526 rebutjat"
 
 msgid "IDS_CALL_POP_REDIALLING"
-msgstr "重新拨号中..."
+msgstr "Tornant a marcar.."
 
 msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
-msgstr "服务禁止"
+msgstr "No es permet el servei"
 
 msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
-msgstr "只能打SOS电话.请插入SIM卡以访问网络服务"
+msgstr "Només trucada SOS.\nInsereixi targeta SIM per a accedir als serveis de xarxa"
 
 msgid "IDS_CALL_POP_SPLIT_FAILED"
-msgstr "断开失败"
+msgstr "Error en dividir"
 
 msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
-msgstr "不支持断开"
+msgstr "No s'admet la separació"
 
 msgid "IDS_CALL_POP_SWAPPED"
-msgstr "已切换"
+msgstr "Intercanviada"
 
 msgid "IDS_CALL_POP_SWAP_FAILED"
-msgstr "切换失败"
+msgstr "Error en intercanviar"
 
 msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
-msgstr "不支持切换"
+msgstr "No s'admet l'intercanvi"
 
 msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
-msgstr "已切换到蓝牙耳机"
+msgstr "Canviat a auriculars BT"
 
 msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
-msgstr "已切换到手机"
+msgstr "Canviat a telèfon"
 
 msgid "IDS_CALL_POP_TRANSFER_FAILED"
-msgstr "转换失败"
+msgstr "Error de transferència"
 
 msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
-msgstr "不支持转换"
+msgstr "No s'admet la transferència"
 
 msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
-msgstr "无法取回"
+msgstr "No es pot recuperar"
 
 msgid "IDS_CALL_POP_UNAVAILABLE"
-msgstr "不适用"
+msgstr "No disponible"
 
 msgid "IDS_CALL_POP_UNHELD"
-msgstr "取消保持"
+msgstr "No s'ha retingut"
 
 msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
-msgstr "取消保持不支持"
+msgstr "No s'admet sense retenció"
 
 msgid "IDS_CALL_POP_USER_BUSY"
-msgstr "用户繁忙"
+msgstr "Usuari ocupat"
 
 msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
-msgstr "验证SIM卡或插入有效SIM卡"
+msgstr "Verifiqui la SIM o introdueixi'n una de vàlida"
 
 msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
-msgstr "视频通话期间不允许进行语音呼叫"
+msgstr "No s'admeten trucades de veu durant una trucada de vídeo"
 
 msgid "IDS_CALL_POP_WAITING_ACTIVE"
-msgstr "等待启动"
+msgstr "En espera actiu"
 
 msgid "IDS_CALL_POP_WRONG_GROUP"
-msgstr "错误分组"
+msgstr "Grup incorrecte"
 
 msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
-msgstr "拒接来电并发送短信"
+msgstr "Rebutjar trucada amb un missatge"
 
 msgid "IDS_CALL_POP_END_ACTIVE_CALL"
-msgstr "结束当前通话"
+msgstr "Finalitzar trucada activa"
 
 msgid "IDS_CALL_OPT_HOLDCALL"
-msgstr "保持通话"
+msgstr "Retenir trucada"
 
 msgid "IDS_CALL_OPT_END_HELD_CALL"
-msgstr "结束保持通话"
+msgstr "Finalitzar trucada retinguda"
 
 msgid "IDS_CALL_OPT_END_ALL_CALLS"
-msgstr "结束所有呼叫"
+msgstr "Final. totes les trucades"
 
 msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
-msgstr "结束当前通话 (%d)"
+msgstr "Finalitzar les trucades actives (%d)"
 
 msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
-msgstr "结束保持通话 (%d)"
+msgstr "Finalitzar les trucades en espera (%d)"
 
 msgid "IDS_CALL_BUTTON_HEADPHONES"
-msgstr "耳机"
+msgstr "Auriculars"
 
 msgid "IDS_CALL_BUTTON_RECEIVER"
-msgstr "听筒"
+msgstr "Receptor"
 
 msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
-msgstr "注册帐户失败"
+msgstr "Error de registre de compte"
 
 msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
-msgstr "保持通话"
+msgstr "Retenir truc activa"
 
 msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
-msgstr "存储空间不足。请删除部分项目"
+msgstr "No hi ha prou memòria. Esborrar-ne alguns elements"
 
 msgid "IDS_CALL_SK3_END_CALL"
-msgstr "结束通话"
+msgstr "Fi truc"
 
 msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
-msgstr "服务无法正常提供"
+msgstr "Servei no disponible"
 
 msgid "IDS_CALL_SK3_KEYPAD"
-msgstr "键盘"
+msgstr "Teclat"
 
 msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
-msgstr "隐藏键盘"
+msgstr "Amagar teclat"
 
 msgid "IDS_CALL_SK_REC_ABB"
-msgstr "录音"
+msgstr "Grav."
 
 msgid "IDS_CALL_POP_UNKNOWNREJECTED"
-msgstr "已拒绝未知来电"
+msgstr "Trucada  desconeguda rebutjada"
 
 msgid "IDS_CALL_OPT_SWITCH"
-msgstr "切换"
+msgstr "Canviar"
 
 msgid "IDS_CALL_HEADER_SELECT_NUMBER"
-msgstr "选择号码"
+msgstr "Seleccionar número"
 
 msgid "IDS_CALL_BODY_IN_PD_DAYS"
-msgstr "%d 天内"
+msgstr "en %d dies"
 
 msgid "IDS_CALL_BODY_TOMORROW"
-msgstr "明天"
+msgstr "Demà"
 
 msgid "IDS_CALL_POP_IN_A_WEEK"
-msgstr "在一周里"
+msgstr "En una setmana"
 
 msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
-msgstr "保持%s"
+msgstr "Posant %s en espera"
 
 msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
-msgstr "结束%s"
+msgstr "Finalitzar una trucada amb %s"
 
 msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
-msgstr "接听来电"
+msgstr "Acceptar la trucada després de"
 
 msgid "IDS_CALL_BODY_END_ALL_CALLS"
-msgstr "结束所有呼叫"
+msgstr "Final. totes les trucades"
 
 msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
-msgstr "噪声降低关"
+msgstr "Reducció de soroll desactivada"
 
 msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
-msgstr "噪声降低开"
+msgstr "Reducció de soroll activada"
 
 msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
-msgstr "加强低音"
+msgstr "Potenciar tons baix"
 
 msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
-msgstr "加强高音"
+msgstr "Potenciar tons alts"
 
 msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
-msgstr "针对左耳优化"
+msgstr "Optim per orella esquerra"
 
 msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
-msgstr "针对右耳优化"
+msgstr "Optim per l'orella dreta"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
-msgstr "无法在启用超大音量时开启减噪"
+msgstr "No es pot activar la reducció de soroll mentre el volum extra està habilitat"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
-msgstr "当连接耳机时，无法打开噪音降低"
+msgstr "No es pot activar la reducció de soroll mentre l'auricular està connectat"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
-msgstr "当蓝牙耳机启动时，无法打开噪音降低"
+msgstr "No es pot activar la reducció de soroll quan els auriculars Bluetooth estan activats"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
-msgstr "宽带通话期间无法打开噪音降低"
+msgstr "No es pot activar la reducció de soroll durant trucades de banda ampla"
 
 msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
-msgstr "若要使用该功能，您必须在呼叫设置下勾选“优化我的 EQ”"
+msgstr "Per utilitzar aquesta funció, ha de marcar optimitzar EQ per mi a Ajustaments de trucada"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
-msgstr "当扬声器开启时无法启用来电声音 EQ"
+msgstr "No es pot habilitar l'EQ de so de trucades mentre l'altaveu està activat"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
-msgstr "当耳机连接时无法启用来电声音 EQ"
+msgstr "No es pot habilitar l'EQ de so de trucades mentre els auriculars estan connectats"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
-msgstr "当蓝牙耳机开启时无法启用来电声音 EQ"
+msgstr "No es pot habilitar l'EQ de so de trucades mentre els auriculars Bluetooth estan activats"
 
 msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
-msgstr "当耳机或蓝牙耳机连接时无法使用超大音量范围"
+msgstr "No es pot utilitzar l'interval de volum extra quan hi ha auriculars o un auricular BT connectats"
 
 msgid "IDS_CALL_POP_CALLING"
-msgstr "正在呼叫..."
+msgstr "Trucant..."
 
 msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
-msgstr "管理电话会议"
+msgstr "Administrar trucada de multiconferència"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
-msgstr "当超大音量启用时无法启用来电声音 EQ"
+msgstr "No es pot habilitar l'EQ de so de trucades mentre el volum extra està habilitat"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
-msgstr "无法在宽带通话期间启用通话中声音效果"
+msgstr "No es pot habilitar l'EQ de so de trucades durant les trucades de banda ampla"
 
 msgid "IDS_CALL_BUTTON_SOUND_ABB"
-msgstr "声音"
+msgstr "So"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
-msgstr "当扬声器启动时，无法打开噪音降低"
+msgstr "No es pot activar la reducció de soroll mentre l'altaveu està activat"
 
 msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
-msgstr "拒绝信息"
+msgstr "Rebutjar missatges"
 
 msgid "IDS_CALL_OPT_VOICE_CALL"
-msgstr "语音通话"
+msgstr "Trucada de veu"
 
 msgid "IDS_CALL_OPT_VIDEO_CALL"
-msgstr "视频通话"
+msgstr "Videotrucada"
 
 msgid "IDS_CALL_SK3_SHARE"
-msgstr "共享"
+msgstr "Compartir"
 
 msgid "IDS_CALL_BUTTON_KEYPAD"
-msgstr "键盘"
+msgstr "Teclat"
 
 msgid "IDS_CALL_BUTTON_END_CALL"
-msgstr "结束通话"
+msgstr "Fin truc"
 
 msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
-msgstr "扬声器"
+msgstr "Altaveu"
 
 msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
-msgstr "音源"
+msgstr "Font d'àudio"
 
 msgid "IDS_CALL_OPT_PHONE"
-msgstr "手机"
+msgstr "Telèfon"
 
 msgid "IDS_CALL_BUTTON_MUTE"
-msgstr "静音"
+msgstr "Silenci"
 
 msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
-msgstr "添加到联系人"
+msgstr "Afeg a contactes"
 
 msgid "IDS_CALL_SK3_VOICE_CALL"
-msgstr "语音通话"
+msgstr "Trucada de veu"
 
 msgid "IDS_CALL_BUTTON_VIDEO_CALL"
-msgstr "视频通话"
+msgstr "Vídeotr"
 
 msgid "IDS_CALL_SK3_MESSAGE"
-msgstr "信息"
+msgstr "Missatge"
 
 msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
-msgstr "添加到联系人"
+msgstr "Afegir a contact"
 
 msgid "IDS_CALL_OPT_MESSAGE"
-msgstr "信息"
+msgstr "Missatge"
 
 msgid "IDS_CALL_SK_SWAP_ABB"
-msgstr "切换"
+msgstr "Canviar"
 
 msgid "IDS_CALL_SK3_MORE"
-msgstr "更多"
+msgstr "Més"
 
 msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
-msgstr "通过 ChatON 共享文件"
+msgstr "Compart fitxer per ChatON"
 
 msgid "IDS_CALL_HEADER_SHARE_ABB"
-msgstr "共享"
+msgstr "Compartir"
 
 msgid "IDS_CALL_BODY_PD_TIMES"
-msgstr "%d 次"
+msgstr "%d vegades"
 
 msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
-msgstr "群组通话 (%d)"
+msgstr "Trucada de grup (%d)"
 
 msgid "IDS_CALL_OPT1_SAVED_IMAGE"
-msgstr "已保存图片"
+msgstr "Imatge desada"
 
 msgid "IDS_CALL_OPT1_SAVED_VIDEO"
-msgstr "已保存视频"
+msgstr "Vídeo desat"
 
 msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
-msgstr "拍照"
+msgstr "Fer una foto"
 
 msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
-msgstr "实时视频"
+msgstr "Vídeo direct"
 
 msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
-msgstr "查看联系人"
+msgstr "Veure contacte"
 
 msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
 msgstr "My call sound"
 
 msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
-msgstr "%d 个未接来电"
+msgstr "%d Trucades perdudes"
 
 msgid "IDS_CALL_POP_CALLMISSED"
-msgstr "未接来电"
+msgstr "Trucada perduda"
 

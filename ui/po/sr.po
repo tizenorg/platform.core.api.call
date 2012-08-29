@@ -1,513 +1,513 @@
 msgid "IDS_CALL_SK_ACCEPT"
-msgstr "接受"
+msgstr "Prihvati"
 
 msgid "IDS_CALL_BUTTON_MUTE_ABB"
-msgstr "静音"
+msgstr "Isklj.ton"
 
 msgid "IDS_CALL_POP_CONNECTING"
-msgstr "连接中..."
+msgstr "Povezivanje..."
 
 msgid "IDS_CALL_POP_REJECTED"
-msgstr "被拒绝"
+msgstr "Odbijeno"
 
 msgid "IDS_CALL_POP_SAVED"
-msgstr "已保存"
+msgstr "Sačuvano"
 
 msgid "IDS_CALL_POP_SENDING"
-msgstr "发送中…"
+msgstr "Slanje..."
 
 msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
-msgstr "新建拒绝信息"
+msgstr "Kreiraj poruku o odbacivanju"
 
 msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
-msgstr "拒绝信息列表空"
+msgstr "Lista odbačenih poruka prazna"
 
 msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
-msgstr "拒绝并发送短信"
+msgstr "Odbaci uz slanje poruke"
 
 msgid "IDS_CALL_BODY_CALL"
-msgstr "通话"
+msgstr "Poziv"
 
 msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
-msgstr "被呼叫方不可用"
+msgstr "Pozvani broj nedost."
 
 msgid "IDS_CALL_BODY_CALLENDED"
-msgstr "已结束通话"
+msgstr "Poziv završen"
 
 msgid "IDS_CALL_BODY_CALL_REJECTED"
-msgstr "通话被拒绝"
+msgstr "Poziv odbačen"
 
 msgid "IDS_CALL_BODY_DISCONNECTED"
-msgstr "已断开"
+msgstr "Prekinuta veza"
 
 msgid "IDS_CALL_BODY_INVALID_NUMBER"
-msgstr "数值无效"
+msgstr "Neispravan broj"
 
 msgid "IDS_CALL_BODY_IN_CALL"
-msgstr "通话中"
+msgstr "Tokom poziva"
 
 msgid "IDS_CALL_BODY_MPTY"
-msgstr "多方通话"
+msgstr "Konferencijska veza"
 
 msgid "IDS_CALL_BODY_NO_ANSWER"
-msgstr "无应答"
+msgstr "Nema odgovora"
 
 msgid "IDS_CALL_BODY_NUMBER_CHANGED"
-msgstr "号码已更改"
+msgstr "Broj promenjen"
 
 msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
-msgstr "号码不存在"
+msgstr "Broj ne postoji"
 
 msgid "IDS_CALL_BODY_ON_HOLD_ABB"
-msgstr "保持中"
+msgstr "Na ček."
 
 msgid "IDS_CALL_BODY_PEOPLE"
-msgstr "人员"
+msgstr "Ljudi"
 
 msgid "IDS_CALL_BUTTON_ACCEPT"
-msgstr "接受"
+msgstr "Prihvati"
 
 msgid "IDS_CALL_BUTTON_ADD_CALL"
-msgstr "添加呼叫"
+msgstr "Dodaj poz."
 
 msgid "IDS_CALL_BUTTON_CONTACTS"
-msgstr "联系人"
+msgstr "Kontakti"
 
 msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
-msgstr "结束"
+msgstr "Kraj"
 
 msgid "IDS_CALL_BUTTON_HEADSET"
-msgstr "耳机"
+msgstr "Slušal."
 
 msgid "IDS_CALL_BUTTON_HOLD"
-msgstr "保持"
+msgstr "Čekanje"
 
 msgid "IDS_CALL_BUTTON_JOIN"
-msgstr "加入"
+msgstr "Pridruži"
 
 msgid "IDS_CALL_BUTTON_REJECT"
-msgstr "拒绝"
+msgstr "Odbaci"
 
 msgid "IDS_CALL_BUTTON_SPEAKER"
-msgstr "扬声器"
+msgstr "Zvučnik"
 
 msgid "IDS_CALL_BUTTON_SPLIT"
-msgstr "分开"
+msgstr "Izdvoji"
 
 msgid "IDS_CALL_BUTTON_UNHOLD"
-msgstr "取消保持"
+msgstr "Obus.ček."
 
 msgid "IDS_CALL_OPT_CONFERENCE_CALL"
-msgstr "电话会议"
+msgstr "Konferencijski poziv"
 
 msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
-msgstr "结束当前呼叫并应答"
+msgstr "Završi trenutni poziv i odgovori"
 
 msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
-msgstr "保持当前电话并应答"
+msgstr "Zadrži trenutni poziv i odgovori"
 
 msgid "IDS_CALL_OPT_PRIVATE"
-msgstr "私人"
+msgstr "Privatno"
 
 msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
-msgstr "系统出错"
+msgstr "Greška sistema"
 
 msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
-msgstr "禁止所有来电"
+msgstr "Svi dolazni pozivi zabranjeni"
 
 msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
-msgstr "禁止全部拨出电话"
+msgstr "Svi odlazni pozivi zabranjeni"
 
 msgid "IDS_CALL_POP_CALLFAILED"
-msgstr "通话失败"
+msgstr "Poziv neuspešan"
 
 msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
-msgstr "仅限紧急通话"
+msgstr "Samo pozivi u hitnim slučajevima"
 
 msgid "IDS_CALL_POP_CALLNOTCALLOWED"
-msgstr "禁止通话"
+msgstr "Poziv nije dozvoljen"
 
 msgid "IDS_CALL_POP_CALL_BARRED"
-msgstr "通话被限制"
+msgstr "Poziv zabranjen"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
-msgstr "激活呼叫转移:始终"
+msgstr "Preusmeravanje poziva aktivno: Uvek"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
-msgstr "激活呼叫转移:无应答"
+msgstr "Preusmeravanje poziva aktivno: Nema odgovora"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
-msgstr "激活呼叫转移:无法接通"
+msgstr "Preusmeravanje poziva aktivno: Broj nedostupan"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
-msgstr "激活呼叫转移:遇忙"
+msgstr "Preusmeravanje poziva aktivno: Kad je zauzet"
 
 msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
-msgstr "呼叫已转移"
+msgstr "Poziv preusmeren"
 
 msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
-msgstr "错误号码"
+msgstr "Pogrešan broj"
 
 msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
-msgstr "关闭飞行模式以使用网络服务"
+msgstr "Promeni Offline profil u neki drugi zbog pristupa mrežnim uslugama"
 
 msgid "IDS_CALL_POP_DIALLING"
-msgstr "拨号中..."
+msgstr "Biranje..."
 
 msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
-msgstr "发送失败。再试"
+msgstr "Slanje neuspešno. Probaj ponovo"
 
 msgid "IDS_CALL_POP_EMERGENCY_CALL"
-msgstr "紧急呼叫"
+msgstr "Pozivi u hitnim slučajevima"
 
 msgid "IDS_CALL_POP_FDNCALLONLY"
-msgstr "仅限 FDN 呼叫"
+msgstr "Samo pozivi brojeva fiksnog biranja"
 
 msgid "IDS_CALL_POP_HELD"
-msgstr "保持"
+msgstr "Zadržan"
 
 msgid "IDS_CALL_POP_HOLD_FAILED"
-msgstr "通话保持失败"
+msgstr "Čekanje neuspešno"
 
 msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
-msgstr "通话保持不支持"
+msgstr "Čekanje nije podržano"
 
 msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
-msgstr "漫游时呼入限制"
+msgstr "Zabrana dolaznih poziva u romingu"
 
 msgid "IDS_CALL_POP_INCOMPLETE"
-msgstr "不完整"
+msgstr "Nedovršeno"
 
 msgid "IDS_CALL_POP_JOINED"
-msgstr "已加入"
+msgstr "Pridruženo"
 
 msgid "IDS_CALL_POP_JOIN_FAILED"
-msgstr "加入失败"
+msgstr "Pridruživanje neuspešno"
 
 msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
-msgstr "不支持加入"
+msgstr "Pridruživanje nije podržano"
 
 msgid "IDS_CALL_POP_NETWORKBUSY"
-msgstr "网络繁忙"
+msgstr "Mreža zauzeta"
 
 msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
-msgstr "网络无法使用"
+msgstr "Mreža nedostupna"
 
 msgid "IDS_CALL_POP_NOCREDITLEFT"
-msgstr "无余额"
+msgstr "Nema više kredita"
 
 msgid "IDS_CALL_POP_NOSERVICE"
-msgstr "无服务"
+msgstr "Nema prijema"
 
 msgid "IDS_CALL_POP_OPERATION_REFUSED"
-msgstr "拒绝操作"
+msgstr "Operacija odbijena"
 
 msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
-msgstr "除本国外的国际呼出"
+msgstr "Zabrani odlazne međunarodne pozive osim domovine"
 
 msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
-msgstr "禁止拨打国际长途"
+msgstr "Odlazni međunarodni pozivi zabranjeni"
 
 msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
-msgstr "手机未初始化"
+msgstr "Telefon nije inicijalizovan"
 
 msgid "IDS_CALL_POP_PS_REJECTED"
-msgstr "4422341526 rejected"
+msgstr "4422341526 odbačen"
 
 msgid "IDS_CALL_POP_REDIALLING"
-msgstr "重新拨号中..."
+msgstr "Ponovno pozivanje..."
 
 msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
-msgstr "服务禁止"
+msgstr "Usluga nedozvoljena"
 
 msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
-msgstr "只能打SOS电话.请插入SIM卡以访问网络服务"
+msgstr "Samo SOS pozivi.\nUbaci SIM karticu za pristup mrežnim uslugama"
 
 msgid "IDS_CALL_POP_SPLIT_FAILED"
-msgstr "断开失败"
+msgstr "Razdvajanje neuspešno"
 
 msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
-msgstr "不支持断开"
+msgstr "Razdvajanje nije podržano"
 
 msgid "IDS_CALL_POP_SWAPPED"
-msgstr "已切换"
+msgstr "Zamenjeno"
 
 msgid "IDS_CALL_POP_SWAP_FAILED"
-msgstr "切换失败"
+msgstr "Zamena neuspešna"
 
 msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
-msgstr "不支持切换"
+msgstr "Zamena nije podržana"
 
 msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
-msgstr "已切换到蓝牙耳机"
+msgstr "Prebačeno na BT slušalice"
 
 msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
-msgstr "已切换到手机"
+msgstr "Prebačeno na telefon"
 
 msgid "IDS_CALL_POP_TRANSFER_FAILED"
-msgstr "转换失败"
+msgstr "Prenos neuspešan"
 
 msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
-msgstr "不支持转换"
+msgstr "Prenos nije podržan"
 
 msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
-msgstr "无法取回"
+msgstr "Nemoguće primiti"
 
 msgid "IDS_CALL_POP_UNAVAILABLE"
-msgstr "不适用"
+msgstr "Nedostupno"
 
 msgid "IDS_CALL_POP_UNHELD"
-msgstr "取消保持"
+msgstr "Nezadržani"
 
 msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
-msgstr "取消保持不支持"
+msgstr "Obustavljanje čekanja nije podržano"
 
 msgid "IDS_CALL_POP_USER_BUSY"
-msgstr "用户繁忙"
+msgstr "Korisnik zauzet"
 
 msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
-msgstr "验证SIM卡或插入有效SIM卡"
+msgstr "Potvrdi SIM ili ubaci važeći SIM"
 
 msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
-msgstr "视频通话期间不允许进行语音呼叫"
+msgstr "Govorni poziv nije dozvoljen u toku video poziva"
 
 msgid "IDS_CALL_POP_WAITING_ACTIVE"
-msgstr "等待启动"
+msgstr "Čekanje aktivno"
 
 msgid "IDS_CALL_POP_WRONG_GROUP"
-msgstr "错误分组"
+msgstr "Pogrešna grupa"
 
 msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
-msgstr "拒接来电并发送短信"
+msgstr "Odbaci poziv uz slanje poruke"
 
 msgid "IDS_CALL_POP_END_ACTIVE_CALL"
-msgstr "结束当前通话"
+msgstr "Prekini aktivan poziv"
 
 msgid "IDS_CALL_OPT_HOLDCALL"
-msgstr "保持通话"
+msgstr "Stavi poziv na čekanje"
 
 msgid "IDS_CALL_OPT_END_HELD_CALL"
-msgstr "结束保持通话"
+msgstr "Prekini poziv na čekanju"
 
 msgid "IDS_CALL_OPT_END_ALL_CALLS"
-msgstr "结束所有呼叫"
+msgstr "Završi sve pozive"
 
 msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
-msgstr "结束当前通话 (%d)"
+msgstr "Prekini aktivne pozive (%d)"
 
 msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
-msgstr "结束保持通话 (%d)"
+msgstr "Prekini pozive na čekanju (%d)"
 
 msgid "IDS_CALL_BUTTON_HEADPHONES"
-msgstr "耳机"
+msgstr "Slušalice"
 
 msgid "IDS_CALL_BUTTON_RECEIVER"
-msgstr "听筒"
+msgstr "Prijemnik"
 
 msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
-msgstr "注册帐户失败"
+msgstr "Nije uspela registracija naloga"
 
 msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
-msgstr "保持通话"
+msgstr "Akt. poz. na čekanje"
 
 msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
-msgstr "存储空间不足。请删除部分项目"
+msgstr "Nedovoljno memorije. Obriši neke od stavki"
 
 msgid "IDS_CALL_SK3_END_CALL"
-msgstr "结束通话"
+msgstr "Završi"
 
 msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
-msgstr "服务无法正常提供"
+msgstr "Usluga nedostupna"
 
 msgid "IDS_CALL_SK3_KEYPAD"
-msgstr "键盘"
+msgstr "Tastatura"
 
 msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
-msgstr "隐藏键盘"
+msgstr "Sakrij tastat."
 
 msgid "IDS_CALL_SK_REC_ABB"
-msgstr "录音"
+msgstr "Snimi"
 
 msgid "IDS_CALL_POP_UNKNOWNREJECTED"
-msgstr "已拒绝未知来电"
+msgstr "Nepoznat poziv odbačen"
 
 msgid "IDS_CALL_OPT_SWITCH"
-msgstr "切换"
+msgstr "Prebaci"
 
 msgid "IDS_CALL_HEADER_SELECT_NUMBER"
-msgstr "选择号码"
+msgstr "Izaberi broj"
 
 msgid "IDS_CALL_BODY_IN_PD_DAYS"
-msgstr "%d 天内"
+msgstr "za %d dana"
 
 msgid "IDS_CALL_BODY_TOMORROW"
-msgstr "明天"
+msgstr "Sutra"
 
 msgid "IDS_CALL_POP_IN_A_WEEK"
-msgstr "在一周里"
+msgstr "Za nedelju dana"
 
 msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
-msgstr "保持%s"
+msgstr "Stavljanje %s na čekanje"
 
 msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
-msgstr "结束%s"
+msgstr "Završavanje poziva uz %s"
 
 msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
-msgstr "接听来电"
+msgstr "Prihvati poziv nakon"
 
 msgid "IDS_CALL_BODY_END_ALL_CALLS"
-msgstr "结束所有呼叫"
+msgstr "Završi sve pozive"
 
 msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
-msgstr "噪声降低关"
+msgstr "Redukcija šuma isključena"
 
 msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
-msgstr "噪声降低开"
+msgstr "Redukcija šuma uključena"
 
 msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
-msgstr "加强低音"
+msgstr "Pojačaj niske ton."
 
 msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
-msgstr "加强高音"
+msgstr "Pojačaj visoke ton."
 
 msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
-msgstr "针对左耳优化"
+msgstr "Optimizovan za levo uvo"
 
 msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
-msgstr "针对右耳优化"
+msgstr "Optimizovan za desno uvo"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
-msgstr "无法在启用超大音量时开启减噪"
+msgstr "Nemoguće je uključiti redukciju šuma kada je omogućena dodatna jačina zvuka"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
-msgstr "当连接耳机时，无法打开噪音降低"
+msgstr "Nemoguće je uključiti redukciju šuma kada je povezana slušalica"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
-msgstr "当蓝牙耳机启动时，无法打开噪音降低"
+msgstr "Nemoguće je uključiti redukciju šuma kada je uključena Bluetooth slušalica"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
-msgstr "宽带通话期间无法打开噪音降低"
+msgstr "Nemoguće je uključiti redukciju šuma tokom poziva preko širokopojasne veze"
 
 msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
-msgstr "若要使用该功能，您必须在呼叫设置下勾选“优化我的 EQ”"
+msgstr "Radi korišćenja ove funkcije, neophodna je provera optimizacije ekvil. za podešavanje opcije „razgovor u toku”"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
-msgstr "当扬声器开启时无法启用来电声音 EQ"
+msgstr "Nije moguće omogućiti ekvilajzer zvuka za razgovor na drugom telefonu kada je zvučnik uključen"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
-msgstr "当耳机连接时无法启用来电声音 EQ"
+msgstr "Nije moguće omogućiti ekvilajzer zvuka za razgovor na drugom telefonu kada su slušalice povezane"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
-msgstr "当蓝牙耳机开启时无法启用来电声音 EQ"
+msgstr "Nije moguće omogućiti ekvilajzer zvuka za razgovor na drugom telefonu kada je Bluetooth slušalica uključena"
 
 msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
-msgstr "当耳机或蓝牙耳机连接时无法使用超大音量范围"
+msgstr "Nije moguće koristiti raspon dodatne jačine zvuka kada su povezane slušalice ili BT"
 
 msgid "IDS_CALL_POP_CALLING"
-msgstr "正在呼叫..."
+msgstr "Pozivanje..."
 
 msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
-msgstr "管理电话会议"
+msgstr "Organizuj konferencijsku vezu"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
-msgstr "当超大音量启用时无法启用来电声音 EQ"
+msgstr "Nije moguće omogućiti ekvilajzer zvuka za razgovor na drugom telefonu dok je omogućena dodatna jačina zvuka"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
-msgstr "无法在宽带通话期间启用通话中声音效果"
+msgstr "Nije moguće omogućiti ekvilajzer zvuka za razgovor preko širokopojasne veze"
 
 msgid "IDS_CALL_BUTTON_SOUND_ABB"
-msgstr "声音"
+msgstr "Zvuk"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
-msgstr "当扬声器启动时，无法打开噪音降低"
+msgstr "Nemoguće je uključiti redukciju šuma kada je uključen zvučnik"
 
 msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
-msgstr "拒绝信息"
+msgstr "Odbaci poruke"
 
 msgid "IDS_CALL_OPT_VOICE_CALL"
-msgstr "语音通话"
+msgstr "Govorni poziv"
 
 msgid "IDS_CALL_OPT_VIDEO_CALL"
-msgstr "视频通话"
+msgstr "Video poziv"
 
 msgid "IDS_CALL_SK3_SHARE"
-msgstr "共享"
+msgstr "Podeli"
 
 msgid "IDS_CALL_BUTTON_KEYPAD"
-msgstr "键盘"
+msgstr "Tastatura"
 
 msgid "IDS_CALL_BUTTON_END_CALL"
-msgstr "结束通话"
+msgstr "Završi"
 
 msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
-msgstr "扬声器"
+msgstr "Zvučnik"
 
 msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
-msgstr "音源"
+msgstr "Izvor zvuka"
 
 msgid "IDS_CALL_OPT_PHONE"
-msgstr "手机"
+msgstr "Telefon"
 
 msgid "IDS_CALL_BUTTON_MUTE"
-msgstr "静音"
+msgstr "Isključi ton"
 
 msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
-msgstr "添加到联系人"
+msgstr "Dodaj u kontakte"
 
 msgid "IDS_CALL_SK3_VOICE_CALL"
-msgstr "语音通话"
+msgstr "Govorni poziv"
 
 msgid "IDS_CALL_BUTTON_VIDEO_CALL"
-msgstr "视频通话"
+msgstr "Video p."
 
 msgid "IDS_CALL_SK3_MESSAGE"
-msgstr "信息"
+msgstr "Poruka"
 
 msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
-msgstr "添加到联系人"
+msgstr "Dodaj u kontakte"
 
 msgid "IDS_CALL_OPT_MESSAGE"
-msgstr "信息"
+msgstr "Poruka"
 
 msgid "IDS_CALL_SK_SWAP_ABB"
-msgstr "切换"
+msgstr "Zameni"
 
 msgid "IDS_CALL_SK3_MORE"
-msgstr "更多"
+msgstr "Još"
 
 msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
-msgstr "通过 ChatON 共享文件"
+msgstr "Podeli fajl putem ChatON-a"
 
 msgid "IDS_CALL_HEADER_SHARE_ABB"
-msgstr "共享"
+msgstr "Podeli"
 
 msgid "IDS_CALL_BODY_PD_TIMES"
-msgstr "%d 次"
+msgstr "%d puta"
 
 msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
-msgstr "群组通话 (%d)"
+msgstr "Grupni poziv (%d)"
 
 msgid "IDS_CALL_OPT1_SAVED_IMAGE"
-msgstr "已保存图片"
+msgstr "Sačuvana slika"
 
 msgid "IDS_CALL_OPT1_SAVED_VIDEO"
-msgstr "已保存视频"
+msgstr "Sačuvani video"
 
 msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
-msgstr "拍照"
+msgstr "Snimi fotografiju"
 
 msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
-msgstr "实时视频"
+msgstr "Video uživo"
 
 msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
-msgstr "查看联系人"
+msgstr "Prik. kontakt"
 
 msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
 msgstr "My call sound"
 
 msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
-msgstr "%d 个未接来电"
+msgstr "%d propuštenih poziva"
 
 msgid "IDS_CALL_POP_CALLMISSED"
-msgstr "未接来电"
+msgstr "Propušten poziv"
 

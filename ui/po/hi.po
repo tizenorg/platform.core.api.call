@@ -1,0 +1,513 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "स्वीकारें"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "मूक"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "जोड़ा जा रहा है…"
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "अस्‍वीकृत"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "सुरक्षित किया"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "भेजा जा रहा है…"
+
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "अस्‍वीकृत सन्देश बनाएँ"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "अस्‍वीकृत सन्देश सूची खाली है"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "सन्देश से अस्वीकारें"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "कॉल"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "कॉल्ड पार्टी नहीं है"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "कॉल समाप्त"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "कॉल निरस्त"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "डिस्कनेक्ट हुआ"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "अमान्‍य नंबर"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "कॉल में"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "मल्टीपार्टी"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "कोई उत्तर नहीं"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "नंबर बदला गया"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "नंबर मौजूद नहीं"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "होल्‍ड पर है"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "लोग"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "स्‍वीकारें"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "कॉल जोड़ें"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "सं‍पर्क"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "समाप्त"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "हेडसेट"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "होल्ड"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "शामिल हों"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "अस्वीकारें"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "स्पीकर"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "स्प्लिट"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "अनहोल्‍ड करें"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "कॉन्‍फ़्रेंस कॉल"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "वर्तमान कॉल संपादित करें & जवाब दें"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "वर्तमान कॉल होल्ड करें & जवाब दें"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "निजी"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "सिस्‍टम त्रुटि"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "सभी आने वाली कॉलें बाधित हैं"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "सभी बाहर जाने वाली कॉलें प्रतिबंधित हैं"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "कॉल असफल"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "केवल आपात कॉलें"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "कॉल की अनुमति नहीं"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "कॉल प्रतिबन्धित"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "कॉल अंतरित करें: हमेशा"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "कॉल अंतरित करें: कोई उत्तर नहीं"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "कॉलें डायवर्ट: पहुँच से बाहर"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "कॉल अंतरित करें: जब व्यस्त हों"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "कॉल अंतरित हुई"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "गलत नंबर"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "नेटवर्क सेवाओं के लिए Offline से दूसरी प्रोफ़ाइल में बदलें"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "डायल हो रहा है…"
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "भेजना विफल। फिर से कोशिश करें"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "आपातकाल कॉल"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "केवल FDN कॉल्स"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "आयोजित"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "होल्ड विफल हुआ"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "होल्ड को सपोर्ट नहीं किया गया"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "रोमिंग में इनकमिंग कॉल प्रतिबंधित"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "अपूर्ण"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "शामिल हुआ"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "शामिल होना विफल"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "शामिल होना असमर्थित"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "नेटवर्क व्यस्त"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "नेटवर्क उपलब्ध नहीं"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "क्रेडिट नहीं बचा"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "कोई सेवा नहीं"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "कार्रवाई अस्वीकृत"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "सिवाय घर के आउटगोइंग अंतर्राष्ट्रीय कॉलें प्रतिबन्धित हैं"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "आउटगोइंग अंतरराष्‍ट्रीय कॉल्स प्रतिबंधित"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "फ़ोन स्थापित नहीं किया गया"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "4422341526 अस्‍वीकार किया गया"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "पुनः डायल किया जा रहा है..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "सेवा की अनुमति नहीं"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "केवल आपातकाल  कॉल\n नेटवर्क सेवाएं प्राप्त करने के लिए सिम कार्ड डालें"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "स्प्लिट विफल"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "स्प्लिट समर्थित नहीं है"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "एक दूसरे से बदला गया"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "स्‍वैप करना विफल"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "स्‍वैप असमर्थित"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "BT हेडसेट पर स्विच करें"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "फ़ोन पर स्विच किया गया"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "स्‍थानांतरण विफल"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "स्‍थानांतरण असमर्थित"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "पुनःप्राप्ति में अक्षम"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "उपलब्ध नहीं"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "होल्ड नहीं"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "अनहोल्‍ड असमर्थित"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "उपभोक्ता व्यस्त"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "सिम सत्‍यापित करें या मान्‍य सिम डालें"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "वीडियो कॉल के दौरान वॉइस कॉल की अनुमति नहीं है"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "प्रतीक्षा सक्रिय"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "ग़लत समूह"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "सन्देश के साथ कॉल अस्वीकारें"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "सक्रिय कॉल समाप्त करें"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "कॉल होल्ड करें"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "हेल्ड कॉल समाप्त करें"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "सभी कॉल्‍स समाप्‍त करें"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "सक्रिय कॉल्‍स समाप्त करें (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "हेल्ड कॉल्‍स समाप्त करें (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "हेडफ़ोन्‍स"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "प्राप्तकर्ता"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "खाता पंजीकृत करने में विफल"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "सक्रिय कॉल होल्ड करें"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "पर्याप्त मेमोरी नहीं। कुछ मदें हटाएँ"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "कॉल समाप्‍त"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "सेवा अनुपलब्ध"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "कीपैड"
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "कीपैड छिपाएँ"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "रिक."
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "अज्ञात कॉल अस्‍वीकृत"
+
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "स्विच करें"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "नंबर चुनें"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "%d दिनों में"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "कल"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "एक सप्ताह में"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "%s को प्रतीक्षा में रख रहे है"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "%s सह कॉल समाप्त किया जा रहा है"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "इस के बाद कॉल स्वीकारें"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "सभी कॉल्‍स समाप्‍त करें"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "शोर घटाना बंद"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "शोर घटाना शुरू"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "बूस्‍ट लो टोन्‍स"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "बूस्‍ट हाइ टोन्‍स"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "बाएँ कान के लिए अनुकूलित"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "दाएँ कान के लिए अनुकूलित"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "अतिरिक्त वॉल्यूम सक्षम के दौरान शोर में कमी चालू करने में अक्षम"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "इयरफ़ोन कनेक्ट किए जाने पर शोर में कमी चालू करने में अक्षम"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "ब्लूटूथ हेडसेट चालू होने पर शोर में कमी चालू करने में अक्षम"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "वाइडबैंड कॉलों के दौरान शोर में कमी चालू करने में अक्षम"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "इस फ़ंक्‍शन का उपयोग करने के लिए, आपको कॉल सेटिंग्स के तहत मेरे लिए EQ अनुकूलित करें चेक करना होगा"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "जब स्पीकर चालू हो तब कॉल-में ध्वनि EQ सक्षम करने में अक्षम"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "जब इयरफ़ोन्स कनेक्ट किए गएँ हो तब कॉल-में ध्वनि EQ सक्षम करने में अक्षम"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "जब ब्‍लूटूथ हेडसेट चालू हो तब कॉल-में ध्वनि EQ सक्षम करने में अक्षम"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "अतिरिक्त वॉल्यूम रेंज उपयोग करने में अक्षम जब इयरफ़ोन्स या ब्लूटूथ हेडसेट कनेक्ट है"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "कॉल कर रहा है..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "कॉन्‍फ़्रेंस कॉल व्यवस्थापित करें"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "अतिरिक्त वॉल्यूम सक्षम होने पर कॉल-में ध्वनि EQ सक्षम करने में असमर्थ"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "वाइडबैंड कॉल्‍स के दौरान कॉल-में ध्वनि EQ सक्षम करने में अक्षम"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "ध्वनि"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "स्पीकर चालू होने पर शोर में कमी चालू करने में अक्षम"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "सन्देश अस्‍वीकृत करें"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "वॉइस कॉल"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "विडियो कॉल"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "शेयर करें"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "कीपैड"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "कॉल समाप्त करें"
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "स्पीकर"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "ऑडियो स्रोत"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "फोन"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "मूक"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "संपर्क में जोड़ें"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "Voice call"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "वीडियो कॉल"
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "सन्देश"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "संपर्क में जोड़ें"
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "सन्देश"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "स्वैप"
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "अधिक"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "चैटऑन के द्वारा फ़ाइल साझा करें"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "शेयर करें"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d बार"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "समूह कॉल (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "सुरक्षित की गई छवि"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "सुरक्षित किया गया वीडियो"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "कोई तस्वीर लें"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "लाइव वीडियो"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "संपर्क देखें"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d छूटी कॉल्स"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "छूटी कॉल"
+

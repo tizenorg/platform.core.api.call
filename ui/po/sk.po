@@ -1,513 +1,513 @@
 msgid "IDS_CALL_SK_ACCEPT"
-msgstr "接受"
+msgstr "Prijať"
 
 msgid "IDS_CALL_BUTTON_MUTE_ABB"
-msgstr "静音"
+msgstr "Stlmiť"
 
 msgid "IDS_CALL_POP_CONNECTING"
-msgstr "连接中..."
+msgstr "Pripájanie..."
 
 msgid "IDS_CALL_POP_REJECTED"
-msgstr "被拒绝"
+msgstr "Odmietnuté"
 
 msgid "IDS_CALL_POP_SAVED"
-msgstr "已保存"
+msgstr "Uložené"
 
 msgid "IDS_CALL_POP_SENDING"
-msgstr "发送中…"
+msgstr "Odosielanie..."
 
 msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
-msgstr "新建拒绝信息"
+msgstr "Vytvoriť odmietaciu správu"
 
 msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
-msgstr "拒绝信息列表空"
+msgstr "Zoznam odmietacích správ je prázdny"
 
 msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
-msgstr "拒绝并发送短信"
+msgstr "Odmietnuť so správou"
 
 msgid "IDS_CALL_BODY_CALL"
-msgstr "通话"
+msgstr "Hovor"
 
 msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
-msgstr "被呼叫方不可用"
+msgstr "Volaný účast. je ned."
 
 msgid "IDS_CALL_BODY_CALLENDED"
-msgstr "已结束通话"
+msgstr "Hovor ukončený"
 
 msgid "IDS_CALL_BODY_CALL_REJECTED"
-msgstr "通话被拒绝"
+msgstr "Hovor bol odmietnutý"
 
 msgid "IDS_CALL_BODY_DISCONNECTED"
-msgstr "已断开"
+msgstr "Odpojené"
 
 msgid "IDS_CALL_BODY_INVALID_NUMBER"
-msgstr "数值无效"
+msgstr "Neplatné číslo"
 
 msgid "IDS_CALL_BODY_IN_CALL"
-msgstr "通话中"
+msgstr "Pri hovore"
 
 msgid "IDS_CALL_BODY_MPTY"
-msgstr "多方通话"
+msgstr "Konferenčný hovor"
 
 msgid "IDS_CALL_BODY_NO_ANSWER"
-msgstr "无应答"
+msgstr "Žiadna odpoveď"
 
 msgid "IDS_CALL_BODY_NUMBER_CHANGED"
-msgstr "号码已更改"
+msgstr "Číslo bolo zmenené"
 
 msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
-msgstr "号码不存在"
+msgstr "Číslo neexistuje"
 
 msgid "IDS_CALL_BODY_ON_HOLD_ABB"
-msgstr "保持中"
+msgstr "Podržaný"
 
 msgid "IDS_CALL_BODY_PEOPLE"
-msgstr "人员"
+msgstr "Ľudia"
 
 msgid "IDS_CALL_BUTTON_ACCEPT"
-msgstr "接受"
+msgstr "Prijať"
 
 msgid "IDS_CALL_BUTTON_ADD_CALL"
-msgstr "添加呼叫"
+msgstr "Pr. hovor"
 
 msgid "IDS_CALL_BUTTON_CONTACTS"
-msgstr "联系人"
+msgstr "Kontakty"
 
 msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
-msgstr "结束"
+msgstr "Uk.hov."
 
 msgid "IDS_CALL_BUTTON_HEADSET"
-msgstr "耳机"
+msgstr "Headset"
 
 msgid "IDS_CALL_BUTTON_HOLD"
-msgstr "保持"
+msgstr "Podržať"
 
 msgid "IDS_CALL_BUTTON_JOIN"
-msgstr "加入"
+msgstr "Spojiť"
 
 msgid "IDS_CALL_BUTTON_REJECT"
-msgstr "拒绝"
+msgstr "Odmietnuť"
 
 msgid "IDS_CALL_BUTTON_SPEAKER"
-msgstr "扬声器"
+msgstr "Reprod."
 
 msgid "IDS_CALL_BUTTON_SPLIT"
-msgstr "分开"
+msgstr "Rozdeliť"
 
 msgid "IDS_CALL_BUTTON_UNHOLD"
-msgstr "取消保持"
+msgstr "Uvoľniť"
 
 msgid "IDS_CALL_OPT_CONFERENCE_CALL"
-msgstr "电话会议"
+msgstr "Konferenčný hovor"
 
 msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
-msgstr "结束当前呼叫并应答"
+msgstr "Ukončiť aktuálny hovor a odpovedať"
 
 msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
-msgstr "保持当前电话并应答"
+msgstr "Podržať aktuálny hovor a odpovedať"
 
 msgid "IDS_CALL_OPT_PRIVATE"
-msgstr "私人"
+msgstr "Súkromné"
 
 msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
-msgstr "系统出错"
+msgstr "Systémová chyba"
 
 msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
-msgstr "禁止所有来电"
+msgstr "Všetky prichádzajúce hovory blokované"
 
 msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
-msgstr "禁止全部拨出电话"
+msgstr "Všetky odchádzajúce hovory blokované"
 
 msgid "IDS_CALL_POP_CALLFAILED"
-msgstr "通话失败"
+msgstr "Hovor sa nepodaril"
 
 msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
-msgstr "仅限紧急通话"
+msgstr "Len tiesňové volania"
 
 msgid "IDS_CALL_POP_CALLNOTCALLOWED"
-msgstr "禁止通话"
+msgstr "Hovor nie je povolený"
 
 msgid "IDS_CALL_POP_CALL_BARRED"
-msgstr "通话被限制"
+msgstr "Hovor je blokovaný"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
-msgstr "激活呼叫转移:始终"
+msgstr "Presmerovanie hovorov je aktívne: Vždy"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
-msgstr "激活呼叫转移:无应答"
+msgstr "Presmerovanie hovorov je aktívne: Ak žiadna odpoveď"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
-msgstr "激活呼叫转移:无法接通"
+msgstr "Presmerovanie hovorov je aktívne: Ak nedostupné"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
-msgstr "激活呼叫转移:遇忙"
+msgstr "Presmerovanie hovorov je aktívne: Ak obsadené"
 
 msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
-msgstr "呼叫已转移"
+msgstr "Hovor bol presmerovaný"
 
 msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
-msgstr "错误号码"
+msgstr "Zlé číslo"
 
 msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
-msgstr "关闭飞行模式以使用网络服务"
+msgstr "Zmeniť z profilu offline na iný profil pre sieťové služby"
 
 msgid "IDS_CALL_POP_DIALLING"
-msgstr "拨号中..."
+msgstr "Vytáčanie..."
 
 msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
-msgstr "发送失败。再试"
+msgstr "Odoslanie zlyhalo. Skúste to znova"
 
 msgid "IDS_CALL_POP_EMERGENCY_CALL"
-msgstr "紧急呼叫"
+msgstr "Tiesňový hovor"
 
 msgid "IDS_CALL_POP_FDNCALLONLY"
-msgstr "仅限 FDN 呼叫"
+msgstr "Iba hovory FDN"
 
 msgid "IDS_CALL_POP_HELD"
-msgstr "保持"
+msgstr "Podržaný"
 
 msgid "IDS_CALL_POP_HOLD_FAILED"
-msgstr "通话保持失败"
+msgstr "Podržanie zlyhalo"
 
 msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
-msgstr "通话保持不支持"
+msgstr "Podržanie nie je podporované"
 
 msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
-msgstr "漫游时呼入限制"
+msgstr "Prichádzajúce hovory blokované pri roamingu"
 
 msgid "IDS_CALL_POP_INCOMPLETE"
-msgstr "不完整"
+msgstr "Nedokončené"
 
 msgid "IDS_CALL_POP_JOINED"
-msgstr "已加入"
+msgstr "Spojené"
 
 msgid "IDS_CALL_POP_JOIN_FAILED"
-msgstr "加入失败"
+msgstr "Spojenie zlyhalo"
 
 msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
-msgstr "不支持加入"
+msgstr "Spojenie nie je podporované"
 
 msgid "IDS_CALL_POP_NETWORKBUSY"
-msgstr "网络繁忙"
+msgstr "Sieť obsadená"
 
 msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
-msgstr "网络无法使用"
+msgstr "Sieť nedostupná"
 
 msgid "IDS_CALL_POP_NOCREDITLEFT"
-msgstr "无余额"
+msgstr "Žiadny kredit"
 
 msgid "IDS_CALL_POP_NOSERVICE"
-msgstr "无服务"
+msgstr "Žiadna služba"
 
 msgid "IDS_CALL_POP_OPERATION_REFUSED"
-msgstr "拒绝操作"
+msgstr "Operácia bola odmietnutá"
 
 msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
-msgstr "除本国外的国际呼出"
+msgstr "Odchádzajúce medzinárodné hovory okrem domácich sú blokované"
 
 msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
-msgstr "禁止拨打国际长途"
+msgstr "Medzinár. odchádzajúce hovory blokované"
 
 msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
-msgstr "手机未初始化"
+msgstr "Telefón nie je inicializovaný"
 
 msgid "IDS_CALL_POP_PS_REJECTED"
-msgstr "4422341526 rejected"
+msgstr "4422341526 odmietnuté"
 
 msgid "IDS_CALL_POP_REDIALLING"
-msgstr "重新拨号中..."
+msgstr "Opakované vytáčanie..."
 
 msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
-msgstr "服务禁止"
+msgstr "Služba nie je povolená"
 
 msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
-msgstr "只能打SOS电话.请插入SIM卡以访问网络服务"
+msgstr "Iba tiesňový hovor.\nVložte SIM kartu na prístup k službám siete"
 
 msgid "IDS_CALL_POP_SPLIT_FAILED"
-msgstr "断开失败"
+msgstr "Rozdelenie zlyhalo"
 
 msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
-msgstr "不支持断开"
+msgstr "Rozdelenie nie je podporované"
 
 msgid "IDS_CALL_POP_SWAPPED"
-msgstr "已切换"
+msgstr "Prehodené"
 
 msgid "IDS_CALL_POP_SWAP_FAILED"
-msgstr "切换失败"
+msgstr "Prehodenie zlyhalo"
 
 msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
-msgstr "不支持切换"
+msgstr "Prehodenie nie je podporované"
 
 msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
-msgstr "已切换到蓝牙耳机"
+msgstr "Prepnuté na náhlavnú súpravu BT"
 
 msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
-msgstr "已切换到手机"
+msgstr "Prepnuté na telefón"
 
 msgid "IDS_CALL_POP_TRANSFER_FAILED"
-msgstr "转换失败"
+msgstr "Chyba prenosu"
 
 msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
-msgstr "不支持转换"
+msgstr "Prenos nie je podporovaný"
 
 msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
-msgstr "无法取回"
+msgstr "Nedá sa prevziať"
 
 msgid "IDS_CALL_POP_UNAVAILABLE"
-msgstr "不适用"
+msgstr "Nie je k dispozícii"
 
 msgid "IDS_CALL_POP_UNHELD"
-msgstr "取消保持"
+msgstr "Nepodržaný"
 
 msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
-msgstr "取消保持不支持"
+msgstr "Zrušenie podržania nie je podporované"
 
 msgid "IDS_CALL_POP_USER_BUSY"
-msgstr "用户繁忙"
+msgstr "Užívat. obsadený"
 
 msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
-msgstr "验证SIM卡或插入有效SIM卡"
+msgstr "Overte kartu SIM alebo vložte platnú kartu SIM"
 
 msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
-msgstr "视频通话期间不允许进行语音呼叫"
+msgstr "Hlasový hovor nie je povolený počas videohovoru"
 
 msgid "IDS_CALL_POP_WAITING_ACTIVE"
-msgstr "等待启动"
+msgstr "Čakanie je aktívne"
 
 msgid "IDS_CALL_POP_WRONG_GROUP"
-msgstr "错误分组"
+msgstr "Chybná skupina"
 
 msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
-msgstr "拒接来电并发送短信"
+msgstr "Odmietnuť hovor so správou"
 
 msgid "IDS_CALL_POP_END_ACTIVE_CALL"
-msgstr "结束当前通话"
+msgstr "Ukončiť aktívny hovor"
 
 msgid "IDS_CALL_OPT_HOLDCALL"
-msgstr "保持通话"
+msgstr "Podržať hovor"
 
 msgid "IDS_CALL_OPT_END_HELD_CALL"
-msgstr "结束保持通话"
+msgstr "Ukončiť podržaný hovor"
 
 msgid "IDS_CALL_OPT_END_ALL_CALLS"
-msgstr "结束所有呼叫"
+msgstr "Ukončiť všetky hovory"
 
 msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
-msgstr "结束当前通话 (%d)"
+msgstr "Ukončiť aktívne hovory (%d)"
 
 msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
-msgstr "结束保持通话 (%d)"
+msgstr "Ukončiť podržané hovory (%d)"
 
 msgid "IDS_CALL_BUTTON_HEADPHONES"
-msgstr "耳机"
+msgstr "Slúchadlá"
 
 msgid "IDS_CALL_BUTTON_RECEIVER"
-msgstr "听筒"
+msgstr "Prijímač"
 
 msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
-msgstr "注册帐户失败"
+msgstr "Nepodarilo sa zaregistrovať konto"
 
 msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
-msgstr "保持通话"
+msgstr "Podrž. aktívny hovor"
 
 msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
-msgstr "存储空间不足。请删除部分项目"
+msgstr "Nedostatok pamäte. Vymažte niektoré položky"
 
 msgid "IDS_CALL_SK3_END_CALL"
-msgstr "结束通话"
+msgstr "Uk. hov."
 
 msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
-msgstr "服务无法正常提供"
+msgstr "Služba je nedostupná"
 
 msgid "IDS_CALL_SK3_KEYPAD"
-msgstr "键盘"
+msgstr "Kláv."
 
 msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
-msgstr "隐藏键盘"
+msgstr "Skryť kláves."
 
 msgid "IDS_CALL_SK_REC_ABB"
-msgstr "录音"
+msgstr "Zázn."
 
 msgid "IDS_CALL_POP_UNKNOWNREJECTED"
-msgstr "已拒绝未知来电"
+msgstr "Neznámy hovor odmietnutý"
 
 msgid "IDS_CALL_OPT_SWITCH"
-msgstr "切换"
+msgstr "Prepnúť"
 
 msgid "IDS_CALL_HEADER_SELECT_NUMBER"
-msgstr "选择号码"
+msgstr "Vyberte číslo"
 
 msgid "IDS_CALL_BODY_IN_PD_DAYS"
-msgstr "%d 天内"
+msgstr "v priebehu %d dní"
 
 msgid "IDS_CALL_BODY_TOMORROW"
-msgstr "明天"
+msgstr "Zajtra"
 
 msgid "IDS_CALL_POP_IN_A_WEEK"
-msgstr "在一周里"
+msgstr "Za týždeň"
 
 msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
-msgstr "保持%s"
+msgstr "%s sa podrží"
 
 msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
-msgstr "结束%s"
+msgstr "Ukončuje sa hovor s používateľom %s"
 
 msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
-msgstr "接听来电"
+msgstr "Prijať hovor po"
 
 msgid "IDS_CALL_BODY_END_ALL_CALLS"
-msgstr "结束所有呼叫"
+msgstr "Ukončiť všetky hovory"
 
 msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
-msgstr "噪声降低关"
+msgstr "Vypnúť potlačenie šumu"
 
 msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
-msgstr "噪声降低开"
+msgstr "Zapnúť potlačenie šumu"
 
 msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
-msgstr "加强低音"
+msgstr "Zvýraz. nízke tóny"
 
 msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
-msgstr "加强高音"
+msgstr "Zvýraz. vysoké tóny"
 
 msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
-msgstr "针对左耳优化"
+msgstr "Optimaliz. pre ľavé ucho"
 
 msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
-msgstr "针对右耳优化"
+msgstr "Optimaliz. pre pravé ucho"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
-msgstr "无法在启用超大音量时开启减噪"
+msgstr "Potlačenie šumu sa nedá zapnúť, keď je zapnutá zvýšená hlasitosť"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
-msgstr "当连接耳机时，无法打开噪音降低"
+msgstr "Potlačenie šumu sa nedá zapnúť, keď je pripojené slúchadlo"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
-msgstr "当蓝牙耳机启动时，无法打开噪音降低"
+msgstr "Potlačenie šumu sa nedá zapnúť, keď je zapnutá náhlavná súprava Bluetooth"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
-msgstr "宽带通话期间无法打开噪音降低"
+msgstr "Potlačenie šumu sa nedá zapnúť počas širokopásmových hovorov"
 
 msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
-msgstr "若要使用该功能，您必须在呼叫设置下勾选“优化我的 EQ”"
+msgstr "Ak chcete použiť túto funkciu, musíte začiarknuť možnosť optimalizácie ekvalizéra pre používateľa v menu Nastavenia hovoru"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
-msgstr "当扬声器开启时无法启用来电声音 EQ"
+msgstr "Zvukový ekvalizér počas hovoru sa nedá aktivovať, keď je zapnutý reproduktor"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
-msgstr "当耳机连接时无法启用来电声音 EQ"
+msgstr "Zvukový ekvalizér počas hovoru sa nedá aktivovať, keď sú pripojené slúchadlá"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
-msgstr "当蓝牙耳机开启时无法启用来电声音 EQ"
+msgstr "Zvukový ekvalizér počas hovoru sa nedá aktivovať, keď sú zapnuté slúchadlá s mikrofónom Bluetooth"
 
 msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
-msgstr "当耳机或蓝牙耳机连接时无法使用超大音量范围"
+msgstr "Keď sú pripojené slúchadlá alebo slúchadlá BT s mikrofónom, nemožno použiť rozsah extra hlasitosti"
 
 msgid "IDS_CALL_POP_CALLING"
-msgstr "正在呼叫..."
+msgstr "Volanie..."
 
 msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
-msgstr "管理电话会议"
+msgstr "Spravovať konferenčný hovor"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
-msgstr "当超大音量启用时无法启用来电声音 EQ"
+msgstr "Zvukový ekvalizér počas hovoru sa nedá aktivovať, keď je zapnutá zvýšená hlasitosť"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
-msgstr "无法在宽带通话期间启用通话中声音效果"
+msgstr "Zvukový ekvalizér počas hovoru sa nedá aktivovať počas širokopásmových hovorov"
 
 msgid "IDS_CALL_BUTTON_SOUND_ABB"
-msgstr "声音"
+msgstr "Zvuk"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
-msgstr "当扬声器启动时，无法打开噪音降低"
+msgstr "Potlačenie šumu sa nedá zapnúť, keď je zapnutý reproduktor"
 
 msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
-msgstr "拒绝信息"
+msgstr "Odmietnuť správy"
 
 msgid "IDS_CALL_OPT_VOICE_CALL"
-msgstr "语音通话"
+msgstr "Hlasový hovor"
 
 msgid "IDS_CALL_OPT_VIDEO_CALL"
-msgstr "视频通话"
+msgstr "Videohovor"
 
 msgid "IDS_CALL_SK3_SHARE"
-msgstr "共享"
+msgstr "Zdieľať"
 
 msgid "IDS_CALL_BUTTON_KEYPAD"
-msgstr "键盘"
+msgstr "Klávesnica"
 
 msgid "IDS_CALL_BUTTON_END_CALL"
-msgstr "结束通话"
+msgstr "Uk. hov."
 
 msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
-msgstr "扬声器"
+msgstr "Reproduk."
 
 msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
-msgstr "音源"
+msgstr "Zdroj zvuku"
 
 msgid "IDS_CALL_OPT_PHONE"
-msgstr "手机"
+msgstr "Telefón"
 
 msgid "IDS_CALL_BUTTON_MUTE"
-msgstr "静音"
+msgstr "Stlmiť"
 
 msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
-msgstr "添加到联系人"
+msgstr "Pridať do kont."
 
 msgid "IDS_CALL_SK3_VOICE_CALL"
-msgstr "语音通话"
+msgstr "Hlasový hovor"
 
 msgid "IDS_CALL_BUTTON_VIDEO_CALL"
-msgstr "视频通话"
+msgstr "Videoh."
 
 msgid "IDS_CALL_SK3_MESSAGE"
-msgstr "信息"
+msgstr "Správa"
 
 msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
-msgstr "添加到联系人"
+msgstr "Pridať do kont."
 
 msgid "IDS_CALL_OPT_MESSAGE"
-msgstr "信息"
+msgstr "Správa"
 
 msgid "IDS_CALL_SK_SWAP_ABB"
-msgstr "切换"
+msgstr "Preh."
 
 msgid "IDS_CALL_SK3_MORE"
-msgstr "更多"
+msgstr "Ďalšie"
 
 msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
-msgstr "通过 ChatON 共享文件"
+msgstr "Zdieľať súbor cez ChatON"
 
 msgid "IDS_CALL_HEADER_SHARE_ABB"
-msgstr "共享"
+msgstr "Zdieľať"
 
 msgid "IDS_CALL_BODY_PD_TIMES"
-msgstr "%d 次"
+msgstr "%d krát"
 
 msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
-msgstr "群组通话 (%d)"
+msgstr "Skupinový hovor (%d)"
 
 msgid "IDS_CALL_OPT1_SAVED_IMAGE"
-msgstr "已保存图片"
+msgstr "Uložený obrázok"
 
 msgid "IDS_CALL_OPT1_SAVED_VIDEO"
-msgstr "已保存视频"
+msgstr "Uložené video"
 
 msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
-msgstr "拍照"
+msgstr "Snímať fotografiu"
 
 msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
-msgstr "实时视频"
+msgstr "Živé video"
 
 msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
-msgstr "查看联系人"
+msgstr "Zobr. kontakt"
 
 msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
 msgstr "My call sound"
 
 msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
-msgstr "%d 个未接来电"
+msgstr "Počet zmeškaných hovorov: %d"
 
 msgid "IDS_CALL_POP_CALLMISSED"
-msgstr "未接来电"
+msgstr "Zmeškaný hovor"
 

@@ -1,513 +1,513 @@
 msgid "IDS_CALL_SK_ACCEPT"
-msgstr "接受"
+msgstr "Acce."
 
 msgid "IDS_CALL_BUTTON_MUTE_ABB"
-msgstr "静音"
+msgstr "Mc. oprit"
 
 msgid "IDS_CALL_POP_CONNECTING"
-msgstr "连接中..."
+msgstr "Conectare"
 
 msgid "IDS_CALL_POP_REJECTED"
-msgstr "被拒绝"
+msgstr "Respins"
 
 msgid "IDS_CALL_POP_SAVED"
-msgstr "已保存"
+msgstr "Salvat"
 
 msgid "IDS_CALL_POP_SENDING"
-msgstr "发送中…"
+msgstr "Se trimite..."
 
 msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
-msgstr "新建拒绝信息"
+msgstr "Creare mesaj de respingere"
 
 msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
-msgstr "拒绝信息列表空"
+msgstr "Lista de mesaje de respingere este goală"
 
 msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
-msgstr "拒绝并发送短信"
+msgstr "Respingere cu mesaj"
 
 msgid "IDS_CALL_BODY_CALL"
-msgstr "通话"
+msgstr "Apel"
 
 msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
-msgstr "被呼叫方不可用"
+msgstr "Pers. apelată indisp."
 
 msgid "IDS_CALL_BODY_CALLENDED"
-msgstr "已结束通话"
+msgstr "Apel terminat"
 
 msgid "IDS_CALL_BODY_CALL_REJECTED"
-msgstr "通话被拒绝"
+msgstr "Apel respins"
 
 msgid "IDS_CALL_BODY_DISCONNECTED"
-msgstr "已断开"
+msgstr "Deconectat"
 
 msgid "IDS_CALL_BODY_INVALID_NUMBER"
-msgstr "数值无效"
+msgstr "Număr incorect"
 
 msgid "IDS_CALL_BODY_IN_CALL"
-msgstr "通话中"
+msgstr "În timpul unui apel"
 
 msgid "IDS_CALL_BODY_MPTY"
-msgstr "多方通话"
+msgstr "Conferinţă"
 
 msgid "IDS_CALL_BODY_NO_ANSWER"
-msgstr "无应答"
+msgstr "Nici un răspuns"
 
 msgid "IDS_CALL_BODY_NUMBER_CHANGED"
-msgstr "号码已更改"
+msgstr "S-a schimbat numărul"
 
 msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
-msgstr "号码不存在"
+msgstr "Număr inexistent"
 
 msgid "IDS_CALL_BODY_ON_HOLD_ABB"
-msgstr "保持中"
+msgstr "În aşt."
 
 msgid "IDS_CALL_BODY_PEOPLE"
-msgstr "人员"
+msgstr "Participanţi"
 
 msgid "IDS_CALL_BUTTON_ACCEPT"
-msgstr "接受"
+msgstr "Acceptare"
 
 msgid "IDS_CALL_BUTTON_ADD_CALL"
-msgstr "添加呼叫"
+msgstr "Ad. apel"
 
 msgid "IDS_CALL_BUTTON_CONTACTS"
-msgstr "联系人"
+msgstr "Contacte"
 
 msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
-msgstr "结束"
+msgstr "Terminare"
 
 msgid "IDS_CALL_BUTTON_HEADSET"
-msgstr "耳机"
+msgstr "Cască"
 
 msgid "IDS_CALL_BUTTON_HOLD"
-msgstr "保持"
+msgstr "În aşteptare"
 
 msgid "IDS_CALL_BUTTON_JOIN"
-msgstr "加入"
+msgstr "Conf."
 
 msgid "IDS_CALL_BUTTON_REJECT"
-msgstr "拒绝"
+msgstr "Resping."
 
 msgid "IDS_CALL_BUTTON_SPEAKER"
-msgstr "扬声器"
+msgstr "Difuzor"
 
 msgid "IDS_CALL_BUTTON_SPLIT"
-msgstr "分开"
+msgstr "Separare"
 
 msgid "IDS_CALL_BUTTON_UNHOLD"
-msgstr "取消保持"
+msgstr "Reluare"
 
 msgid "IDS_CALL_OPT_CONFERENCE_CALL"
-msgstr "电话会议"
+msgstr "Conferinţă prin telefon"
 
 msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
-msgstr "结束当前呼叫并应答"
+msgstr "Încheiaţi apelul actual şi răspundeţi"
 
 msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
-msgstr "保持当前电话并应答"
+msgstr "Puneţi în aşteptare apelul actual şi răspundeţi"
 
 msgid "IDS_CALL_OPT_PRIVATE"
-msgstr "私人"
+msgstr "Privat"
 
 msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
-msgstr "系统出错"
+msgstr "Eroare de sistem"
 
 msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
-msgstr "禁止所有来电"
+msgstr "Toate apelurile primite blocate"
 
 msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
-msgstr "禁止全部拨出电话"
+msgstr "Toate apelurile efectuate blocate"
 
 msgid "IDS_CALL_POP_CALLFAILED"
-msgstr "通话失败"
+msgstr "Apel eşuat"
 
 msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
-msgstr "仅限紧急通话"
+msgstr "Numai apeluri de urgenţă"
 
 msgid "IDS_CALL_POP_CALLNOTCALLOWED"
-msgstr "禁止通话"
+msgstr "Apel nepermis"
 
 msgid "IDS_CALL_POP_CALL_BARRED"
-msgstr "通话被限制"
+msgstr "Apel blocat"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
-msgstr "激活呼叫转移:始终"
+msgstr "Redirecţionarea apelurilor activă: Întotdeauna"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
-msgstr "激活呼叫转移:无应答"
+msgstr "Redirecţionarea apelurilor activă: Niciun răspuns"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
-msgstr "激活呼叫转移:无法接通"
+msgstr "Redirecţionarea apelurilor activă: De negăsit"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
-msgstr "激活呼叫转移:遇忙"
+msgstr "Redirecţionarea apelurilor activă: Când este ocupat"
 
 msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
-msgstr "呼叫已转移"
+msgstr "Apel redirecþionat"
 
 msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
-msgstr "错误号码"
+msgstr "Număr greşit"
 
 msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
-msgstr "关闭飞行模式以使用网络服务"
+msgstr "Schimbaţi din profilul Offline într-un alt profil pentru serviciile de reţea"
 
 msgid "IDS_CALL_POP_DIALLING"
-msgstr "拨号中..."
+msgstr "Formare nr...."
 
 msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
-msgstr "发送失败。再试"
+msgstr "Trimitere nereuşită. Reîncercaţi"
 
 msgid "IDS_CALL_POP_EMERGENCY_CALL"
-msgstr "紧急呼叫"
+msgstr "Apel de urgenţă"
 
 msgid "IDS_CALL_POP_FDNCALLONLY"
-msgstr "仅限 FDN 呼叫"
+msgstr "Numai apeluri FDN"
 
 msgid "IDS_CALL_POP_HELD"
-msgstr "保持"
+msgstr "Reţinut"
 
 msgid "IDS_CALL_POP_HOLD_FAILED"
-msgstr "通话保持失败"
+msgstr "Menţinere nereuşită"
 
 msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
-msgstr "通话保持不支持"
+msgstr "Menţinere neacceptată"
 
 msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
-msgstr "漫游时呼入限制"
+msgstr "Apeluri de intrare blocate în roaming"
 
 msgid "IDS_CALL_POP_INCOMPLETE"
-msgstr "不完整"
+msgstr "Incomplet"
 
 msgid "IDS_CALL_POP_JOINED"
-msgstr "已加入"
+msgstr "Asociat"
 
 msgid "IDS_CALL_POP_JOIN_FAILED"
-msgstr "加入失败"
+msgstr "Asociere nereuşită"
 
 msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
-msgstr "不支持加入"
+msgstr "Asociere neacceptată"
 
 msgid "IDS_CALL_POP_NETWORKBUSY"
-msgstr "网络繁忙"
+msgstr "Reţea ocupată"
 
 msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
-msgstr "网络无法使用"
+msgstr "Reţea indisponibilă"
 
 msgid "IDS_CALL_POP_NOCREDITLEFT"
-msgstr "无余额"
+msgstr "Credit epuizat"
 
 msgid "IDS_CALL_POP_NOSERVICE"
-msgstr "无服务"
+msgstr "Nici un serviciu"
 
 msgid "IDS_CALL_POP_OPERATION_REFUSED"
-msgstr "拒绝操作"
+msgstr "Operaţie refuzată"
 
 msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
-msgstr "除本国外的国际呼出"
+msgstr "Apeluri internaţionale de ieşire blocate cu excepţia celor spre zona de domiciliu"
 
 msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
-msgstr "禁止拨打国际长途"
+msgstr "Apeluri internaţionale expediate blocate"
 
 msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
-msgstr "手机未初始化"
+msgstr "Telefonul nu este iniţializat"
 
 msgid "IDS_CALL_POP_PS_REJECTED"
-msgstr "4422341526 rejected"
+msgstr "4422341526 respins"
 
 msgid "IDS_CALL_POP_REDIALLING"
-msgstr "重新拨号中..."
+msgstr "Se reapelează..."
 
 msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
-msgstr "服务禁止"
+msgstr "Serviciu nepermis"
 
 msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
-msgstr "只能打SOS电话.请插入SIM卡以访问网络服务"
+msgstr "Numai apeluri SOS.\nIntroduceţi cartela SIM pentru a accesa serviciile de reţea"
 
 msgid "IDS_CALL_POP_SPLIT_FAILED"
-msgstr "断开失败"
+msgstr "Separare nereuşită"
 
 msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
-msgstr "不支持断开"
+msgstr "Separare neacceptată"
 
 msgid "IDS_CALL_POP_SWAPPED"
-msgstr "已切换"
+msgstr "Schimbat"
 
 msgid "IDS_CALL_POP_SWAP_FAILED"
-msgstr "切换失败"
+msgstr "Permutare nereuşită"
 
 msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
-msgstr "不支持切换"
+msgstr "Permutare neacceptată"
 
 msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
-msgstr "已切换到蓝牙耳机"
+msgstr "S-a comutat la casca BT"
 
 msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
-msgstr "已切换到手机"
+msgstr "Comutat la telefon"
 
 msgid "IDS_CALL_POP_TRANSFER_FAILED"
-msgstr "转换失败"
+msgstr "Transfer nereuşit"
 
 msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
-msgstr "不支持转换"
+msgstr "Transfer neacceptat"
 
 msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
-msgstr "无法取回"
+msgstr "Imposibil de regăsit"
 
 msgid "IDS_CALL_POP_UNAVAILABLE"
-msgstr "不适用"
+msgstr "Indisponibil"
 
 msgid "IDS_CALL_POP_UNHELD"
-msgstr "取消保持"
+msgstr "Menţinere anulată"
 
 msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
-msgstr "取消保持不支持"
+msgstr "Anulare menţinere neacceptată"
 
 msgid "IDS_CALL_POP_USER_BUSY"
-msgstr "用户繁忙"
+msgstr "Utilizator ocupat"
 
 msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
-msgstr "验证SIM卡或插入有效SIM卡"
+msgstr "Verificaţi cartela SIM sau introduceţi o cartelă SIM validă"
 
 msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
-msgstr "视频通话期间不允许进行语音呼叫"
+msgstr "Apelul vocal nu e permis în timpul apelului video"
 
 msgid "IDS_CALL_POP_WAITING_ACTIVE"
-msgstr "等待启动"
+msgstr "Aşteptare activă"
 
 msgid "IDS_CALL_POP_WRONG_GROUP"
-msgstr "错误分组"
+msgstr "Grup greşit"
 
 msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
-msgstr "拒接来电并发送短信"
+msgstr "Respingere apel cu mesaj"
 
 msgid "IDS_CALL_POP_END_ACTIVE_CALL"
-msgstr "结束当前通话"
+msgstr "Terminare apel activ"
 
 msgid "IDS_CALL_OPT_HOLDCALL"
-msgstr "保持通话"
+msgstr "Reţinere apel"
 
 msgid "IDS_CALL_OPT_END_HELD_CALL"
-msgstr "结束保持通话"
+msgstr "Terminare apel reţinut"
 
 msgid "IDS_CALL_OPT_END_ALL_CALLS"
-msgstr "结束所有呼叫"
+msgstr "Închidere totală apeluri"
 
 msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
-msgstr "结束当前通话 (%d)"
+msgstr "Terminare apeluri active (%d)"
 
 msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
-msgstr "结束保持通话 (%d)"
+msgstr "Terminare apeluri reţinute (%d)"
 
 msgid "IDS_CALL_BUTTON_HEADPHONES"
-msgstr "耳机"
+msgstr "Căşti"
 
 msgid "IDS_CALL_BUTTON_RECEIVER"
-msgstr "听筒"
+msgstr "Receptor"
 
 msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
-msgstr "注册帐户失败"
+msgstr "Înregistrarea contului nu a reuşit"
 
 msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
-msgstr "保持通话"
+msgstr "Reţinere apel activ"
 
 msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
-msgstr "存储空间不足。请删除部分项目"
+msgstr "Memorie insuficientă. Ştergeţi câteva elemente"
 
 msgid "IDS_CALL_SK3_END_CALL"
-msgstr "结束通话"
+msgstr "Termin. apel"
 
 msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
-msgstr "服务无法正常提供"
+msgstr "Serviciu indisponibil"
 
 msgid "IDS_CALL_SK3_KEYPAD"
-msgstr "键盘"
+msgstr "Tastatură"
 
 msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
-msgstr "隐藏键盘"
+msgstr "Ascund. tastat."
 
 msgid "IDS_CALL_SK_REC_ABB"
-msgstr "录音"
+msgstr "Înr."
 
 msgid "IDS_CALL_POP_UNKNOWNREJECTED"
-msgstr "已拒绝未知来电"
+msgstr "Apel necunoscut respins"
 
 msgid "IDS_CALL_OPT_SWITCH"
-msgstr "切换"
+msgstr "Comutare"
 
 msgid "IDS_CALL_HEADER_SELECT_NUMBER"
-msgstr "选择号码"
+msgstr "Selectare număr"
 
 msgid "IDS_CALL_BODY_IN_PD_DAYS"
-msgstr "%d 天内"
+msgstr "peste %d zile"
 
 msgid "IDS_CALL_BODY_TOMORROW"
-msgstr "明天"
+msgstr "Mâine"
 
 msgid "IDS_CALL_POP_IN_A_WEEK"
-msgstr "在一周里"
+msgstr "Peste 1 săptămână"
 
 msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
-msgstr "保持%s"
+msgstr "Se trece %s în aşteptare"
 
 msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
-msgstr "结束%s"
+msgstr "Terminare apel cu %s"
 
 msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
-msgstr "接听来电"
+msgstr "Acceptare apel după"
 
 msgid "IDS_CALL_BODY_END_ALL_CALLS"
-msgstr "结束所有呼叫"
+msgstr "Închidere totală apeluri"
 
 msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
-msgstr "噪声降低关"
+msgstr "Reducere zgomot oprită"
 
 msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
-msgstr "噪声降低开"
+msgstr "Reducere zgomot activată"
 
 msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
-msgstr "加强低音"
+msgstr "Tonuri joase ampl."
 
 msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
-msgstr "加强高音"
+msgstr "Tonuri înalte ampl."
 
 msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
-msgstr "针对左耳优化"
+msgstr "Optimiz. pt. urechea stg."
 
 msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
-msgstr "针对右耳优化"
+msgstr "Optimiz. pt. urechea drp."
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
-msgstr "无法在启用超大音量时开启减噪"
+msgstr "Imposibil de activat reducerea zgomotului când volumul suplimentar este activat"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
-msgstr "当连接耳机时，无法打开噪音降低"
+msgstr "Imposibil de activat reducerea zgomotului când casca este conectată"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
-msgstr "当蓝牙耳机启动时，无法打开噪音降低"
+msgstr "Imposibil de activat reducerea zgomotului când casca Bluetooth este pornită"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
-msgstr "宽带通话期间无法打开噪音降低"
+msgstr "Imposibil de activat reducerea zgomotului pe durata apelurilor de bandă largă"
 
 msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
-msgstr "若要使用该功能，您必须在呼叫设置下勾选“优化我的 EQ”"
+msgstr "Pentru a utiliza această funcţie, trebuie să bifaţi Optimizare EQ pentru mine la Setări apel"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
-msgstr "当扬声器开启时无法启用来电声音 EQ"
+msgstr "Imposibil de activat EQ de sunet pentru apelul primit când difuzorul este pornit"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
-msgstr "当耳机连接时无法启用来电声音 EQ"
+msgstr "Imposibil de activat EQ de sunet pentru apelul primit când căştile sunt conectate"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
-msgstr "当蓝牙耳机开启时无法启用来电声音 EQ"
+msgstr "Imposibil de activat EQ de sunet pentru apelul primit când casca Bluetooth este pornită"
 
 msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
-msgstr "当耳机或蓝牙耳机连接时无法使用超大音量范围"
+msgstr "Nu se poate utiliza intervalul de volum suplimentar când căştile sau casca BT sunt conectate"
 
 msgid "IDS_CALL_POP_CALLING"
-msgstr "正在呼叫..."
+msgstr "Se apelează..."
 
 msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
-msgstr "管理电话会议"
+msgstr "Gestionare apel conferinţă"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
-msgstr "当超大音量启用时无法启用来电声音 EQ"
+msgstr "Imposibil de activat EQ de sunet pentru apelul de intrare când volumul suplimentar este activat"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
-msgstr "无法在宽带通话期间启用通话中声音效果"
+msgstr "Imposibil de activat EQ de sunet pentru apelul de intrare pe durata apelurilor de bandă largă"
 
 msgid "IDS_CALL_BUTTON_SOUND_ABB"
-msgstr "声音"
+msgstr "Sunet"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
-msgstr "当扬声器启动时，无法打开噪音降低"
+msgstr "Imposibil de activat reducerea zgomotului când difuzorul este pornit"
 
 msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
-msgstr "拒绝信息"
+msgstr "Mesaje de respingere"
 
 msgid "IDS_CALL_OPT_VOICE_CALL"
-msgstr "语音通话"
+msgstr "Apel"
 
 msgid "IDS_CALL_OPT_VIDEO_CALL"
-msgstr "视频通话"
+msgstr "Apel video"
 
 msgid "IDS_CALL_SK3_SHARE"
-msgstr "共享"
+msgstr "Partajare"
 
 msgid "IDS_CALL_BUTTON_KEYPAD"
-msgstr "键盘"
+msgstr "Tastatură"
 
 msgid "IDS_CALL_BUTTON_END_CALL"
-msgstr "结束通话"
+msgstr "Sf. apel"
 
 msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
-msgstr "扬声器"
+msgstr "Difuzor"
 
 msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
-msgstr "音源"
+msgstr "Sursă audio"
 
 msgid "IDS_CALL_OPT_PHONE"
-msgstr "手机"
+msgstr "Telefon"
 
 msgid "IDS_CALL_BUTTON_MUTE"
-msgstr "静音"
+msgstr "Silenţios"
 
 msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
-msgstr "添加到联系人"
+msgstr "Adăug. la Cont."
 
 msgid "IDS_CALL_SK3_VOICE_CALL"
-msgstr "语音通话"
+msgstr "Apel voce"
 
 msgid "IDS_CALL_BUTTON_VIDEO_CALL"
-msgstr "视频通话"
+msgstr "Ap. vid."
 
 msgid "IDS_CALL_SK3_MESSAGE"
-msgstr "信息"
+msgstr "Mesaj"
 
 msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
-msgstr "添加到联系人"
+msgstr "Ad. la Contacte"
 
 msgid "IDS_CALL_OPT_MESSAGE"
-msgstr "信息"
+msgstr "Mesaj"
 
 msgid "IDS_CALL_SK_SWAP_ABB"
-msgstr "切换"
+msgstr "Com."
 
 msgid "IDS_CALL_SK3_MORE"
-msgstr "更多"
+msgstr "Mai multe"
 
 msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
-msgstr "通过 ChatON 共享文件"
+msgstr "Partajaţi fiş. prin ChatON"
 
 msgid "IDS_CALL_HEADER_SHARE_ABB"
-msgstr "共享"
+msgstr "Partajare"
 
 msgid "IDS_CALL_BODY_PD_TIMES"
-msgstr "%d 次"
+msgstr "%d ori"
 
 msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
-msgstr "群组通话 (%d)"
+msgstr "Apel grup (%d)"
 
 msgid "IDS_CALL_OPT1_SAVED_IMAGE"
-msgstr "已保存图片"
+msgstr "Imagine salvată"
 
 msgid "IDS_CALL_OPT1_SAVED_VIDEO"
-msgstr "已保存视频"
+msgstr "Videoclip salvat"
 
 msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
-msgstr "拍照"
+msgstr "Fotografiere"
 
 msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
-msgstr "实时视频"
+msgstr "Video live"
 
 msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
-msgstr "查看联系人"
+msgstr "Vizual. cont."
 
 msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
 msgstr "My call sound"
 
 msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
-msgstr "%d 个未接来电"
+msgstr "%d apeluri pierdute"
 
 msgid "IDS_CALL_POP_CALLMISSED"
-msgstr "未接来电"
+msgstr "Apel pierdut"
 

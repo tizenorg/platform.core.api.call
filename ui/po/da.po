@@ -1,513 +1,513 @@
 msgid "IDS_CALL_SK_ACCEPT"
-msgstr "接受"
+msgstr "Acceptér"
 
 msgid "IDS_CALL_BUTTON_MUTE_ABB"
-msgstr "静音"
+msgstr "Lydløs"
 
 msgid "IDS_CALL_POP_CONNECTING"
-msgstr "连接中..."
+msgstr "Opretter forbindelse..."
 
 msgid "IDS_CALL_POP_REJECTED"
-msgstr "被拒绝"
+msgstr "Afvist"
 
 msgid "IDS_CALL_POP_SAVED"
-msgstr "已保存"
+msgstr "Gemt"
 
 msgid "IDS_CALL_POP_SENDING"
-msgstr "发送中…"
+msgstr "Sender..."
 
 msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
-msgstr "新建拒绝信息"
+msgstr "Opret afvis-meddelelse"
 
 msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
-msgstr "拒绝信息列表空"
+msgstr "Liste over afviste meddelser er tom"
 
 msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
-msgstr "拒绝并发送短信"
+msgstr "Afvis med meddelelse"
 
 msgid "IDS_CALL_BODY_CALL"
-msgstr "通话"
+msgstr "Opkald"
 
 msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
-msgstr "被呼叫方不可用"
+msgstr "Nummer kunne ikke nås"
 
 msgid "IDS_CALL_BODY_CALLENDED"
-msgstr "已结束通话"
+msgstr "Opkald afsluttet"
 
 msgid "IDS_CALL_BODY_CALL_REJECTED"
-msgstr "通话被拒绝"
+msgstr "Opkaldet er afvist"
 
 msgid "IDS_CALL_BODY_DISCONNECTED"
-msgstr "已断开"
+msgstr "Afbrudt"
 
 msgid "IDS_CALL_BODY_INVALID_NUMBER"
-msgstr "数值无效"
+msgstr "Ugyldigt nummer"
 
 msgid "IDS_CALL_BODY_IN_CALL"
-msgstr "通话中"
+msgstr "I opkald"
 
 msgid "IDS_CALL_BODY_MPTY"
-msgstr "多方通话"
+msgstr "Konference"
 
 msgid "IDS_CALL_BODY_NO_ANSWER"
-msgstr "无应答"
+msgstr "Intet svar"
 
 msgid "IDS_CALL_BODY_NUMBER_CHANGED"
-msgstr "号码已更改"
+msgstr "Nummer ændret"
 
 msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
-msgstr "号码不存在"
+msgstr "Nummeret findes ikke"
 
 msgid "IDS_CALL_BODY_ON_HOLD_ABB"
-msgstr "保持中"
+msgstr "På hold"
 
 msgid "IDS_CALL_BODY_PEOPLE"
-msgstr "人员"
+msgstr "Personer"
 
 msgid "IDS_CALL_BUTTON_ACCEPT"
-msgstr "接受"
+msgstr "Besvar"
 
 msgid "IDS_CALL_BUTTON_ADD_CALL"
-msgstr "添加呼叫"
+msgstr "Tilf. opk."
 
 msgid "IDS_CALL_BUTTON_CONTACTS"
-msgstr "联系人"
+msgstr "Kontakter"
 
 msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
-msgstr "结束"
+msgstr "Afslut"
 
 msgid "IDS_CALL_BUTTON_HEADSET"
-msgstr "耳机"
+msgstr "Høretel"
 
 msgid "IDS_CALL_BUTTON_HOLD"
-msgstr "保持"
+msgstr "Sæt på hold"
 
 msgid "IDS_CALL_BUTTON_JOIN"
-msgstr "加入"
+msgstr "Tilslut"
 
 msgid "IDS_CALL_BUTTON_REJECT"
-msgstr "拒绝"
+msgstr "Afvis"
 
 msgid "IDS_CALL_BUTTON_SPEAKER"
-msgstr "扬声器"
+msgstr "Højttaler"
 
 msgid "IDS_CALL_BUTTON_SPLIT"
-msgstr "分开"
+msgstr "Opdel"
 
 msgid "IDS_CALL_BUTTON_UNHOLD"
-msgstr "取消保持"
+msgstr "Hent"
 
 msgid "IDS_CALL_OPT_CONFERENCE_CALL"
-msgstr "电话会议"
+msgstr "Konferenceopkald"
 
 msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
-msgstr "结束当前呼叫并应答"
+msgstr "Afslut aktuelt opkald og besvar"
 
 msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
-msgstr "保持当前电话并应答"
+msgstr "Hold aktuelt opkald og besvar"
 
 msgid "IDS_CALL_OPT_PRIVATE"
-msgstr "私人"
+msgstr "Privat"
 
 msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
-msgstr "系统出错"
+msgstr "Systemfejl"
 
 msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
-msgstr "禁止所有来电"
+msgstr "Alle indgående opkald spærret"
 
 msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
-msgstr "禁止全部拨出电话"
+msgstr "Alle udgående opkald spærret"
 
 msgid "IDS_CALL_POP_CALLFAILED"
-msgstr "通话失败"
+msgstr "Opkald mislykkedes"
 
 msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
-msgstr "仅限紧急通话"
+msgstr "Kun nødopkald"
 
 msgid "IDS_CALL_POP_CALLNOTCALLOWED"
-msgstr "禁止通话"
+msgstr "Opkald er ikke tilladt"
 
 msgid "IDS_CALL_POP_CALL_BARRED"
-msgstr "通话被限制"
+msgstr "Opkald spærret"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
-msgstr "激活呼叫转移:始终"
+msgstr "Viderestilling af opkald: Altid"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
-msgstr "激活呼叫转移:无应答"
+msgstr "Viderestilling af opkal ved inget svar"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
-msgstr "激活呼叫转移:无法接通"
+msgstr "Viderestilling aktiv: Uden for net"
 
 msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
-msgstr "激活呼叫转移:遇忙"
+msgstr "Viderestilling aktiv: Når optaget"
 
 msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
-msgstr "呼叫已转移"
+msgstr "Opkaldet er viderestillet"
 
 msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
-msgstr "错误号码"
+msgstr "Forkert nummer"
 
 msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
-msgstr "关闭飞行模式以使用网络服务"
+msgstr "Skift fra Fligtmode til anden profiler for netværkstjenester"
 
 msgid "IDS_CALL_POP_DIALLING"
-msgstr "拨号中..."
+msgstr "Ringer op..."
 
 msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
-msgstr "发送失败。再试"
+msgstr "Afsendelsen mislykkedes. Prøv igen"
 
 msgid "IDS_CALL_POP_EMERGENCY_CALL"
-msgstr "紧急呼叫"
+msgstr "Nødopkald"
 
 msgid "IDS_CALL_POP_FDNCALLONLY"
-msgstr "仅限 FDN 呼叫"
+msgstr "Kun FDN-opkald"
 
 msgid "IDS_CALL_POP_HELD"
-msgstr "保持"
+msgstr "På hold"
 
 msgid "IDS_CALL_POP_HOLD_FAILED"
-msgstr "通话保持失败"
+msgstr "Opkald på hold mislykkedes"
 
 msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
-msgstr "通话保持不支持"
+msgstr "Ventning understøttes ikke"
 
 msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
-msgstr "漫游时呼入限制"
+msgstr "Indgående opkald spærret ved roaming"
 
 msgid "IDS_CALL_POP_INCOMPLETE"
-msgstr "不完整"
+msgstr "Ufuldstændig"
 
 msgid "IDS_CALL_POP_JOINED"
-msgstr "已加入"
+msgstr "Tilføjet"
 
 msgid "IDS_CALL_POP_JOIN_FAILED"
-msgstr "加入失败"
+msgstr "Tilknytning mislykkedes"
 
 msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
-msgstr "不支持加入"
+msgstr "Tilknytning understøttes ikke"
 
 msgid "IDS_CALL_POP_NETWORKBUSY"
-msgstr "网络繁忙"
+msgstr "Netværket er optaget"
 
 msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
-msgstr "网络无法使用"
+msgstr "Netværk ikke tilgængeligt"
 
 msgid "IDS_CALL_POP_NOCREDITLEFT"
-msgstr "无余额"
+msgstr "Saldo tom"
 
 msgid "IDS_CALL_POP_NOSERVICE"
-msgstr "无服务"
+msgstr "Ingen dækning"
 
 msgid "IDS_CALL_POP_OPERATION_REFUSED"
-msgstr "拒绝操作"
+msgstr "Handlingen blev afvist"
 
 msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
-msgstr "除本国外的国际呼出"
+msgstr "Udgående internationale opkald undtagen hjem spærret"
 
 msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
-msgstr "禁止拨打国际长途"
+msgstr "Udgående internationale opkald spærret"
 
 msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
-msgstr "手机未初始化"
+msgstr "Telefon er ikke initialiseret"
 
 msgid "IDS_CALL_POP_PS_REJECTED"
-msgstr "4422341526 rejected"
+msgstr "4422341526 afvist"
 
 msgid "IDS_CALL_POP_REDIALLING"
-msgstr "重新拨号中..."
+msgstr "Foretager genkald..."
 
 msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
-msgstr "服务禁止"
+msgstr "Opkald ikke tilladt"
 
 msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
-msgstr "只能打SOS电话.请插入SIM卡以访问网络服务"
+msgstr "Kun SOS-opkald.\nIndsæt SIM-kortet for at få adgang til netværkstjenesterne"
 
 msgid "IDS_CALL_POP_SPLIT_FAILED"
-msgstr "断开失败"
+msgstr "Deling mislykkedes"
 
 msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
-msgstr "不支持断开"
+msgstr "Deling understøttes ikke"
 
 msgid "IDS_CALL_POP_SWAPPED"
-msgstr "已切换"
+msgstr "Skiftet"
 
 msgid "IDS_CALL_POP_SWAP_FAILED"
-msgstr "切换失败"
+msgstr "Skift mislykkedes"
 
 msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
-msgstr "不支持切换"
+msgstr "Skift understøttes ikke"
 
 msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
-msgstr "已切换到蓝牙耳机"
+msgstr "Skiftede til BT-høretelefon"
 
 msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
-msgstr "已切换到手机"
+msgstr "Skiftet til telefon"
 
 msgid "IDS_CALL_POP_TRANSFER_FAILED"
-msgstr "转换失败"
+msgstr "Overførselsfejl"
 
 msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
-msgstr "不支持转换"
+msgstr "Overførsel understøttes ikke"
 
 msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
-msgstr "无法取回"
+msgstr "Kunne ikke hentes"
 
 msgid "IDS_CALL_POP_UNAVAILABLE"
-msgstr "不适用"
+msgstr "Ikke tilgængelig"
 
 msgid "IDS_CALL_POP_UNHELD"
-msgstr "取消保持"
+msgstr "Hold fra"
 
 msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
-msgstr "取消保持不支持"
+msgstr "Hentning af opkald på hold mislykkedes"
 
 msgid "IDS_CALL_POP_USER_BUSY"
-msgstr "用户繁忙"
+msgstr "Bruger optaget"
 
 msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
-msgstr "验证SIM卡或插入有效SIM卡"
+msgstr "Kontrollér SIM, eller isæt gyldigt SIM"
 
 msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
-msgstr "视频通话期间不允许进行语音呼叫"
+msgstr "Stemmeopkald er ikke tilladt under videoopkald"
 
 msgid "IDS_CALL_POP_WAITING_ACTIVE"
-msgstr "等待启动"
+msgstr "Ventning aktiv"
 
 msgid "IDS_CALL_POP_WRONG_GROUP"
-msgstr "错误分组"
+msgstr "Forkert gruppe"
 
 msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
-msgstr "拒接来电并发送短信"
+msgstr "Afvis opkald med meddelelse"
 
 msgid "IDS_CALL_POP_END_ACTIVE_CALL"
-msgstr "结束当前通话"
+msgstr "Afslut aktivt opkald"
 
 msgid "IDS_CALL_OPT_HOLDCALL"
-msgstr "保持通话"
+msgstr "Parkér opkald"
 
 msgid "IDS_CALL_OPT_END_HELD_CALL"
-msgstr "结束保持通话"
+msgstr "Afslut opkald som er på hold"
 
 msgid "IDS_CALL_OPT_END_ALL_CALLS"
-msgstr "结束所有呼叫"
+msgstr "Afslut alle opkald"
 
 msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
-msgstr "结束当前通话 (%d)"
+msgstr "Afslut aktive opkald (%d)"
 
 msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
-msgstr "结束保持通话 (%d)"
+msgstr "Afslut holdte opkald (%d)"
 
 msgid "IDS_CALL_BUTTON_HEADPHONES"
-msgstr "耳机"
+msgstr "Høretelefoner"
 
 msgid "IDS_CALL_BUTTON_RECEIVER"
-msgstr "听筒"
+msgstr "Modtager"
 
 msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
-msgstr "注册帐户失败"
+msgstr "Kunne ikke registrere konto"
 
 msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
-msgstr "保持通话"
+msgstr "Hold aktivt opkald"
 
 msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
-msgstr "存储空间不足。请删除部分项目"
+msgstr "Der er ikke tilstrækkelig hukommelse. Slet nogle elementer"
 
 msgid "IDS_CALL_SK3_END_CALL"
-msgstr "结束通话"
+msgstr "Læg på"
 
 msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
-msgstr "服务无法正常提供"
+msgstr "Tjeneste ikke tilgængelig"
 
 msgid "IDS_CALL_SK3_KEYPAD"
-msgstr "键盘"
+msgstr "Tastatur"
 
 msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
-msgstr "隐藏键盘"
+msgstr "Skjul tastatur"
 
 msgid "IDS_CALL_SK_REC_ABB"
-msgstr "录音"
+msgstr "Optag"
 
 msgid "IDS_CALL_POP_UNKNOWNREJECTED"
-msgstr "已拒绝未知来电"
+msgstr "Ukendt opkald er afvist"
 
 msgid "IDS_CALL_OPT_SWITCH"
-msgstr "切换"
+msgstr "Skift"
 
 msgid "IDS_CALL_HEADER_SELECT_NUMBER"
-msgstr "选择号码"
+msgstr "Vælg nummer"
 
 msgid "IDS_CALL_BODY_IN_PD_DAYS"
-msgstr "%d 天内"
+msgstr "om %d dage"
 
 msgid "IDS_CALL_BODY_TOMORROW"
-msgstr "明天"
+msgstr "I morgen"
 
 msgid "IDS_CALL_POP_IN_A_WEEK"
-msgstr "在一周里"
+msgstr "Om en uge"
 
 msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
-msgstr "保持%s"
+msgstr "Sætter %s på hold"
 
 msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
-msgstr "结束%s"
+msgstr "Afslut opkald med %s"
 
 msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
-msgstr "接听来电"
+msgstr "Acceptér opkald efter"
 
 msgid "IDS_CALL_BODY_END_ALL_CALLS"
-msgstr "结束所有呼叫"
+msgstr "Afslut alle opkald"
 
 msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
-msgstr "噪声降低关"
+msgstr "Støjreducering fra"
 
 msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
-msgstr "噪声降低开"
+msgstr "Støjreducering til"
 
 msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
-msgstr "加强低音"
+msgstr "Forstærk lave toner"
 
 msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
-msgstr "加强高音"
+msgstr "Forstærk høje toner"
 
 msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
-msgstr "针对左耳优化"
+msgstr "Optimeret til venstre øre"
 
 msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
-msgstr "针对右耳优化"
+msgstr "Optimeret til højre øre"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
-msgstr "无法在启用超大音量时开启减噪"
+msgstr "Kan ikke tænde for støjreduktion, når ekstra lydstyrke er aktiveret"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
-msgstr "当连接耳机时，无法打开噪音降低"
+msgstr "Kan ikke tænde for støjreduktion, når høretelefon er tilsluttet"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
-msgstr "当蓝牙耳机启动时，无法打开噪音降低"
+msgstr "Kan ikke tænde for støjreduktion, når Bluetooth-hovedtelefon er slået til"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
-msgstr "宽带通话期间无法打开噪音降低"
+msgstr "Kan ikke tænde for støjreduktion under bredbåndsopkald"
 
 msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
-msgstr "若要使用该功能，您必须在呼叫设置下勾选“优化我的 EQ”"
+msgstr "Du skal markere optimering af equalizer under opkaldsindstillingerne for at bruge denne funktion"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
-msgstr "当扬声器开启时无法启用来电声音 EQ"
+msgstr "Lyd-EQ under opkald kan ikke aktiveres, når højttaleren er tændt"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
-msgstr "当耳机连接时无法启用来电声音 EQ"
+msgstr "Lyd-EQ under opkald kan ikke aktiveres, når hovedtelefonerne er tilsluttet"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
-msgstr "当蓝牙耳机开启时无法启用来电声音 EQ"
+msgstr "Lyd-EQ under opkald kan ikke aktiveres, når Bluetooth-høretelefonerne er tændt"
 
 msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
-msgstr "当耳机或蓝牙耳机连接时无法使用超大音量范围"
+msgstr "Kan ikke bruge ekstra volumeninterval, når hovedtelefoner eller BT-headset er tilsluttet"
 
 msgid "IDS_CALL_POP_CALLING"
-msgstr "正在呼叫..."
+msgstr "Ringer op..."
 
 msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
-msgstr "管理电话会议"
+msgstr "Administrer konferenceopkald"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
-msgstr "当超大音量启用时无法启用来电声音 EQ"
+msgstr "Lyd-EQ under opkald kan ikke aktiveres, når ekstra lydstyrke er aktiveret"
 
 msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
-msgstr "无法在宽带通话期间启用通话中声音效果"
+msgstr "Lyd-EQ under opkald kan ikke aktiveres under bredbåndsopkald"
 
 msgid "IDS_CALL_BUTTON_SOUND_ABB"
-msgstr "声音"
+msgstr "Lyd"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
-msgstr "当扬声器启动时，无法打开噪音降低"
+msgstr "Kan ikke tænde for støjreduktion, når højttaler er slået til"
 
 msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
-msgstr "拒绝信息"
+msgstr "Afvis meddelelser"
 
 msgid "IDS_CALL_OPT_VOICE_CALL"
-msgstr "语音通话"
+msgstr "Stemmeopkald"
 
 msgid "IDS_CALL_OPT_VIDEO_CALL"
-msgstr "视频通话"
+msgstr "Videoopkald"
 
 msgid "IDS_CALL_SK3_SHARE"
-msgstr "共享"
+msgstr "Del"
 
 msgid "IDS_CALL_BUTTON_KEYPAD"
-msgstr "键盘"
+msgstr "Tastatur"
 
 msgid "IDS_CALL_BUTTON_END_CALL"
-msgstr "结束通话"
+msgstr "Afslut"
 
 msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
-msgstr "扬声器"
+msgstr "Højtt."
 
 msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
-msgstr "音源"
+msgstr "Lydkilde"
 
 msgid "IDS_CALL_OPT_PHONE"
-msgstr "手机"
+msgstr "Telefon"
 
 msgid "IDS_CALL_BUTTON_MUTE"
-msgstr "静音"
+msgstr "Lydløs"
 
 msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
-msgstr "添加到联系人"
+msgstr "Føj til kontakter"
 
 msgid "IDS_CALL_SK3_VOICE_CALL"
-msgstr "语音通话"
+msgstr "Stemmeopkald"
 
 msgid "IDS_CALL_BUTTON_VIDEO_CALL"
-msgstr "视频通话"
+msgstr "Videoop."
 
 msgid "IDS_CALL_SK3_MESSAGE"
-msgstr "信息"
+msgstr "Meddelelse"
 
 msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
-msgstr "添加到联系人"
+msgstr "Føj t. kontakt."
 
 msgid "IDS_CALL_OPT_MESSAGE"
-msgstr "信息"
+msgstr "Meddelelse"
 
 msgid "IDS_CALL_SK_SWAP_ABB"
-msgstr "切换"
+msgstr "Skift"
 
 msgid "IDS_CALL_SK3_MORE"
-msgstr "更多"
+msgstr "Mere"
 
 msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
-msgstr "通过 ChatON 共享文件"
+msgstr "Del fil via ChatON"
 
 msgid "IDS_CALL_HEADER_SHARE_ABB"
-msgstr "共享"
+msgstr "Del"
 
 msgid "IDS_CALL_BODY_PD_TIMES"
-msgstr "%d 次"
+msgstr "%d gange"
 
 msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
-msgstr "群组通话 (%d)"
+msgstr "Gruppeopkald (%d)"
 
 msgid "IDS_CALL_OPT1_SAVED_IMAGE"
-msgstr "已保存图片"
+msgstr "Gemt billede"
 
 msgid "IDS_CALL_OPT1_SAVED_VIDEO"
-msgstr "已保存视频"
+msgstr "Gemt video"
 
 msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
-msgstr "拍照"
+msgstr "Tag et billede"
 
 msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
-msgstr "实时视频"
+msgstr "Lev. video"
 
 msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
-msgstr "查看联系人"
+msgstr "Vis kontakt"
 
 msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
 msgstr "My call sound"
 
 msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
-msgstr "%d 个未接来电"
+msgstr "%d ubesvarede opkald"
 
 msgid "IDS_CALL_POP_CALLMISSED"
-msgstr "未接来电"
+msgstr "Ubesvaret opkald"
 

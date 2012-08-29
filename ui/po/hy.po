@@ -1,0 +1,513 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "Ընդել"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Անձայն"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Միացում..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Մերժված է"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Պահպանվեց"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Ուղարկում..."
+
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "Ստեղծել մերժված հաղորդագրություն"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "Մերժված հաղորդագրությունների ցանկը դատարկ է"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "Մերժել հաղորդագրության հետ"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "Զանգ"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "Կնչվ կղմ անհասանելի է"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "Զանգն ավարտված է"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "Կանչը մերժված է"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "Անջատված է"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "Անվավեր համար"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "Զնգի ընթցք"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "Կոնֆերանս"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "Պատասխան չկա"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "Համարը փոխվել է"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "Համարը գոյություն չունի"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "Սպասման մեջ է"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "Մարդիկ"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "Ընդունել"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "Ավլց. կանչ"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "Կոնտակտներ"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "Ավարտ"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "Ակնջկալ"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "Պահել"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "Միացնել"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "Մերժել"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "Բրձրխոս"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "Տրոհել"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "Հն պհմ ռժ"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "Հեռախոսային կոնֆերանս"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "Ավարտել ընթացիկ կանչը և պատասխանը"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "Պահել ընթացիկ կանչը և պատասխանը"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "Գաղտնի"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "Համակարգի սխալ"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "Բոլոր մուտքային կանչերը արգելափակված են"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "Բոլոր ելքային կանչերը արգելափակված են"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "Զանգը ձախողվեց"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "Միայն հրատապ կանչեր"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "Կանչն արգելված է"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "Զանգն արգելափակված է"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "Ակտիվացնել կանչի վերահասցեավորումը. Մշտապես"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "Ակտիվացնել կանչի վերահասցեավորումը. Չպատասխանելու դեպքում"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "Զանգի վերահասցեավորման ակտիվացում. անհասանելի է"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "Ակտիվացնել զանգի վերահասցեավորումը. Երբ զբաղված է"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "Կանչը վերահասցեավորված է"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "Սխալ համար"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "Ցանցային ծառայությունների համար փոխել Ավտոմատից այլ պրոֆիլի"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "Համարհավաքում..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "Ուղարկումը ձախողվեց: Կրկին փորձեք"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "Հրատապ զանգ"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "Միայն FDN կանչեր"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "Պահված"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "Պահումը ձախողվեց"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "Պահումը հնարավոր չէ"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "Մուտքային կանչերն արգելափակված են ռոումինգի ժամանակ"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "Անավարտ"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "Միացված է"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "Միացումը ձախողվեց"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "Միացումը համատեղելի չէ"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "Ցանցը զբաղված է"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "Ցանցն անհասանելի է"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "Գումար չի մնացել"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "Ծառայություն չկա"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "Գործողությունը մերժվեց"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "Արգելել ելքային միջազգ. բացի տուն"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "Միջազգային ելքային կանչերը արգելված են"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "Հեռախոսը գործարկված չէ"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "4422341526 մերժված է"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "Ինքնահավաքում է..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "Ծառայությունը թույլարտված չէ"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "Միյան SOS կանչեր:\nՏեղադրեք SIM քարտը՝ ցանցի ծառայություններ մուտք գործելու համար"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "Տրոհումը ձախողվեց"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "Տրոհումը համատեղելի չէ"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "Փոխարկված"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "Փոխարկումը ձախողվեց"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "Փոխարկումը չի սատարվում"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "Փոխարկվել է BT գլխային հեռախոսի"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "Անցում հեռախոսին"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "Փոխանցումը չհաջողվեց"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "Գործարքը չի սատարվում"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "Անհնար է ստանալ"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Անհասանելի"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "Թողնված"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "Պահման հանումը չի սատարվում"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "Բաժանորդը զբաղված է"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "Ստուգել SIM-ը կամ մտցնել վավեր SIM"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "Ձայնային զանգը թույլատրված չէ վիդեո զանգի ընթացքում"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "Սպասումն ակտիվ է"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "Սխալ խումբ"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "Մերժել հաղորդագրություն պարունակող կանչը"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "Ավարտել ակտիվ զանգը"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "Պահել կանչը"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "Ավարտել պահվող զանգը"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "Ավարտել բոլոր կանչերը"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "Ավարտել ակտիվ կանչերը (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "Ավարտել հետաձգված կանչերը (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "Գլխ. հռխոսներ"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "Ընդունիչ"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "Չհաջողվեց գրանցել հաշիվը"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "Պահել ակտիվ զանգը"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "Հիշողությունը չի բավարարում: Ջնջեք որոշ տարրեր"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "Ավր զնգ"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "Ծառայությունը անհասանելի է"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "Ստեղնաշար"
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "Թքցնել ստղնխումբ"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "Գրնց."
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "Անհայտ կանչը մերժված է"
+
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "Փոխարկել"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "Ընտրել համարը"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "%d օրում"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "Վաղը"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "Մի շաբաթից"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "%s հետաձգվում է"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "Կանչի ավարտ %s-ով"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "Ընդունել կանչը հետո"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "Ավարտել բոլոր կանչերը"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "Անջատել աղմուկի նվազեցումը"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "Միացնել աղմուկի նվազեցումը"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "Բրձրցնլ ցածր տոները"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "Բրձրցնլ բրձր տոները"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "Լավարկված է ձախ ականջի հր"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "Լավարկված է աջ ականջի հր"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Անհնար է միացնել աղմուկների ճնշումը, քանի դեռ ձայնի հավելյալ ուժգնությունն ընձեռված է"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "Անհնար է միացնել աղմուկների ճնշումը, երբ ականջակալը միացված է"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Անհնար է միացնել աղմուկների ճնշումը, երբ Bluetooth գլխային հեռախոսը միացված է"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "Անհնար է միացնել աղմուկների ճնշումը լայնաշերտ կանչերի ընթացքում"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "Այս գործառույթն օգտագործելու համար հարկավոր է Կանչի դրվածքներում ստուգել \"լավարկել հավասարիչն ինձ համար\""
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "Անհնար է ընձեռել \"կանչի մեջ\" ձայնի հավասարիչը, երբ բարձրախոսը միացված է"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "Անհնար է ընձեռել \"կանչի մեջ\" ձայնի հավասարիչը, երբ ականջակալները միացված են"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Անհնար է ընձեռել \"կանչի մեջ\" ձայնի հավասարիչը, երբ Bluetooth գլխային հեռախոսը միացված է"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "Անհնար է օգտագործել ձայնի լրացուցիչ ուժգնության տիրույթը, երբ ականջակալները կամ BT գլխային հեռախոսը միացված են"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "Կանչ է կատարվում..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "Կառավարել համազրույցի կանչը"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Անհնար է ընձեռել \"զանգի մեջ\" ձայնի հավասարիչը, քանի դեռ ձայնի հավելյալ ուժգնությունն ընձեռված է"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "Անհնար է ընձեռել \"զանգի մեջ\" ձայնի հավասարիչը լայնաշերտ զանգերի ընթացքում"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "Հնչյուն"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "Անհնար է միացնել աղմուկների ճնշումը, երբ բարձրախոսը միացված է"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "Մերժել հաղորդագրությունները"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "Ձայնային զանգ"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "Վիդեո կանչ"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "Համատեղ օգտգրծմ"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "Ստեղնաշար"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "Ավրտ կնչ"
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "Բարձրխս"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "Ձայնի աղբյուր"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "Հեռախոս"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "Անձայն"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "Ավլցնլ Կնտկտնրին"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "Ձայնային կանչ"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "Տեսականչ"
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "Հաղորդագրություն"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "Ավլց. Կնտկտներին"
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "Հաղորդագրություն"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "Փխտղլ"
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "Ավելի"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "Համօգտ. ֆայլը ChatON-ով"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "Համատեղ օգտագործում"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d անգամ"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "Խմբազանգ (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "Պահպանված պատկեր"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "Պահպանված տեսանյութ"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "Նկարահանել"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "Կենդ. տսնյթ"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "Դիտել կոնտակտը"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d Բացթողնված կանչ"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "Բացթողած զանգ"
+

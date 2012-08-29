@@ -1,0 +1,513 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "Прийн."
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Вимк.звук"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "З'єднання..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Відхилено"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Збережено"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Відправлення..."
+
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "Створення повідомлення про відхилення"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "Список відхилених повідомлень пустий"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "Відхилити з повідомленням"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "Виклики"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "Абонент недоступний"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "Виклик завершено"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "Виклик відхилено"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "Роз'єднано"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "Хибний номер"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "Вх. виклик"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "Конференція"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "Немає відповіді"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "Номер змінено"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "Номер не існує"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "Утрим."
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "Люди"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "Прийняти"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "Дод.виклик"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "Контакти"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "Кінець"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "Гарніт."
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "Утримання"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "Об’єдн."
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "Відхилити"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "Динамік"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "Розділ."
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "Знят.утр."
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "Конференц-зв'язок"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "Завершення та відповідь на поточний виклик"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "Утримування та відповідь на поточний виклик"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "Приватна розмова"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "Помилка системи"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "Всі вхідні виклики заборонено"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "Всі вихідні виклики заборонені"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "Збій виклику"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "Лише екстрені виклики"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "Виклик не дозволено"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "Виклик заборонено"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "Активувати переадресацію: завжди"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "Активувати переадресацію: якщо немає відповіді"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "Переадресація, якщо недосяжний"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "Переадресація, якщо зайнято"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "Дзвінок переадресовано"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "Хибний номер"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "Змініть режим без зв'язку на інший для використання мережі"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "Набір..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "Збій надсилання. Спробуйте ще"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "Екстрений виклик"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "Лише виклики FDN"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "Утримано"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "Збій утримання"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "Утримання не підтримується"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "Вхідні виклики в роумінгу заборонено"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "Незавершено"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "Об’єднано"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "Збій об’єднання"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "Об’єднання не підтримується"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "Мережа зайнята"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "Мережа недоступна"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "Кредит вичерпано"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "Немає мережі"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "В операції відмовлено"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "Вихідні міжнародні виклики крім домашніх заборонені"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "Міжнародні вихідні виклики заблоковано"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "Телефон не ініціалізовано"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "%s відхилено"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "Повторення набору..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "Послуга заборонена"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "Лише екстрений виклик.\nЩоб отримати доступ до послуг мережі, вставте SIM-картку"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "Збій розділення"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "Розділення не підтримується"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "Переключений"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "Збій переключення"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "Переключення не підтримується"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "Переключено на гарнітуру BT"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "Переключено на телефон"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "Збій передачі"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "Передача не підтримується"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "Неможливо отримати"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Недоступно"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "Відновлено"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "Зняття з утримання не підтримується"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "Абонент зайнятий"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "Перевірте SIM-картку або вставте припустиму SIM-картку"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "Неможливо здійснити голосовий виклик під час відеовиклику"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "Очікування активовано"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "Хибна група"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "Відхилити виклик із повідомленням"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "Завершити поточний виклик"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "Утримувати виклик"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "Завершити утримуваний виклик"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "Завершити всі виклики"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "Завершити активні виклики (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "Завершити утримувані виклики (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "Навушники"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "Приймач"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "Не вдалося зареєструвати обліковий запис"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "Утрим.активн.виклик"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "Недостатньо пам’яті. Видаліть деякі об’єкти"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "Зав.вик."
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "Послуга недоступна"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "Клавіат."
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "Прихов. клавіат."
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "Запис"
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "Невідомий виклик відхилено"
+
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "Перекл."
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "Вибір номера"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "через %d днів"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "Завтра"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "Через тиждень"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "Переведення абонента %s на утримання"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "Завершення виклику з абонентом %s"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "Прийняти виклик після"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "Завершити всі виклики"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "Зменшення шуму вимк."
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "Зменшення шуму увімк."
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "Підс низькі тони"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "Підс. високі тони"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "Оптиміз. для лівого вуха"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "Оптиміз. для правого вуха"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Неможливо ввімкнути функцію зменшення шуму за ввімкненої функції додаткової гучності"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "Неможливо ввімкнути функцію зменшення шуму, якщо підключено навушники"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Неможливо ввімкнути функцію зменшення шуму, якщо ввімкнено гарнітуру Bluetooth"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "Неможливо ввімкнути функцію зменшення шуму під час здійснення широкосмугових викликів"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "Щоб скористатися цією функцією, потрібно перевірити оптимізацію частот еквалайзера, щоб вони відповідали вашим потребам, у меню \"Установки виклику\""
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "Неможливо ввімкнути еквалайзер звуків під час виклику за ввімкненого динаміка"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "Неможливо ввімкнути еквалайзер звуків під час виклику за підключених навушників"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Неможливо ввімкнути еквалайзер звуків під час виклику за ввімкненої гарнітури Bluetooth"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "Неможливо скористатися діапазоном додаткової гучності за підключених навушників або гарнітури Bluetooth"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "З'єднання..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "Керування конференц-викликом"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Неможливо ввімкнути еквалайзер звуків під час виклику за ввімкненої додаткової гучності"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "Неможливо ввімкнути еквалайзер під час виклику в разі здійснення широкосмугових викликів"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "Звук"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "Неможливо ввімкнути функцію зменшення шуму, якщо ввімкнено динамік"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "Відхиляти повідомлення"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "Голосовий виклик"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "Відеовиклик"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "Дати доступ"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "Клавіатура"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "Зав.вик."
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "Динамік"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "Джерело звуку"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "Телефон"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "Вимк. звук"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "Додати до списку контакт."
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "Голос. виклик"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "Відеовикл."
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "Повідомлення"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "Додати до конт."
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "Повідомлення"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "Зам."
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "Додатково"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "Сп.д.до файла через ChatON"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "Дати доступ"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d разів"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "Виклик групі (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "Збережене зображення"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "Збережене відео"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "Зробити знімок"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "Відео наживо"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "Перег. контакт"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d пропущених викликів"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "Пропущений виклик"
+

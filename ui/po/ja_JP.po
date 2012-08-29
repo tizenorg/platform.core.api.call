@@ -347,10 +347,10 @@ msgid "IDS_CALL_POP_IN_A_WEEK"
 msgstr "一週間​以内"
 
 msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
-msgstr "%sを保留にします。"
+msgstr "%s​と​の​通話​を​保留"
 
 msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
-msgstr "%sとの通話を終了します。"
+msgstr "%s​と​の​通話​を​終了"
 
 msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
 msgstr "通話状態の選択"
@@ -359,10 +359,10 @@ msgid "IDS_CALL_BODY_END_ALL_CALLS"
 msgstr "全ての​相手​と​終話"
 
 msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
-msgstr "ノイズキャンセラOFF"
+msgstr "ノイズキャンセラー​を​OFF"
 
 msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
-msgstr "ノイズキャンセラON"
+msgstr "ノイズキャンセラー​を​ON"
 
 msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
 msgstr "低音強調"
@@ -377,16 +377,16 @@ msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
 msgstr "右耳に最適化"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
-msgstr "最大音量制限が有効のときは、ノイズキャンセラをONにできません。"
+msgstr "最大音量制限が有効のときは、ノイズキャンセラーをONにできません。"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
-msgstr "イヤホン​が​接続​されて​いる​とき​は、​ノイズ​キャンセラ​を​ON​に​できません。"
+msgstr "イヤホン​が​接続​されて​いる​とき​は、​ノイズ​キャンセラー​を​ON​に​できません。"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
-msgstr "Bluetooth​ヘッドセット​が​ON​の​とき​は、​ノイズ​キャンセラ​を​ON​に​できません。"
+msgstr "Bluetooth​ヘッドセット​が​ON​の​とき​は、​ノイズ​キャンセラー​を​ON​に​できません。"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
-msgstr "広帯域​で​通話中​は、​ノイズ​リダクション​を​ON​に​できません"
+msgstr "広帯域​で​通話中​は、​ノイズキャンセラー​を​ON​に​できません。"
 
 msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
 msgstr "この機能を使うには、通話設定の最適EQを確認する必要があります。"
@@ -419,7 +419,7 @@ msgid "IDS_CALL_BUTTON_SOUND_ABB"
 msgstr "サウンド"
 
 msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
-msgstr "スピーカーがONのときは、ノイズキャンセラをONにできません。"
+msgstr "スピーカーがONのときは、ノイズキャンセラーをONにできません。"
 
 msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
 msgstr "着信拒否メッセージ"
@@ -506,7 +506,7 @@ msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
 msgstr "My call sound"
 
 msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
-msgstr "%d​​件の不在着信"
+msgstr "%d件​の​不在​着信"
 
 msgid "IDS_CALL_POP_CALLMISSED"
 msgstr "不在着信"

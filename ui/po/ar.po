@@ -1,0 +1,513 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "قبول"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "كتم"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "جاري التوصيل"
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "مرفوضة"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "تم الحفظ"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "جاري الإرسال..."
+
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "إنشاء رسالة رفض"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "قائمة الرسائل المرفوضة فارغة"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "رفض بواسطة رسالة"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "المكالمة"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "الطرف المراد غير متاح"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "تم إنهاء المكالمة"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "تم رفض المكالمة"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "تم الفصل"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "رقم غير صالح"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "في م."
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "مكالمة متعددة الأطراف"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "لا يوجد رد"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "تم تغيير الرقم"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "الرقم غير موجود"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "في انتظار"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "أشخاص"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "قبول"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "إضافة مكالمة"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "جهات الاتصال"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "إنهاء"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "سماعة"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "تعليق"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "ضم"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "رفض"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "مكبر الصوت"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "فصل"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "استئناف"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "مكالمة متعددة الأطراف"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "إنهاء المكالمة الحالية والرد"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "تعليق المكالمة الحالية والرد"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "خاص"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "خطأ بالنظام"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "كل المكالمات الواردة محجوبة"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "كل المكالمات الصادرة محجوبة"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "فشل الاتصال"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "مكالمات طوارئ فقط"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "المكالمة غير مسموحة"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "المكالمة محجوبة"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "المكالمات المحولة: دومًا"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "المكالمات المحولة: بدون رد"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "المكالمات المحولة: لا يمكن الوصول إليه"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "المكالمات المحولة: عندما يكون مشغولاً"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "تم تحويل المكالمة"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "رقم خطأ"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "قم بتغيير وضع غير متصل إلى وضع أخر من أجل خدمات الشبكة"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "جاري الاتصال..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "فشل الإرسال. حاول ثانية"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "مكالمة طوارئ"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "مكالمات FDN فقط"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "تم التعليق"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "فشل التعليق"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "التعليق غير مدعوم"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "الواردة محجوبة أثناء السفر"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "غير كامل"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "تم الضم"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "فشل الضم"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "الضم غير مدعوم"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "الشبكة مشغولة"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "الشبكة غير متاحة"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "لا يوجد رصيد"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "لا توجد خدمة"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "تم رفض العملية"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "حجب الصادرة الدولية ما عدا الوطن"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "تم حجب المكالمات الدولية الصادرة"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "لم يتم بدء تشغيل الهاتف"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "تم رفض 4422341526"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "جاري إعادة الاتصال..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "الخدمة غير مسموحة"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "مكالمة طوارئ فقط. قم بإدخال البطاقة للنفاذ إلى خدمات الشبكة"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "فشل الفصل"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "الفصل غير مدعوم"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "تم الانتقال"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "فشل الانتقال"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "الانتقال غير مدعوم"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "تم التحويل إلى سماعة BT"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "تم التبديل إلى الهاتف"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "فشل التحويل"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "التحويل غير مدعوم"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "غير قادر على التحميل"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "غير متوفر"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "تم الاستئناف"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "الاستئناف غير مدعوم"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "المستخدم مشغول"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "التحقق من بطاقة SIM أو إدراج بطاقة SIM صالحة"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "غير مسموح بإجراء مكالمة صوتية أثناء مكالمة الفيديو"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "الانتظار مفعل"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "مجموعة خطأ"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "رفض الاتصال مع رسالة"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "إنهاء المكالمة الجارية"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "تعليق المكالمة"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "إنهاء المكالمة المعلقة"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "إنهاء كافة المكالمات"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "إنهاء المكالمات النشطة (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "إنهاء المكالمات المعلقة (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "سماعات رأس"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "المستقبل"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "فشل تسجيل الحساب"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "تعليق مكالمة جارية"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "لا يوجد ذاكرة كافية. امسح بعض العناصر"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "إنهاء مك"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "الخدمة غير متوفرة"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "لوحة المفاتيح"
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "إخفاء لوحة المفاتيح"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "تسجيل"
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "تم رفض المكالمة غير المعروفة"
+
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "تبديل"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "اختر رقم"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "خلال %d يوم"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "غداً"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "خلال أسبوع"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "تعليق الاتصال بـ %s"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "انهاء المكالمة مع %s"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "قبول المكالمة بعد"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "إنهاء كافة المكالمات"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "إيقاف تشغيل تقليل التشويش"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "تشغيل ميزة تقليل التشويش"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "تحسين نغمات منخفضة"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "تحسين نغمات عالية"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "محسن للأذن اليسرى"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "محسن للأذن اليمنى"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "يتعذر تشغيل تخفيض التشويش عند تفعيل مستوى الصوت الإضافي‬"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "يتعذر تشغيل وظيفة خفض التشويش عند توصيل سماعة الأذن"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "يتعذر تشغيل تخفيض التشويش عند تشغيل سماعة رأس Bluetooth‬"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "يتعذر تشغيل خفض التشويش عند إجراء المكالمات عريضة النطاق"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "لاستخدام هذه الوظيفة، يلزم التحقق من تحسين معادل الصوت لي ضمن إعدادات المكالمة"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "يتعذر تفعيل معادل الصوت أثناء المكالمة عند تشغيل السماعة"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "يتعذر تفعيل معادل الصوت أثناء المكالمة عند توصيل سماعات الأذن"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "يتعذر تفعيل معادل‬ الصوت أثناء المكالمة عند تشغيل سماعة رأس بلوتوث"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "يتعذر استخدام نطاق مستوى الصوت الإضافي عند توصيل سماعات الأذن أو سماعة البلوتوث"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "اتصال"
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "إدارة الاتصال الجماعي"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "يتعذر تفعيل موازن‬ الصوت أثناء المكالمة عند تفعيل مستوى الصوت الإضافي"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "يتعذر تفعيل موازن‬ الصوت أثناء المكالمة أثناء إجراء المكالمات عريضة النطاق‬"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "صوت"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "يتعذر تشغيل وظيفة خفض التشويش أثناء تشغيل السماعة"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "رفض الرسائل"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "مكالمة صوتية"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "مكالمة فيديو"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "مشاركة"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "لوحة المفاتيح"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "إنهاء المكالمة"
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "مكبر الصوت"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "مصدر الصوت"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "الهاتف"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "كتم"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "إضافة لـجهة اتصال"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "مكالمة صوتية"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "مكالمة فيديو"
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "رسالة"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "إضافة للأسماء"
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "رسالة"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "انتقال"
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "المزيد"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "مشاركة الملف عبر ChatON"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "مشاركة"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "للمرة %d"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "مكالمة جماعية (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "الصورة التي تم حفظها"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "الفيديو الذي تم حفظه"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "التقاط صورة"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "فيديو مباشر"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "عرض جهة اتصال"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d مكالمة (مكالمات) فائتة"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "مكالمة فائتة"
+

@@ -503,7 +503,7 @@ msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
 msgstr "Vedi contatto"
 
 msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
-msgstr "My call sound"
+msgstr "Audio in chiamata"
 
 msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
 msgstr "%d chiamate senza risposta"

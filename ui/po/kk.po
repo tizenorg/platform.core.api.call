@@ -1,0 +1,513 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "Алу"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Дыбыссыз"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Қосылуда..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Қайтарылды"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Сақталған"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Жіберілуде..."
+
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "Қабылданбағандығы туралы хабар жазу"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "Қабылданбағандығы туралы хабарлар тізімі бос"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "Хабар арқылы бас тарту"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "Қоңырау"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "Қоң-у соғылған жаққа қол жетімсіз"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "Қоңырау аяқталды"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "Қоңырау қабылданбады"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "Ажыратылды"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "Жарамсыз нөмір"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "Қоңырау кезінде"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "Конференция"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "Жауап жоқ"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "Нөмір өзгертылген"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "Номер\nжоқ"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "Ұсталуда"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "Адамдар"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "Қабылдау"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "Қоңы. қосу"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "Контактілер"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "Соңы"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "Құлақ-п"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "Ұстау"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "Қосылу"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "Қабылдамау"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "Динамик"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "Бөлініс"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "Ұст-маған"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "Конференциалық қоңырау"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "Ағымдағы қоңырауды аяқтау және жауап беру"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "Ағымдағы қоңырауды ұстап тұру және жауап беру"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "Жеке"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "Жүйе қателігі"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "Кіретін барлық қоңырауларға тыйым салынған"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "Шығатын қоңырауларға тыйым салынған"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "Байланыс үзіліп кетті"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "Тек жедел қоңырау  үшін"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "Қоңырауға тыйым салынған"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "Қоңырауға тыйым салынған"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "Қоңыраудың үзіліп кетуі: әрқашан"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "Қоңыраудың үзіліп кету: жауап жоқ"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "Үзіліп кету: байланысу мүмкін емес"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "Қоңырауды үзіп жіберу қосылған:Егер бос емес болса"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "Қоңырау бағыты өзгертілді"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "Нөмір қате"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "Желі қызметтері үшн Желі аясынан тыстан басқа профильге өзгерту"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "Терілуде..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "Жіберу үзіліп кетті. Қайталаңыз"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "Шұғыл қоңырау шалу"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "FDN қоңыраулары ғана"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "Ұсталу"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "Ұстап тұру үзіліп кетті"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "Ұстау мақұлданбайды"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "Кіру қоңыраулары роуминг кезінде бұғатталды"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "Аяқталған жоқ"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "Қосылған"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "Байланысу үзіліп кетті"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "Байланысу мақұлданбайды"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "Желі бос емес"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "Желі үзіліп кетті"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "Теңдік аяқталған"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "Қызмет жоқ"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "Операциядан бас тартты"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "Үйден басқа халықаралық шығу қоңыраулары бұғатталды"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "Халықаралық шығатын\nқоңыраулар тыйым салынған"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "Телефон бастапқы қалпына келтірілмеді"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "4422341526 қалпына келтірілді"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "Қайта терілуде..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "Қызмет рұқсат етілмеген"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "Тек SOS қоңырауы үшін ғана.\n Желі қызметтеріне қол жеткізу үшін SIM картаны енгізіңіз"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "Қақ айрылу үзіліп кетті"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "Бөліну мақұлданбайды"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "Өзгертілді"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "Өзгерту үзіліп кетті"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "Өзгерту мақұлданбайды"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "Bluetooth гарнитурасына қосылды"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "Телефонға ауысты"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "Орналастыру үзіліп кетті"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "Орналастыру мақұлданбайды"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "Алынбады"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Байланыс аясынан тыс жерде"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "Ұсталған жоқ"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "Ұстамау мақұлданбайды"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "Тұтынушы бос емес"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "SIM картасын тексеріңіз немесе жарамды SIM картасын салыңыз"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "Дауыстық қоңырау бейне қоңырау кезінде рұқсат етілмейді"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "күтуде"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "Қате топ"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "Хабары бар қоңырауды қабылдамау"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "Белсенді қоңыраудың соңы"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "Қоғырауды ұстау"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "Ұсталып тұрған қоңыраудың соңы"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "Барлық қоңырауды аяқтау"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "Белсенді қоңырауларды аяқтау (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "Ұстаулы қоңырауларды аяқтау (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "Құлаққап"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "Қабылдаушы"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "Есептік жазба тіркелмеді"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "Белс. қоңыр-ды ұстау"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "Жад жетыспейт.Көп арналы жою."
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "Қңр соңы"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "Қызмет көрсете алмайды"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "Пернетақ."
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "Пернетақ. жасыру"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "Жазу"
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "Белгісіз қоңырау қабылданбады"
+
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "Қосу"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "Нөмір таңдау"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "%d күннен кейін"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "Ертең"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "Бір аптадан кейін"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "%s ұстауға қою"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "%s арқылы қоңырауды аяқтау"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "Қоңырау қабылдау"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "Барлық қоңырауды аяқтау"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "Шуыл азайту өшірулі"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "Шуыл азайту қосулы"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "Көмек. төмен. дыбыс"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "Көмек. жоғар. дыбыс"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "Сол құлаққа оңтайлы"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "Оң құлаққа оңтайлы"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Артық дыбыс қаттылығы қосылғанда шуылды азайтуды қосу мүмкін емес"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "Құлаққап қосылғанда шуыл төмендетуді қосу мүмкін емес"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Bluetooth гарнитурасы қосылғанда шуыл төмендетуді қосу мүмкін емес"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "Кең ауқымды қоңыраулар кезінде шуыл төмендетуді қосу мүмкін емес"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "Бұл функцияны пайдалану үшін қоңырау параметрлері арқылы оңтайлы эквалайзерді тексеру керек"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "Динамик қосылғанда қоңырау кезіндегі дыбыстық эквалайзерді қосу мүмкін емес"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "Құлаққап жалғанғанда қоңырау кезіндегі дыбыстық эквалайзерді қосу мүмкін емес"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Bluetooth гарнитурасы қосылғанда қоңырау кезіндегі дыбыстық эквалайзерді қосу мүмкін емес"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "Құлаққап немесе Bluetooth құлаққабы қосылғанда қосымша дауыс деңгейін пайдалану мүмкін емес"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "Қоңырау шалу..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "Конференциялық қоңырауды басқару"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Қосымшы дауыс қаттылығы қосылғанда қоңырау кезіндегі дыбыс эквалайзерін қосу мүмкін емес"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "Кең жолақты қоңыраулар кезінде дыбыстық эквалайзерді қосу мүмкін емес"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "Дыбыс"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "Динамик қосылғанда шуыл төмендетуді қосу мүмкін емес"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "Хабарларды қабылдамау"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "Дауыс қоңырауы"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "Бейне қоңырау"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "Байланысқа жол"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "Пернетақта"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "Cоңы"
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "Динамик"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "Аудио ресурс"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "Телефон"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "Дыбыссыз"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "Контакт-ге қосу"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "Дауыс қоңырауы"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "Бейне қоң."
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "Хабарлама"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "Контакт-ге қосу"
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "Хабарлама"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "Аус."
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "Қосымша"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "Файлды ChatON арқ. бөлісу"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "Байланысқа жол"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d уақыты"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "Топ қоңырауы (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "Сақталған сурет"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "Сақталған бейне"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "Суретке түсіру"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "Шынайы бейне"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "Контакт көру"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d Жауап берілмеген қоңырау"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "Қабылданбаған қоңырау"
+

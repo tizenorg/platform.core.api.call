@@ -1,0 +1,513 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "მიღება"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "უხმო"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "უკავშირდება..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "უარყოფილია"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "შენახულია"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "იგზავნება..."
+
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "შექმენით უარყოფის წერილი"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "უარყოფილი წერილების სია ცარიელია"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "უარყოფა წერილით"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "დარეკვა"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "აბონენტი მიუწვდომელია"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "ზარი დასრულდა"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "ზარი უარყოფილია"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "გათიშულია"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "ნომერი არასწორია"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "ზარის დროს"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "კონფერენცია"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "პასუხი არ არის"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "ნომერი შეიცვალა"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "ნომერი არ არის"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "დაკავებული"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "ხალხი"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "მიღება"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "ზარის დამ."
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "კონტაქტები"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "დასასრული"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "გარნიტ."
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "დაკავება"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "შემოერთ."
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "უარყოფა"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "დინამ."
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "გაყოფა"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "დაკ.მოხს."
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "კონფერენც-ზარი"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "მიმდინარე ზარის და პასუხის დასრულება"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "მიმდინარე ზარის და პასუხის დაკავება"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "პირადი"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "სისტემის შეცდომა"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "ყველა შემომავალი ზარი დაბლოკილია"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "დაბლოკილია ყველა გამავალი ზარი"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "ვერ დაირეკა"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "მხოლოდ გადაუდებელი ზარები"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "ზარი არაა ნებადართული"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "ზარი დაბლოკილია"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "ზარის გადამისამართება აქტიურია: ყოველთვის"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "ზარის გადამისამართება აქტიურია: როცა არ პასუხობს"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "ზარის გადამისამართება აქტიურია: როცა მიუწვდომელია"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "ზარის გადამისამართება აქტიურია: როცა დაკავებულია"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "ზარი გადამისამართებულია"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "ნომერი არასწორია"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "ოფლაინიდან გადადით სხვა რეჟიმში, ქსელის მომსახურების მისაღებად"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "იკრიფება..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "ვერ შეირჩა. თავიდან ცადეთ"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "საგანგებო ზარი"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "მხოლოდ FDN ზარები"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "დაკავება"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "ზარი ვერ დაკავდა"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "ზარის დაკავების ფუნქცია არ მუშაობს"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "შემოსული ზარები იბლოკება როუმინგის დროს"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "არასრული"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "შეუერთდა"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "ვერ შეუერთდა"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "შეერთების ფუნქცია არ მუშაობს"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "ქსელი დაკავებულია"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "ქსელი მიუწვდომელია"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "კრედიტი ამოიწურა"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "მომსახურება არ არის"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "ოპერაცია უარყოფილია"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "გამავალი საერთაშორისო ზარები, საშინაოს გარდა, დაბლოკილია"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "გამავალი საერთაშორისო ზარები დაბლოკილია"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "ტელეფონი არაა ინიციალიზებული"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "%s უარყოფილია"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "ზარი მეორდება..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "მომსახურება არაა ნებადართული"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "მხოლოდ SOS ზარი.\nქსელის მომსახურების მისაღებად, გთხოვთ, ჩადოთ SIM ბარათი"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "ვერ გაიყო"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "გაყოფა შეუძლებელია"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "ადგილები შეცვლილია"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "ვერ გაიცვალა"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "გაცვლა შეუძლებელია"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "გადართეთ BT გარნიტურაზე"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "გადართულია ტელეფონზე"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "ვერ გადაიცა"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "გადაცემა შეუძლებელია"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "შეუძლებელია მიღება"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "მიუწვდომელია"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "დაკავება გაუქმდა"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "დაკავების გაუქმება შეუძლებელია"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "მომხმარებელი დაკავებულია"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "შეამოწმეთ SIM ან ჩადეთ ქმედითი SIM"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "ხმოვანი ზარი არაა ნებადართული ვიდეო ზარის დროს"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "მოცდა აქტიურია"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "არასწორი ჯგუფი"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "შეტყობინების მქონე ზარის უარყოფა"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "აქტიური ზარის დასასრული"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "ზარის დაკავება"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "დაკავებული ზარის დასრულება"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "ყველა ზარის დასრულება"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "აქტიური ზარების დასრულება (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "დაკავებული ზარების დასრულება (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "გარნიტურები"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "მიმღები"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "ანგარიში ვერ დარეგისტრირდა"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "აქტიური ზრ. დაკავება"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "მეხსიერება საკმარისი არაა. წაშალეთ ზოგიერთი ელემენტი"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "ზარის დასრ."
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "მომსახურება არ არის"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "კლავიატ."
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "კლავიატ. დამალვა"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "ჩაწ."
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "უცნობი ზარი უარყოფილია"
+
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "გადართვა"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "ნომრის არჩევა"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "%d დღეში"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "ხვალ"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "ერთ კვირაში"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "%s-ის დაკავება"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "ხარის დასრულება, %s"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "ზარის მიღება, როცა გავა"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "ყველა ზარის დასრულება"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "ხმაურის შემცირება გამორთულია"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "ხმაურის შემცირება ჩართულია"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "დაბალი ტონები"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "მაღალი ტონები"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "ოპტიმალური მარცხენა ყურზე"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "ოპტიმალური მარჯვენა ყურზე"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "ხმაურის შემცირება ვერ ჩაირთვება, სანამ ჩართულია დამატებითი ხმის სიმაღლე"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "ხმაურის შემცირება ვერ ჩაირთვება, როცა მიერთებულია ყურთსასმენი"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "ხმაურის შემცირება ვერ ჩაირთვება, როცა ჩართულია Bluetooth გარნიტურა"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "ხმაურის შემცირება ვერ ჩაირთვება, ფართოდიაპაზონიანი ზარების დროს"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "ამ ფუნქციის გამოსაყენებლად, უნდა შეასრულოთ EQ-ის ოპტიმიზაცია ზარის პარამეტრებში"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "საუბრის ხმის EQ ვერ გააქტიურება, როდესაც ჩართულია დინამიკი"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "საუბრის ხმის EQ ვერ გააქტიურება, როდესაც მიერთებულია გარნიტურა"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "საუბრის ხმის EQ ვერ გააქტიურება, როდესაც ჩართულია Bluetooth გარნიტურა"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "ხმის სიმაღლის დამატებითი გაზრდა შეუძლებელია, როდესაც მიერთებულია ყურთსასმენი ან BT გარნიტურა"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "ირეკება..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "საკონფერენციო ზარის მოწყობა"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "საუბრის ხმის EQ ვერ გააქტიურება, როდესაც ჩართულია ხმის დამატებითი სიმაღლე"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "ფართოდიაპაზონიანი ზარების დროს შეუძლებელია ზარის პერიოდში ხმის EQ-ს ჩართვა"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "ხმა"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "ხმაურის შემცირება ვერ ჩაირთვება, როცა ჩართულია დინამიკი"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "წერილების უარყოფა"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "ხმოვანი ზარი"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "ვიდეოზარი"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "გაზიარება"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "კლავიატურა"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "ზრ.დასრ."
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "დინამიკი"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "აუდიოს წყარო"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "ტელეფონი"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "უხმო რეჟიმი"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "კონტაქ. დამატება"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "ხმოვანი ზარი"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "ვიდეოზარი"
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "შეტყობინება"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "კონტაქ. დამატება"
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "შეტყობინება"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "გაცვლა"
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "სხვა"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "ფაილის გაზიარება ChatON-ით"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "გაზიარება"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d-ჯერ"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "ჯგუფური ზარი (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "შენახული სურათი"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "შენახული ვიდეო"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "სურათის გადაღება"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "ცოცხლ. ვიდეო"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "იხ. კონტაქტი"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d უპასუხოდ დატოვებული ზარი"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "გამოტოვებული ზარი"
+

@@ -1,6 +1,6 @@
 Name:       org.tizen.call
 Summary:    call application
-Version:    0.2.381
+Version:    0.2.382
 Release:    1
 Group:      comm
 License:    Flora Software License
