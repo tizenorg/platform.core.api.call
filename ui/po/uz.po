@@ -1,0 +1,513 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "Qabul qil"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Ovozsiz"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Ulanmoqda..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Rad etildi"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Saqlandi"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Yuborilmoqda..."
+
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "Rad etish xabarini yaratish"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "Rad etish xabarlari ro‘yxati bo‘sh"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "Xabar orqali rad etish"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "Qo‘ng‘iroq"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "Chaqirilayotgan abonent mavjud emas"
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "Qo‘ng‘iroq yakunlandi"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "Qo‘ng‘iroq rad etildi"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "Uzilgan"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "Noto‘g‘ri raqam"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "Kiruvchi qo‘ng‘iroq"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "Ko‘p tomonlama"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "Javob yo‘q"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "Raqam o‘zgartirildi"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "Raqam mavjud emas"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "Kutish"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "Foydalanuvchilar"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "Qabul qil"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "Qo‘n.qo‘sh"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "Kontaktlar"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "Tugatish"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "Karnay"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "Kutish"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "Qo‘shil"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "Rad etish"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "Dinamik"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "Ajrat"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "Bekor/q."
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "Konferensiya qo'ng'irog'i"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "Joriy qo‘ng‘iroqni tugatish va javob berish"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "Joriy qo‘ng‘iroqni ushlab turish va javob berish"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "Maxfiy"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "Tizim xatosi"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "Barcha kiruvchi qo‘ng‘iroqlar taqiqlangan"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "Barcha chiquvchi qo‘ng‘iroqlar taqiqlangan"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "Qo‘ng‘iroq qilib bo‘lmadi"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "Faqat favqulodda qo‘ng‘iroqlar"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "Qo‘ng‘iroq ruxsat etilmagan"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "Qo‘ng‘iroq chegaralangan"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "Qo‘ng‘iroqlarni boshqa raqamga o‘tkazish: Har doim"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "Qo‘ng‘iroqlarni boshqa raqamga o‘tkazish: Javob yo‘q"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "Qo‘ng‘iroqlarni boshqa raqamga o‘tkazish: Xizmat doirasidan tashqarida"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "Qo‘ng‘iroqlarni boshqa raqamga o‘tkazish: Band bo‘lganda"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "Qo‘ng‘iroq boshqa raqamga o‘tkazildi"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "Noto‘g‘ri raqam"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "Tarmoq xizmatlari uchun, Offlayndan boshqa profilga o‘zgartiring"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "Terilmoqda..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "Yuborib bo‘lmadi. Qayta urinib ko‘ring"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "Favqulodda qo‘ng‘iroqlar"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "Faqat FDN qo‘ng‘iroqlar"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "Ushlab turilgan"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "Ushlab turib bo‘lmadi"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "Ushlab turish qo‘llab-quvvatlanmagan"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "Rouming vaqtida kiruvchi qo‘ng‘iroqlar taqiqlangan"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "Tugallanmagan"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "Qo‘shildi"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "Qo‘shilib bo‘lmadi"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "Qo‘shilish qo‘llab-quvvatlanmagan"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "Tarmoq band"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "Tarmoqdan foydalanib bo‘lmaydi"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "Qolgan kredit yo‘q"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "Xizmat yo‘q"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "Operatsiya rad etildi"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "Mamlakat ichidagi qo‘ng‘iroqlardan tashqari chiquvchi xalqaro qo‘ng‘iroqlar taqiqlangan"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "Chiquvchi xalqaro qo‘ng‘iroqlar taqiqlangan"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "telefon initisializatsiyalanmagan"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "%s rad etildir"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "Qayta terilmoqda..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "Xizmat ruxsat etilmagan"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "Faqat SOS qo‘ng‘irog‘i.\nTarmoq xizmatlaridan foydalanish uchun, SIM-karta qo'ying"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "Ajratib bo‘lmadi"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "Ajratish qo‘llab-quvvatlanmaydi"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "Almashtirilgan"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "Almashish bajarilmadi"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "Almashish qo‘llab-quvvatlanmaydi"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "BT karnaylariga o‘tkazilgan"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "Telefonga o‘tdi"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "Uzatish bajarilmadi"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "Uzatish qo‘llab-quvvatlanmaydi"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "Olib bo‘lmaydi"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Mavjud emas"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "Ushlab turilmadi"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "Bekor qilish qo‘llab-quvvatlanmaydi"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "Foydalanuvchi band"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "SIM-kartani tekshiring yoki to‘g‘ri SIM-kartani kiriting"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "Video qo‘ng‘iroq vaqtida ovozli qo‘n-ni amalga oshirib bo‘lmaydi"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "Kutish rejimi faol"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "Noto‘g‘ri guruh"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "Qo‘ng‘iroqni xabar bilan rad etish"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "Faol qo‘ng‘iroqni yakunlash"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "Qo‘ng‘iroqni ushlab turish"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "Kutish rejimidagi qo‘ng‘iroqni yakunlash"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "Barcha qo‘ng‘iroqlarni tugatish"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "Faol qo‘ng‘iroqlarni yakunlash (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "Ushlab turilgan qo‘ng‘iroqlarni yakunlash (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "Quloqliklar"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "Oluvchi"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "Hisob qaydnomasini ro‘yxatga olib bo‘lmadi"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "Faol qo‘n-ni ush/tur"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "Xotira yetarli emas. Ba’zi elementlarni o'chiring"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "Qo‘n. yakunlash"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "Xizmatdan foydalanib bo‘lmaydi"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "Klaviatura"
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "Klaviat. yashir."
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "YOZ"
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "Noma‘lum qo‘ng‘iroq rad etildi"
+
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "Almashtirish"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "Raqam tanlang"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "%d kunda"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "Ertaga"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "Haftada"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "%sni kutish rejimiga qo‘yish"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "Qo‘ng‘iroqni %s bilan qabul qilish"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "Qo‘ng‘iroqni quyidagidan keyin qabul qilish"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "Barcha qo‘ng‘iroqlarni tugatish"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "Shovqinni pasaytirish o‘ch."
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "Shovqinni pasaytirish yoq."
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "Past ohang ko‘tar"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "Yuq. ohang ko‘tar"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "Chap quloq uchun optimal"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "O‘ng quloq uchun optimal"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Ortiqcha ovoz balandligi yoqilganda, shovqinni pasaytirishni yoqib bo‘lmaydi"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "Quloq karnaylari ulanganda shovqinni pasaytirish funksiyasini yoqib bo‘lmaydi"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Bluetooth quloq karnayi yoqilganda, shovqinni pasaytirish funksiyasini yoqib bo‘lmaydi"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "Keng tasmali qo‘ng‘iroqlar mobaynida shovqinni pasaytirish funksiyasini yoqib bo‘lmaydi"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "Ushbu funksiyadan foydalanish uchun, Qo‘ng‘iroq parametrlari tagida maning uchun EQni optimallashtirishni belgilashingiz lozim"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "Dinamik yoqilganida kiruvchi qo‘ng‘iroq ovozi EQni yoqib bo‘lmaydi"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "Quloqliklar ulanganida kiruvchi qo‘ng‘iroq ovozi EQni yoqib bo‘lmaydi"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Bluetooth quloq karnaylari yoqilganida kiruvchi qo‘ng‘iroq ovozi EQni yoqib bo‘lmaydi"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "Quloqliklar yoki BT karnaylari ulanganda, qo‘shimcha ovoz balandligidan foydalanib bo‘lmaydi"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "Qo‘ng‘iroq qilinmoqda..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "Konferens qo‘ng‘iroqlarni boshqarish"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Qo‘shimcha ovoz balandligi yoqilganda kiruvchi qo‘ng‘iroq ovozi EQsini yoqib bo‘lmaydi"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "Keng tasmali qo‘ng‘iroqlar mobaynida kiruvchi qo‘ng‘iroq ovozi EQni yoqib bo‘lmaydi"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "Ohang"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "Dinamik yoqilganda shovqinni pasaytirish funksiyasini yoqib bo‘lmaydi"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "Rad etish xabarlari"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "Ovozli qo‘ng‘iroq"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "Video qo‘ng‘iroq"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "Ulashish"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "Klaviatura"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "Qo‘n. tug"
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "Dinamik"
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "Audio manba"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "Telefon"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "Ovozsiz"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "Kontaktlarga qo‘shish"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "Ovoz. qo‘ng‘iroq"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "V. qo'n."
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "Xabar"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "Kontaktga qo‘sh."
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "Xabar"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "Alm."
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "Yana"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "ChatON orq. fayl bah/ko‘r."
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "Ulashish"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d marta"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "Guruh qo‘n. (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "Saqlangan tasvir"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "Saqlangan video"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "Suratga olish"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "Jonli video"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "Kontakt ko‘r."
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d qabul qilinmagan qo‘ng‘iroq"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "Qabul qilinmagan qo‘ng‘iroq"
+

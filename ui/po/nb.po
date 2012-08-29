@@ -1,0 +1,513 @@
+msgid "IDS_CALL_SK_ACCEPT"
+msgstr "Godta"
+
+msgid "IDS_CALL_BUTTON_MUTE_ABB"
+msgstr "Demp"
+
+msgid "IDS_CALL_POP_CONNECTING"
+msgstr "Kobler til..."
+
+msgid "IDS_CALL_POP_REJECTED"
+msgstr "Avvist"
+
+msgid "IDS_CALL_POP_SAVED"
+msgstr "Lagret"
+
+msgid "IDS_CALL_POP_SENDING"
+msgstr "Sender..."
+
+msgid "IDS_CALL_HEADER_CREATE_REJECT_MESSAGE"
+msgstr "Opprett avvisningsmelding"
+
+msgid "IDS_CALL_POP_REJECT_MESSAGE_LIST_IS_EMPTY"
+msgstr "Listen over avviste meldinger er tom"
+
+msgid "IDS_VCALL_BUTTON_REJECT_WITH_MESSAGE"
+msgstr "Avvis med melding"
+
+msgid "IDS_CALL_BODY_CALL"
+msgstr "Anrop"
+
+msgid "IDS_CALL_BODY_CALLED_PARTY_UNAVAILABLE"
+msgstr "Oppringt part utilgj."
+
+msgid "IDS_CALL_BODY_CALLENDED"
+msgstr "Anrop avsluttet"
+
+msgid "IDS_CALL_BODY_CALL_REJECTED"
+msgstr "Anrop avvist"
+
+msgid "IDS_CALL_BODY_DISCONNECTED"
+msgstr "Frakoblet"
+
+msgid "IDS_CALL_BODY_INVALID_NUMBER"
+msgstr "Ugyldig nummer"
+
+msgid "IDS_CALL_BODY_IN_CALL"
+msgstr "I samtale"
+
+msgid "IDS_CALL_BODY_MPTY"
+msgstr "Telefonmøte"
+
+msgid "IDS_CALL_BODY_NO_ANSWER"
+msgstr "Ikke svar"
+
+msgid "IDS_CALL_BODY_NUMBER_CHANGED"
+msgstr "Nummer endret"
+
+msgid "IDS_CALL_BODY_NUMBER_DOES_NOT_EXIST"
+msgstr "Nummer finnes ikke"
+
+msgid "IDS_CALL_BODY_ON_HOLD_ABB"
+msgstr "På vent"
+
+msgid "IDS_CALL_BODY_PEOPLE"
+msgstr "Mennesker"
+
+msgid "IDS_CALL_BUTTON_ACCEPT"
+msgstr "Godta"
+
+msgid "IDS_CALL_BUTTON_ADD_CALL"
+msgstr "Nytt anrop"
+
+msgid "IDS_CALL_BUTTON_CONTACTS"
+msgstr "Kontakter"
+
+msgid "IDS_CALL_BUTTON_END_M_CALL_BUTTON"
+msgstr "Avslutt"
+
+msgid "IDS_CALL_BUTTON_HEADSET"
+msgstr "Headsett"
+
+msgid "IDS_CALL_BUTTON_HOLD"
+msgstr "Parker"
+
+msgid "IDS_CALL_BUTTON_JOIN"
+msgstr "Koble"
+
+msgid "IDS_CALL_BUTTON_REJECT"
+msgstr "Avvis"
+
+msgid "IDS_CALL_BUTTON_SPEAKER"
+msgstr "Høyttaler"
+
+msgid "IDS_CALL_BUTTON_SPLIT"
+msgstr "Del"
+
+msgid "IDS_CALL_BUTTON_UNHOLD"
+msgstr "Opph vent"
+
+msgid "IDS_CALL_OPT_CONFERENCE_CALL"
+msgstr "Telefonmøte"
+
+msgid "IDS_CALL_OPT_END_CURRENT_CALL_N_ANSWER"
+msgstr "Avslutt gjeldende samtale og svar"
+
+msgid "IDS_CALL_OPT_HOLD_CURRENT_CALL_N_ANSWER"
+msgstr "Sett gjeldende samtale på vent og svar"
+
+msgid "IDS_CALL_OPT_PRIVATE"
+msgstr "Privat"
+
+msgid "IDS_CALL_POP_AEESYS_SYSTEMFAILUREERROR"
+msgstr "Systemfeil"
+
+msgid "IDS_CALL_POP_ALL_INCOMING_CALLS_BARRED"
+msgstr "Alle inngående anrop sperret"
+
+msgid "IDS_CALL_POP_ALL_OUTGOING_CALLS_BARRED"
+msgstr "Alle utgående samtaler sperret"
+
+msgid "IDS_CALL_POP_CALLFAILED"
+msgstr "Samtale mislyktes"
+
+msgid "IDS_CALL_POP_CALLING_EMERG_ONLY"
+msgstr "Kun nødanrop"
+
+msgid "IDS_CALL_POP_CALLNOTCALLOWED"
+msgstr "Samtale ikke tillatt"
+
+msgid "IDS_CALL_POP_CALL_BARRED"
+msgstr "Samtale sperret"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_ALWAYS"
+msgstr "Viderekobling aktiv: Alltid"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_NO_ANSWER"
+msgstr "Viderekobling aktiv: Ikke svar"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_UNREACHABLE"
+msgstr "Viderekobling aktiv:\nIkke tilgjengelig"
+
+msgid "IDS_CALL_POP_CALL_DIVERTING_ACTIVE_C_WHEN_BUSY"
+msgstr "Viderekobling aktiv:\nHvis opptatt"
+
+msgid "IDS_CALL_POP_CALL_IS_DIVERTED"
+msgstr "Anroper er viderekoblet"
+
+msgid "IDS_CALL_POP_CAUSE_WRONG_NUMBER"
+msgstr "Feil nummer"
+
+msgid "IDS_CALL_POP_CHANGEOFFLINEMODETOCALL"
+msgstr "Endre fra Offline til en annen profil for nettverkstjenester"
+
+msgid "IDS_CALL_POP_DIALLING"
+msgstr "Ringer opp..."
+
+msgid "IDS_CALL_POP_DTMFSENDING_FAIL"
+msgstr "Sendingen mislyktes. Prøv igjen"
+
+msgid "IDS_CALL_POP_EMERGENCY_CALL"
+msgstr "Nødanrop"
+
+msgid "IDS_CALL_POP_FDNCALLONLY"
+msgstr "Kun FDN-samtaler"
+
+msgid "IDS_CALL_POP_HELD"
+msgstr "Hold"
+
+msgid "IDS_CALL_POP_HOLD_FAILED"
+msgstr "Venting mislyktes"
+
+msgid "IDS_CALL_POP_HOLD_NOT_SUPPORTED"
+msgstr "Venting støttes ikke"
+
+msgid "IDS_CALL_POP_INCOMING_CALLS_BARRED_WHEN_ROAMING"
+msgstr "Innkommende anrop sperret når du roamer"
+
+msgid "IDS_CALL_POP_INCOMPLETE"
+msgstr "Ufullstendig"
+
+msgid "IDS_CALL_POP_JOINED"
+msgstr "Koblet til"
+
+msgid "IDS_CALL_POP_JOIN_FAILED"
+msgstr "Tilknytning mislyktes"
+
+msgid "IDS_CALL_POP_JOIN_NOT_SUPPORTED"
+msgstr "Tilknytning støttes ikke"
+
+msgid "IDS_CALL_POP_NETWORKBUSY"
+msgstr "Nettverk opptatt"
+
+msgid "IDS_CALL_POP_NETWORK_UNAVAILABLE"
+msgstr "Nettverket er ikke tilgjengelig"
+
+msgid "IDS_CALL_POP_NOCREDITLEFT"
+msgstr "Kreditt oppbrukt"
+
+msgid "IDS_CALL_POP_NOSERVICE"
+msgstr "Nettv. mangler"
+
+msgid "IDS_CALL_POP_OPERATION_REFUSED"
+msgstr "Operasjon avvist"
+
+msgid "IDS_CALL_POP_OUTGOING_INTERNATIONAL_CALLS_EXCEPT_HOME_BARRED"
+msgstr "Utgående internasjonale anrop unntatt hjemland sperret"
+
+msgid "IDS_CALL_POP_OUTGOING_INTER_CALLS_BARRED"
+msgstr "Utgående utenlandssamtaler sperret"
+
+msgid "IDS_CALL_POP_PHONE_NOT_INITIALISED"
+msgstr "Telefon ikke initialisert"
+
+msgid "IDS_CALL_POP_PS_REJECTED"
+msgstr "%s avvist"
+
+msgid "IDS_CALL_POP_REDIALLING"
+msgstr "Ringer opp igjen..."
+
+msgid "IDS_CALL_POP_SERVICE_NOT_ALLOWED"
+msgstr "Tjeneste ikke tilgjengelig"
+
+msgid "IDS_CALL_POP_SOS_CALL_ONLY_IN_NO_SIM_MODE"
+msgstr "Bare nødanrop.\nSett inn SIM-kortet for å få tilgang til nettverkstjenester"
+
+msgid "IDS_CALL_POP_SPLIT_FAILED"
+msgstr "Deling mislyktes"
+
+msgid "IDS_CALL_POP_SPLIT_NOT_SUPPORTED"
+msgstr "Deling støttes ikke"
+
+msgid "IDS_CALL_POP_SWAPPED"
+msgstr "Byttet"
+
+msgid "IDS_CALL_POP_SWAP_FAILED"
+msgstr "Bytte feilet"
+
+msgid "IDS_CALL_POP_SWAP_NOT_SUPPORTED"
+msgstr "Bytte støttes ikke"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_BT_HEADSET"
+msgstr "Byttet til BT-headset"
+
+msgid "IDS_CALL_POP_SWITCHED_TO_PHONE"
+msgstr "Byttet til telefon"
+
+msgid "IDS_CALL_POP_TRANSFER_FAILED"
+msgstr "Overføringsfeil"
+
+msgid "IDS_CALL_POP_TRANSFER_NOT_SUPPORTED"
+msgstr "Overføring støttes ikke"
+
+msgid "IDS_CALL_POP_UNABLE_TO_RETRIEVE"
+msgstr "Kan ikke hente"
+
+msgid "IDS_CALL_POP_UNAVAILABLE"
+msgstr "Utilgjengelig"
+
+msgid "IDS_CALL_POP_UNHELD"
+msgstr "Opphev venting"
+
+msgid "IDS_CALL_POP_UNHOLD_NOT_SUPPORTED"
+msgstr "Opphev venting støttes ikke"
+
+msgid "IDS_CALL_POP_USER_BUSY"
+msgstr "Opptatt"
+
+msgid "IDS_CALL_POP_VERIFY_SIM_OR_INSERT_VALID_SIM"
+msgstr "Bekreft SIM-kort eller sett inn gyldig SIM-kort"
+
+msgid "IDS_CALL_POP_VOICE_CALL_IS_NOT_ALLOWED_DURING_VIDEO_CALL"
+msgstr "Samtale er ikke tillatt under videosamtale"
+
+msgid "IDS_CALL_POP_WAITING_ACTIVE"
+msgstr "Venting aktiv"
+
+msgid "IDS_CALL_POP_WRONG_GROUP"
+msgstr "Feil gruppe"
+
+msgid "IDS_CST_BODY_REJECT_CALL_WITH_MESSAGE"
+msgstr "Avvis anrop med melding"
+
+msgid "IDS_CALL_POP_END_ACTIVE_CALL"
+msgstr "Avslutt aktiv samtale"
+
+msgid "IDS_CALL_OPT_HOLDCALL"
+msgstr "Sett samtale på venting"
+
+msgid "IDS_CALL_OPT_END_HELD_CALL"
+msgstr "Avslutt parkert samtale"
+
+msgid "IDS_CALL_OPT_END_ALL_CALLS"
+msgstr "Avslutt alle anrop"
+
+msgid "IDS_CALL_BODY_END_ACTIVE_CALLS_HPD"
+msgstr "Avslutte aktive samtaler (%d)"
+
+msgid "IDS_CALL_BODY_END_HELD_CALLS_HPD"
+msgstr "Avslutte samtaler satt på vent (%d)"
+
+msgid "IDS_CALL_BUTTON_HEADPHONES"
+msgstr "Hodetelefoner"
+
+msgid "IDS_CALL_BUTTON_RECEIVER"
+msgstr "Mottaker"
+
+msgid "IDS_CALL_BODY_FAILED_TO_REGISTER_ACCOUNT"
+msgstr "Kunne ikke registrere konto"
+
+msgid "IDS_CALL_BODY_HOLD_ACTIVE_CALL_ABB"
+msgstr "Akt. samt. på vent"
+
+msgid "IDS_CALL_POP_NOT_ENOUGH_MEMORY_DELETE_SOME_ITEMS"
+msgstr "Ikke nok minne. Slett noen elementer"
+
+msgid "IDS_CALL_SK3_END_CALL"
+msgstr "Avslutt samtale"
+
+msgid "IDS_CALL_BODY_SERVICE_UNAVAILABLE"
+msgstr "Tjenesten er ikke tilgjengelig"
+
+msgid "IDS_CALL_SK3_KEYPAD"
+msgstr "Tastatur"
+
+msgid "IDS_CALL_BUTTON2_HIDE_KEYPAD"
+msgstr "Skjul tastatur"
+
+msgid "IDS_CALL_SK_REC_ABB"
+msgstr "REC"
+
+msgid "IDS_CALL_POP_UNKNOWNREJECTED"
+msgstr "Ukjent samtale avvist"
+
+msgid "IDS_CALL_OPT_SWITCH"
+msgstr "Skift"
+
+msgid "IDS_CALL_HEADER_SELECT_NUMBER"
+msgstr "Velg nummer"
+
+msgid "IDS_CALL_BODY_IN_PD_DAYS"
+msgstr "om %d dager"
+
+msgid "IDS_CALL_BODY_TOMORROW"
+msgstr "I morgen"
+
+msgid "IDS_CALL_POP_IN_A_WEEK"
+msgstr "På en uke"
+
+msgid "IDS_CALL_BODY_PUTTING_PS_ON_HOLD"
+msgstr "Setter %s på vent"
+
+msgid "IDS_CALL_BODY_ENDING_CALL_WITH_PS"
+msgstr "Avslutter samtale med %s"
+
+msgid "IDS_CALL_HEADER_ACCEPT_CALL_AFTER"
+msgstr "Godta samtale etter"
+
+msgid "IDS_CALL_BODY_END_ALL_CALLS"
+msgstr "Avslutt alle anrop"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_OFF"
+msgstr "Støyreduksjon av"
+
+msgid "IDS_CALL_OPT_NOISE_REDUCTION_ON"
+msgstr "Støyreduksjon på"
+
+msgid "IDS_CST_OPT_BOOST_LOW_TONES_ABB"
+msgstr "Øk lave toner"
+
+msgid "IDS_CST_OPT_BOOST_HIGH_TONES_ABB"
+msgstr "Øk høye toner"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_LEFT_EAR"
+msgstr "Optimal. for venstre øre"
+
+msgid "IDS_CST_MBODY_OPTIMISED_FOR_RIGHT_EAR"
+msgstr "Optimal. for høyre øre"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Kan ikke aktivere støyreduksjon mens ekstra volum er aktivert"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_EARPHONE_CONNECTED"
+msgstr "Kan ikke aktivere støyreduksjon når øretelefoner er tilkoblet"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Kan ikke aktivere støyreduksjon når Bluetooth headset er på"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_DURING_WIDEBAND_CALLS"
+msgstr "Kan ikke aktivere støyreduksjon under bredbåndsanrop"
+
+msgid "IDS_CALL_POP_TO_USE_THIS_FUNCTION_YOU_HAVE_TO_CHECK_OPTIMISE_EQ_FOR_ME_UNDER_CALL_SETTINGS"
+msgstr "For å bruke denne funksjonen må du merke av for optimaliser EQ for meg under Anropsinnstillinger"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_SPEAKER_IS_ON"
+msgstr "Kan ikke aktivere EQ-lyd under anrop når høyttaleren er på"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_EARPHONES_ARE_CONNECTED"
+msgstr "Kan ikke aktivere EQ-lyd under anrop når øretelefoner er koblet til"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHEN_BLUETOOTH_HEADSET_IS_ON"
+msgstr "Kan ikke aktivere EQ-lyd under anrop når Bluetooth-headsetet er på"
+
+msgid "IDS_CALL_POP_UNABLE_TO_USE_EXTRA_VOLUME_RANGE_WHEN_EARPHONES_OR_BT_HEADSET_ARE_CONNECTED"
+msgstr "Kan ikke bruke ekstra volumområde når øretelefoner eller BT-headset er koblet til"
+
+msgid "IDS_CALL_POP_CALLING"
+msgstr "Ringer..."
+
+msgid "IDS_CALL_HEADER_MANAGE_CONFERENCE_CALL"
+msgstr "Administrer konferansesamtale"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_WHILE_EXTRA_VOLUME_IS_ENABLED"
+msgstr "Kan ikke aktivere EQ-lyd under anrop når ekstra volum er aktivert"
+
+msgid "IDS_CALL_POP_UNABLE_TO_ENABLE_IN_CALL_SOUND_EQ_DURING_WIDEBAND_CALLS"
+msgstr "Kan ikke aktivere EQ-lyd under anrop ved bredbåndsanrop"
+
+msgid "IDS_CALL_BUTTON_SOUND_ABB"
+msgstr "Lyd"
+
+msgid "IDS_CALL_POP_UNABLE_TO_TURN_ON_NOISE_REDUCTION_WHEN_SPEAKER_IS_ON"
+msgstr "Kan ikke aktivere støyreduksjon når høyttaler er på"
+
+msgid "IDS_CALL_HEADER_REJECT_MESSAGES"
+msgstr "Avvis meldinger"
+
+msgid "IDS_CALL_OPT_VOICE_CALL"
+msgstr "Taleanrop"
+
+msgid "IDS_CALL_OPT_VIDEO_CALL"
+msgstr "Videoanrop"
+
+msgid "IDS_CALL_SK3_SHARE"
+msgstr "Del"
+
+msgid "IDS_CALL_BUTTON_KEYPAD"
+msgstr "Tastatur"
+
+msgid "IDS_CALL_BUTTON_END_CALL"
+msgstr "Avs. anrop"
+
+msgid "IDS_CALL_BUTTON_SPEAKER_ABB"
+msgstr "Høytt."
+
+msgid "IDS_CALL_BUTTON_AUDIO_SOURCE"
+msgstr "Lydkilde"
+
+msgid "IDS_CALL_OPT_PHONE"
+msgstr "Telefon"
+
+msgid "IDS_CALL_BUTTON_MUTE"
+msgstr "Lyd av"
+
+msgid "IDS_CALL_BUTTON_ADD_TO_CONTACTS"
+msgstr "Legg til i Kontakter"
+
+msgid "IDS_CALL_SK3_VOICE_CALL"
+msgstr "Anrop"
+
+msgid "IDS_CALL_BUTTON_VIDEO_CALL"
+msgstr "Videoanr"
+
+msgid "IDS_CALL_SK3_MESSAGE"
+msgstr "Melding"
+
+msgid "IDS_CALL_SK3_ADD_TO_CONTACTS"
+msgstr "Legg til i Kont."
+
+msgid "IDS_CALL_OPT_MESSAGE"
+msgstr "Melding"
+
+msgid "IDS_CALL_SK_SWAP_ABB"
+msgstr "Bytt"
+
+msgid "IDS_CALL_SK3_MORE"
+msgstr "Mer"
+
+msgid "IDS_CALL_OPT_SHARE_FILE_VIA_CHATON_ABB"
+msgstr "Del fil via ChatON"
+
+msgid "IDS_CALL_HEADER_SHARE_ABB"
+msgstr "Del"
+
+msgid "IDS_CALL_BODY_PD_TIMES"
+msgstr "%d ganger"
+
+msgid "IDS_QP_BODY_GROUP_CALL_HPD_ABB"
+msgstr "Gruppeanrop (%d)"
+
+msgid "IDS_CALL_OPT1_SAVED_IMAGE"
+msgstr "Lagret bilde"
+
+msgid "IDS_CALL_OPT1_SAVED_VIDEO"
+msgstr "Lagret video"
+
+msgid "IDS_CALL_OPT1_TAKE_A_PICTURE"
+msgstr "Ta et bilde"
+
+msgid "IDS_CALL_BUTTON2_LIVE_VIDEO"
+msgstr "Direkte video"
+
+msgid "IDS_CALL_BUTTON_VIEW_CONTACT"
+msgstr "Vis kontakt"
+
+msgid "IDS_CALL_HEADER_MY_CALL_SOUND_ABB"
+msgstr "My call sound"
+
+msgid "IDS_CALL_HEADER_PD_MISSED_CALLS"
+msgstr "%d tapte anrop"
+
+msgid "IDS_CALL_POP_CALLMISSED"
+msgstr "Ubesvart anrop"
+
