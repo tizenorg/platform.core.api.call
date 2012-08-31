@@ -371,7 +371,9 @@ static int __vcui_app_reset(bundle *kb, void *data)
 	uri_bundle = (const char *)appsvc_get_uri(kb);
 	if (uri_bundle != NULL) {
 		CALL_UI_DEBUG("tmp: [%s]", uri_bundle);
-		if (strncmp(uri_bundle, "tel:", 4) == 0) {
+		if ((strncmp(uri_bundle, "tel:MT", 6) == 0)) {
+			CALL_UI_DEBUG("It is incoming call type");
+		} else if (strncmp(uri_bundle, "tel:", 4) == 0) {
 			telnum = (char *)uri_bundle + 4;
 			CALL_UI_DEBUG("number: [%s]", telnum);
 
