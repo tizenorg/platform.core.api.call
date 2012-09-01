@@ -287,12 +287,6 @@ static int __vcui_app_create(void *data)
 	atexit(__vcui_exit_handler);
 #endif
 
-	/*
-	** Requested by Inpyo Kang
-	** This is temp fix for email UG bs proglem.. must be removed later.
-	*/
-	elm_config_preferred_engine_set("opengl_x11");
-
 	CALL_UI_KPI("__vcui_app_create done");
 	return VC_NO_ERROR;
 }
