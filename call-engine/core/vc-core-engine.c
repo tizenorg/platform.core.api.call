@@ -2051,10 +2051,8 @@ voicecall_error_t _vc_core_engine_swap_calls(voicecall_engine_t *pvoicecall_agen
 	}
 
 	if (TRUE == _vc_core_tapi_rqst_swap_calls(pagent)) {
-#ifdef SWAP_SUPPORT
+#ifdef VC_WITHOUT_SWAP_CNF
 		_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_WAIT_SWAP_HOLD_OR_ACTIVATE);
-#else
-		_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_WAIT_SWAP);
 #endif
 		return ERROR_VOICECALL_NONE;
 	}
@@ -2994,7 +2992,24 @@ void _vc_core_engine_active_call_resp_cb(TapiHandle *handle, int result, void *t
 
 void _vc_core_engine_swap_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
 {
-	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_swap_call_resp_cb : %d", result);
+	call_vc_handle call_handle = VC_TAPI_INVALID_CALLHANDLE;
+	call_vc_callagent_state_t *pagent = gpcall_agent_for_callback;
+	TelCallSwapCnf_t callSwapInfo;
+
+	CALL_ENG_DEBUG(ENG_DEBUG, "result:%d, handle:%d", result);
+
+	if (TAPI_CAUSE_SUCCESS == result) {
+		memset(&callSwapInfo, 0, sizeof(TelCallSwapCnf_t));
+		memcpy(&callSwapInfo, tapi_data, sizeof(TelCallSwapCnf_t));
+		call_handle = callSwapInfo.id;
+
+		_vc_core_cm_swap_group_state(&pagent->call_manager);
+		_vc_core_ca_send_event_to_client(pagent, VC_CALL_SS_SWAP, call_handle, 0, NULL);
+	} else {
+		/*Reset the Call Agent State*/
+		_vc_core_ca_change_agent_state(pagent, CALL_VC_CA_STATE_NORMAL);
+		_vc_core_ca_send_event_to_client(pagent, VC_ERROR_OCCURED, ERROR_VOICECALL_SWAP_FAILED, 0, NULL);
+	}
 }
 
 void _vc_core_engine_join_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)

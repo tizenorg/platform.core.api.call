@@ -61,7 +61,6 @@ void _vcui_swap_btn_cb(void *data, Evas_Object *obj, void *event_info)
 	vcui_app_call_data_t *ad = vd->app_data;
 
 	ad->bholdisleft = ad->bswapped;
-	_vcui_view_popup_load(_("IDS_CALL_POP_SWAPPED"), POPUP_TIMEOUT_LONG, EINA_FALSE);
 	vcall_engine_process_hold_call();
 }
 

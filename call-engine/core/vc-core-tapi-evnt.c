@@ -807,7 +807,6 @@ gboolean _vc_core_tapi_event_handle_call_held_event(call_vc_callagent_state_t *p
 		}
 
 		switch (pcall_agent->callagent_state) {
-#ifdef SWAP_SUPPORT
 		case CALL_VC_CA_STATE_WAIT_SWAP_HOLD_OR_ACTIVATE:
 			{
 				/* Reset the Agent State */
@@ -815,7 +814,6 @@ gboolean _vc_core_tapi_event_handle_call_held_event(call_vc_callagent_state_t *p
 				_vc_core_ca_send_event_to_client(pcall_agent, VC_ERROR_OCCURED, ERROR_VOICECALL_SWAP_FAILED, 0, NULL);
 			}
 			break;
-#endif
 		case CALL_VC_CA_STATE_WAIT_SWAP:
 			{
 				/* Reset the Agent State */
@@ -908,7 +906,6 @@ gboolean _vc_core_tapi_event_handle_call_held_event(call_vc_callagent_state_t *p
 		}
 
 		switch (pcall_agent->callagent_state) {
-#ifdef SWAP_SUPPORT
 		case CALL_VC_CA_STATE_WAIT_SWAP_HOLD_OR_ACTIVATE:
 			{
 				int held_call_num = 0;
@@ -928,7 +925,6 @@ gboolean _vc_core_tapi_event_handle_call_held_event(call_vc_callagent_state_t *p
 				}
 			}
 			break;
-#endif
 		case CALL_VC_CA_STATE_WAIT_SWAP:
 			{
 				/*Always reset the agent state as the event for this wait state is arrived */
@@ -1001,7 +997,6 @@ gboolean _vc_core_tapi_event_handle_call_retrieve_event(call_vc_callagent_state_
 
 	if (TAPI_CAUSE_SUCCESS != status) {
 		switch (pcall_agent->callagent_state) {
-#ifdef SWAP_SUPPORT
 		case CALL_VC_CA_STATE_WAIT_SWAP_HOLD_OR_ACTIVATE:
 			{
 				/*Reset the Agent State*/
@@ -1009,7 +1004,6 @@ gboolean _vc_core_tapi_event_handle_call_retrieve_event(call_vc_callagent_state_
 				_vc_core_ca_send_event_to_client(pcall_agent, VC_ERROR_OCCURED, ERROR_VOICECALL_SWAP_FAILED, 0, NULL);
 			}
 			break;
-#endif
 		case CALL_VC_CA_STATE_WAIT_SWAP:
 			{
 				/*Reset the Call Agent State*/
@@ -1041,7 +1035,6 @@ gboolean _vc_core_tapi_event_handle_call_retrieve_event(call_vc_callagent_state_
 		CALL_ENG_DEBUG(ENG_DEBUG, "Call Handle = %d, GP_Index:%d, Cur Gp State: %d", call_handle, index, cur_grp_state);
 
 		switch (pcall_agent->callagent_state) {
-#ifdef SWAP_SUPPORT
 		case CALL_VC_CA_STATE_WAIT_SWAP_HOLD_OR_ACTIVATE:
 			{
 				int held_call_num = 0;
@@ -1061,7 +1054,6 @@ gboolean _vc_core_tapi_event_handle_call_retrieve_event(call_vc_callagent_state_
 				}
 			}
 			break;
-#endif
 		case CALL_VC_CA_STATE_WAIT_SWAP:
 			{
 				/* Always reset the agent state as the event for the wait state is arrived */

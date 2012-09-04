@@ -39,11 +39,9 @@ typedef enum {
 	CALL_VC_CA_STATE_WAIT_SPLIT,						/**< Waiting for call split state */
 	CALL_VC_CA_STATE_DROP_CALLBOX,						/**< Call drop state */
 	CALL_VC_CA_STATE_WAIT_DROP,							/**< Waiting for drop state */
-#ifdef SWAP_SUPPORT
 	CALL_VC_CA_STATE_WAIT_SWAP_HOLD_OR_ACTIVATE,		/**< Wait for swapping activce/hold call state */
 	CALL_VC_CA_STATE_WAIT_SWAP_HOLD,					/**< Wait for swapping held call state */
 	CALL_VC_CA_STATE_WAIT_SWAP_ACTIVE,					/**< Wait for swapping active call state */
-#endif
 	CALL_VC_CA_STATE_WAIT_SWAP,							/**< Wait for swap state */
 	CALL_VC_CA_STATE_WAIT_HOLD,							/**< Wait for hold state */
 	CALL_VC_CA_STATE_WAIT_UNHOLD,						/**< Wait for unhold state */
