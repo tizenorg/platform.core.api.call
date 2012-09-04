@@ -8,7 +8,7 @@
 		<icon>org.tizen.call.png</icon>
 		<label>Call</label>
 		<application-service>
-			<operation name="http://tizen.org/appsvc/operation/call"/>
+			<operation name="http://tizen.org/appcontrol/operation/call"/>
 			<uri name="tel"/>
 		</application-service>
 	</ui-application>
