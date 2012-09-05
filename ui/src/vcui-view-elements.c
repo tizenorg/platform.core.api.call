@@ -1200,39 +1200,30 @@ Evas_Object *_vcui_create_view_contact_button(void *data, int ct_id)
 static void __qp_end_btn_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	CALL_UI_DEBUG("..");
+
 	voice_call_view_data_t *vd = (voice_call_view_data_t *)data;
 	vcui_app_call_data_t *ad = vd->app_data;
-	int grp_count = 0;
 
-	vcall_engine_get_group_count(&grp_count);
-	CALL_UI_DEBUG("No. of groups - %d", grp_count);
-
-	if (grp_count > 1) {
-		CALL_UI_DEBUG("multi-party call");
-		vcall_engine_release_call_by_type(VCALL_ENGINE_RELEASE_ALL_ACTIVE_CALLS);
-	} else if (grp_count == 1) {
-		CALL_UI_DEBUG("single-party call");
-		int all_calls = 0, call_status = 0;
-		all_calls = _vcui_doc_get_all_call_data_count();
-		call_status = _vcui_doc_get_group_call_status();
-		CALL_UI_DEBUG("all_calls[%d], call_status[%d]", all_calls, call_status);
-
-		if (all_calls > 1) {
+	if (_vcui_doc_get_no_status_call_data_count() == 1) {
+		CALL_UI_DEBUG("dialing/connecting screen end");
+		vcall_engine_cancel_call();
+	} else if (_vcui_doc_get_all_call_data_count() > 1) {
+		if (_vcui_doc_get_unhold_call_data_count() == 0 || _vcui_doc_get_hold_call_data_count() == 0) {
 			CALL_UI_DEBUG("End active conference call");
+
+			int call_status = _vcui_doc_get_group_call_status();
 			if (call_status == CALL_HOLD)
 				vcall_engine_release_call_by_type(VCALL_ENGINE_RELEASE_ALL_HELD_CALLS);
 			else
 				vcall_engine_release_call_by_type(VCALL_ENGINE_RELEASE_ALL_ACTIVE_CALLS);
-			ad->call_end_type = CALL_END_TYPE_CONF_CALL;	/*conf call end screen SHOW */
-		} else if (all_calls == 1) {
-			CALL_UI_DEBUG("End single active call");
-			vcall_engine_release_call();
+			ad->call_end_type = CALL_END_TYPE_CONF_CALL;	/* conf call end screen SHOW */
 		} else {
-			CALL_UI_DEBUG("invalid case");
+			CALL_UI_DEBUG("End multi split active call");
+			vcall_engine_release_call_by_type(VCALL_ENGINE_RELEASE_ALL_ACTIVE_CALLS);
 		}
 	} else {
-		CALL_UI_DEBUG("dialing/connecting screen end");
-		vcall_engine_cancel_call();
+		CALL_UI_DEBUG("End single active call");
+		vcall_engine_release_call();
 	}
 }
 

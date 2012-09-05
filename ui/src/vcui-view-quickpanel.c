@@ -139,47 +139,58 @@ static void __vcui_view_qp_draw_screen(Evas_Object *eo, void *data)
 
 	vcall_engine_get_group_count(&grp_count);
 	CALL_UI_DEBUG("No. of groups - %d", grp_count);
-	if (grp_count > 1) {
-		CALL_UI_DEBUG("multi-party call - show active call");
-		int active_calls = 0;
 
-		active_calls = _vcui_doc_get_unhold_call_data_count();
-		CALL_UI_DEBUG("active_calls[%d]", active_calls);
-		if (active_calls > 1) {
-			char *temp = _("IDS_QP_BODY_GROUP_CALL_HPD_ABB");
-			call_data = _vcui_doc_get_first_call_data_by_unhold_status();
-			snprintf(buf, DEF_BUF_LEN, temp, active_calls);
-			edje_object_part_text_set(_EDJ(eo), "txt_call_name", buf);
-			priv->caller_id = _vcui_show_default_image(eo, ad->win_quickpanel, QP_CONF_ICON);
-		} else if (active_calls == 1) {
-			call_data = _vcui_doc_get_first_call_data_by_unhold_status();
-			__vcui_view_qp_update_caller(eo, call_data);
-			__vcui_view_qp_draw_contact_image(eo, call_data);
-		} else {
-			CALL_UI_DEBUG("invalid case");
-		}
-		_vcui_create_quickpanel_mute_button(vd);
-		_vcui_create_quickpanel_end_button(vd);
-	} else if (grp_count == 1) {
-		CALL_UI_DEBUG("single-party call");
-		int all_calls = 0;
+	if (_vcui_doc_get_no_status_call_data_count() == 1) {
+		CALL_UI_DEBUG("dialing/connecting view");
+		call_data = _vcui_doc_get_call_data_mo_type();
+		__vcui_view_qp_update_caller(eo, call_data);
+		__vcui_view_qp_draw_contact_image(eo, call_data);
 
-		all_calls = _vcui_doc_get_all_call_data_count();
-		CALL_UI_DEBUG("all_calls[%d]", all_calls);
+		_vcui_view_qp_update_text_status(vd, _("IDS_CALL_POP_CALLING"));
+	} else if (_vcui_doc_get_all_call_data_count() > 1) {
+		if (_vcui_doc_get_unhold_call_data_count() == 0 || _vcui_doc_get_hold_call_data_count() == 0) {
+			CALL_UI_DEBUG("multi conf call");
 
-		if (all_calls > 1) {
+			int all_calls = _vcui_doc_get_all_call_data_count();
 			char *temp = _("IDS_QP_BODY_GROUP_CALL_HPD_ABB");
 			call_data = _vcui_doc_get_first_call_data_from_list();
 			snprintf(buf, DEF_BUF_LEN, temp, all_calls);
 			edje_object_part_text_set(_EDJ(eo), "txt_call_name", buf);
 			priv->caller_id = _vcui_show_default_image(eo, ad->win_quickpanel, QP_CONF_ICON);
-		} else if (all_calls == 1) {
-			call_data = _vcui_doc_get_first_call_data_from_list();
-			__vcui_view_qp_update_caller(eo, call_data);
-			__vcui_view_qp_draw_contact_image(eo, call_data);
+
+			int caller_status = _vcui_doc_get_call_status(call_data);
+			if (caller_status == CALL_HOLD) {
+				CALL_UI_DEBUG("Hold call status");
+				_vcui_create_quickpanel_unhold_button(vd);
+			} else {
+				_vcui_create_quickpanel_mute_button(vd);
+			}
 		} else {
-			CALL_UI_DEBUG("invalid case");
+			CALL_UI_DEBUG("multi split call");
+			int active_calls = _vcui_doc_get_unhold_call_data_count();
+			CALL_UI_DEBUG("active_calls[%d]", active_calls);
+			if (active_calls > 1) {
+				char *temp = _("IDS_QP_BODY_GROUP_CALL_HPD_ABB");
+				call_data = _vcui_doc_get_first_call_data_by_unhold_status();
+				snprintf(buf, DEF_BUF_LEN, temp, active_calls);
+				edje_object_part_text_set(_EDJ(eo), "txt_call_name", buf);
+				priv->caller_id = _vcui_show_default_image(eo, ad->win_quickpanel, QP_CONF_ICON);
+			} else if (active_calls == 1) {
+				call_data = _vcui_doc_get_first_call_data_by_unhold_status();
+				__vcui_view_qp_update_caller(eo, call_data);
+				__vcui_view_qp_draw_contact_image(eo, call_data);
+			} else {
+				CALL_UI_DEBUG("invalid case");
+			}
+			_vcui_create_quickpanel_mute_button(vd);
 		}
+
+		_vcui_view_common_set_each_time(_vcui_doc_get_call_start_time(call_data));
+	} else {
+		CALL_UI_DEBUG("single call");
+		call_data = _vcui_doc_get_first_call_data_from_list();
+		__vcui_view_qp_update_caller(eo, call_data);
+		__vcui_view_qp_draw_contact_image(eo, call_data);
 
 		int caller_status = _vcui_doc_get_call_status(call_data);
 		if (caller_status == CALL_HOLD) {
@@ -189,23 +200,10 @@ static void __vcui_view_qp_draw_screen(Evas_Object *eo, void *data)
 			_vcui_create_quickpanel_mute_button(vd);
 		}
 
-	} else {
-		CALL_UI_DEBUG("dialing/connecting view");
-		call_data = _vcui_doc_get_call_data_mo_type();
-		__vcui_view_qp_update_caller(eo, call_data);
-		__vcui_view_qp_draw_contact_image(eo, call_data);
+		_vcui_view_common_set_each_time(_vcui_doc_get_call_start_time(call_data));
 	}
 	_vcui_create_quickpanel_end_button(vd);
-
 	evas_object_smart_callback_add(priv->caller_id, "clicked", __vcui_view_qp_caller_id_cb, vd);
-
-	if (!_vcui_doc_get_no_status_call_data_count()) {
-		CALL_UI_DEBUG("no calls with NO_STATUS - update the timer");
-		if (call_data != NULL)
-			_vcui_view_common_set_each_time(_vcui_doc_get_call_start_time(call_data));
-	} else {
-		_vcui_view_qp_update_text_status(vd, _("IDS_CALL_POP_CALLING"));
-	}
 }
 
 static Evas_Object *__vcui_view_qp_create_window(void)
