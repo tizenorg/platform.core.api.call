@@ -94,10 +94,12 @@ typedef struct _call_vc_core_state_t {
 	int mo_end_cause_type;						/**<MO call end cause type */
 	int mo_end_call_handle;						/**<MO call end call handle */
 	int mtcall_silent_reject_handle;
+	int mtcall_handle;						/**<MT call handle for checking validation */
 	guint mo_redial_timer;
 	guint minute_minder_timer;
 } call_vc_core_state_t;
-/**
+
+/**
  * This struct provides a structure for call incoming info data.
  */
 typedef struct _call_vc_core_incoming_info_t {

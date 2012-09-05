@@ -51,6 +51,7 @@ gboolean mo_redial_timer_cb(void *data);
 #define SET_PATH_TIMER_VALUE	50
 static guint g_set_path_timer_handler = 0;
 static gboolean __voicecall_core_set_path_timer_cb(gpointer puser_data);
+static gboolean __voicecall_core_check_incoming_handle(gpointer puser_data);
 
 /* For Debug Information, Call Engine Event name string constant */
 char *gszcall_engine_event[VC_ENGINE_EVENT_MAX] = {
@@ -1023,6 +1024,9 @@ static gboolean voicecall_core_cb(int event, int param1, int param2, void *param
 						CALL_ENG_DEBUG(ENG_DEBUG, "2nd MT call alert.");
 					}
 					voicecall_snd_play_alert(pcall_core->papp_snd);
+
+					pcall_core->mtcall_handle = call_handle;
+					g_idle_add(__voicecall_core_check_incoming_handle, pcall_core);
 				}
 			}
 		}
@@ -3703,4 +3707,22 @@ void voicecall_core_process_dtmf_send_status(call_vc_core_state_t *pcall_core, g
 	VOICECALL_RETURN_IF_FAIL(pcall_core);
 	__voicecall_core_handle_dtmf_ack(pcall_core, bsuccess);
 }
+
+/**
+ * This function checks validation of incoming handle
+ *
+ * @return		gboolean
+ * @param[in]		puser_data		Handle to voicecall core
+ */
+static gboolean __voicecall_core_check_incoming_handle(gpointer puser_data)
+{
+	call_vc_core_state_t *pcall_core = (call_vc_core_state_t *)puser_data;
+	VOICECALL_RETURN_FALSE_IF_FAIL(pcall_core);
+
+	_vc_core_engine_check_incoming_handle(pcall_core->pcall_engine, pcall_core->mtcall_handle);
+
+	return FALSE;
+}
+
+
 

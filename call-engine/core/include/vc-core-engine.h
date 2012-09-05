@@ -380,6 +380,7 @@ voicecall_error_t _vc_core_engine_get_sat_dtmf_hidden_mode(voicecall_engine_t *p
 voicecall_error_t _vc_core_engine_send_sat_response(voicecall_engine_t *pvoicecall_agent, voicecall_engine_sat_rqst_resp_type sat_rqst_resp_type, call_vc_sat_reponse_type_t sat_response_type);
 
 voicecall_error_t _vc_core_engine_set_to_default_values(voicecall_engine_t *pvoicecall_agent);
+voicecall_error_t _vc_core_engine_check_incoming_handle(voicecall_engine_t *pvoicecall_agent, int call_id);
 
 /* Tapi response call back */
 void _vc_core_engine_dial_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data);

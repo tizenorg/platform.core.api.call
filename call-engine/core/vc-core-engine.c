@@ -2767,6 +2767,31 @@ voicecall_error_t _vc_core_engine_set_to_default_values(voicecall_engine_t *pvoi
 	return ERROR_VOICECALL_NONE;
 }
 
+voicecall_error_t _vc_core_engine_check_incoming_handle(voicecall_engine_t *pvoicecall_agent, int call_id)
+{
+	CALL_ENG_DEBUG(ENG_DEBUG, "Start Incoming handle : %d", call_id);
+
+	call_vc_callagent_state_t *pcall_agent = (call_vc_callagent_state_t *)pvoicecall_agent;
+	TapiResult_t error = TAPI_API_SUCCESS;
+	TelCallStatus_t call_status;
+	memset(&call_status, 0x0, sizeof(TelCallStatus_t));
+
+	error = tel_get_call_status(pcall_agent->tapi_handle, call_id, &call_status);
+
+	if (error != TAPI_API_SUCCESS) {
+		/* If incoming call handle is not valid, terminate current incoming call */
+		CALL_ENG_DEBUG(ENG_DEBUG, "tel_get_call_status Error: %d", error);
+		CALL_ENG_DEBUG(ENG_DEBUG, "Adding Incoming End Event to Idle Callback");
+		_vc_core_ca_change_inout_state(pcall_agent, VC_INOUT_STATE_INCOME_END);
+
+		g_idle_add(__call_vc_incoming_call_end_idle_cb, pcall_agent);
+		return ERROR_VOICECALL_TAPI_ERROR;
+	}
+
+	CALL_ENG_DEBUG(ENG_DEBUG, "End");
+	return ERROR_VOICECALL_NONE;
+}
+
 void _vc_core_engine_dial_call_resp_cb(TapiHandle *handle, int result, void *tapi_data, void *user_data)
 {
 	CALL_ENG_DEBUG(ENG_DEBUG, "_vc_core_engine_dial_call_resp_cb");
