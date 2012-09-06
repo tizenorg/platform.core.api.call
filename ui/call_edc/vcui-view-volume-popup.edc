@@ -51,8 +51,8 @@ group {
 				min: 64 64;
 				max: 64 64;
 				align: 0.5 0.5;
-				rel1 { relative: (40/624) (31/126); to: "body_bg"; }
-				rel2 { relative: (104/624) (95/126); to: "body_bg"; }
+				rel1 { relative: (38/624) (31/126); to: "body_bg"; }
+				rel2 { relative: (102/624) (95/126); to: "body_bg"; }
 				color: 255 255 255 255;
 			}
 			description {
@@ -69,8 +69,8 @@ group {
 			description {
 				state: "default" 0.0;
 				align: 0.5 0.5;
-				rel1 { relative: 130/624 0.0; to: "body_bg"; }
-				rel2 { relative: 584/624 1.0; to: "body_bg"; }
+				rel1 { relative: 102/624 0.0; to: "body_bg"; }
+				rel2 { relative: 586/624 1.0; to: "body_bg"; }
 				color: 0 0 0 0;
 			}
 		}
