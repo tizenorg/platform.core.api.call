@@ -111,6 +111,7 @@ pkg_check_modules(ui_pkgs REQUIRED
 	minicontrol-provider
 	dbus-1
 	dbus-glib-1
+	capi-system-info
 )
 
 

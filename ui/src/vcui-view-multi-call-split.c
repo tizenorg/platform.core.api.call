@@ -184,8 +184,11 @@ static void __vcui_view_multi_call_split_draw_screen(Evas_Object *eo, void *data
 		} else {
 			_vcui_create_top_left_button(vd);
 		}
-
-		_vcui_create_bottom_right_button(vd);
+		if (_vcui_view_common_is_emul_bin() == EINA_TRUE) {
+			_vcui_create_bottom_right_button_disabled(vd);
+		} else {
+			_vcui_create_bottom_right_button(vd);
+		}
 	}
 
 	ad->beffect_needed = EINA_FALSE;

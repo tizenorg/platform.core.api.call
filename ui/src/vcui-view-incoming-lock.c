@@ -817,7 +817,12 @@ static void __reject_msg_create_toolbar(void *data)
 	rej_msg_toolbar = elm_toolbar_add(priv->lock_reject_with_msg);
 	elm_toolbar_homogeneous_set(rej_msg_toolbar, TRUE);
 	elm_toolbar_shrink_mode_set(rej_msg_toolbar, ELM_TOOLBAR_SHRINK_EXPAND);
-	elm_toolbar_item_append(rej_msg_toolbar, REJ_MSG_CREATE_ICON, NULL, __create_new_msg_cb, vd);
+	if (_vcui_view_common_is_emul_bin() == EINA_TRUE) {
+		item = elm_toolbar_item_append(rej_msg_toolbar, NULL, NULL, NULL, NULL);
+		elm_object_item_disabled_set(item, EINA_TRUE);
+	} else {
+		elm_toolbar_item_append(rej_msg_toolbar, REJ_MSG_CREATE_ICON, NULL, __create_new_msg_cb, vd);
+	}
 	item = elm_toolbar_item_append(rej_msg_toolbar, NULL, NULL, NULL, NULL);
 	elm_object_item_disabled_set(item, EINA_TRUE);
 	item = elm_toolbar_item_append(rej_msg_toolbar, NULL, NULL, NULL, NULL);

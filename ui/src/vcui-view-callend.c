@@ -99,18 +99,24 @@ static void __vcui_view_callend_draw_screen(Evas_Object *eo, void *data)
 		}
 
 		_vcui_create_voicecall_button(vd, call_number);
-		_vcui_create_videocall_button(vd, call_number);
-		_vcui_create_message_button(vd, call_number);
+		if (_vcui_view_common_is_emul_bin() == EINA_FALSE) {
+			_vcui_create_videocall_button(vd, call_number);
+			_vcui_create_message_button(vd, call_number);
+		}
 
 		/* call name (if nothing, call number) */
 		if (strlen(call_name) == 0) {
 			_vcui_show_caller_info_name(vd, call_number, EINA_FALSE);
-			_vcui_create_add_to_contacts_button(vd, call_number);
+			if (_vcui_view_common_is_emul_bin() == EINA_FALSE) {
+				_vcui_create_add_to_contacts_button(vd, call_number);
+			}
 		} else {
 			int ct_id = _vcui_doc_get_contact_index(call_data);
 			_vcui_show_caller_info_name(vd, call_name, EINA_FALSE);
 			_vcui_show_caller_info_number(vd, call_number, EINA_FALSE);
-			_vcui_create_view_contact_button(vd, ct_id);
+			if (_vcui_view_common_is_emul_bin() == EINA_FALSE) {
+				_vcui_create_view_contact_button(vd, ct_id);
+			}
 		}
 		_vcui_view_common_set_each_time(_vcui_doc_get_call_start_time(call_data));
 	} else if (ad->call_end_type == CALL_END_TYPE_CONF_CALL) {

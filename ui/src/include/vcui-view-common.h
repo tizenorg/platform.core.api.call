@@ -68,5 +68,6 @@ int _vcui_view_common_call_terminate_or_view_change(void);
 
 void _vcui_view_common_show_noid_image(Evas_Object *layout);
 void _vcui_view_common_update_mute_btn(void);
-
+gboolean _vcui_view_common_is_emul_bin(void);
 #endif
+

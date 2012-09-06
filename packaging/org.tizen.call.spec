@@ -34,6 +34,7 @@ BuildRequires:  pkgconfig(minicontrol-provider)
 BuildRequires:  pkgconfig(capi-media-sound-manager)
 BuildRequires:  pkgconfig(dbus-1)
 BuildRequires:  pkgconfig(dbus-glib-1)
+BuildRequires:  pkgconfig(capi-system-info)
 BuildRequires:  libug-contacts-devel 
 BuildRequires:  cmake
 BuildRequires:  gettext-tools

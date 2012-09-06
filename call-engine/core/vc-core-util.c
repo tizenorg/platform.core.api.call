@@ -837,3 +837,4 @@ void _vc_core_util_download_test_call(char *result)
 	}
 
 }
+

@@ -144,7 +144,11 @@ static void __vcui_view_dialing_draw_screen(Evas_Object *eo, void *data)
 	_vcui_create_bottom_left_button(vd);
 	_vcui_create_bottom_middle_button_disabled(vd);
 
-	_vcui_create_bottom_right_button(vd);
+	if (_vcui_view_common_is_emul_bin() == EINA_TRUE) {
+		_vcui_create_bottom_right_button_disabled(vd);
+	} else {
+		_vcui_create_bottom_right_button(vd);
+	}
 
 	_vcui_elements_check_keypad_n_hide(vd);
 

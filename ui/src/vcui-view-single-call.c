@@ -160,8 +160,13 @@ static void __vc_ui_view_single_call_draw_screen(Evas_Object *eo, void *data)
 		_vcui_create_bottom_middle_button(vd);
 		CALL_UI_KPI("_vcui_create_bottom_middle_button done");
 		{
-			_vcui_create_top_left_button(vd);
-			_vcui_create_bottom_right_button(vd);
+			if (_vcui_view_common_is_emul_bin() == EINA_TRUE) {
+				_vcui_create_top_left_button_disabled(vd);
+				_vcui_create_bottom_right_button_disabled(vd);
+			} else {
+				_vcui_create_top_left_button(vd);
+				_vcui_create_bottom_right_button(vd);
+			}
 		}
 	}
 	CALL_UI_KPI("edje_object_signal_emit effect start");

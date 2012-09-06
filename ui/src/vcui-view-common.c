@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+#include <system_info.h>
 
 #include "vcui-application.h"
 #include "vcui-view-common.h"
@@ -390,5 +391,25 @@ void _vcui_view_common_update_mute_btn()
 	}
 
 	_vcui_create_bottom_middle_button(vd);
+}
+
+gboolean _vcui_view_common_is_emul_bin(void)
+{
+	char *model_str = NULL;
+	int ret = system_info_get_value_string(SYSTEM_INFO_KEY_MODEL, &model_str);
+
+	if (ret != SYSTEM_INFO_ERROR_NONE) {
+		CALL_UI_DEBUG("fail to call system_info_get_value_string");
+		free(model_str);
+		return FALSE;
+	}
+
+	if (strncmp("Emulator", model_str, 8) == 0) {
+		free(model_str);
+		return TRUE;
+	} else {
+		free(model_str);
+		return FALSE;
+	}
 }
 
