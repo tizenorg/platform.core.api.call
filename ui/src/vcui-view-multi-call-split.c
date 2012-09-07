@@ -266,6 +266,7 @@ static int __vcui_view_multi_call_split_oncreate(voice_call_view_data_t *view_da
 
 		priv->caller_info_unhold = __vcui_view_multi_call_split_create_contents(view_data, GRP_CALLER_INFO);
 		elm_object_part_content_set(priv->contents, "caller_info_unhold", priv->caller_info_unhold);
+		edje_object_signal_emit(_EDJ(priv->caller_info_unhold), "set-unhold-state", "call-screen");
 
 		priv->caller_info_hold = __vcui_view_multi_call_split_create_contents(view_data, GRP_CALLER_INFO);
 		elm_object_part_content_set(priv->contents, "caller_info_hold", priv->caller_info_hold);

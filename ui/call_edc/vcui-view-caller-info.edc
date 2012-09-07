@@ -119,6 +119,18 @@ group{
 			}
 		}
 
+		/*CALL NUMBER & STATUS*/
+		part { name: "2nd_txt_area";
+			type: RECT;
+			effect: SHADOW;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				visible: 0;
+				rel1 { relative: CALLER_INFO_NUMBER_L CALLER_INFO_NUMBER_T; to: "background";}
+				rel2 { relative: CALLER_INFO_NUMBER_R CALLER_INFO_NUMBER_B;  to: "background";}
+			}
+		}
 
 		/*CALL NUMBER*/
 		part { name: "txt_phone_num"; /* Phone number*/
@@ -127,11 +139,35 @@ group{
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				rel1 { relative: CALLER_INFO_NUMBER_L CALLER_INFO_NUMBER_T; to: "background";}
-				rel2 { relative: CALLER_INFO_NUMBER_R CALLER_INFO_NUMBER_B; to: "background";}
+				max: CALLER_INFO_STR_MAX_WIDTH CALLER_INFO_NUMBER_HEIGHT;
+				min: CALLER_INFO_STR_MIN_WIDTH CALLER_INFO_NUMBER_HEIGHT;
+				rel1 { relative: 0 0; to: "2nd_txt_area";}
+				rel2 { relative: 0 1; to: "txt_padding";}
+				fixed: 0 1;
+				align: 0 0;
 				text { font, FONT_SLP_Roman; size, 48; align, 0 0.5; text_class, TEXT_CLASS_SLP_ROMAN; }
 				color: 255 255 255 255;
 				color2: 0 0 0 255;
+			}
+		}
+
+		part { name: "txt_padding";
+			type: RECT;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				fixed: 1 0;
+				min: CALLER_INFO_MAIN_GAP 0;
+				align: 1 0;
+				visible: 0;
+				rel1 { relative: 0 0; to: "txt_status";}
+				rel2 { relative: 0 1; to: "txt_status";}
+			}
+			description {
+				state: "hide" 0.0;
+				inherit: "default" 0.0;
+				rel1 { relative: 0 0; to: "txt_timer";}
+				rel2 { relative: 0 1; to: "txt_timer";}
 			}
 		}
 
@@ -142,9 +178,13 @@ group{
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				rel1 { relative: CALLER_INFO_TIMER_L CALLER_INFO_TIMER_T;to: "background";}
-				rel2 { relative: CALLER_INFO_TIMER_R CALLER_INFO_TIMER_B;to: "background";}
-				text { font, FONT_SLP_Roman; size, 48; align, 1.0 0.5; text_class, TEXT_CLASS_SLP_ROMAN; }
+				rel1 { relative: 1.0 0;to: "2nd_txt_area";}
+				rel2 { relative: 1.0 1.0;to: "2nd_txt_area";}
+				max: CALL_NAME_WIDTH CALLER_INFO_TIME_HEIGHT;
+				min: CALLER_INFO_STR_MIN_WIDTH CALLER_INFO_TIME_HEIGHT;
+				fixed: 0 1;
+				align: 1 0;
+				text { font, FONT_SLP_Roman; size, 48; align, 1.0 0.5; min: 1 1; text_class, TEXT_CLASS_SLP_ROMAN; }
 				color: 249 249 249 255;
 				color2: 0 0 0 255;
 			}
@@ -167,9 +207,13 @@ group{
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				rel1 { relative: CALLER_INFO_TIMER_L CALLER_INFO_TIMER_T; to: "background";}
-				rel2 { relative: CALLER_INFO_TIMER_R CALLER_INFO_TIMER_B; to: "background";}
-				text { font, FONT_SLP_Roman; size, 48; align, 1.0 0.5; text_class, TEXT_CLASS_SLP_ROMAN; }
+				rel1 { relative: 1.0 0;to: "2nd_txt_area";}
+				rel2 { relative: 1.0 1.0;to: "2nd_txt_area";}
+				max: CALL_NAME_WIDTH CALLER_INFO_TIME_HEIGHT;
+				min: CALLER_INFO_STR_MIN_WIDTH CALLER_INFO_TIME_HEIGHT;
+				fixed: 0 1;
+				align: 1 0;
+				text { font, FONT_SLP_Roman; size, 48; align, 1.0 0.5; min: 1 1; text_class, TEXT_CLASS_SLP_ROMAN; }
 				color: 139 246 50 255;
 				color2: 0 0 0 255;
 			}
@@ -191,6 +235,7 @@ group{
 			program { name: "show_status";
 				action: STATE_SET "default" 0.0;
 				target: "txt_status";
+				target: "txt_padding";
 			}
 
 			program { name: "unhold_call";
@@ -201,9 +246,11 @@ group{
 				target: "txt_timer";
 				after: "hide_status";
 			}
+
 			program { name: "hide_status";
 				action: STATE_SET "hide" 0.0;
 				target: "txt_status";
+				target: "txt_padding";
 			}
 
 			program { name: "end_caller_info";
