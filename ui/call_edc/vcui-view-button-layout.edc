@@ -41,7 +41,7 @@ group{
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				min: 1 1;
+				min: 1 0;
 				rel1 { relative: TOPLINE_LEFT_VERT_SEP_1_L TOPLINE_LEFT_VERT_SEP_1_T; to: "background";}
 				rel2 { relative: TOPLINE_LEFT_VERT_SEP_1_R TOPLINE_LEFT_VERT_SEP_1_B; to: "background";}
 				color: 70 70 70 255;
@@ -53,7 +53,7 @@ group{
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				min: 1 1;
+				min: 1 0;
 				rel1 { relative: TOPLINE_LEFT_VERT_SEP_2_L TOPLINE_LEFT_VERT_SEP_2_T; to: "background";}
 				rel2 { relative: TOPLINE_LEFT_VERT_SEP_2_R TOPLINE_LEFT_VERT_SEP_2_B; to: "background";}
 				color: 35 33 31 255;
@@ -62,6 +62,7 @@ group{
 
 		part { name: "topline_right_vert_1";
 			type: RECT;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				min: 1 0;
@@ -73,6 +74,7 @@ group{
 
 		part { name: "topline_right_vert_2";
 			type: RECT;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				min: 1 0;
@@ -84,6 +86,7 @@ group{
 
 		part { name: "topline_horiz_sep_1";
 			type: RECT;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				min: 0 1;
@@ -95,6 +98,7 @@ group{
 
 		part { name: "topline_horiz_sep_2";
 			type: RECT;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				min: 0 1;
@@ -106,6 +110,7 @@ group{
 
 		part { name: "botline_left_vert_1";
 			type: RECT;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				min: 1 0;
@@ -117,6 +122,7 @@ group{
 
 		part { name: "botline_left_vert_2";
 			type: RECT;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				min: 1 0;
@@ -128,6 +134,7 @@ group{
 
 		part { name: "botline_right_vert_1";
 			type: RECT;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				min: 1 0;
@@ -139,6 +146,7 @@ group{
 
 		part { name: "botline_right_vert_2";
 			type: RECT;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				min: 1 0;
@@ -150,6 +158,7 @@ group{
 
 		part { name: "botline_horiz_sep_1";
 			type: RECT;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				min: 0 1;
@@ -161,6 +170,7 @@ group{
 
 		part { name: "botline_horiz_sep_2";
 			type: RECT;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				min: 0 1;

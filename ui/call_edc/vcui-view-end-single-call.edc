@@ -41,7 +41,7 @@ group{
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				min: 1 1;
+				min: 1 0;
 				rel1 { relative: ENDCALL_LEFT_VERT_SEP_1_L ENDCALL_LEFT_VERT_SEP_1_T; to: "background";}
 				rel2 { relative: ENDCALL_LEFT_VERT_SEP_1_R ENDCALL_LEFT_VERT_SEP_1_B; to: "background";}
 				color: 70 70 70 255;
@@ -53,7 +53,7 @@ group{
 			scale: 1;
 			description {
 				state: "default" 0.0;
-				min: 1 1;
+				min: 1 0;
 				rel1 { relative: ENDCALL_LEFT_VERT_SEP_2_L ENDCALL_LEFT_VERT_SEP_2_T ; to: "background";}
 				rel2 { relative: ENDCALL_LEFT_VERT_SEP_2_R ENDCALL_LEFT_VERT_SEP_2_B ; to: "background";}
 				color: 35 33 31 255;
@@ -62,6 +62,7 @@ group{
 
 		part { name: "right_vert_sep_1";
 			type: RECT;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				min: 1 0;
@@ -73,6 +74,7 @@ group{
 
 		part { name: "right_vert_sep_2";
 			type: RECT;
+			scale: 1;
 			description {
 				state: "default" 0.0;
 				min: 1 0;
