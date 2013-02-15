@@ -1,0 +1,21 @@
+Source: capi-telephony-call
+Section: libs
+Priority: extra
+Maintainer: Kangho Hur <kangho.hur@samsung.com>, ByungWoo Lee <bw1212.lee@samsung.com>
+Build-Depends: debhelper (>= 5), dlog-dev, libvconf-dev, libglib2.0-dev, capi-base-common-dev
+
+Package: capi-telephony-call
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A Telephony Call library in Tizen Native API
+
+Package: capi-telephony-call-dev
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, capi-telephony-call (= ${Source-Version}), capi-base-common-dev
+Description: A Telephony Call library in Tizen Native API (DEV)
+
+Package: capi-telephony-call-dbg
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, capi-telephony-call (= ${Source-Version})
+Description: A Telephony Call library in Tizen Native API (DBG)
+
