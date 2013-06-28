@@ -5,6 +5,7 @@ Release:    1
 Group:      API/C API
 License:    Apache-2.0
 Source0:    %{name}-%{version}.tar.gz
+Source1001: 	capi-telephony-call.manifest
 BuildRequires:  cmake
 BuildRequires:  pkgconfig(dlog)
 BuildRequires:  pkgconfig(vconf)
@@ -26,6 +27,7 @@ Telephony Call Framework.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 %build
 MAJORVER=`echo %{version} | awk 'BEGIN {FS="."}{print $1}'`
 %cmake .  -DFULLVER=%{version} -DMAJORVER=${MAJORVER}
@@ -41,9 +43,11 @@ make %{?jobs:-j%jobs}
 
 
 %files
+%manifest %{name}.manifest
 %{_libdir}/libcapi-telephony-call.so.*
 
 %files devel
+%manifest %{name}.manifest
 %{_includedir}/telephony/call.h
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/libcapi-telephony-call.so
