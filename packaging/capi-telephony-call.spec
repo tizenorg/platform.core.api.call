@@ -36,6 +36,8 @@ make %{?jobs:-j%jobs}
 
 %install
 %make_install
+mkdir -p %{buildroot}/usr/share/license
+cp LICENSE %{buildroot}/usr/share/license/%{name}
 
 %post -p /sbin/ldconfig
 
@@ -45,6 +47,7 @@ make %{?jobs:-j%jobs}
 %files
 %manifest %{name}.manifest
 %{_libdir}/libcapi-telephony-call.so.*
+/usr/share/license/%{name}
 
 %files devel
 %manifest %{name}.manifest
