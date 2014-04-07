@@ -28,7 +28,7 @@
 #ifdef LOG_TAG
 #undef LOG_TAG
 #endif
-#define LOG_TAG "CAPI_TELEPHONY__CALL"
+#define LOG_TAG "CAPI_TELEPHONY_CALL"
 
 typedef struct _call_cb_data
 {
