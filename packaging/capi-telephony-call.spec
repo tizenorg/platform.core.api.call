@@ -1,4 +1,4 @@
-%define major 3
+%define major 0
 %define minor 0
 %define patchlevel 1
 
